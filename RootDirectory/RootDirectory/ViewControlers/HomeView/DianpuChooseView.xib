@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2xt-cy-tpq" userLabel="DianpuChooseView" customClass="DianpuChooseView">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Exb-TV-DBY">
+                    <rect key="frame" x="0.0" y="0.0" width="100" height="80"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="2xt-cy-tpq" id="TDR-j2-izy"/>
+                        <outlet property="delegate" destination="2xt-cy-tpq" id="2GZ-yu-bcM"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Exb-TV-DBY" secondAttribute="bottom" id="FYJ-3H-6DF"/>
+                <constraint firstItem="Exb-TV-DBY" firstAttribute="top" secondItem="2xt-cy-tpq" secondAttribute="top" id="W60-OF-rq9"/>
+                <constraint firstAttribute="trailing" secondItem="Exb-TV-DBY" secondAttribute="trailing" id="dAG-7q-5uk"/>
+                <constraint firstItem="Exb-TV-DBY" firstAttribute="leading" secondItem="2xt-cy-tpq" secondAttribute="leading" id="liA-l7-rC0"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="dianpuTableView" destination="Exb-TV-DBY" id="w8F-aB-BXu"/>
+            </connections>
+            <point key="canvasLocation" x="298" y="255"/>
+        </view>
+    </objects>
+</document>

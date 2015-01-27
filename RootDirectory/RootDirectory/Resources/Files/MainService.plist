@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>安心肉类</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>新鲜水果</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>芝士火腿</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>田园时蔬</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>生猛海鲜</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>自制熟食</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>精品酒饮</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>包装食品</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>
