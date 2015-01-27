@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "ServiceCell.h"
 #import "DianpuChooseView.h"
+#import "QRcodeScanViewController.h"
 
 #define kListCount 4
 
@@ -53,7 +54,9 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kShowLoginViewNotification object:nil];
         return;
     }
-    NSLog(@"实体店扫够...");
+    QRcodeScanViewController *qrsvc = [[QRcodeScanViewController alloc] init];
+    qrsvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:qrsvc animated:YES];
 }
 - (IBAction)qianggouButtonClicked:(id)sender
 {

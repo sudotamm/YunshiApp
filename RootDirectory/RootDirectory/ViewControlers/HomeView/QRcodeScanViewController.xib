@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRcodeScanViewController">
+            <connections>
+                <outlet property="lineImageView" destination="8k2-IM-lbX" id="XJz-dS-1ct"/>
+                <outlet property="lineVerConstraint" destination="nfX-yC-dCD" id="St6-bB-03l"/>
+                <outlet property="topAlignConstraint" destination="GVL-gi-ziY" id="5Da-1q-vU1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="将二维码放入框内，即可自动扫描" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="285" translatesAutoresizingMaskIntoConstraints="NO" id="vWb-Kg-IHR">
+                    <rect key="frame" x="0.0" y="64" width="375" height="150"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.63529411759999999" green="0.41960784309999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick_bg" translatesAutoresizingMaskIntoConstraints="NO" id="2WM-3B-Q04">
+                    <rect key="frame" x="68" y="214" width="240" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="240" id="Jkz-6D-AIN"/>
+                        <constraint firstAttribute="width" constant="240" id="T51-Oz-Rg9"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_qr" translatesAutoresizingMaskIntoConstraints="NO" id="8k2-IM-lbX">
+                    <rect key="frame" x="78" y="214" width="220" height="2"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="2" id="RUg-sV-Uf0"/>
+                        <constraint firstAttribute="width" constant="220" id="siE-jP-afy"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="2WM-3B-Q04" secondAttribute="centerX" id="3hT-nz-kgL"/>
+                <constraint firstItem="vWb-Kg-IHR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6vI-jk-b4X"/>
+                <constraint firstItem="2WM-3B-Q04" firstAttribute="top" secondItem="8k2-IM-lbX" secondAttribute="top" priority="750" id="GVL-gi-ziY"/>
+                <constraint firstItem="vWb-Kg-IHR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Gzs-6g-gr2"/>
+                <constraint firstAttribute="trailing" secondItem="vWb-Kg-IHR" secondAttribute="trailing" id="J6L-s1-PrN"/>
+                <constraint firstItem="2WM-3B-Q04" firstAttribute="centerX" secondItem="8k2-IM-lbX" secondAttribute="centerX" id="ing-2d-yjZ"/>
+                <constraint firstItem="2WM-3B-Q04" firstAttribute="top" secondItem="vWb-Kg-IHR" secondAttribute="bottom" id="nbu-lR-Nh8"/>
+                <constraint firstItem="8k2-IM-lbX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="250" constant="214" id="nfX-yC-dCD"/>
+                <constraint firstAttribute="centerY" secondItem="2WM-3B-Q04" secondAttribute="centerY" id="unn-iM-qfA"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="288" y="392"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="line_qr" width="220" height="5"/>
+        <image name="pick_bg" width="280" height="280"/>
+    </resources>
+</document>
