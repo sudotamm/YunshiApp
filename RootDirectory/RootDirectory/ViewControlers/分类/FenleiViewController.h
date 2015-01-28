@@ -10,4 +10,8 @@
 
 @interface FenleiViewController : BaseViewController
 
+@property (nonatomic, strong) NSArray *serviceArray;
+
+@property (nonatomic, weak) IBOutlet UITableView *contentTableView;
+
 @end

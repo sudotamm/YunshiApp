@@ -17,5 +17,6 @@
 #import "RYUtils.h"
 #import "HomeDataManager.h"
 #import "ABCMemberDataManager.h"
+#import "FenleiDataManager.h"
 
 #endif

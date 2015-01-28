@@ -119,7 +119,7 @@
 {
     ServiceCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ServiceCell" forIndexPath:indexPath];
     NSDictionary *dict = [self.serviceArray objectAtIndex:indexPath.row];
-    cell.serviceIconImageView.image = [UIImage imageNamed:@"loading_square"];
+    cell.serviceIconImageView.image = [UIImage imageNamed:[dict objectForKey:@"image"]];
     cell.serviceNameLabel.text = [dict objectForKey:@"name"];
     if((indexPath.row+1)%kListCount == 0)
         cell.verLineImageView.hidden = YES;

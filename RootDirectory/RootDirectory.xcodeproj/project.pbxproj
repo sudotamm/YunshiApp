@@ -56,6 +56,8 @@
 		947933081A767ED40057C2B6 /* ABCMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 947933061A767ED40057C2B6 /* ABCMember.m */; };
 		9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9479330A1A76854D0057C2B6 /* DianpuModel.m */; };
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
+		94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6801A791C2C00953C3C /* FenleiTableCell.m */; };
+		94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6841A79219F00953C3C /* FenleiDataManager.m */; };
 		94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B776561A77BF8B00364BC2 /* LoginViewController.m */; };
 		94C94ACB1A77C6BE00DE8C2F /* QRcodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C94AC91A77C6BE00DE8C2F /* QRcodeScanViewController.m */; };
 		94C94ACC1A77C6BE00DE8C2F /* QRcodeScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C94ACA1A77C6BE00DE8C2F /* QRcodeScanViewController.xib */; };
@@ -162,6 +164,10 @@
 		9479330A1A76854D0057C2B6 /* DianpuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianpuModel.m; sourceTree = "<group>"; };
 		94A0F1D31A523DD700A147EC /* RootNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNaviViewController.h; sourceTree = "<group>"; };
 		94A0F1D41A523DD700A147EC /* RootNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNaviViewController.m; sourceTree = "<group>"; };
+		94A1F67F1A791C2C00953C3C /* FenleiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiTableCell.h; sourceTree = "<group>"; };
+		94A1F6801A791C2C00953C3C /* FenleiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiTableCell.m; sourceTree = "<group>"; };
+		94A1F6831A79219F00953C3C /* FenleiDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiDataManager.h; sourceTree = "<group>"; };
+		94A1F6841A79219F00953C3C /* FenleiDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiDataManager.m; sourceTree = "<group>"; };
 		94B776551A77BF8B00364BC2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		94B776561A77BF8B00364BC2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		94C94AC81A77C6BE00DE8C2F /* QRcodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodeScanViewController.h; sourceTree = "<group>"; };
@@ -191,8 +197,11 @@
 		941D8CED1A75CB0100FA27C7 /* 分类 */ = {
 			isa = PBXGroup;
 			children = (
+				94A1F6821A79211800953C3C /* DataCenter */,
 				941D8CF11A75CB6600FA27C7 /* FenleiViewController.h */,
 				941D8CF21A75CB6600FA27C7 /* FenleiViewController.m */,
+				94A1F67F1A791C2C00953C3C /* FenleiTableCell.h */,
+				94A1F6801A791C2C00953C3C /* FenleiTableCell.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -442,6 +451,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		94A1F6821A79211800953C3C /* DataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				94A1F6831A79219F00953C3C /* FenleiDataManager.h */,
+				94A1F6841A79219F00953C3C /* FenleiDataManager.m */,
+			);
+			name = DataCenter;
+			sourceTree = "<group>";
+		};
 		94B776541A77BEC900364BC2 /* 注册登录 */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,10 +562,12 @@
 				947932D21A7664170057C2B6 /* RYHUDManager.m in Sources */,
 				94D925F61A4D2CF0009412C0 /* PannelViewController.m in Sources */,
 				9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */,
+				94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */,
 				94D925F91A4D3154009412C0 /* RootTabBarViewController.m in Sources */,
 				947932DA1A7664170057C2B6 /* NSDate+RYAdditions.m in Sources */,
 				947932D61A7664170057C2B6 /* RYImageDownloader.m in Sources */,
 				947933081A767ED40057C2B6 /* ABCMember.m in Sources */,
+				94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */,
 				941D8CF31A75CB6600FA27C7 /* FenleiViewController.m in Sources */,
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,

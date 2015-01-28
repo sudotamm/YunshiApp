@@ -110,7 +110,7 @@
 #define kShowLoginViewNotification          @"ShowLoginViewNotification"
 
 //ServerUrl
-#define kServerAddress      @"http://xxxx/"
+#define kServerAddress      @"http://58.211.42.172:6081/"
 //注册登录
 #define kLoginUrl           @"login"
 #define kRegisterUrl        @"register"
@@ -121,5 +121,7 @@
 
 //首页
 #define kDianpuListUrl      @"shopList"
+//分类
+#define kFenleiListUrl      @"api/goodsCategory"
 
 #endif
