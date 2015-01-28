@@ -27,7 +27,7 @@
 
 @implementation QRcodeScanViewController
 
-@synthesize topAlignConstraint;
+@synthesize topAlignConstraint,bgImgView;
 
 +(QRcodeScanViewController *)shareQRcodeScanViewController
 {
@@ -107,13 +107,13 @@
     if (array.count <= 0) {
         return;
     }
-    //    _output.metadataObjectTypes = [NSArray arrayWithObject:AVMetadataObjectTypeQRCode];
-    _output.metadataObjectTypes =@[AVMetadataObjectTypeQRCode];
+//    _output.metadataObjectTypes =@[AVMetadataObjectTypeQRCode];
+    _output.metadataObjectTypes = array;
     
     // Preview
     _preview =[AVCaptureVideoPreviewLayer layerWithSession:self.session];
     _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
-    _preview.frame =CGRectMake(40,112,240,240);
+    _preview.frame = self.bgImgView.frame;
     [self.view.layer insertSublayer:self.preview atIndex:0];
     
     // Start

@@ -15,6 +15,7 @@
 }
 +(QRcodeScanViewController*)shareQRcodeScanViewController;
 
+@property (nonatomic, weak) IBOutlet UIImageView *bgImgView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *topAlignConstraint;
 @end
 

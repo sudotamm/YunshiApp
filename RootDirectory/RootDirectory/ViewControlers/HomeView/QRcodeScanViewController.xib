@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRcodeScanViewController">
             <connections>
+                <outlet property="bgImgView" destination="2WM-3B-Q04" id="hzf-oh-Jis"/>
                 <outlet property="lineImageView" destination="8k2-IM-lbX" id="XJz-dS-1ct"/>
                 <outlet property="topAlignConstraint" destination="GVL-gi-ziY" id="5Da-1q-vU1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
