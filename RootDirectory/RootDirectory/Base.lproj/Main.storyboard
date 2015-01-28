@@ -109,7 +109,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="R9m-OU-NOn"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x3g-4Q-hqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,7 +119,6 @@
             <objects>
                 <navigationController id="9mr-iX-xke" customClass="RootNaviViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="我" id="Ium-wN-OsK"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kR5-SU-ZvQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -147,7 +145,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="xst-QB-iCI"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0d-65-WKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -266,7 +263,6 @@
             <objects>
                 <navigationController id="daO-BB-62K" customClass="RootNaviViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="首页" id="aru-gj-Epm"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D0x-s5-STc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -472,7 +468,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="q2C-jb-Nrb"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="serviceCollectionView" destination="ioU-JG-tij" id="DJH-qq-KkB"/>
                     </connections>

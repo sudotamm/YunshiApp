@@ -27,7 +27,7 @@
 
 @implementation QRcodeScanViewController
 
-@synthesize lineVerConstraint,topAlignConstraint;
+@synthesize topAlignConstraint;
 
 +(QRcodeScanViewController *)shareQRcodeScanViewController
 {
@@ -44,8 +44,6 @@
 {
     [super viewDidAppear:YES];
     //二维码扫描动画效果
-    self.lineVerConstraint.priority = UILayoutPriorityDefaultHigh;
-    self.topAlignConstraint.priority = UILayoutPriorityDefaultLow;
     timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation) userInfo:nil repeats:YES];
     [self setupCamera];
     
@@ -62,14 +60,14 @@
 {
     if (upOrdown == NO) {
         num ++;
-        self.lineVerConstraint.constant += 2;
+        self.topAlignConstraint.constant += 2;
         if (2*num == 240) {
             upOrdown = YES;
         }
     }
     else {
         num --;
-        self.lineVerConstraint.constant -= 2;
+        self.topAlignConstraint.constant -= 2;
         if (num == 0) {
             upOrdown = NO;
         }

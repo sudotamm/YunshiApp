@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QRcodeScanViewController">
             <connections>
                 <outlet property="lineImageView" destination="8k2-IM-lbX" id="XJz-dS-1ct"/>
-                <outlet property="lineVerConstraint" destination="nfX-yC-dCD" id="St6-bB-03l"/>
                 <outlet property="topAlignConstraint" destination="GVL-gi-ziY" id="5Da-1q-vU1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -43,12 +42,11 @@
             <constraints>
                 <constraint firstAttribute="centerX" secondItem="2WM-3B-Q04" secondAttribute="centerX" id="3hT-nz-kgL"/>
                 <constraint firstItem="vWb-Kg-IHR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6vI-jk-b4X"/>
-                <constraint firstItem="2WM-3B-Q04" firstAttribute="top" secondItem="8k2-IM-lbX" secondAttribute="top" priority="750" id="GVL-gi-ziY"/>
+                <constraint firstItem="8k2-IM-lbX" firstAttribute="top" secondItem="2WM-3B-Q04" secondAttribute="top" priority="750" id="GVL-gi-ziY"/>
                 <constraint firstItem="vWb-Kg-IHR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Gzs-6g-gr2"/>
                 <constraint firstAttribute="trailing" secondItem="vWb-Kg-IHR" secondAttribute="trailing" id="J6L-s1-PrN"/>
                 <constraint firstItem="2WM-3B-Q04" firstAttribute="centerX" secondItem="8k2-IM-lbX" secondAttribute="centerX" id="ing-2d-yjZ"/>
                 <constraint firstItem="2WM-3B-Q04" firstAttribute="top" secondItem="vWb-Kg-IHR" secondAttribute="bottom" id="nbu-lR-Nh8"/>
-                <constraint firstItem="8k2-IM-lbX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" priority="250" constant="214" id="nfX-yC-dCD"/>
                 <constraint firstAttribute="centerY" secondItem="2WM-3B-Q04" secondAttribute="centerY" id="unn-iM-qfA"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>

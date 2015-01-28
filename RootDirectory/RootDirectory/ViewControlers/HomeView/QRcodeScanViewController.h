@@ -15,7 +15,6 @@
 }
 +(QRcodeScanViewController*)shareQRcodeScanViewController;
 
-@property (nonatomic, weak) IBOutlet NSLayoutConstraint *lineVerConstraint;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *topAlignConstraint;
 @end
 
