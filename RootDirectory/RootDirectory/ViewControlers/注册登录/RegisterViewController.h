@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *yanzhengmaLabel;
 @property (nonatomic, weak) IBOutlet UITextField *passwordLabel;
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
+@property (nonatomic, weak) IBOutlet UIButton *resendButton;
 
 - (IBAction)yanzhengmaButtonClicked:(id)sender;
 - (IBAction)zhuceButtonClicked:(id)sender;

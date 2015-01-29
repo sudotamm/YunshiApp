@@ -110,7 +110,7 @@
 #define kShowLoginViewNotification          @"ShowLoginViewNotification"
 
 //ServerUrl
-#define kServerAddress      @"http://58.211.42.172:6081/"
+#define kServerAddress      @"http://58.211.42.172:6081/api/"
 //注册登录
 #define kLoginUrl           @"login"
 #define kRegisterUrl        @"register"

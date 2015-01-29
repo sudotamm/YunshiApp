@@ -193,7 +193,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="R9m-OU-NOn"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="contentScrollView" destination="M9f-ok-ND5" id="YpT-H1-uXc"/>
                         <outlet property="passwordField" destination="o5W-ec-Gj6" id="X3c-lb-Qx9"/>
@@ -321,6 +320,7 @@
                         <outlet property="contentScrollView" destination="uoJ-AP-vC1" id="fA6-gh-dMO"/>
                         <outlet property="passwordLabel" destination="rH6-gn-PdT" id="LSi-i4-Hgd"/>
                         <outlet property="phoneLabel" destination="DVQ-R2-hFl" id="YnX-1c-fYd"/>
+                        <outlet property="resendButton" destination="mJY-PE-FBC" id="JOS-Gr-7Ap"/>
                         <outlet property="yanzhengmaLabel" destination="0Mr-2r-3yj" id="1TJ-Tq-bKJ"/>
                     </connections>
                 </viewController>

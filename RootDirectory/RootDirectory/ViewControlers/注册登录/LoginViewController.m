@@ -36,7 +36,17 @@
     else
     {
         //登录逻辑
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+        [paramDict setObject:self.phoneField.text forKey:@"phone"];
+        [paramDict setObject:self.passwordField.text forKey:@"pwd"];
+        [[ABCMemberDataManager sharedManager] requestLoginWithDict:paramDict];
     }
+}
+
+#pragma mark - Notification methods
+- (void)loginResponseWithNotificaion:(NSNotification *)notification
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - BaseViewController methods
@@ -54,6 +64,7 @@
     [self setLeftNaviItemWithTitle:@"取消" imageName:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginResponseWithNotificaion:) name:kLoginResponseNotification object:nil];
 }
 
 - (void)dealloc

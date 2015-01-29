@@ -92,6 +92,8 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     [RYAppBackgroundConfiger clearAllCachesWhenBiggerThanSize:kMaxCacheSize];
     [RYAppBackgroundConfiger preventFilesFromBeingBackedupToiCloudWithSystemVersion:[[UIDevice currentDevice] systemVersion]];
+    
+    [[ABCMemberDataManager sharedManager] saveLoginMemberData];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

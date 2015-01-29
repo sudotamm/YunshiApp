@@ -13,9 +13,15 @@
 #define kVerifyCodeDownloaderKey    @"VerifyCodeDownloaderKey"
 #define kUpdateInfoDownloaderKey    @"UpdateInfoDownloaderKey"
 
+@interface ABCMemberDataManager()
+
+@property (nonatomic, copy) NSString *registerUserId;
+
+@end
+
 @implementation ABCMemberDataManager
 
-@synthesize loginMember;
+@synthesize loginMember,registerUserId;
 
 #pragma mark - Singleton methods
 
@@ -29,9 +35,6 @@
         if(nil == loginMember)
         {
             loginMember = [[ABCMember alloc] init];
-            //todo - add test data
-//            loginMember.userId = @"00000000000000000001";
-            //end
         }
     }
     return self;
@@ -88,8 +91,9 @@
                                                                 purpose:kVerifyCodeDownloaderKey];
 }
 
-- (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict
+- (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict userId:(NSString *)userId
 {
+    self.registerUserId = userId;
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"注册中..."];
     NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kRegisterUrl];
     [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
@@ -131,7 +135,7 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] showWithMessage:@"验证码获取成功" customView:nil hideDelay:2.f];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kVerifyCodeResonseNotification object:nil];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:kVerifyCodeResonseNotification object:nil];
         }
         else
         {
@@ -146,7 +150,9 @@
         //注册返回
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
-            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            [[RYHUDManager sharedManager] showWithMessage:@"注册成功！\n\n请完善会员信息，\n生日当天凭身份证\n到门店可领取生日礼品一份。" customView:nil hideDelay:4.f];
+            self.loginMember = [[ABCMember alloc] init];
+            self.loginMember.userId = self.registerUserId;
             [[NSNotificationCenter defaultCenter] postNotificationName:kRegisterResponseNoitification object:nil];
         }
         else
@@ -163,6 +169,7 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            self.loginMember = [[ABCMember alloc] initWithRYDict:dict];
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginResponseNotification object:nil];
         }
         else

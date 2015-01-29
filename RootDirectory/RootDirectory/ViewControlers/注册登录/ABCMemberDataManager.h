@@ -21,7 +21,7 @@
 - (BOOL)isLogined;
 //服务器请求方法
 - (void)requestVerifyCodeWithDict:(NSMutableDictionary *)paramDict;
-- (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict;
+- (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict userId:(NSString *)userId;
 - (void)requestLoginWithDict:(NSMutableDictionary *)paramDict;
 - (void)requestUpdateUserInfoWithDict:(NSMutableDictionary *)paramDict;
 @end
