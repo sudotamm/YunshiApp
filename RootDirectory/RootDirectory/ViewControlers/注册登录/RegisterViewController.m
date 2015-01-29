@@ -1,31 +1,45 @@
 //
-//  LoginViewController.m
+//  RegisterViewController.m
 //  RootDirectory
 //
-//  Created by ryan on 1/27/15.
+//  Created by ryan on 1/29/15.
 //  Copyright (c) 2015 Ryan. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
-@interface LoginViewController ()
+@interface RegisterViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation RegisterViewController
 
 #pragma mark - Private methods
 - (NSString *)checkFileds
 {
-    if(self.phoneField.text.length == 0)
+    if(self.phoneLabel.text.length == 0)
         return @"请输入手机号";
-    if(self.passwordField.text.length == 0)
+    if(self.yanzhengmaLabel.text.length == 0)
+        return @"请输入验证码";
+    if(self.passwordLabel.text.length == 0)
         return @"请输入密码";
     return nil;
 }
 
 #pragma mark - IBAction methods
-- (IBAction)loginButtonClicked:(id)sender
+- (IBAction)yanzhengmaButtonClicked:(id)sender
+{
+    [self.view endEditing:YES];
+    if(self.phoneLabel.text.length == 0)
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"请输入手机号" customView:nil hideDelay:2.f];
+    }
+    else
+    {
+        //获取验证码
+    }
+}
+- (IBAction)zhuceButtonClicked:(id)sender
 {
     [self.view endEditing:YES];
     NSString *checkResult = [self checkFileds];
@@ -35,14 +49,12 @@
     }
     else
     {
-        //登录逻辑
+        //注册逻辑
     }
 }
-
-#pragma mark - BaseViewController methods
-- (void)leftItemTapped
+- (IBAction)dengluButtonClicked:(id)sender
 {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UIViewController methods
@@ -50,8 +62,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNaviTitle:@"登录"];
-    [self setLeftNaviItemWithTitle:@"取消" imageName:nil];
+    [self setNaviTitle:@"注册"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -72,6 +83,5 @@
 {
     self.contentScrollView.contentInset = UIEdgeInsetsMake(self.contentScrollView.contentInset.top, self.contentScrollView.contentInset.left, 0, self.contentScrollView.contentInset.right);
 }
-
 
 @end

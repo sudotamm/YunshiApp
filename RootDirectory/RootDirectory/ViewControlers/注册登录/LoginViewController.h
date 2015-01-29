@@ -10,4 +10,9 @@
 
 @interface LoginViewController : BaseViewController
 
+@property (nonatomic, weak) IBOutlet UITextField *phoneField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+@property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
+
+- (IBAction)loginButtonClicked:(id)sender;
 @end

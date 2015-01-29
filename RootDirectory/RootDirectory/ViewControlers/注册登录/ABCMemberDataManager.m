@@ -30,7 +30,7 @@
         {
             loginMember = [[ABCMember alloc] init];
             //todo - add test data
-            loginMember.userId = @"00000000000000000001";
+//            loginMember.userId = @"00000000000000000001";
             //end
         }
     }

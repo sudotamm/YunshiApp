@@ -13,6 +13,7 @@
 		941D8CF61A75CB8400FA27C7 /* SousuoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941D8CF51A75CB8400FA27C7 /* SousuoViewController.m */; };
 		941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941D8CF81A75CB9F00FA27C7 /* GouwucheViewController.m */; };
 		941D8CFC1A75CBB700FA27C7 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941D8CFB1A75CBB700FA27C7 /* UserViewController.m */; };
+		9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440C3B61A7A606100575038 /* RegisterViewController.m */; };
 		9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9451AAB01A4188A600CF4C33 /* CommonNaviController.m */; };
 		947655D11A393290007DBE24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D01A393290007DBE24 /* AppDelegate.m */; };
 		947655D41A393290007DBE24 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D31A393290007DBE24 /* StartViewController.m */; };
@@ -52,13 +53,13 @@
 		947932FA1A7677540057C2B6 /* DianpuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947932F91A7677540057C2B6 /* DianpuView.xib */; };
 		947932FD1A767A190057C2B6 /* DianpuChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 947932FC1A767A190057C2B6 /* DianpuChooseView.m */; };
 		947932FF1A767A350057C2B6 /* DianpuChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947932FE1A767A350057C2B6 /* DianpuChooseView.xib */; };
-		947933071A767ED40057C2B6 /* ABCMemberDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 947933041A767ED40057C2B6 /* ABCMemberDataManager.m */; };
-		947933081A767ED40057C2B6 /* ABCMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 947933061A767ED40057C2B6 /* ABCMember.m */; };
 		9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9479330A1A76854D0057C2B6 /* DianpuModel.m */; };
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
 		94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6801A791C2C00953C3C /* FenleiTableCell.m */; };
 		94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6841A79219F00953C3C /* FenleiDataManager.m */; };
 		94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B776561A77BF8B00364BC2 /* LoginViewController.m */; };
+		94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF586C1A7A5F8200E6F3E0 /* ABCMember.m */; };
+		94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF586E1A7A5F8200E6F3E0 /* ABCMemberDataManager.m */; };
 		94C94ACB1A77C6BE00DE8C2F /* QRcodeScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C94AC91A77C6BE00DE8C2F /* QRcodeScanViewController.m */; };
 		94C94ACC1A77C6BE00DE8C2F /* QRcodeScanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C94ACA1A77C6BE00DE8C2F /* QRcodeScanViewController.xib */; };
 		94C94ACE1A77C70600DE8C2F /* AppResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C94ACD1A77C70600DE8C2F /* AppResource.xcassets */; };
@@ -78,6 +79,8 @@
 		941D8CF81A75CB9F00FA27C7 /* GouwucheViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwucheViewController.m; sourceTree = "<group>"; };
 		941D8CFA1A75CBB700FA27C7 /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
 		941D8CFB1A75CBB700FA27C7 /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		9440C3B51A7A606100575038 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		9440C3B61A7A606100575038 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9451AAAF1A4188A600CF4C33 /* CommonNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNaviController.h; sourceTree = "<group>"; };
 		9451AAB01A4188A600CF4C33 /* CommonNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNaviController.m; sourceTree = "<group>"; };
 		947655C81A393290007DBE24 /* RootDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RootDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,10 +159,6 @@
 		947932FB1A767A190057C2B6 /* DianpuChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianpuChooseView.h; sourceTree = "<group>"; };
 		947932FC1A767A190057C2B6 /* DianpuChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianpuChooseView.m; sourceTree = "<group>"; };
 		947932FE1A767A350057C2B6 /* DianpuChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DianpuChooseView.xib; sourceTree = "<group>"; };
-		947933031A767ED40057C2B6 /* ABCMemberDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMemberDataManager.h; sourceTree = "<group>"; };
-		947933041A767ED40057C2B6 /* ABCMemberDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCMemberDataManager.m; sourceTree = "<group>"; };
-		947933051A767ED40057C2B6 /* ABCMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMember.h; sourceTree = "<group>"; };
-		947933061A767ED40057C2B6 /* ABCMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCMember.m; sourceTree = "<group>"; };
 		947933091A76854D0057C2B6 /* DianpuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianpuModel.h; sourceTree = "<group>"; };
 		9479330A1A76854D0057C2B6 /* DianpuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianpuModel.m; sourceTree = "<group>"; };
 		94A0F1D31A523DD700A147EC /* RootNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNaviViewController.h; sourceTree = "<group>"; };
@@ -170,6 +169,10 @@
 		94A1F6841A79219F00953C3C /* FenleiDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiDataManager.m; sourceTree = "<group>"; };
 		94B776551A77BF8B00364BC2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		94B776561A77BF8B00364BC2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		94BF586B1A7A5F8200E6F3E0 /* ABCMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMember.h; sourceTree = "<group>"; };
+		94BF586C1A7A5F8200E6F3E0 /* ABCMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCMember.m; sourceTree = "<group>"; };
+		94BF586D1A7A5F8200E6F3E0 /* ABCMemberDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMemberDataManager.h; sourceTree = "<group>"; };
+		94BF586E1A7A5F8200E6F3E0 /* ABCMemberDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCMemberDataManager.m; sourceTree = "<group>"; };
 		94C94AC81A77C6BE00DE8C2F /* QRcodeScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodeScanViewController.h; sourceTree = "<group>"; };
 		94C94AC91A77C6BE00DE8C2F /* QRcodeScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodeScanViewController.m; sourceTree = "<group>"; };
 		94C94ACA1A77C6BE00DE8C2F /* QRcodeScanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRcodeScanViewController.xib; sourceTree = "<group>"; };
@@ -436,10 +439,6 @@
 		947933021A767E9F0057C2B6 /* DataCenter */ = {
 			isa = PBXGroup;
 			children = (
-				947933031A767ED40057C2B6 /* ABCMemberDataManager.h */,
-				947933041A767ED40057C2B6 /* ABCMemberDataManager.m */,
-				947933051A767ED40057C2B6 /* ABCMember.h */,
-				947933061A767ED40057C2B6 /* ABCMember.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -463,10 +462,24 @@
 		94B776541A77BEC900364BC2 /* 注册登录 */ = {
 			isa = PBXGroup;
 			children = (
+				94BF586A1A7A5F6900E6F3E0 /* DataCenter */,
 				94B776551A77BF8B00364BC2 /* LoginViewController.h */,
 				94B776561A77BF8B00364BC2 /* LoginViewController.m */,
+				9440C3B51A7A606100575038 /* RegisterViewController.h */,
+				9440C3B61A7A606100575038 /* RegisterViewController.m */,
 			);
 			path = "注册登录";
+			sourceTree = "<group>";
+		};
+		94BF586A1A7A5F6900E6F3E0 /* DataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				94BF586D1A7A5F8200E6F3E0 /* ABCMemberDataManager.h */,
+				94BF586E1A7A5F8200E6F3E0 /* ABCMemberDataManager.m */,
+				94BF586B1A7A5F8200E6F3E0 /* ABCMember.h */,
+				94BF586C1A7A5F8200E6F3E0 /* ABCMember.m */,
+			);
+			name = DataCenter;
 			sourceTree = "<group>";
 		};
 		94C94AC71A77C6A400DE8C2F /* 实体扫购 */ = {
@@ -566,7 +579,6 @@
 				94D925F91A4D3154009412C0 /* RootTabBarViewController.m in Sources */,
 				947932DA1A7664170057C2B6 /* NSDate+RYAdditions.m in Sources */,
 				947932D61A7664170057C2B6 /* RYImageDownloader.m in Sources */,
-				947933081A767ED40057C2B6 /* ABCMember.m in Sources */,
 				94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */,
 				941D8CF31A75CB6600FA27C7 /* FenleiViewController.m in Sources */,
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
@@ -575,17 +587,19 @@
 				941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */,
 				941D8CF61A75CB8400FA27C7 /* SousuoViewController.m in Sources */,
 				947932E61A7664170057C2B6 /* RYBaseModel.m in Sources */,
+				9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */,
 				94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */,
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
 				947932D31A7664170057C2B6 /* MBProgressHUD.m in Sources */,
+				94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */,
 				947932E01A7664170057C2B6 /* RYCycleScrollView.m in Sources */,
 				947932E31A7664170057C2B6 /* UIImage+RYBlurGlass.m in Sources */,
 				947932F51A7676520057C2B6 /* HomeDataManager.m in Sources */,
 				947932E41A7664170057C2B6 /* UIImage+RYAssetLaunchImage.m in Sources */,
+				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,
-				947933071A767ED40057C2B6 /* ABCMemberDataManager.m in Sources */,
 				947932D51A7664170057C2B6 /* RYAsynImageView.m in Sources */,
 				947932DB1A7664170057C2B6 /* UIView+RYUtilities.m in Sources */,
 				947932D11A7664170057C2B6 /* RYDownloaderManager.m in Sources */,
