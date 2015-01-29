@@ -30,11 +30,29 @@
         self.navigationBar.tintColor = kMainProjColor;
     }
 */
+    self.interactivePopGestureRecognizer.delegate = self;
     self.delegate = self;
 }
 
+- (void)dealloc
+{
+    if (IsIos7)
+    {
+        self.interactivePopGestureRecognizer.delegate = nil;
+        self.delegate = nil;
+    }
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if ([self respondsToSelector:@selector(interactivePopGestureRecognizer)])
+        self.interactivePopGestureRecognizer.enabled = NO;
+    [super pushViewController:viewController animated:animated];
+}
+
+
 #pragma mark - UINavigationControllerDelegate methods
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     // Enable the gesture again once the new controller is shown
     if ([navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)])

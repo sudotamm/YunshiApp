@@ -15,6 +15,6 @@
  *  - 加入自定义leftBarItem之后的pan手势不可用处理
  */
 
-@interface CommonNaviController : UINavigationController<UINavigationControllerDelegate>
+@interface CommonNaviController : UINavigationController<UINavigationControllerDelegate,UIGestureRecognizerDelegate>
 
 @end
