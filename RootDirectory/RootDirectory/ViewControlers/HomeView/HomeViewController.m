@@ -175,6 +175,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"跳转至分类页面...");
+    [FenleiDataManager sharedManager].redirectFenlei = @(indexPath.row);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowFenleiViewNotification object:nil];
 }
 @end

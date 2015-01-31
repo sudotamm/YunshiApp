@@ -69,6 +69,7 @@
 		94D925F91A4D3154009412C0 /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D925F81A4D3154009412C0 /* RootTabBarViewController.m */; };
 		94EB34A01A7D186900937044 /* FenleiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB349F1A7D186900937044 /* FenleiModel.m */; };
 		94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */; };
+		94EB34A61A7D31CD00937044 /* FenleiThirdTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,6 +191,8 @@
 		94EB349F1A7D186900937044 /* FenleiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiModel.m; sourceTree = "<group>"; };
 		94EB34A11A7D26E700937044 /* FenleiSecondTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiSecondTableCell.h; sourceTree = "<group>"; };
 		94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiSecondTableCell.m; sourceTree = "<group>"; };
+		94EB34A41A7D31CD00937044 /* FenleiThirdTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiThirdTableCell.h; sourceTree = "<group>"; };
+		94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiThirdTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 				94A1F6801A791C2C00953C3C /* FenleiTableCell.m */,
 				94EB34A11A7D26E700937044 /* FenleiSecondTableCell.h */,
 				94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */,
+				94EB34A41A7D31CD00937044 /* FenleiThirdTableCell.h */,
+				94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				947932D51A7664170057C2B6 /* RYAsynImageView.m in Sources */,
 				947932DB1A7664170057C2B6 /* UIView+RYUtilities.m in Sources */,
 				947932D11A7664170057C2B6 /* RYDownloaderManager.m in Sources */,
+				94EB34A61A7D31CD00937044 /* FenleiThirdTableCell.m in Sources */,
 				947655D41A393290007DBE24 /* StartViewController.m in Sources */,
 				94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */,
 				947932DC1A7664170057C2B6 /* UIDevice+RYUDID.m in Sources */,

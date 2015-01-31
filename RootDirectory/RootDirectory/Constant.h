@@ -111,6 +111,7 @@
 #define kShowLoginViewNotification          @"ShowLoginViewNotification"
 #define kDianpuChangeNotification           @"DianpuChangeNotification"
 #define kFenleiResponseNotification         @"FenleiResponseNotification"
+#define kShowFenleiViewNotification         @"ShowFenleiViewNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"

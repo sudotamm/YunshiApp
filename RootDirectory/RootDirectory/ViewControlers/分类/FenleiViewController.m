@@ -9,6 +9,7 @@
 #import "FenleiViewController.h"
 #import "FenleiTableCell.h"
 #import "FenleiSecondTableCell.h"
+#import "FenleiThirdTableCell.h"
 
 @interface FenleiViewController ()
 
@@ -62,6 +63,16 @@
 }
 
 #pragma mark - UIViewController methods
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if([FenleiDataManager sharedManager].redirectFenlei)
+    {
+        self.selectedIndex = [FenleiDataManager sharedManager].redirectFenlei.integerValue;
+        [self fenleiResponseWithNotification:nil];
+        [FenleiDataManager sharedManager].redirectFenlei = nil;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -129,14 +140,14 @@
     }
     else
     {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thirdTableCell"];
+        FenleiThirdTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"thirdTableCell"];
         if(IsIos8)
         {
             cell.layoutMargins = UIEdgeInsetsZero;
             cell.preservesSuperviewLayoutMargins = NO;
         }
         FenleiModel *fm = [self.thirdFenleiArray objectAtIndex:indexPath.row];
-        cell.textLabel.text = fm.cName;
+        cell.nameLabel.text = fm.cName;
         return cell;
     }
 }

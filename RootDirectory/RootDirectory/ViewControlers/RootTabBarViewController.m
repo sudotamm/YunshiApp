@@ -22,6 +22,10 @@
     [self performSegueWithIdentifier:@"RootToLogin" sender:nil];
 }
 
+- (void)showFenleiViewWithNotification:(NSNotification *)notification
+{
+    self.selectedIndex = 1;
+}
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad
@@ -49,6 +53,7 @@
     //设置TabBarItem选中状态为白色
     self.tabBar.tintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginViewWithNotification:) name:kShowLoginViewNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFenleiViewWithNotification:) name:kShowFenleiViewNotification object:nil];
 }
 
 - (void)dealloc

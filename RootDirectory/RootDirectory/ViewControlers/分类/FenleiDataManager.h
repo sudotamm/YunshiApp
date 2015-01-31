@@ -12,6 +12,7 @@
 @interface FenleiDataManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *fenleiArray;
+@property (nonatomic, strong) NSNumber *redirectFenlei;
 
 + (instancetype)sharedManager;
 
