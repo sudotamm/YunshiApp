@@ -61,10 +61,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"登录"];
-    [self setLeftNaviItemWithTitle:@"取消" imageName:nil];
+    [self setLeftNaviItemWithTitle:nil imageName:@"ico_back"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginResponseWithNotificaion:) name:kLoginResponseNotification object:nil];
+    
+//    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10.f, 10.f)];
+//    testView.backgroundColor = [UIColor redColor];
+//    self.phoneField.leftView = testView;
+//    self.phoneField.leftViewMode = UITextFieldViewModeAlways;
 }
 
 - (void)dealloc
