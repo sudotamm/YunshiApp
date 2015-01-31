@@ -14,9 +14,11 @@
  *  - 使用应用的启动图做占位图
  */
 
-@interface StartViewController : UIViewController
+@interface StartViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *startImageView;
+@property (nonatomic, weak) IBOutlet UIScrollView *startScrollView;
+@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 
 @end
 

@@ -20,18 +20,42 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gf2-fD-Dby">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mid-6c-7jd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="03q-Jn-Ucm"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="A5i-bW-ch7">
+                                <rect key="frame" x="0.0" y="625" width="375" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="u3L-rm-6YE"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="A5i-bW-ch7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2Tw-7R-7x6"/>
+                            <constraint firstAttribute="trailing" secondItem="A5i-bW-ch7" secondAttribute="trailing" id="M8D-Ro-AFo"/>
                             <constraint firstItem="Gf2-fD-Dby" firstAttribute="bottom" secondItem="qnG-cr-MyU" secondAttribute="top" id="NWK-lg-ekU"/>
+                            <constraint firstItem="qnG-cr-MyU" firstAttribute="top" secondItem="A5i-bW-ch7" secondAttribute="bottom" constant="5" id="TaP-ph-o7u"/>
+                            <constraint firstItem="mid-6c-7jd" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="Tan-8Z-In5"/>
+                            <constraint firstItem="mid-6c-7jd" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="UfN-mv-Pa5"/>
                             <constraint firstAttribute="trailing" secondItem="Gf2-fD-Dby" secondAttribute="trailing" id="enU-Cp-i5P"/>
                             <constraint firstItem="Gf2-fD-Dby" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="lUC-44-sfc"/>
+                            <constraint firstAttribute="trailing" secondItem="mid-6c-7jd" secondAttribute="trailing" id="mcx-eS-dRa"/>
                             <constraint firstItem="Gf2-fD-Dby" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="sCT-bs-Hs3"/>
+                            <constraint firstItem="qnG-cr-MyU" firstAttribute="top" secondItem="mid-6c-7jd" secondAttribute="bottom" id="t4M-Kw-kVv"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="pageControl" destination="A5i-bW-ch7" id="cSS-iq-a8w"/>
                         <outlet property="startImageView" destination="Gf2-fD-Dby" id="BuV-5i-foW"/>
+                        <outlet property="startScrollView" destination="mid-6c-7jd" id="CUC-wd-m51"/>
                         <segue destination="45c-aw-2hg" kind="show" identifier="StartToPannel" id="B1j-c8-QUU"/>
                         <segue destination="wfJ-hW-Bx6" kind="show" identifier="StartToNavi" id="o7n-fC-iyN"/>
                         <segue destination="QnN-kl-49a" kind="show" identifier="StartToTab" id="0iv-gU-ubs"/>

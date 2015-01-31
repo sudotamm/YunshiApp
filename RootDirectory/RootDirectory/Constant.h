@@ -93,6 +93,7 @@
 #define kUIYScaleValue      ((Is3_5Inch)?568.f:[UIScreen mainScreen].bounds.size.height)/kUIYValue  //3.5inch 高度当做4inch来计算
 
 //App Constant Values
+#define kIsWelcomeShown     @"IsWelcomeShown"
 #define kSuccessCode        1
 #define kCodeKey            @"code"
 #define kMessageKey         @"msg"
