@@ -17,7 +17,7 @@
     self.dianpuArray = array;
     //设置popover的高度
     CGRect rect = self.frame;
-    rect.size.height = /*self.contentTableView.rowHeight*/30.f*self.dianpuArray.count;
+    rect.size.height = /*self.contentTableView.rowHeight*/30.f*self.dianpuArray.count+20.f;
     self.frame = rect;
     [self.dianpuTableView reloadData];
 }
@@ -36,8 +36,27 @@
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentify];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont systemFontOfSize:13.f];
     }
+    if(IsIos7)
+    {
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.preservesSuperviewLayoutMargins = NO;
+    }
+    DianpuModel *dm = [self.dianpuArray objectAtIndex:indexPath.row];
+    cell.textLabel.text = dm.sName;
     return cell;
+}
+
+#pragma mark - UITableViewDelegate methods
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[RYRootBlurViewManager sharedManger] hideBlurView];
+    DianpuModel *dm = [self.dianpuArray objectAtIndex:indexPath.row];
+    [HomeDataManager sharedManger].currentDianpu = dm;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDianpuChangeNotification object:nil];
 }
 
 @end

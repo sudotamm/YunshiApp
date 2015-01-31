@@ -79,6 +79,12 @@
     [self showDianpuChooseView];
 }
 
+- (void)dianpuChangeWithNoitfication:(NSNotification *)notification
+{
+    [self.dianpuView.dianpuLabel addAnimationWithType:kCATransitionMoveIn subtype:kCATransitionFromTop];
+    self.dianpuView.dianpuLabel.text = [HomeDataManager sharedManger].currentDianpu.sName;
+}
+
 #pragma mark - BaseViewController methods
 - (void)leftItemTapped
 {
@@ -88,8 +94,11 @@
     }
     else
     {
+        NSString *userId = [ABCMemberDataManager sharedManager].loginMember.userId;
+        if(nil == userId)
+            userId = @"";
         NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-        [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.userId forKey:@"userId"];
+        [paramDict setObject:userId forKey:@"userId"];
         [[HomeDataManager sharedManger] requestDianpuListWithDict:paramDict];
     }
 }
@@ -101,13 +110,18 @@
     // Do any additional setup after loading the view from its nib.
     [self setNaviTitle:@"首页"];
     
+    //设置标题logo
     UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180.f, 30.f)];
     logoImageView.image = [UIImage imageNamed:@"logo"];
     logoImageView.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = logoImageView;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dianpuListResponseWithNotification:) name:kDianpuListResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dianpuChangeWithNoitfication:) name:kDianpuChangeNotification object:nil];
+    //设置店铺选择
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:self.dianpuView];
     self.navigationItem.leftBarButtonItem = leftItem;
+    //显示店铺
+    [self dianpuChangeWithNoitfication:nil];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MainService" ofType:@"plist"];
     self.serviceArray = [NSArray arrayWithContentsOfFile:path];

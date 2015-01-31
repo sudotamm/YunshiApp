@@ -12,6 +12,7 @@
 @interface HomeDataManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *dianpuArray;
+@property (nonatomic, strong) DianpuModel *currentDianpu;
 
 + (instancetype)sharedManger;
 

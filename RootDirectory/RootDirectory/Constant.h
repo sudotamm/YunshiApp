@@ -108,6 +108,7 @@
 #define kUpdateInfoResponseNotification     @"UpdateInfoResponseNotification"
 #define kDianpuListResponseNotification     @"DianpuListResponseNotification"
 #define kShowLoginViewNotification          @"ShowLoginViewNotification"
+#define kDianpuChangeNotification           @"DianpuChangeNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"

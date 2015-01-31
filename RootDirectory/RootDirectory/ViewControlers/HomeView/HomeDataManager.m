@@ -15,6 +15,17 @@
 @synthesize dianpuArray;
 
 #pragma mark - Singleton methods
+- (id)init
+{
+    if(self = [super init])
+    {
+        self.currentDianpu = [[DianpuModel alloc] init];
+        //初始化默认店铺
+        self.currentDianpu.sName = @"环球港店";
+        self.currentDianpu.sCode = @"1";
+    }
+    return self;
+}
 
 + (instancetype)sharedManger
 {
@@ -56,12 +67,21 @@
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             self.dianpuArray = [NSMutableArray array];
             NSArray *array = [dict objectForKey:@"list"];
-            for(NSDictionary *dictDianpu in array)
+            
+            //todo - add test data
+            NSDictionary *dict1 = @{@"sName":@"环球港店1",@"sCode":@"1"};
+            NSDictionary *dict2 = @{@"sName":@"环球港店2",@"sCode":@"2"};
+            array = [NSArray arrayWithObjects:dict1,dict2, nil];
+            //
+            if(array.count > 0)
             {
-                DianpuModel *dm = [[DianpuModel alloc] initWithRYDict:dictDianpu];
-                [self.dianpuArray addObject:dm];
+                for(NSDictionary *dictDianpu in array)
+                {
+                    DianpuModel *dm = [[DianpuModel alloc] initWithRYDict:dictDianpu];
+                    [self.dianpuArray addObject:dm];
+                }
+                [[NSNotificationCenter defaultCenter] postNotificationName:kDianpuListResponseNotification object:nil];
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:kDianpuListResponseNotification object:nil];
         }
         else
         {
