@@ -581,9 +581,18 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdw-WT-OWr" userLabel="topView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
-                                        <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tmp1" translatesAutoresizingMaskIntoConstraints="NO" id="7D0-ET-hyh">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="7D0-ET-hyh" firstAttribute="top" secondItem="mdw-WT-OWr" secondAttribute="top" id="JYV-gW-8mq"/>
                                             <constraint firstAttribute="height" constant="140" id="PEB-ZV-0zR"/>
+                                            <constraint firstAttribute="trailing" secondItem="7D0-ET-hyh" secondAttribute="trailing" id="aah-Gy-eW8"/>
+                                            <constraint firstAttribute="bottom" secondItem="7D0-ET-hyh" secondAttribute="bottom" id="kZp-vp-JGx"/>
+                                            <constraint firstItem="7D0-ET-hyh" firstAttribute="leading" secondItem="mdw-WT-OWr" secondAttribute="leading" id="mMe-XR-rci"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jkv-o7-uJL" userLabel="middleView">
@@ -787,6 +796,7 @@
                     <connections>
                         <outlet property="bottomHeightConstraint" destination="3fO-1h-xNF" id="Yhj-rP-4JS"/>
                         <outlet property="fenleiHeightConstraint" destination="4PU-YD-nFc" id="Yi4-1a-Wen"/>
+                        <outlet property="headerImgView" destination="7D0-ET-hyh" id="rUi-sP-BeW"/>
                         <outlet property="middleHeightConstraint" destination="71U-e8-Ev2" id="HLq-GU-GZt"/>
                         <outlet property="serviceCollectionView" destination="ioU-JG-tij" id="DJH-qq-KkB"/>
                     </connections>
@@ -857,6 +867,7 @@
         <image name="nav-5" width="29" height="29"/>
         <image name="nav-bg" width="3" height="49"/>
         <image name="nav-current" width="3" height="49"/>
+        <image name="tmp1" width="750" height="326"/>
         <image name="tmp4" width="360" height="103"/>
     </resources>
 </document>

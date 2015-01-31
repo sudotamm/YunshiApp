@@ -11,6 +11,7 @@
 
 @interface HomeViewController : BaseViewController
 
+@property (nonatomic, weak) IBOutlet UIImageView *headerImgView;
 @property (nonatomic, weak) IBOutlet UICollectionView *serviceCollectionView;
 @property (nonatomic, strong) DianpuView *dianpuView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *middleHeightConstraint;
