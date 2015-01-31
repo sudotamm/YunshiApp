@@ -15,4 +15,5 @@
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 
 - (IBAction)loginButtonClicked:(id)sender;
+- (IBAction)wangjimimaButtonClicked:(id)sender;
 @end

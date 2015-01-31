@@ -43,6 +43,21 @@
     }
 }
 
+- (IBAction)wangjimimaButtonClicked:(id)sender
+{
+    [self.view endEditing:YES];
+    if(self.phoneField.text.length == 0)
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"请输入手机号" customView:nil hideDelay:2.f];
+    }
+    else
+    {
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+        [paramDict setObject:self.phoneField.text forKey:@"phone"];
+        [[ABCMemberDataManager sharedManager] requestResetPasswordWithDict:paramDict];
+    }
+}
+
 #pragma mark - Notification methods
 - (void)loginResponseWithNotificaion:(NSNotification *)notification
 {

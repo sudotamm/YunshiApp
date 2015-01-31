@@ -11,6 +11,7 @@
 #define kLoginDownlaoderKey         @"LoginDownlaoderKey"
 #define kRegisterDownlaoderKey      @"RegisterDownlaoderKey"
 #define kVerifyCodeDownloaderKey    @"VerifyCodeDownloaderKey"
+#define kResetPwdDownloaderKey      @"ResetPwdDownloaderKey"
 #define kUpdateInfoDownloaderKey    @"UpdateInfoDownloaderKey"
 
 @interface ABCMemberDataManager()
@@ -114,6 +115,17 @@
                                                                 purpose:kLoginDownlaoderKey];
 }
 
+- (void)requestResetPasswordWithDict:(NSMutableDictionary *)paramDict
+{
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"重置中..."];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kResetPwdUrl];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:kResetPwdDownloaderKey];
+}
+
 - (void)requestUpdateUserInfoWithDict:(NSMutableDictionary *)paramDict
 {
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"更新中..."];
@@ -177,6 +189,21 @@
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"登录失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kResetPwdDownloaderKey])
+    {
+        //密码重置返回
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            [[RYHUDManager sharedManager] showWithMessage:@"密码重置成功！\n请检查重置密码的短信" customView:nil hideDelay:2.f];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"密码重置失败";
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }
