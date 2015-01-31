@@ -1,14 +1,14 @@
 //
-//  FenleiTableCell.m
+//  FenleiSecondTableCell.m
 //  RootDirectory
 //
-//  Created by ryan on 1/28/15.
+//  Created by ryan on 1/31/15.
 //  Copyright (c) 2015 Ryan. All rights reserved.
 //
 
-#import "FenleiTableCell.h"
+#import "FenleiSecondTableCell.h"
 
-@implementation FenleiTableCell
+@implementation FenleiSecondTableCell
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

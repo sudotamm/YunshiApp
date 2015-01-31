@@ -110,6 +110,7 @@
 #define kDianpuListResponseNotification     @"DianpuListResponseNotification"
 #define kShowLoginViewNotification          @"ShowLoginViewNotification"
 #define kDianpuChangeNotification           @"DianpuChangeNotification"
+#define kFenleiResponseNotification         @"FenleiResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
@@ -124,6 +125,6 @@
 //首页
 #define kDianpuListUrl      @"shopList"
 //分类
-#define kFenleiListUrl      @"api/goodsCategory"
+#define kFenleiListUrl      @"goodsCategory"
 
 #endif

@@ -12,6 +12,15 @@
 
 @synthesize code,msg,userId,name,phone,gender,email,addr,birthday;
 
+- (id)init
+{
+    if(self = [super init])
+    {
+        self.userId = @"";
+    }
+    return self;
+}
+
 #pragma mark - NSCoding methods
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {

@@ -22,7 +22,7 @@
         self.currentDianpu = [[DianpuModel alloc] init];
         //初始化默认店铺
         self.currentDianpu.sName = @"环球港店";
-        self.currentDianpu.sCode = @"1";
+        self.currentDianpu.sCode = @"01";
     }
     return self;
 }
@@ -70,8 +70,8 @@
             NSArray *array = [dict objectForKey:@"list"];
             
             //todo - add test data
-            NSDictionary *dict1 = @{@"sName":@"环球港店1",@"sCode":@"1"};
-            NSDictionary *dict2 = @{@"sName":@"环球港店2",@"sCode":@"2"};
+            NSDictionary *dict1 = @{@"sName":@"环球港店1",@"sCode":@"01"};
+            NSDictionary *dict2 = @{@"sName":@"环球港店2",@"sCode":@"01"};
             array = [NSArray arrayWithObjects:dict1,dict2, nil];
             //
             if(array.count > 0)

@@ -10,8 +10,12 @@
 
 @interface FenleiViewController : BaseViewController
 
-@property (nonatomic, strong) NSArray *serviceArray;
+@property (nonatomic, strong) NSMutableArray *serviceArray;
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
+@property (nonatomic, weak) IBOutlet UITableView *secondTableView;
+@property (nonatomic, weak) IBOutlet UITableView *thirdTableView;
 
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *secondTrailingConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *thirdTrailingConstraint;
 @end

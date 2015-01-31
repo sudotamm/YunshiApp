@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FenleiModel.h"
 
 @interface FenleiDataManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *fenleiArray;
+
 + (instancetype)sharedManager;
 
-- (void)requestTest;
+- (void)requestFenleiListWithUserId:(NSString *)userId
+                           dianpuId:(NSString *)dianpuId;
 
 @end

@@ -67,6 +67,8 @@
 		94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C94AD11A77C78700DE8C2F /* QRcodeResultViewController.xib */; };
 		94D925F61A4D2CF0009412C0 /* PannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D925F51A4D2CF0009412C0 /* PannelViewController.m */; };
 		94D925F91A4D3154009412C0 /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D925F81A4D3154009412C0 /* RootTabBarViewController.m */; };
+		94EB34A01A7D186900937044 /* FenleiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB349F1A7D186900937044 /* FenleiModel.m */; };
+		94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +186,10 @@
 		94D925F51A4D2CF0009412C0 /* PannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PannelViewController.m; sourceTree = "<group>"; };
 		94D925F71A4D3154009412C0 /* RootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarViewController.h; sourceTree = "<group>"; };
 		94D925F81A4D3154009412C0 /* RootTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabBarViewController.m; sourceTree = "<group>"; };
+		94EB349E1A7D186900937044 /* FenleiModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiModel.h; sourceTree = "<group>"; };
+		94EB349F1A7D186900937044 /* FenleiModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiModel.m; sourceTree = "<group>"; };
+		94EB34A11A7D26E700937044 /* FenleiSecondTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiSecondTableCell.h; sourceTree = "<group>"; };
+		94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiSecondTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +211,8 @@
 				941D8CF21A75CB6600FA27C7 /* FenleiViewController.m */,
 				94A1F67F1A791C2C00953C3C /* FenleiTableCell.h */,
 				94A1F6801A791C2C00953C3C /* FenleiTableCell.m */,
+				94EB34A11A7D26E700937044 /* FenleiSecondTableCell.h */,
+				94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -455,6 +463,8 @@
 			children = (
 				94A1F6831A79219F00953C3C /* FenleiDataManager.h */,
 				94A1F6841A79219F00953C3C /* FenleiDataManager.m */,
+				94EB349E1A7D186900937044 /* FenleiModel.h */,
+				94EB349F1A7D186900937044 /* FenleiModel.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -585,6 +595,7 @@
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,
 				947932E51A7664170057C2B6 /* RYRootBlurViewManager.m in Sources */,
 				941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */,
+				94EB34A01A7D186900937044 /* FenleiModel.m in Sources */,
 				941D8CF61A75CB8400FA27C7 /* SousuoViewController.m in Sources */,
 				947932E61A7664170057C2B6 /* RYBaseModel.m in Sources */,
 				9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */,
@@ -604,6 +615,7 @@
 				947932DB1A7664170057C2B6 /* UIView+RYUtilities.m in Sources */,
 				947932D11A7664170057C2B6 /* RYDownloaderManager.m in Sources */,
 				947655D41A393290007DBE24 /* StartViewController.m in Sources */,
+				94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */,
 				947932DC1A7664170057C2B6 /* UIDevice+RYUDID.m in Sources */,
 				9476565D1A393B1E007DBE24 /* main.m in Sources */,
 				947932EB1A76643C0057C2B6 /* ImagesContainView.m in Sources */,
