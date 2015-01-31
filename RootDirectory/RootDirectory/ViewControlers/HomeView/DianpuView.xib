@@ -11,11 +11,11 @@
             <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_square" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-SH-OjJ">
-                    <rect key="frame" x="23" y="3" width="15" height="15"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ico-location" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-SH-OjJ">
+                    <rect key="frame" x="20" y="3" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="15" id="7nO-LF-qIp"/>
-                        <constraint firstAttribute="width" constant="15" id="cF5-KJ-Qh0"/>
+                        <constraint firstAttribute="height" constant="20" id="7nO-LF-qIp"/>
+                        <constraint firstAttribute="width" constant="20" id="cF5-KJ-Qh0"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="环球港店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixU-CC-fxa">
@@ -56,6 +56,6 @@
         </view>
     </objects>
     <resources>
-        <image name="loading_square" width="640" height="640"/>
+        <image name="ico-location" width="64" height="64"/>
     </resources>
 </document>

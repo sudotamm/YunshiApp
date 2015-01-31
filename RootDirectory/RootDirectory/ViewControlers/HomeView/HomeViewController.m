@@ -100,6 +100,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setNaviTitle:@"首页"];
+    
+    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180.f, 30.f)];
+    logoImageView.image = [UIImage imageNamed:@"logo"];
+    logoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.navigationItem.titleView = logoImageView;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dianpuListResponseWithNotification:) name:kDianpuListResponseNotification object:nil];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:self.dianpuView];
     self.navigationItem.leftBarButtonItem = leftItem;
