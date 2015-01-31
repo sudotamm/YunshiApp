@@ -13,9 +13,13 @@
 
 @property (nonatomic, weak) IBOutlet UICollectionView *serviceCollectionView;
 @property (nonatomic, strong) DianpuView *dianpuView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *middleHeightConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *fenleiHeightConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomHeightConstraint;
 
 - (IBAction)shaogouButtonClicked:(id)sender;
 - (IBAction)qianggouButtonClicked:(id)sender;
 - (IBAction)lilanButtonClicked:(id)sender;
+- (IBAction)cuyifenxiangButtonClicked:(id)sender;
 
 @end

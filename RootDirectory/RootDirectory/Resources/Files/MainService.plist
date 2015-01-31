@@ -6,7 +6,7 @@
 		<key>name</key>
 		<string>安心肉类</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-1</string>
 		<key>des</key>
 		<string>安心放心的精品肉类</string>
 	</dict>
@@ -14,7 +14,7 @@
 		<key>name</key>
 		<string>新鲜水果</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-2</string>
 		<key>des</key>
 		<string>全球原产地当地新鲜的水果直送到店</string>
 	</dict>
@@ -22,7 +22,7 @@
 		<key>name</key>
 		<string>芝士火腿</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-3</string>
 		<key>des</key>
 		<string>顶级的西班牙火腿和品种齐全的全球优质的芝士</string>
 	</dict>
@@ -30,7 +30,7 @@
 		<key>name</key>
 		<string>田园时蔬</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-4</string>
 		<key>des</key>
 		<string>绿色、新鲜、美味、健康的田园时蔬</string>
 	</dict>
@@ -38,7 +38,7 @@
 		<key>name</key>
 		<string>生猛海鲜</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-5</string>
 		<key>des</key>
 		<string>全球最优质的精品海鲜直送到店</string>
 	</dict>
@@ -46,7 +46,7 @@
 		<key>name</key>
 		<string>自制熟食</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-6</string>
 		<key>des</key>
 		<string>精选食材，独特搭配，营养美味，舌尖上的完美享受，同享健康与美味</string>
 	</dict>
@@ -54,7 +54,7 @@
 		<key>name</key>
 		<string>精品酒饮</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-7</string>
 		<key>des</key>
 		<string>精选各地的优质酒类及生活饮品</string>
 	</dict>
@@ -62,7 +62,7 @@
 		<key>name</key>
 		<string>包装食品</string>
 		<key>image</key>
-		<string>loading_square</string>
+		<string>cate-8</string>
 		<key>des</key>
 		<string>美味优质的包装食品</string>
 	</dict>

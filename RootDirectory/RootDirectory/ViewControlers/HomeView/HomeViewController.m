@@ -67,6 +67,11 @@
     NSLog(@"精选礼篮...");
 }
 
+- (IBAction)cuyifenxiangButtonClicked:(id)sender
+{
+    NSLog(@"厨艺分享...");
+}
+
 #pragma mark - Notification methods
 - (void)dianpuListResponseWithNotification:(NSNotification *)notification
 {
@@ -90,7 +95,6 @@
 }
 
 #pragma mark - UIViewController methods
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -102,6 +106,10 @@
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"MainService" ofType:@"plist"];
     self.serviceArray = [NSArray arrayWithContentsOfFile:path];
+    
+    self.middleHeightConstraint.constant = self.view.frame.size.width/3/1.8;
+    self.bottomHeightConstraint.constant = self.view.frame.size.width*310/1080;
+    self.fenleiHeightConstraint.constant = 160.f*kUIYScaleValue;
 }
 
 - (void)dealloc

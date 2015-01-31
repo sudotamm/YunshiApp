@@ -90,7 +90,7 @@
 #define kUIXValue           320.f           //设计图宽度基准
 #define kUIYValue           568.f           //设计图高度基准
 #define kUIXScaleValue      [UIScreen mainScreen].bounds.size.width/kUIXValue
-#define kUIYScaleValue      [UIScreen mainScreen].bounds.size.height/kUIYValue
+#define kUIYScaleValue      ((Is3_5Inch)?568.f:[UIScreen mainScreen].bounds.size.height)/kUIYValue  //3.5inch 高度当做4inch来计算
 
 //App Constant Values
 #define kSuccessCode        1

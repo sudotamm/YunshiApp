@@ -34,30 +34,20 @@
         //iOS7中使用系统tintColor和barTintColor属性
         self.tabBar.tintColor = kMainProjColor;
     }
-/*
-    ****************iOS6中自定需要重新自定义tabBar的样式*******************
-    else
+    
+    //设置默认TabBarItem文字为白色
+    NSDictionary *normalState = @{
+                                  NSForegroundColorAttributeName : [UIColor whiteColor],
+                                  NSStrikethroughColorAttributeName: [UIColor whiteColor]
+                                  };
+    [[UITabBarItem appearance] setTitleTextAttributes:normalState forState:UIControlStateNormal];
+    //设置默认TabBarItem图片为白色
+    for(UITabBarItem *barItem in self.tabBar.items)
     {
-        self.tabBar.tintColor = [UIColor whiteColor];
-        self.tabBar.backgroundColor = nil;
-        self.tabBar.shadowImage = nil;
-        self.tabBar.selectionIndicatorImage = [UIImage imageNamed:@"loading_blank.png"];
-        NSDictionary *normalState = @{
-                                      UITextAttributeTextColor : [UIColor colorWithWhite:0.5f alpha:1.f],
-                                      UITextAttributeTextShadowColor: [UIColor whiteColor],
-                                      UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0, 1.0)]
-                                      };
-        
-        NSDictionary *selectedState = @{
-                                        UITextAttributeTextColor : kMainProjColor,
-                                        UITextAttributeTextShadowColor: [UIColor whiteColor],
-                                        UITextAttributeTextShadowOffset: [NSValue valueWithUIOffset:UIOffsetMake(0.0, 1.0)]
-                                        };
-        
-        [[UITabBarItem appearance] setTitleTextAttributes:normalState forState:UIControlStateNormal];
-        [[UITabBarItem appearance] setTitleTextAttributes:selectedState forState:UIControlStateSelected];
+        barItem.image = [barItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     }
-    */
+    //设置TabBarItem选中状态为白色
+    self.tabBar.tintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginViewWithNotification:) name:kShowLoginViewNotification object:nil];
 }
 
