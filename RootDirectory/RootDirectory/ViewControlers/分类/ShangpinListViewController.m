@@ -125,15 +125,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNaviTitle:@"商品列表"];
-    [self setRightNaviItemWithTitle:@"切换" imageName:nil];
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-    if(self.listType != kListSearch)
+    if(self.listType == kListSearch)
     {
+        [self setNaviTitle:@"搜索商品"];
+        self.contentTableView.tableHeaderView = self.searchBar;
+    }
+    else if(self.listType == kListBenyueqianggou)
+    {
+        [self setNaviTitle:@"本月抢购"];
         self.contentTableView.tableHeaderView = nil;
     }
     else
-        self.contentTableView.tableHeaderView = self.searchBar;
+    {
+        [self setNaviTitle:@"商品列表"];
+        self.contentTableView.tableHeaderView = nil;
+    }
+    
+    [self setRightNaviItemWithTitle:@"切换" imageName:nil];
     //移除空cell的seperator line
     self.contentTableView.tableFooterView = [UIView new];
     //下拉刷新
