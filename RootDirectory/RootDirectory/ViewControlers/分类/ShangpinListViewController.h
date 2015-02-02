@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, ShangpinListType)
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
+//2宫格展示
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+
 @property (nonatomic, strong) FenleiModel *fenleiModel;
 @property (nonatomic, assign) ShangpinListType listType;
 

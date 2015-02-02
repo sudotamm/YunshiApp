@@ -7,6 +7,7 @@
 //
 
 #import "ShangpinListViewController.h"
+#import "ShangpinCollectionCell.h"
 
 @interface ShangpinListViewController ()
 
@@ -104,7 +105,19 @@
 #pragma mark - BaseViewController methods
 - (void)rightItemTapped
 {
-    NSLog(@"切换");
+    if(self.contentTableView.hidden == YES)
+    {
+        self.contentTableView.hidden = NO;
+        self.collectionView.hidden = YES;
+        [self.contentTableView setContentOffset:CGPointZero];
+    }
+    else
+    {
+        self.contentTableView.hidden = YES;
+        self.collectionView.hidden = NO;
+        [self.collectionView reloadData];
+        [self.collectionView setContentOffset:CGPointZero];
+    }
 }
 
 #pragma mark - UIViewController methods
@@ -113,7 +126,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"商品列表"];
-    [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
+    [self setRightNaviItemWithTitle:@"切换" imageName:nil];
 //    self.automaticallyAdjustsScrollViewInsets = NO;
     if(self.listType != kListSearch)
     {
@@ -172,6 +185,34 @@
 {
     [self.view endEditing:YES];
     [self callServerToGetListDataWithPage:kInitPageNumber];
+}
+
+#pragma mark - UICollectionViewDataSource methods
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.shangpinArray.count;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ShangpinCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ShangpinCollectionCell" forIndexPath:indexPath];
+    ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
+    [cell reloadWithShangpin:sm];
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate methods
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)collectionViewLayout;
+    CGFloat cellWidth = (collectionView.frame.size.width-flowLayout.sectionInset.left-flowLayout.sectionInset.right-flowLayout.minimumInteritemSpacing)/2;
+       return CGSizeMake(cellWidth, 180.f);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [[RYHUDManager sharedManager] showWithMessage:@"商品详情..." customView:nil hideDelay:2.f];
 }
 
 #pragma mark - RYDownloaderDelegate methods

@@ -16,6 +16,7 @@
 		9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440C3B61A7A606100575038 /* RegisterViewController.m */; };
 		9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9451AAB01A4188A600CF4C33 /* CommonNaviController.m */; };
 		946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */; };
+		946C9A261A7FC77900B07D52 /* ShangpinCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */; };
 		947655D11A393290007DBE24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D01A393290007DBE24 /* AppDelegate.m */; };
 		947655D41A393290007DBE24 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D31A393290007DBE24 /* StartViewController.m */; };
 		947655FC1A393478007DBE24 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655F81A393478007DBE24 /* BaseViewController.m */; };
@@ -95,6 +96,8 @@
 		9451AAB01A4188A600CF4C33 /* CommonNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNaviController.m; sourceTree = "<group>"; };
 		946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinTableCell.h; sourceTree = "<group>"; };
 		946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinTableCell.m; sourceTree = "<group>"; };
+		946C9A241A7FC77900B07D52 /* ShangpinCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinCollectionCell.h; sourceTree = "<group>"; };
+		946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinCollectionCell.m; sourceTree = "<group>"; };
 		947655C81A393290007DBE24 /* RootDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RootDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947655CF1A393290007DBE24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		947655D01A393290007DBE24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */,
 				946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */,
 				946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */,
+				946C9A241A7FC77900B07D52 /* ShangpinCollectionCell.h */,
+				946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */,
 				947932D71A7664170057C2B6 /* RYAppBackgroundConfiger.m in Sources */,
 				94AFF2301A7FACCA00B88E5B /* ShangpinModel.m in Sources */,
+				946C9A261A7FC77900B07D52 /* ShangpinCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
