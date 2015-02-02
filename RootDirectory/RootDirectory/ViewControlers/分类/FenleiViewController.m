@@ -10,6 +10,7 @@
 #import "FenleiTableCell.h"
 #import "FenleiSecondTableCell.h"
 #import "FenleiThirdTableCell.h"
+#import "ShangpinListViewController.h"
 
 @interface FenleiViewController ()
 
@@ -97,6 +98,16 @@
     }
     [self showSecondTableView:NO];
     [self showThirdTableView:NO];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"FenleiToShangpinList"])
+    {
+        ShangpinListViewController *slvc = (ShangpinListViewController *)segue.destinationViewController;
+        slvc.hidesBottomBarWhenPushed = YES;
+        slvc.fenleiModel = sender;
+    }
 }
 
 - (void)dealloc
@@ -190,7 +201,8 @@
     }
     else
     {
-        [[RYHUDManager sharedManager] showWithMessage:@"进入商品列表" customView:nil hideDelay:2.f];
+        FenleiModel *fm = [self.thirdFenleiArray objectAtIndex:indexPath.row];
+        [self performSegueWithIdentifier:@"FenleiToShangpinList" sender:fm];
     }
 }
 

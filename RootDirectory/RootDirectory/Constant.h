@@ -99,6 +99,9 @@
 #define kMessageKey         @"msg"
 #define kLoginUserDataFile  @"LoginUserDataFile"
 #define kLargeImgCacheDir   @"LargeImgCacheDir"
+#define kSmallImgCacheDir   @"SmallImgCacheDir"
+#define kInitPageNumber     1
+#define kPageCount          20
 //Notification Keys
 //view notify
 #define kShowPannelViewNotification         @"ShowPannelViewNotification"
@@ -127,5 +130,6 @@
 #define kDianpuListUrl      @"shopList"
 //分类
 #define kFenleiListUrl      @"goodsCategory"
+#define kShangpinListUrl    @"goodsList"
 
 #endif

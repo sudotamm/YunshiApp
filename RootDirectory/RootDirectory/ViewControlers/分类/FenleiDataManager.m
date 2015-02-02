@@ -32,7 +32,7 @@
 - (void)requestFenleiListWithUserId:(NSString *)userId
                            dianpuId:(NSString *)dianpuId
 {
-    [[RYHUDManager sharedManager] showWithMessage:@"加载中..." customView:nil hideDelay:2.f];
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
     NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kFenleiListUrl];
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
     [paramDict setObject:userId forKey:@"userId"];

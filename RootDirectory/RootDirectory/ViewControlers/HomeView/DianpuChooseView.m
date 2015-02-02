@@ -40,7 +40,7 @@
         cell.textLabel.textColor = [UIColor whiteColor];
         cell.textLabel.font = [UIFont systemFontOfSize:13.f];
     }
-    if(IsIos7)
+    if(IsIos8)
     {
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;

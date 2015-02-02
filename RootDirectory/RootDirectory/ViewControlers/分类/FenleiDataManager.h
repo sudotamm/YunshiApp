@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "FenleiModel.h"
+#import "ShangpinModel.h"
 
 @interface FenleiDataManager : NSObject
 

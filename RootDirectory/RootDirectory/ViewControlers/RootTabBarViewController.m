@@ -9,6 +9,7 @@
 #import "RootTabBarViewController.h"
 #import "UserViewController.h"
 #import "GouwucheViewController.h"
+#import "ShangpinListViewController.h"
 
 @interface RootTabBarViewController ()
 
@@ -86,6 +87,11 @@
                 return NO;
             }
             return YES;
+        }
+        else if([vc isKindOfClass:[ShangpinListViewController class]])
+        {
+            ShangpinListViewController *slvc = (ShangpinListViewController *)vc;
+            slvc.listType = kListSearch;
         }
     }
     return YES;

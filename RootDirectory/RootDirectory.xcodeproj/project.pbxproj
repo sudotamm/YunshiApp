@@ -15,6 +15,7 @@
 		941D8CFC1A75CBB700FA27C7 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941D8CFB1A75CBB700FA27C7 /* UserViewController.m */; };
 		9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440C3B61A7A606100575038 /* RegisterViewController.m */; };
 		9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9451AAB01A4188A600CF4C33 /* CommonNaviController.m */; };
+		946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */; };
 		947655D11A393290007DBE24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D01A393290007DBE24 /* AppDelegate.m */; };
 		947655D41A393290007DBE24 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D31A393290007DBE24 /* StartViewController.m */; };
 		947655FC1A393478007DBE24 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655F81A393478007DBE24 /* BaseViewController.m */; };
@@ -57,6 +58,12 @@
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
 		94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6801A791C2C00953C3C /* FenleiTableCell.m */; };
 		94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6841A79219F00953C3C /* FenleiDataManager.m */; };
+		94AFF2201A7FA76200B88E5B /* ShangpinListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */; };
+		94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */; };
+		94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2251A7FABC400B88E5B /* MJRefreshBaseView.m */; };
+		94AFF22C1A7FABC400B88E5B /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2271A7FABC400B88E5B /* MJRefreshFooterView.m */; };
+		94AFF22D1A7FABC400B88E5B /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2291A7FABC400B88E5B /* MJRefreshHeaderView.m */; };
+		94AFF2301A7FACCA00B88E5B /* ShangpinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF22F1A7FACCA00B88E5B /* ShangpinModel.m */; };
 		94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B776561A77BF8B00364BC2 /* LoginViewController.m */; };
 		94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF586C1A7A5F8200E6F3E0 /* ABCMember.m */; };
 		94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF586E1A7A5F8200E6F3E0 /* ABCMemberDataManager.m */; };
@@ -86,6 +93,8 @@
 		9440C3B61A7A606100575038 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9451AAAF1A4188A600CF4C33 /* CommonNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNaviController.h; sourceTree = "<group>"; };
 		9451AAB01A4188A600CF4C33 /* CommonNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNaviController.m; sourceTree = "<group>"; };
+		946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinTableCell.h; sourceTree = "<group>"; };
+		946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinTableCell.m; sourceTree = "<group>"; };
 		947655C81A393290007DBE24 /* RootDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RootDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		947655CF1A393290007DBE24 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		947655D01A393290007DBE24 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -170,6 +179,18 @@
 		94A1F6801A791C2C00953C3C /* FenleiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiTableCell.m; sourceTree = "<group>"; };
 		94A1F6831A79219F00953C3C /* FenleiDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiDataManager.h; sourceTree = "<group>"; };
 		94A1F6841A79219F00953C3C /* FenleiDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiDataManager.m; sourceTree = "<group>"; };
+		94AFF21E1A7FA76200B88E5B /* ShangpinListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinListViewController.h; sourceTree = "<group>"; };
+		94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinListViewController.m; sourceTree = "<group>"; };
+		94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		94AFF2231A7FABC400B88E5B /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		94AFF2241A7FABC400B88E5B /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		94AFF2251A7FABC400B88E5B /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		94AFF2261A7FABC400B88E5B /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		94AFF2271A7FABC400B88E5B /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		94AFF2281A7FABC400B88E5B /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		94AFF2291A7FABC400B88E5B /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		94AFF22E1A7FACCA00B88E5B /* ShangpinModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinModel.h; sourceTree = "<group>"; };
+		94AFF22F1A7FACCA00B88E5B /* ShangpinModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinModel.m; sourceTree = "<group>"; };
 		94B776551A77BF8B00364BC2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		94B776561A77BF8B00364BC2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		94BF586B1A7A5F8200E6F3E0 /* ABCMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMember.h; sourceTree = "<group>"; };
@@ -218,6 +239,10 @@
 				94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */,
 				94EB34A41A7D31CD00937044 /* FenleiThirdTableCell.h */,
 				94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */,
+				94AFF21E1A7FA76200B88E5B /* ShangpinListViewController.h */,
+				94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */,
+				946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */,
+				946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -342,6 +367,7 @@
 		947656101A393697007DBE24 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				94AFF2211A7FABC400B88E5B /* MJRefresh */,
 				947656111A3936BD007DBE24 /* RYUtils */,
 			);
 			path = Utilities;
@@ -470,8 +496,25 @@
 				94A1F6841A79219F00953C3C /* FenleiDataManager.m */,
 				94EB349E1A7D186900937044 /* FenleiModel.h */,
 				94EB349F1A7D186900937044 /* FenleiModel.m */,
+				94AFF22E1A7FACCA00B88E5B /* ShangpinModel.h */,
+				94AFF22F1A7FACCA00B88E5B /* ShangpinModel.m */,
 			);
 			name = DataCenter;
+			sourceTree = "<group>";
+		};
+		94AFF2211A7FABC400B88E5B /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */,
+				94AFF2231A7FABC400B88E5B /* MJRefresh.h */,
+				94AFF2241A7FABC400B88E5B /* MJRefreshBaseView.h */,
+				94AFF2251A7FABC400B88E5B /* MJRefreshBaseView.m */,
+				94AFF2261A7FABC400B88E5B /* MJRefreshFooterView.h */,
+				94AFF2271A7FABC400B88E5B /* MJRefreshFooterView.m */,
+				94AFF2281A7FABC400B88E5B /* MJRefreshHeaderView.h */,
+				94AFF2291A7FABC400B88E5B /* MJRefreshHeaderView.m */,
+			);
+			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 		94B776541A77BEC900364BC2 /* 注册登录 */ = {
@@ -574,6 +617,7 @@
 				947932FA1A7677540057C2B6 /* DianpuView.xib in Resources */,
 				947932FF1A767A350057C2B6 /* DianpuChooseView.xib in Resources */,
 				947932F11A7668900057C2B6 /* MainService.plist in Resources */,
+				94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */,
 				94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */,
 				947932EC1A76643C0057C2B6 /* ImagesContainView.xib in Resources */,
 				94C94ACC1A77C6BE00DE8C2F /* QRcodeScanViewController.xib in Resources */,
@@ -587,6 +631,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AFF22D1A7FABC400B88E5B /* MJRefreshHeaderView.m in Sources */,
 				947932D21A7664170057C2B6 /* RYHUDManager.m in Sources */,
 				94D925F61A4D2CF0009412C0 /* PannelViewController.m in Sources */,
 				9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */,
@@ -607,6 +652,7 @@
 				94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */,
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
+				94AFF2201A7FA76200B88E5B /* ShangpinListViewController.m in Sources */,
 				947932D31A7664170057C2B6 /* MBProgressHUD.m in Sources */,
 				94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */,
 				947932E01A7664170057C2B6 /* RYCycleScrollView.m in Sources */,
@@ -614,6 +660,7 @@
 				947932F51A7676520057C2B6 /* HomeDataManager.m in Sources */,
 				947932E41A7664170057C2B6 /* UIImage+RYAssetLaunchImage.m in Sources */,
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
+				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,
 				947932D51A7664170057C2B6 /* RYAsynImageView.m in Sources */,
@@ -630,9 +677,11 @@
 				947932DE1A7664170057C2B6 /* RYXMLReader.m in Sources */,
 				947932D91A7664170057C2B6 /* RYReverseLocation.m in Sources */,
 				947932D41A7664170057C2B6 /* NSObject+RYPropertyList.m in Sources */,
+				946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */,
 				947655D11A393290007DBE24 /* AppDelegate.m in Sources */,
 				947932DD1A7664170057C2B6 /* NSArray+RYLocationTransform.m in Sources */,
 				947932DF1A7664170057C2B6 /* RYCommonMethods.m in Sources */,
+				94AFF22C1A7FABC400B88E5B /* MJRefreshFooterView.m in Sources */,
 				947932FD1A767A190057C2B6 /* DianpuChooseView.m in Sources */,
 				947932E11A7664170057C2B6 /* UIImage+RYUtilities.m in Sources */,
 				947932D01A7664170057C2B6 /* RYDownloader.m in Sources */,
@@ -640,6 +689,7 @@
 				947932EF1A7667850057C2B6 /* ServiceCell.m in Sources */,
 				9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */,
 				947932D71A7664170057C2B6 /* RYAppBackgroundConfiger.m in Sources */,
+				94AFF2301A7FACCA00B88E5B /* ShangpinModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

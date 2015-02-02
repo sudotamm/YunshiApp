@@ -10,6 +10,7 @@
 #import "ServiceCell.h"
 #import "DianpuChooseView.h"
 #import "QRcodeScanViewController.h"
+#import "ShangpinListViewController.h"
 
 #define kListCount 4
 
@@ -60,7 +61,11 @@
 }
 - (IBAction)qianggouButtonClicked:(id)sender
 {
-    NSLog(@"本月抢购...");
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ShangpinListViewController *slvc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ShangpinListViewController"];
+    slvc.listType = kListBenyueqianggou;
+    slvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:slvc animated:YES];
 }
 - (IBAction)lilanButtonClicked:(id)sender
 {
