@@ -58,6 +58,14 @@
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
 		94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6801A791C2C00953C3C /* FenleiTableCell.m */; };
 		94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6841A79219F00953C3C /* FenleiDataManager.m */; };
+		94A8FEAF1A80ED0F00F2A226 /* ShangpinDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEAE1A80ED0F00F2A226 /* ShangpinDetailViewController.m */; };
+		94A8FEB21A80ED7F00F2A226 /* ShangpinDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEB11A80ED7F00F2A226 /* ShangpinDetailModel.m */; };
+		94A8FEB51A80EDAD00F2A226 /* TaocanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEB41A80EDAD00F2A226 /* TaocanModel.m */; };
+		94A8FEB81A80FF6D00F2A226 /* TaocanCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEB71A80FF6D00F2A226 /* TaocanCollectionCell.m */; };
+		94A8FEC01A81035A00F2A226 /* RYPhotoBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEBB1A81035A00F2A226 /* RYPhotoBrowserCell.m */; };
+		94A8FEC11A81035A00F2A226 /* RYPhotoBrowserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A8FEBC1A81035A00F2A226 /* RYPhotoBrowserCell.xib */; };
+		94A8FEC21A81035A00F2A226 /* RYPhotoBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEBE1A81035A00F2A226 /* RYPhotoBrowserViewController.m */; };
+		94A8FEC31A81035A00F2A226 /* RYPhotoBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A8FEBF1A81035A00F2A226 /* RYPhotoBrowserViewController.xib */; };
 		94AFF2201A7FA76200B88E5B /* ShangpinListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */; };
 		94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */; };
 		94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2251A7FABC400B88E5B /* MJRefreshBaseView.m */; };
@@ -180,6 +188,20 @@
 		94A1F6801A791C2C00953C3C /* FenleiTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiTableCell.m; sourceTree = "<group>"; };
 		94A1F6831A79219F00953C3C /* FenleiDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiDataManager.h; sourceTree = "<group>"; };
 		94A1F6841A79219F00953C3C /* FenleiDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiDataManager.m; sourceTree = "<group>"; };
+		94A8FEAD1A80ED0F00F2A226 /* ShangpinDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinDetailViewController.h; sourceTree = "<group>"; };
+		94A8FEAE1A80ED0F00F2A226 /* ShangpinDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinDetailViewController.m; sourceTree = "<group>"; };
+		94A8FEB01A80ED7E00F2A226 /* ShangpinDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinDetailModel.h; sourceTree = "<group>"; };
+		94A8FEB11A80ED7F00F2A226 /* ShangpinDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinDetailModel.m; sourceTree = "<group>"; };
+		94A8FEB31A80EDAD00F2A226 /* TaocanModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaocanModel.h; sourceTree = "<group>"; };
+		94A8FEB41A80EDAD00F2A226 /* TaocanModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanModel.m; sourceTree = "<group>"; };
+		94A8FEB61A80FF6D00F2A226 /* TaocanCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaocanCollectionCell.h; sourceTree = "<group>"; };
+		94A8FEB71A80FF6D00F2A226 /* TaocanCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanCollectionCell.m; sourceTree = "<group>"; };
+		94A8FEBA1A81035A00F2A226 /* RYPhotoBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYPhotoBrowserCell.h; sourceTree = "<group>"; };
+		94A8FEBB1A81035A00F2A226 /* RYPhotoBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYPhotoBrowserCell.m; sourceTree = "<group>"; };
+		94A8FEBC1A81035A00F2A226 /* RYPhotoBrowserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RYPhotoBrowserCell.xib; sourceTree = "<group>"; };
+		94A8FEBD1A81035A00F2A226 /* RYPhotoBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYPhotoBrowserViewController.h; sourceTree = "<group>"; };
+		94A8FEBE1A81035A00F2A226 /* RYPhotoBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYPhotoBrowserViewController.m; sourceTree = "<group>"; };
+		94A8FEBF1A81035A00F2A226 /* RYPhotoBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RYPhotoBrowserViewController.xib; sourceTree = "<group>"; };
 		94AFF21E1A7FA76200B88E5B /* ShangpinListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinListViewController.h; sourceTree = "<group>"; };
 		94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinListViewController.m; sourceTree = "<group>"; };
 		94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -248,6 +270,10 @@
 				946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */,
 				946C9A241A7FC77900B07D52 /* ShangpinCollectionCell.h */,
 				946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */,
+				94A8FEAD1A80ED0F00F2A226 /* ShangpinDetailViewController.h */,
+				94A8FEAE1A80ED0F00F2A226 /* ShangpinDetailViewController.m */,
+				94A8FEB61A80FF6D00F2A226 /* TaocanCollectionCell.h */,
+				94A8FEB71A80FF6D00F2A226 /* TaocanCollectionCell.m */,
 			);
 			path = "分类";
 			sourceTree = "<group>";
@@ -462,6 +488,7 @@
 		947932E71A7664290057C2B6 /* 通用 */ = {
 			isa = PBXGroup;
 			children = (
+				94A8FEB91A81035A00F2A226 /* RYPhotoBrowser-Arc */,
 				947932E81A76643C0057C2B6 /* ImagesContainView.h */,
 				947932E91A76643C0057C2B6 /* ImagesContainView.m */,
 				947932EA1A76643C0057C2B6 /* ImagesContainView.xib */,
@@ -503,8 +530,25 @@
 				94EB349F1A7D186900937044 /* FenleiModel.m */,
 				94AFF22E1A7FACCA00B88E5B /* ShangpinModel.h */,
 				94AFF22F1A7FACCA00B88E5B /* ShangpinModel.m */,
+				94A8FEB01A80ED7E00F2A226 /* ShangpinDetailModel.h */,
+				94A8FEB11A80ED7F00F2A226 /* ShangpinDetailModel.m */,
+				94A8FEB31A80EDAD00F2A226 /* TaocanModel.h */,
+				94A8FEB41A80EDAD00F2A226 /* TaocanModel.m */,
 			);
 			name = DataCenter;
+			sourceTree = "<group>";
+		};
+		94A8FEB91A81035A00F2A226 /* RYPhotoBrowser-Arc */ = {
+			isa = PBXGroup;
+			children = (
+				94A8FEBA1A81035A00F2A226 /* RYPhotoBrowserCell.h */,
+				94A8FEBB1A81035A00F2A226 /* RYPhotoBrowserCell.m */,
+				94A8FEBC1A81035A00F2A226 /* RYPhotoBrowserCell.xib */,
+				94A8FEBD1A81035A00F2A226 /* RYPhotoBrowserViewController.h */,
+				94A8FEBE1A81035A00F2A226 /* RYPhotoBrowserViewController.m */,
+				94A8FEBF1A81035A00F2A226 /* RYPhotoBrowserViewController.xib */,
+			);
+			path = "RYPhotoBrowser-Arc";
 			sourceTree = "<group>";
 		};
 		94AFF2211A7FABC400B88E5B /* MJRefresh */ = {
@@ -622,7 +666,9 @@
 				947932FA1A7677540057C2B6 /* DianpuView.xib in Resources */,
 				947932FF1A767A350057C2B6 /* DianpuChooseView.xib in Resources */,
 				947932F11A7668900057C2B6 /* MainService.plist in Resources */,
+				94A8FEC31A81035A00F2A226 /* RYPhotoBrowserViewController.xib in Resources */,
 				94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */,
+				94A8FEC11A81035A00F2A226 /* RYPhotoBrowserCell.xib in Resources */,
 				94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */,
 				947932EC1A76643C0057C2B6 /* ImagesContainView.xib in Resources */,
 				94C94ACC1A77C6BE00DE8C2F /* QRcodeScanViewController.xib in Resources */,
@@ -649,11 +695,15 @@
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,
 				947932E51A7664170057C2B6 /* RYRootBlurViewManager.m in Sources */,
+				94A8FEC01A81035A00F2A226 /* RYPhotoBrowserCell.m in Sources */,
 				941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */,
+				94A8FEC21A81035A00F2A226 /* RYPhotoBrowserViewController.m in Sources */,
 				94EB34A01A7D186900937044 /* FenleiModel.m in Sources */,
 				941D8CF61A75CB8400FA27C7 /* SousuoViewController.m in Sources */,
+				94A8FEB21A80ED7F00F2A226 /* ShangpinDetailModel.m in Sources */,
 				947932E61A7664170057C2B6 /* RYBaseModel.m in Sources */,
 				9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */,
+				94A8FEB81A80FF6D00F2A226 /* TaocanCollectionCell.m in Sources */,
 				94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */,
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
@@ -668,9 +718,11 @@
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
+				94A8FEB51A80EDAD00F2A226 /* TaocanModel.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,
 				947932D51A7664170057C2B6 /* RYAsynImageView.m in Sources */,
 				947932DB1A7664170057C2B6 /* UIView+RYUtilities.m in Sources */,
+				94A8FEAF1A80ED0F00F2A226 /* ShangpinDetailViewController.m in Sources */,
 				947932D11A7664170057C2B6 /* RYDownloaderManager.m in Sources */,
 				94EB34A61A7D31CD00937044 /* FenleiThirdTableCell.m in Sources */,
 				947655D41A393290007DBE24 /* StartViewController.m in Sources */,

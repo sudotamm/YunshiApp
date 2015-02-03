@@ -8,6 +8,7 @@
 
 #import "ShangpinListViewController.h"
 #import "ShangpinCollectionCell.h"
+#import "ShangpinDetailViewController.h"
 
 @interface ShangpinListViewController ()
 
@@ -156,6 +157,16 @@
     [self callServerToGetListDataWithPage:kInitPageNumber];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"ShangpinListToDetail"])
+    {
+        ShangpinDetailViewController *sdvc = (ShangpinDetailViewController *)segue.destinationViewController;
+        sdvc.hidesBottomBarWhenPushed = YES;
+        sdvc.shangpinId = sender;
+    }
+}
+
 - (void)dealloc
 {
     [[RYDownloaderManager sharedManager] cancelDownloaderWithDelegate:self purpose:nil];
@@ -179,7 +190,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[RYHUDManager sharedManager] showWithMessage:@"商品详情..." customView:nil hideDelay:2.f];
+    ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"ShangpinListToDetail" sender:sm.gId];
 }
 
 #pragma mark - ShangpinTableCellDelegate methods
@@ -220,7 +232,8 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[RYHUDManager sharedManager] showWithMessage:@"商品详情..." customView:nil hideDelay:2.f];
+    ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"ShangpinListToDetail" sender:sm.gId];
 }
 
 #pragma mark - RYDownloaderDelegate methods
