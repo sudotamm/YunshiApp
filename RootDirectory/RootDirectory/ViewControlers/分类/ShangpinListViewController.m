@@ -9,6 +9,7 @@
 #import "ShangpinListViewController.h"
 #import "ShangpinCollectionCell.h"
 #import "ShangpinDetailViewController.h"
+#import "GouwuConfirmView.h"
 
 @interface ShangpinListViewController ()
 
@@ -197,7 +198,9 @@
 #pragma mark - ShangpinTableCellDelegate methods
 - (void)didShangpinBuyWithCell:(ShangpinTableCell *)cell
 {
-    [[RYHUDManager sharedManager] showWithMessage:@"加入购物车..." customView:nil hideDelay:2.f];
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GouwuConfirmView" owner:self options:nil];
+    GouwuConfirmView *gcv = [nibs lastObject];
+    [[RYRootBlurViewManager sharedManger] showWithBlurImage:nil contentView:gcv position:CGPointZero];
 }
 
 #pragma mark - UISearchBarDelegate methods

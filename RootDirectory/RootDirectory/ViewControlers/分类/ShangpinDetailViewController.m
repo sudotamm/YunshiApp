@@ -68,11 +68,33 @@
 #pragma mark - Public methods
 - (IBAction)jiaButtonClicked:(id)sender
 {
-    NSLog(@"加数量...");
+    NSInteger count = [self.shuliangField.text integerValue];
+    count++;
+    self.shuliangField.text = [NSString stringWithFormat:@"%@",@(count)];
+    if(count <=1)
+    {
+        self.jianButton.enabled = NO;
+    }
+    else
+    {
+        self.jianButton.enabled = YES;
+    }
+    
+    
 }
 - (IBAction)jianButtonClicked:(id)sender
 {
-    NSLog(@"减数量...");
+    NSInteger count = [self.shuliangField.text integerValue];
+    count--;
+    self.shuliangField.text = [NSString stringWithFormat:@"%@",@(count)];
+    if(count <=1)
+    {
+        self.jianButton.enabled = NO;
+    }
+    else
+    {
+        self.jianButton.enabled = YES;
+    }
 }
 - (IBAction)buyButtonClicked:(id)sender
 {
