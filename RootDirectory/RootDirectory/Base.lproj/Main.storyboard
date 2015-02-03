@@ -388,10 +388,120 @@
                         <viewControllerLayoutGuide type="top" id="FgH-xb-rw2"/>
                         <viewControllerLayoutGuide type="bottom" id="qbr-ae-mGr"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MQK-lY-bZh">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ceg-SY-Z2b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-bg.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="5mL-Xq-34s">
+                                <rect key="frame" x="35" y="95" width="320" height="180"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user-userhead" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-2k-OiZ">
+                                <rect key="frame" x="155" y="145" width="80" height="80"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlV-Ft-04C">
+                                <rect key="frame" x="96" y="233" width="198" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohJ-TE-4Ez">
+                                <rect key="frame" x="35" y="283" width="320" height="245"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NgV-MG-D8X">
+                                        <rect key="frame" x="6" y="0.0" width="100" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico-1" translatesAutoresizingMaskIntoConstraints="NO" id="9d0-rs-H5p">
+                                                <rect key="frame" x="32" y="30" width="36" height="36"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的订单" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7QC-42-Hma">
+                                                <rect key="frame" x="0.0" y="80" width="100" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QTc-op-mG0">
+                                        <rect key="frame" x="110" y="0.0" width="100" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico-2" translatesAutoresizingMaskIntoConstraints="NO" id="xNT-yS-gwM">
+                                                <rect key="frame" x="32" y="30" width="36" height="36"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="收货地址" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRa-Jw-XWs">
+                                                <rect key="frame" x="0.0" y="80" width="100" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2if-36-5zO">
+                                        <rect key="frame" x="214" y="0.0" width="100" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico-3" translatesAutoresizingMaskIntoConstraints="NO" id="OZ6-3w-sWo">
+                                                <rect key="frame" x="32" y="30" width="36" height="36"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的收藏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PE7-RI-sEb">
+                                                <rect key="frame" x="0.0" y="80" width="100" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nMp-th-6ua">
+                                        <rect key="frame" x="6" y="125" width="100" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico-4" translatesAutoresizingMaskIntoConstraints="NO" id="gK2-jk-4Ce">
+                                                <rect key="frame" x="32" y="30" width="36" height="36"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="课程查询" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbV-7i-rC3">
+                                                <rect key="frame" x="0.0" y="80" width="100" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wKR-Ri-voN">
+                                        <rect key="frame" x="110" y="125" width="100" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico-5" translatesAutoresizingMaskIntoConstraints="NO" id="noY-bH-2aJ">
+                                                <rect key="frame" x="32" y="30" width="36" height="36"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的信息" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7M-Rp-hcI">
+                                                <rect key="frame" x="0.0" y="80" width="100" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="04S-mG-Adr">
+                                        <rect key="frame" x="214" y="125" width="100" height="120"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ico-6" translatesAutoresizingMaskIntoConstraints="NO" id="7d5-vC-yV1">
+                                                <rect key="frame" x="32" y="30" width="36" height="36"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="设置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMI-G6-f60">
+                                                <rect key="frame" x="0.0" y="80" width="100" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="xst-QB-iCI"/>
                 </viewController>
@@ -1254,6 +1364,12 @@
         <image name="home_btn1" width="179" height="100"/>
         <image name="home_btn2" width="179" height="100"/>
         <image name="home_btn3" width="179" height="100"/>
+        <image name="ico-1" width="128" height="128"/>
+        <image name="ico-2" width="128" height="128"/>
+        <image name="ico-3" width="128" height="128"/>
+        <image name="ico-4" width="128" height="128"/>
+        <image name="ico-5" width="128" height="128"/>
+        <image name="ico-6" width="128" height="128"/>
         <image name="ico-buy" width="26" height="26"/>
         <image name="img_accessory" width="10" height="17"/>
         <image name="line_hon_1px_down" width="640" height="1"/>
@@ -1269,6 +1385,8 @@
         <image name="nav-current" width="3" height="49"/>
         <image name="tmp1" width="750" height="326"/>
         <image name="tmp4" width="360" height="103"/>
+        <image name="user-bg.jpg" width="1080" height="610"/>
+        <image name="user-userhead" width="270" height="270"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Pz8-LQ-Lsf"/>
