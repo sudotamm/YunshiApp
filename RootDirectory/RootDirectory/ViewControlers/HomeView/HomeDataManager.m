@@ -58,7 +58,6 @@
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
-    NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     if([downloader.purpose isEqualToString:kDianpuDownlaoderKey])
     {
@@ -68,12 +67,6 @@
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             self.dianpuArray = [NSMutableArray array];
             NSArray *array = [dict objectForKey:@"list"];
-            
-            //todo - add test data
-            NSDictionary *dict1 = @{@"sName":@"环球港店1",@"sCode":@"01"};
-            NSDictionary *dict2 = @{@"sName":@"环球港店2",@"sCode":@"01"};
-            array = [NSArray arrayWithObjects:dict1,dict2, nil];
-            //
             if(array.count > 0)
             {
                 for(NSDictionary *dictDianpu in array)
