@@ -116,9 +116,7 @@
     [self setNaviTitle:@"首页"];
     
     //设置标题logo
-    UIImageView *logoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180.f, 30.f)];
-    logoImageView.image = [UIImage imageNamed:@"logo"];
-    logoImageView.contentMode = UIViewContentModeScaleAspectFit;
+    UIImageView *logoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
     self.navigationItem.titleView = logoImageView;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dianpuListResponseWithNotification:) name:kDianpuListResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dianpuChangeWithNoitfication:) name:kDianpuChangeNotification object:nil];
