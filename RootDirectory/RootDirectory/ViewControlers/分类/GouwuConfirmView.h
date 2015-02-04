@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *danjiaLabel;
 @property (nonatomic, weak) IBOutlet UILabel *xiaojiLabel;
 @property (nonatomic, weak) IBOutlet UILabel *tipLabel;
+@property (nonatomic, weak) IBOutlet UIButton *querenButton;
 
 - (IBAction)jianButtonClicked:(id)sender;
 - (IBAction)jiaButtonClicked:(id)sender;

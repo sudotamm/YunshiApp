@@ -40,7 +40,7 @@
     else
     {
         TaocanModel *tm = [FenleiDataManager sharedManager].gouwuModel;
-        self.tipLabel.text = tm.cName;
+        self.titleLabel.text = tm.cName;
         self.danjiaLabel.text = [NSString stringWithFormat:@"￥%@",tm.cNewPrice];
     }
     self.shuliangField.text = [NSString stringWithFormat:@"%@",@([FenleiDataManager sharedManager].chosenNum)];

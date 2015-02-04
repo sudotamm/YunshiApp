@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "TaocanTableCell.h"
 
-@interface TaocanListViewController : BaseViewController
+@interface TaocanListViewController : BaseViewController<TaocanTableCellDelegate>
+
+@property (nonatomic, weak) IBOutlet UITableView *contentTableView;
 
 @end

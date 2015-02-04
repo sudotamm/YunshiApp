@@ -131,6 +131,7 @@
 
 //首页
 #define kDianpuListUrl      @"shopList"
+#define kBasketListUrl      @"basketList"
 //分类
 #define kFenleiListUrl      @"goodsCategory"
 #define kShangpinListUrl    @"goodsList"

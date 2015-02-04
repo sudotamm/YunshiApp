@@ -98,7 +98,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="单价：" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZY-3A-4p3" userLabel="单价">
-                            <rect key="frame" x="97" y="0.0" width="39" height="30"/>
+                            <rect key="frame" x="94" y="0.0" width="39" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.83137254900000002" green="0.0" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                     <constraints>
                         <constraint firstItem="Iny-vz-9Dr" firstAttribute="leading" secondItem="Hv1-mA-m1c" secondAttribute="leading" constant="50" id="KrV-ad-Z9m"/>
                         <constraint firstItem="Iny-vz-9Dr" firstAttribute="top" secondItem="Hv1-mA-m1c" secondAttribute="top" id="VqH-jp-EbS"/>
-                        <constraint firstItem="YZY-3A-4p3" firstAttribute="leading" secondItem="Iny-vz-9Dr" secondAttribute="trailing" constant="8" id="eog-fb-G00"/>
+                        <constraint firstItem="YZY-3A-4p3" firstAttribute="leading" secondItem="Iny-vz-9Dr" secondAttribute="trailing" constant="5" id="eog-fb-G00"/>
                         <constraint firstAttribute="bottom" secondItem="Iny-vz-9Dr" secondAttribute="bottom" id="irq-hy-vYa"/>
                         <constraint firstItem="YZY-3A-4p3" firstAttribute="top" secondItem="Hv1-mA-m1c" secondAttribute="top" id="qkr-4m-bDc"/>
                         <constraint firstAttribute="bottom" secondItem="YZY-3A-4p3" secondAttribute="bottom" id="vZw-HK-dJX"/>
@@ -222,6 +222,7 @@
                 <outlet property="danjiaLabel" destination="YZY-3A-4p3" id="szW-DB-6LJ"/>
                 <outlet property="jiaButton" destination="p2z-ob-nj7" id="QfH-C5-Rx3"/>
                 <outlet property="jianButton" destination="26e-1W-Cca" id="MAh-PK-eNL"/>
+                <outlet property="querenButton" destination="o1R-dm-agr" id="Ghp-rg-1qO"/>
                 <outlet property="shuliangField" destination="lZ0-If-8Z5" id="uog-in-KKw"/>
                 <outlet property="tipLabel" destination="aRe-Na-4P8" id="aTa-xL-t37"/>
                 <outlet property="titleLabel" destination="ly9-Gx-V1d" id="2GX-rJ-920"/>

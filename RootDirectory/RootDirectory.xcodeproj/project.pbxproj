@@ -56,6 +56,7 @@
 		947932FF1A767A350057C2B6 /* DianpuChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 947932FE1A767A350057C2B6 /* DianpuChooseView.xib */; };
 		9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9479330A1A76854D0057C2B6 /* DianpuModel.m */; };
 		947B420B1A81E0E200D4B13A /* TaocanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B420A1A81E0E200D4B13A /* TaocanListViewController.m */; };
+		947B420E1A81E9BF00D4B13A /* TaocanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B420D1A81E9BF00D4B13A /* TaocanTableCell.m */; };
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
 		94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6801A791C2C00953C3C /* FenleiTableCell.m */; };
 		94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6841A79219F00953C3C /* FenleiDataManager.m */; };
@@ -187,6 +188,8 @@
 		9479330A1A76854D0057C2B6 /* DianpuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianpuModel.m; sourceTree = "<group>"; };
 		947B42091A81E0E200D4B13A /* TaocanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaocanListViewController.h; sourceTree = "<group>"; };
 		947B420A1A81E0E200D4B13A /* TaocanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanListViewController.m; sourceTree = "<group>"; };
+		947B420C1A81E9BF00D4B13A /* TaocanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaocanTableCell.h; sourceTree = "<group>"; };
+		947B420D1A81E9BF00D4B13A /* TaocanTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanTableCell.m; sourceTree = "<group>"; };
 		94A0F1D31A523DD700A147EC /* RootNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNaviViewController.h; sourceTree = "<group>"; };
 		94A0F1D41A523DD700A147EC /* RootNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNaviViewController.m; sourceTree = "<group>"; };
 		94A1F67F1A791C2C00953C3C /* FenleiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiTableCell.h; sourceTree = "<group>"; };
@@ -402,6 +405,8 @@
 				947932FE1A767A350057C2B6 /* DianpuChooseView.xib */,
 				947B42091A81E0E200D4B13A /* TaocanListViewController.h */,
 				947B420A1A81E0E200D4B13A /* TaocanListViewController.m */,
+				947B420C1A81E9BF00D4B13A /* TaocanTableCell.h */,
+				947B420D1A81E9BF00D4B13A /* TaocanTableCell.m */,
 				94C94AC71A77C6A400DE8C2F /* 实体扫购 */,
 			);
 			name = "首页";
@@ -709,6 +714,7 @@
 				941D8CF31A75CB6600FA27C7 /* FenleiViewController.m in Sources */,
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,
+				947B420E1A81E9BF00D4B13A /* TaocanTableCell.m in Sources */,
 				947932E51A7664170057C2B6 /* RYRootBlurViewManager.m in Sources */,
 				94A8FEC01A81035A00F2A226 /* RYPhotoBrowserCell.m in Sources */,
 				941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */,
