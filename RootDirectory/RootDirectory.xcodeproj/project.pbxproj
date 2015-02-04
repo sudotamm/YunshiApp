@@ -57,6 +57,9 @@
 		9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9479330A1A76854D0057C2B6 /* DianpuModel.m */; };
 		947B420B1A81E0E200D4B13A /* TaocanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B420A1A81E0E200D4B13A /* TaocanListViewController.m */; };
 		947B420E1A81E9BF00D4B13A /* TaocanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B420D1A81E9BF00D4B13A /* TaocanTableCell.m */; };
+		947B42111A82565800D4B13A /* GouwucheTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B42101A82565800D4B13A /* GouwucheTableCell.m */; };
+		947B42151A8258AF00D4B13A /* GouwucheDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B42141A8258AF00D4B13A /* GouwucheDataManager.m */; };
+		947B42181A8258C200D4B13A /* GouwucheModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 947B42171A8258C200D4B13A /* GouwucheModel.m */; };
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
 		94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6801A791C2C00953C3C /* FenleiTableCell.m */; };
 		94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A1F6841A79219F00953C3C /* FenleiDataManager.m */; };
@@ -190,6 +193,12 @@
 		947B420A1A81E0E200D4B13A /* TaocanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanListViewController.m; sourceTree = "<group>"; };
 		947B420C1A81E9BF00D4B13A /* TaocanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaocanTableCell.h; sourceTree = "<group>"; };
 		947B420D1A81E9BF00D4B13A /* TaocanTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanTableCell.m; sourceTree = "<group>"; };
+		947B420F1A82565800D4B13A /* GouwucheTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwucheTableCell.h; sourceTree = "<group>"; };
+		947B42101A82565800D4B13A /* GouwucheTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwucheTableCell.m; sourceTree = "<group>"; };
+		947B42131A8258AF00D4B13A /* GouwucheDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwucheDataManager.h; sourceTree = "<group>"; };
+		947B42141A8258AF00D4B13A /* GouwucheDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwucheDataManager.m; sourceTree = "<group>"; };
+		947B42161A8258C200D4B13A /* GouwucheModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwucheModel.h; sourceTree = "<group>"; };
+		947B42171A8258C200D4B13A /* GouwucheModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwucheModel.m; sourceTree = "<group>"; };
 		94A0F1D31A523DD700A147EC /* RootNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootNaviViewController.h; sourceTree = "<group>"; };
 		94A0F1D41A523DD700A147EC /* RootNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootNaviViewController.m; sourceTree = "<group>"; };
 		94A1F67F1A791C2C00953C3C /* FenleiTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiTableCell.h; sourceTree = "<group>"; };
@@ -304,8 +313,11 @@
 		941D8CEF1A75CB1500FA27C7 /* 购物车 */ = {
 			isa = PBXGroup;
 			children = (
+				947B42121A82589800D4B13A /* DataCenter */,
 				941D8CF71A75CB9F00FA27C7 /* GouwucheViewController.h */,
 				941D8CF81A75CB9F00FA27C7 /* GouwucheViewController.m */,
+				947B420F1A82565800D4B13A /* GouwucheTableCell.h */,
+				947B42101A82565800D4B13A /* GouwucheTableCell.m */,
 			);
 			path = "购物车";
 			sourceTree = "<group>";
@@ -532,6 +544,17 @@
 			name = DataCenter;
 			sourceTree = "<group>";
 		};
+		947B42121A82589800D4B13A /* DataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				947B42131A8258AF00D4B13A /* GouwucheDataManager.h */,
+				947B42141A8258AF00D4B13A /* GouwucheDataManager.m */,
+				947B42161A8258C200D4B13A /* GouwucheModel.h */,
+				947B42171A8258C200D4B13A /* GouwucheModel.m */,
+			);
+			name = DataCenter;
+			sourceTree = "<group>";
+		};
 		94A0F2041A52726B00A147EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,13 +742,16 @@
 				94A8FEC01A81035A00F2A226 /* RYPhotoBrowserCell.m in Sources */,
 				941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */,
 				94A8FEC21A81035A00F2A226 /* RYPhotoBrowserViewController.m in Sources */,
+				947B42181A8258C200D4B13A /* GouwucheModel.m in Sources */,
 				94EB34A01A7D186900937044 /* FenleiModel.m in Sources */,
 				941D8CF61A75CB8400FA27C7 /* SousuoViewController.m in Sources */,
 				94A8FEB21A80ED7F00F2A226 /* ShangpinDetailModel.m in Sources */,
 				947932E61A7664170057C2B6 /* RYBaseModel.m in Sources */,
 				9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */,
+				947B42111A82565800D4B13A /* GouwucheTableCell.m in Sources */,
 				94A8FEB81A80FF6D00F2A226 /* TaocanCollectionCell.m in Sources */,
 				94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */,
+				947B42151A8258AF00D4B13A /* GouwucheDataManager.m in Sources */,
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
 				94BFC14E1A805F830003D942 /* UserViewController.m in Sources */,

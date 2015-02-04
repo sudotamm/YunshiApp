@@ -1,0 +1,21 @@
+//
+//  GouwucheModel.h
+//  RootDirectory
+//
+//  Created by ryan on 2/4/15.
+//  Copyright (c) 2015 Ryan. All rights reserved.
+//
+
+#import "RYBaseModel.h"
+
+@interface GouwucheModel : RYBaseModel
+
+@property (nonatomic, copy) NSString *gId;
+@property (nonatomic, copy) NSString *gName;
+@property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *picURL;
+@property (nonatomic, copy) NSString *num;
+@property (nonatomic, copy) NSString *sCode;
+@property (nonatomic, copy) NSString *gType;
+
+@end

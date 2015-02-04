@@ -18,5 +18,5 @@
 #import "HomeDataManager.h"
 #import "ABCMemberDataManager.h"
 #import "FenleiDataManager.h"
-
+#import "GouwucheDataManager.h"
 #endif

@@ -138,5 +138,7 @@
 #define kShangpinDetailUrl  @"goodsInfo"
 #define kIsInBasketUrl      @"isInBasket"
 #define kEditGouwucheUrl    @"editCart"
+//购物车
+#define kGouwucheListUrl    @"cartList"
 
 #endif

@@ -7,7 +7,19 @@
 //
 
 #import "BaseViewController.h"
+#import "MJRefreshFooterView.h"
+#import "GouwucheTableCell.h"
 
 @interface GouwucheViewController : BaseViewController
+
+@property (nonatomic, weak) IBOutlet UITableView *contentTableView;
+@property (nonatomic, retain) UIRefreshControl *refreshControl;
+@property (nonatomic, retain) MJRefreshFooterView *refreshFooterView;
+@property (nonatomic, weak) IBOutlet UILabel *zongjiLabel;
+@property (nonatomic, weak) IBOutlet UILabel *yunfeiTipLabel;
+@property (nonatomic, weak) IBOutlet UILabel *yunfeiLabel;
+@property (nonatomic, weak) IBOutlet UIButton *xiayibuButton;
+
+- (IBAction)xiayibuButtonClicked:(id)sender;
 
 @end

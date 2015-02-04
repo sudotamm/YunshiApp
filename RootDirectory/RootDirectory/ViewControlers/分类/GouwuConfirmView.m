@@ -131,6 +131,7 @@
 {
     if(notification.object)
     {
+        [[RYHUDManager sharedManager] stoppedNetWorkActivity];
         //编辑购物车失败
         [self.tipLabel addAnimationWithType:kCATransitionMoveIn subtype:kCATransitionFromBottom];
         self.tipLabel.text = notification.object;
