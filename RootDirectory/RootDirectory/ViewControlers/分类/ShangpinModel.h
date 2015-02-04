@@ -18,7 +18,7 @@
  "picURL":"http://www.baidu.com/aaa.png",
 	},...]
  */
-
+@class ShangpinDetailModel;
 @interface ShangpinModel : RYBaseModel
 
 @property (nonatomic, copy) NSString *gId;
@@ -27,5 +27,7 @@
 @property (nonatomic, copy) NSString *spec;
 @property (nonatomic, copy) NSString *location;
 @property (nonatomic, copy) NSString *picURL;
+
+- (id)initWithDetailModel:(ShangpinDetailModel *)detailModel;
 
 @end

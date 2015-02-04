@@ -23,4 +23,6 @@
 - (IBAction)querenButtonClicked:(id)sender;
 - (IBAction)quxiaoButtonClicked:(id)sender;
 
+- (void)reloadData;
+
 @end

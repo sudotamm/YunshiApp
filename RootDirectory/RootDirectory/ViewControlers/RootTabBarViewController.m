@@ -10,6 +10,7 @@
 #import "UserViewController.h"
 #import "GouwucheViewController.h"
 #import "ShangpinListViewController.h"
+#import "GouwuConfirmView.h"
 
 @interface RootTabBarViewController ()
 
@@ -27,6 +28,15 @@
 {
     self.selectedIndex = 1;
 }
+
+- (void)inbasketResponseWithNotification:(NSNotification *)notification
+{
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GouwuConfirmView" owner:self options:nil];
+    GouwuConfirmView *gcv = [nibs lastObject];
+    [gcv reloadData];
+    [[RYRootBlurViewManager sharedManger] showWithBlurImage:nil contentView:gcv position:CGPointZero];
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad
@@ -55,6 +65,7 @@
     self.tabBar.tintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginViewWithNotification:) name:kShowLoginViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFenleiViewWithNotification:) name:kShowFenleiViewNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inbasketResponseWithNotification:) name:kInBasketResponseNotification object:nil];
 }
 
 - (void)dealloc

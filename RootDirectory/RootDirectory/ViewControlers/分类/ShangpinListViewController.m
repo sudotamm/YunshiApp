@@ -198,9 +198,19 @@
 #pragma mark - ShangpinTableCellDelegate methods
 - (void)didShangpinBuyWithCell:(ShangpinTableCell *)cell
 {
-    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GouwuConfirmView" owner:self options:nil];
-    GouwuConfirmView *gcv = [nibs lastObject];
-    [[RYRootBlurViewManager sharedManger] showWithBlurImage:nil contentView:gcv position:CGPointZero];
+    if([[ABCMemberDataManager sharedManager] isLogined])
+    {
+        NSIndexPath *indexPath = [self.contentTableView indexPathForCell:cell];
+        ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
+        [[FenleiDataManager sharedManager] requestShangpinIsInBasketWithGouwuModel:sm
+                                                                         gouwuType:kGouwuTypeShangpin
+                                                                         mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                                            userId:[ABCMemberDataManager sharedManager].loginMember.userId];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowLoginViewNotification object:nil];
+    }
 }
 
 #pragma mark - UISearchBarDelegate methods

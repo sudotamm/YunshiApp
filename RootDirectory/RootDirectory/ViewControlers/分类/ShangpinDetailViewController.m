@@ -79,8 +79,6 @@
     {
         self.jianButton.enabled = YES;
     }
-    
-    
 }
 - (IBAction)jianButtonClicked:(id)sender
 {

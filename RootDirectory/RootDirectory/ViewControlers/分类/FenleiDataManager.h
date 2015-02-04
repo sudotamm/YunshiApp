@@ -12,14 +12,42 @@
 #import "ShangpinDetailModel.h"
 #import "TaocanModel.h"
 
+typedef NS_ENUM (NSInteger, GouwuType)
+{
+    kGouwuTypeShangpin = 1,     //1: 商品
+    kGouwuTypeTaocan = 2        //2: 套餐
+};
+
+typedef NS_ENUM (NSInteger, GouwuEditType)
+{
+    kGouwuEditTypeAdd = 1,      //1: 加入购物车
+    kGouwuEditTypeRemove = 2    //2: 从购物车删除
+};
+
 @interface FenleiDataManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *fenleiArray;
 @property (nonatomic, strong) NSNumber *redirectFenlei;
+//判断加入购物车的数据缓存
+@property (nonatomic, strong) id gouwuModel;
+@property (nonatomic, assign) GouwuType inbasketType;
+@property (nonatomic, assign) NSInteger inbasketNum;
 
 + (instancetype)sharedManager;
 
 - (void)requestFenleiListWithUserId:(NSString *)userId
                            dianpuId:(NSString *)dianpuId;
+
+- (void)requestShangpinIsInBasketWithGouwuModel:(id)gouwu
+                                      gouwuType:(GouwuType)gouwuType
+                                      mendianId:(NSString *)mendianId
+                                         userId:(NSString *)userId;
+
+- (void)requestEditGouwucheWithGouwuId:(NSString *)gouwuId
+                             gouwuType:(GouwuType)gouwuType
+                                   num:(NSInteger)num
+                              editType:(GouwuEditType)editType
+                             mendianId:(NSString *)mendianId
+                                userId:(NSString *)userId;
 
 @end

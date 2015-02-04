@@ -116,6 +116,8 @@
 #define kDianpuChangeNotification           @"DianpuChangeNotification"
 #define kFenleiResponseNotification         @"FenleiResponseNotification"
 #define kShowFenleiViewNotification         @"ShowFenleiViewNotification"
+#define kInBasketResponseNotification       @"InBasketResponseNotification"
+#define kEditGouwucheResponseNotification   @"EditGouwucheResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
@@ -133,5 +135,7 @@
 #define kFenleiListUrl      @"goodsCategory"
 #define kShangpinListUrl    @"goodsList"
 #define kShangpinDetailUrl  @"goodsInfo"
+#define kIsInBasketUrl      @"isInBasket"
+#define kEditGouwucheUrl    @"editCart"
 
 #endif

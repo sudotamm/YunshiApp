@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString *price;
 @property (nonatomic, copy) NSString *picURL;
 @property (nonatomic, copy) NSString *spec;
+@property (nonatomic, copy) NSString *location;
 @property (nonatomic, copy) NSString *detailURL;
 @property (nonatomic, strong) NSMutableArray *taocanArray;
 
