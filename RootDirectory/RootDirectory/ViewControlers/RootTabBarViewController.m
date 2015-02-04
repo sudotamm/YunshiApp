@@ -34,7 +34,7 @@
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GouwuConfirmView" owner:self options:nil];
     GouwuConfirmView *gcv = [nibs lastObject];
     [gcv reloadData];
-    [[RYRootBlurViewManager sharedManger] showWithBlurImage:nil contentView:gcv position:CGPointZero];
+    [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:gcv position:CGPointZero];
 }
 
 #pragma mark - UIViewController methods
