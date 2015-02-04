@@ -32,6 +32,7 @@ typedef NS_ENUM (NSInteger, GouwuEditType)
 @property (nonatomic, strong) id gouwuModel;
 @property (nonatomic, assign) GouwuType inbasketType;
 @property (nonatomic, assign) NSInteger inbasketNum;
+@property (nonatomic, assign) NSInteger chosenNum;
 
 + (instancetype)sharedManager;
 
@@ -40,6 +41,7 @@ typedef NS_ENUM (NSInteger, GouwuEditType)
 
 - (void)requestShangpinIsInBasketWithGouwuModel:(id)gouwu
                                       gouwuType:(GouwuType)gouwuType
+                                      chosenNum:(NSInteger)chooseNum
                                       mendianId:(NSString *)mendianId
                                          userId:(NSString *)userId;
 

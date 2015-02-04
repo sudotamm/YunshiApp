@@ -43,6 +43,16 @@
         self.tipLabel.text = tm.cName;
         self.danjiaLabel.text = [NSString stringWithFormat:@"￥%@",tm.cNewPrice];
     }
+    self.shuliangField.text = [NSString stringWithFormat:@"%@",@([FenleiDataManager sharedManager].chosenNum)];
+    if([FenleiDataManager sharedManager].chosenNum > 1)
+    {
+        self.jianButton.enabled = YES;
+    }
+    else
+    {
+        self.jianButton.enabled = NO;
+    }
+    
     [self reloadXiaoji];
     if([FenleiDataManager sharedManager].inbasketNum > 0)
     {

@@ -96,7 +96,19 @@
 }
 - (IBAction)buyButtonClicked:(id)sender
 {
-    NSLog(@"加入购物车...");
+    if([[ABCMemberDataManager sharedManager] isLogined])
+    {
+        ShangpinModel *sm = [[ShangpinModel alloc] initWithDetailModel:self.detailModel];
+        [[FenleiDataManager sharedManager] requestShangpinIsInBasketWithGouwuModel:sm
+                                                                         gouwuType:kGouwuTypeShangpin
+                                                                         chosenNum:[self.shuliangField.text integerValue]
+                                                                         mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                                            userId:[ABCMemberDataManager sharedManager].loginMember.userId];
+    }
+    else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowLoginViewNotification object:nil];
+    }
 }
 - (IBAction)tuwenButtonClicked:(id)sender
 {

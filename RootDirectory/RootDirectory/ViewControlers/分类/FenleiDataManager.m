@@ -54,11 +54,13 @@
 
 - (void)requestShangpinIsInBasketWithGouwuModel:(id)gouwu
                                       gouwuType:(GouwuType)gouwuType
+                                      chosenNum:(NSInteger)chooseNum
                                       mendianId:(NSString *)mendianId
                                          userId:(NSString *)userId
 {
     self.gouwuModel = gouwu;
     self.inbasketType = gouwuType;
+    self.chosenNum = chooseNum;
     NSString *gouwuId = nil;
     if(gouwuType == kGouwuTypeTaocan)
     {

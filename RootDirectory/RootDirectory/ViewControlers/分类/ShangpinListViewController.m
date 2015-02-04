@@ -204,6 +204,7 @@
         ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
         [[FenleiDataManager sharedManager] requestShangpinIsInBasketWithGouwuModel:sm
                                                                          gouwuType:kGouwuTypeShangpin
+                                                                         chosenNum:1
                                                                          mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
                                                                             userId:[ABCMemberDataManager sharedManager].loginMember.userId];
     }
