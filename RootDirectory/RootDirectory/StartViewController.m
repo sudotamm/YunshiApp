@@ -47,13 +47,13 @@
     self.startImageView.image = [UIImage assetLaunchImage];
 
     if(Is3_5Inch)
-        self.guideArray = @[@"start1_4.jpg",@"start2_4.jpg"];
+        self.guideArray = @[@"start0_4.jpg",@"start1_4.jpg",@"start2_4.jpg"];
     else if(Is4Inch)
-        self.guideArray = @[@"start1_5.jpg",@"start2_5.jpg"];
+        self.guideArray = @[@"start0_5.jpg",@"start1_5.jpg",@"start2_5.jpg"];
     else if(Is4_7Inch)
-        self.guideArray = @[@"start1_6.jpg",@"start2_6.jpg"];
+        self.guideArray = @[@"start0_6.jpg",@"start1_6.jpg",@"start2_6.jpg"];
     else if(Is5_5Inch)
-        self.guideArray = @[@"start1_6p.jpg",@"start2_6p.jpg"];
+        self.guideArray = @[@"start0_6p.jpg",@"start1_6p.jpg",@"start2_6p.jpg"];
 
     if([[[NSUserDefaults standardUserDefaults] objectForKey:kIsWelcomeShown] isEqualToString:@"1"])
     {
