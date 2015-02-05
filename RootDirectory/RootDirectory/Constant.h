@@ -117,7 +117,8 @@
 #define kFenleiResponseNotification         @"FenleiResponseNotification"
 #define kShowFenleiViewNotification         @"ShowFenleiViewNotification"
 #define kInBasketResponseNotification       @"InBasketResponseNotification"
-#define kEditGouwucheResponseNotification   @"EditGouwucheResponseNotification"
+#define kAddGouwucheResponseNotification    @"AddGouwucheResponseNotification"
+#define kRemoveGouwucheResponseNotification @"RemoveGouwucheResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"

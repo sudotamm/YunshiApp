@@ -71,13 +71,39 @@
     
 }
 
+#pragma mark - Notification methods
+- (void)addGouwucheResponseWithNotification:(NSNotification *)notification
+{
+    if(nil == notification.object)
+    {
+        //添加购物车成功 - 重新加载购物车列表
+        [self callServerToGetListDataWithPage:kInitPageNumber];
+    }
+}
+
+- (void)removeGouwucheResponseWithNotification:(NSNotification *)notification
+{
+    if(notification.object)
+    {
+        //删除购物车失败
+        [[RYHUDManager sharedManager] showWithMessage:notification.object customView:nil hideDelay:2.f];
+    }
+    else
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"删除购物车成功" customView:nil hideDelay:2.f];
+        //删除购物车成功 - 重新加载购物车列表
+        [self callServerToGetListDataWithPage:kInitPageNumber];
+    }
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"购物车"];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addGouwucheResponseWithNotification:) name:kAddGouwucheResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeGouwucheResponseWithNotification:) name:kRemoveGouwucheResponseNotification object:nil];
     //移除空cell的seperator line
     self.contentTableView.tableFooterView = [UIView new];
     //下拉刷新
@@ -89,6 +115,7 @@
         //上拉加载更多内容
         [gvc callServerToGetListDataWithPage:gvc.currentPageNum];
     };
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
     [self callServerToGetListDataWithPage:kInitPageNumber];
 }
 
@@ -105,6 +132,7 @@
 - (void)dealloc
 {
     [[RYDownloaderManager sharedManager] cancelDownloaderWithDelegate:self purpose:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
@@ -128,6 +156,21 @@
 }
 
 #pragma mark - UITableViewDelegate methods
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        GouwucheModel *gm = [self.gouwucheArray objectAtIndex:indexPath.row];
+        GouwuType gouwuType = (GouwuType)[gm.gType integerValue];
+        [[FenleiDataManager sharedManager] requestEditGouwucheWithGouwuId:gm.gId
+                                                                gouwuType:gouwuType
+                                                                      num:0
+                                                                 editType:kGouwuEditTypeRemove
+                                                                mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                                   userId:[ABCMemberDataManager sharedManager].loginMember.userId];
+    }
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -135,10 +178,29 @@
 }
 
 #pragma mark - GouwucheTableCellDelegate methods
+- (void)reloadZongjiPrice
+{
+    CGFloat zongji = 0;
+    for(GouwucheModel *gm in self.gouwucheArray)
+    {
+        if(gm.isSelected)
+        {
+            zongji += [gm.price floatValue]*[gm.num integerValue];
+        }
+    }
+    self.zongjiLabel.text = [NSString stringWithFormat:@"￥%.2f",zongji];
+    if(zongji > 0)
+    {
+        self.xiayibuButton.enabled = YES;
+    }
+    else
+        self.xiayibuButton.enabled = NO;
+}
+
 - (void)didGouwucheClickedWithCell:(GouwucheTableCell *)cell
 {
     //点击加/减/checkbox 按钮之后重新计算当前总计
-    NSLog(@"重新计算。");
+    [self reloadZongjiPrice];
 }
 
 #pragma mark - RYDownloaderDelegate methods
@@ -186,16 +248,18 @@
         for(NSDictionary *dictTemp in array)
         {
             GouwucheModel *gm = [[GouwucheModel alloc] initWithRYDict:dictTemp];
+            gm.isSelected = YES;
             [self.gouwucheArray addObject:gm];
         }
-        
         [self.contentTableView reloadData];
+        [self reloadZongjiPrice];
         if(nextPage == 0)
         {
-            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:4.f];
+            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
         }
         else
         {
+            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             self.currentPageNum = nextPage;
         }
     }

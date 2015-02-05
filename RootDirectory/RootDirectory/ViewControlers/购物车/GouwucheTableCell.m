@@ -8,12 +8,21 @@
 
 #import "GouwucheTableCell.h"
 
+@interface GouwucheTableCell()
+
+@property (nonatomic, strong) GouwucheModel *currentGM;
+
+@end
+
 @implementation GouwucheTableCell
+
+@synthesize currentGM;
 
 #pragma mark - Public methods
 - (IBAction)checkButtonClicked:(id)sender
 {
     self.checkButton.selected = !self.checkButton.selected;
+    self.currentGM.isSelected = !self.currentGM.isSelected;
     [self.delegate didGouwucheClickedWithCell:self];
 }
 - (IBAction)jiaButtonClicked:(id)sender
@@ -30,6 +39,7 @@
         self.jianButton.enabled = YES;
     }
     //小计修改
+    self.currentGM.num = self.shuliangField.text;
     [self.delegate didGouwucheClickedWithCell:self];
 }
 - (IBAction)jianButtonClicked:(id)sender
@@ -46,15 +56,18 @@
         self.jianButton.enabled = YES;
     }
     //小计修改
+    self.currentGM.num = self.shuliangField.text;
     [self.delegate didGouwucheClickedWithCell:self];
 }
 
 - (void)reloadWithGouwucheModel:(GouwucheModel *)gm
 {
+    self.currentGM = gm;
     self.nameLabel.text = gm.gName;
     self.jiageLabel.text = [NSString stringWithFormat:@"￥%@",gm.price];
     self.shuliangField.text = gm.num;
     [self.iconImgView aysnLoadImageWithUrl:gm.picURL placeHolder:@"loading_square"];
+    self.checkButton.selected = gm.isSelected;
 }
 
 #pragma mark - UIView methods

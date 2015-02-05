@@ -14,11 +14,14 @@
 
 @interface FenleiDataManager()
 
+@property (nonatomic, assign) GouwuEditType currentType;
+
 @end
 
 @implementation FenleiDataManager
 
 @synthesize gouwuModel,inbasketNum,inbasketType;
+@synthesize currentType;
 
 #pragma mark - Singleton methods
 
@@ -92,6 +95,7 @@
                              mendianId:(NSString *)mendianId
                                 userId:(NSString *)userId
 {
+    self.currentType = editType;
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
     NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kEditGouwucheUrl];
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
@@ -99,7 +103,10 @@
     [paramDict setObject:mendianId forKey:@"sCode"];
     [paramDict setObject:gouwuId forKey:@"gId"];
     [paramDict setObject:[NSString stringWithFormat:@"%@",@(gouwuType)] forKey:@"gType"];
-    [paramDict setObject:[NSString stringWithFormat:@"%@",@(num)] forKey:@"num"];
+    if(editType == kGouwuEditTypeRemove)
+        [paramDict setObject:@"" forKey:@"num"];
+    else
+        [paramDict setObject:[NSString stringWithFormat:@"%@",@(num)] forKey:@"num"];
     [paramDict setObject:[NSString stringWithFormat:@"%@",@(editType)] forKey:@"editType"];
     [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
                                                              postParams:paramDict
@@ -159,14 +166,20 @@
         //编辑购物车返回
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
-            [[NSNotificationCenter defaultCenter] postNotificationName:kEditGouwucheResponseNotification object:nil];
+            if(self.currentType == kGouwuEditTypeAdd)
+                [[NSNotificationCenter defaultCenter] postNotificationName:kAddGouwucheResponseNotification object:nil];
+            else
+                [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveGouwucheResponseNotification object:nil];
         }
         else
         {
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"编辑购物车获取失败";
-            [[NSNotificationCenter defaultCenter] postNotificationName:kEditGouwucheResponseNotification object:message];
+            if(self.currentType == kGouwuEditTypeAdd)
+                [[NSNotificationCenter defaultCenter] postNotificationName:kAddGouwucheResponseNotification object:message];
+            else
+                [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveGouwucheResponseNotification object:message];
         }
     }
 }

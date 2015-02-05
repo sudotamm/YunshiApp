@@ -127,7 +127,7 @@
 }
 
 #pragma mark - Notification methods
-- (void)editGouwucheResponseWithNotification:(NSNotification *)notification
+- (void)addGouwucheResponseWithNotification:(NSNotification *)notification
 {
     if(notification.object)
     {
@@ -138,7 +138,7 @@
     }
     else
     {
-        [[RYHUDManager sharedManager] showWithMessage:@"编辑购物车成功" customView:nil hideDelay:2.f];
+        [[RYHUDManager sharedManager] showWithMessage:@"加入购物车成功" customView:nil hideDelay:2.f];
         [[RYRootBlurViewManager sharedManger] hideBlurView];
     }
 }
@@ -147,7 +147,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(editGouwucheResponseWithNotification:) name:kEditGouwucheResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addGouwucheResponseWithNotification:) name:kAddGouwucheResponseNotification object:nil];
 }
 
 - (void)dealloc
