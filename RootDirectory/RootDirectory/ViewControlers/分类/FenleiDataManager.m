@@ -167,7 +167,10 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             if(self.currentType == kGouwuEditTypeAdd)
+            {
+                self.hasEditedGouwuche = YES;
                 [[NSNotificationCenter defaultCenter] postNotificationName:kAddGouwucheResponseNotification object:nil];
+            }
             else
                 [[NSNotificationCenter defaultCenter] postNotificationName:kRemoveGouwucheResponseNotification object:nil];
         }

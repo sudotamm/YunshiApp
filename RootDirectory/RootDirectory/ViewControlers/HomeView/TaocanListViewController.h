@@ -13,4 +13,6 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
 
+- (IBAction)qujiesuanButtonClicked:(id)sender;
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "TaocanListViewController.h"
+#import "TaocanDetailViewController.h"
 
 @interface TaocanListViewController ()
 
@@ -32,6 +33,20 @@
                                                                 purpose:nil];
 }
 
+#pragma mark - Public methods
+- (IBAction)qujiesuanButtonClicked:(id)sender
+{
+    if([FenleiDataManager sharedManager].hasEditedGouwuche)
+    {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowGouwucheViewNotification object:nil];
+    }
+    else
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"暂未添加任何商品" customView:nil hideDelay:2.f];
+    }
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
@@ -40,6 +55,15 @@
     [self setNaviTitle:@"精选礼篮"];
     self.contentTableView.tableFooterView = [UIView new];
     [self requestTaocaoListWithMendianId:[HomeDataManager sharedManger].currentDianpu.sCode];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"TaocanListToDetail"])
+    {
+        TaocanDetailViewController *tdvc = (TaocanDetailViewController *)segue.destinationViewController;
+        tdvc.taocanId = sender;
+    }
 }
 
 - (void)dealloc
@@ -72,7 +96,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[RYHUDManager sharedManager] showWithMessage:@"套餐详情页面" customView:nil hideDelay:2.f];
+    TaocanModel *tm = [self.taocaoArray objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"TaocanListToDetail" sender:tm.cId];
 }
 
 #pragma mark - TaocanTableCellDelegate methods

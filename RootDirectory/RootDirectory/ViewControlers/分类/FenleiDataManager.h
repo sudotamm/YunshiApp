@@ -33,6 +33,7 @@ typedef NS_ENUM (NSInteger, GouwuEditType)
 @property (nonatomic, assign) GouwuType inbasketType;
 @property (nonatomic, assign) NSInteger inbasketNum;
 @property (nonatomic, assign) NSInteger chosenNum;
+@property (nonatomic, assign) BOOL hasEditedGouwuche;       //判断是否有成功添加过商品到购物车中 - “去结算”按钮是否可以跳转
 
 + (instancetype)sharedManager;
 

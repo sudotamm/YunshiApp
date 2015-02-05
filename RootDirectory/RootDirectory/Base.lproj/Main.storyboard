@@ -842,6 +842,8 @@
                         <outlet property="yunfeiLabel" destination="V5K-Wf-zqS" id="Z8E-Hs-SQP"/>
                         <outlet property="yunfeiTipLabel" destination="9Cs-vp-47r" id="v32-QX-krz"/>
                         <outlet property="zongjiLabel" destination="nyc-Jc-myR" id="nqD-9I-fur"/>
+                        <segue destination="0id-qW-qYB" kind="show" identifier="GouwucheListToTaocanDetail" id="XuF-c8-60p"/>
+                        <segue destination="gHh-fZ-zav" kind="show" identifier="GouwucheListToShangpinDetail" id="0oM-D4-wHe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q0v-fN-Eak" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1491,7 +1493,7 @@
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="jiesuanButtonClicked:" destination="gHh-fZ-zav" eventType="touchUpInside" id="Z8Z-67-YLK"/>
+                                            <action selector="qujiesuanButtonClicked:" destination="Jnd-CO-QQ0" eventType="touchUpInside" id="rlg-Uo-RCe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1520,16 +1522,35 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="contentTableView" destination="pzJ-FC-I6v" id="NDa-F2-eRa"/>
+                        <segue destination="0id-qW-qYB" kind="show" identifier="TaocanListToDetail" id="21P-D2-oqS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIO-Xg-XB4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937.5" y="-1759.5"/>
         </scene>
+        <!--Taocan Detail View Controller-->
+        <scene sceneID="gwt-NB-b04">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="0id-qW-qYB" customClass="TaocanDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mmp-kP-crw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Su2-Ff-BM9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tFz-9w-X1W">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZ7-dO-st6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1467.5" y="-1753.5"/>
+        </scene>
         <!--Shangpin Detail View Controller-->
         <scene sceneID="wS4-tK-MBP">
             <objects>
-                <viewController id="gHh-fZ-zav" customClass="ShangpinDetailViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="gHh-fZ-zav" customClass="ShangpinDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ey8-k3-T0U"/>
                         <viewControllerLayoutGuide type="bottom" id="Plb-qY-Tgs"/>
@@ -2331,5 +2352,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="L7E-ne-Aeq"/>
+        <segue reference="0oM-D4-wHe"/>
+        <segue reference="21P-D2-oqS"/>
     </inferredMetricsTieBreakers>
 </document>

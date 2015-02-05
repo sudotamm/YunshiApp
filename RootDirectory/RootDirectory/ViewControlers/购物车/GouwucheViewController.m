@@ -7,6 +7,8 @@
 //
 
 #import "GouwucheViewController.h"
+#import "TaocanDetailViewController.h"
+#import "ShangpinDetailViewController.h"
 
 @interface GouwucheViewController ()
 
@@ -121,12 +123,16 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-//    if([segue.identifier isEqualToString:@"ShangpinListToDetail"])
-//    {
-//        ShangpinDetailViewController *sdvc = (ShangpinDetailViewController *)segue.destinationViewController;
-//        sdvc.hidesBottomBarWhenPushed = YES;
-//        sdvc.shangpinId = sender;
-//    }
+    if([segue.identifier isEqualToString:@"GouwucheListToShangpinDetail"])
+    {
+        ShangpinDetailViewController *sdvc = (ShangpinDetailViewController *)segue.destinationViewController;
+        sdvc.shangpinId = sender;
+    }
+    else if([segue.identifier isEqualToString:@"GouwucheListToTaocanDetail"])
+    {
+        TaocanDetailViewController *tdvc = (TaocanDetailViewController *)segue.destinationViewController;
+        tdvc.taocanId = sender;
+    }
 }
 
 - (void)dealloc
@@ -174,7 +180,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [[RYHUDManager sharedManager] showWithMessage:@"套餐详情页面" customView:nil hideDelay:2.f];
+    GouwucheModel *gm = [self.gouwucheArray objectAtIndex:indexPath.row];
+    GouwuType gouwuType = (GouwuType)[gm.gType integerValue];
+    if(gouwuType == kGouwuTypeShangpin)
+    {
+        [self performSegueWithIdentifier:@"GouwucheListToShangpinDetail" sender:gm.gId];
+    }
+    else if(gouwuType == kGouwuTypeTaocan)
+    {
+        [self performSegueWithIdentifier:@"GouwucheListToTaocanDetail" sender:gm.gId];
+    }
 }
 
 #pragma mark - GouwucheTableCellDelegate methods

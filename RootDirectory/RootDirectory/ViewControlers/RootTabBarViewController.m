@@ -26,7 +26,16 @@
 
 - (void)showFenleiViewWithNotification:(NSNotification *)notification
 {
-    self.selectedIndex = 1;
+    NSInteger fenleiIndex = 1;
+    if([self tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:fenleiIndex]])
+        self.selectedIndex = fenleiIndex;
+}
+
+- (void)showGouwucheViewWithNotification:(NSNotification *)notification
+{
+    NSInteger gouwucheIndex = 3;
+    if([self tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:gouwucheIndex]])
+        self.selectedIndex = gouwucheIndex;
 }
 
 - (void)inbasketResponseWithNotification:(NSNotification *)notification
@@ -65,6 +74,7 @@
     self.tabBar.tintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showLoginViewWithNotification:) name:kShowLoginViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFenleiViewWithNotification:) name:kShowFenleiViewNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showGouwucheViewWithNotification:) name:kShowGouwucheViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inbasketResponseWithNotification:) name:kInBasketResponseNotification object:nil];
 }
 

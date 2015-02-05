@@ -182,6 +182,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [FenleiDataManager sharedManager].redirectFenlei = @(indexPath.row);
+    [self.navigationController popToRootViewControllerAnimated:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:kShowFenleiViewNotification object:nil];
 }
 @end

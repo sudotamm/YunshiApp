@@ -129,7 +129,15 @@
 
 - (IBAction)jiesuanButtonClicked:(id)sender
 {
-    NSLog(@"结算...");
+    if([FenleiDataManager sharedManager].hasEditedGouwuche)
+    {
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowGouwucheViewNotification object:nil];
+    }
+    else
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"暂未添加任何商品" customView:nil hideDelay:2.f];
+    }
 }
 #pragma mark - UIViewController methods
 - (void)viewDidLoad {

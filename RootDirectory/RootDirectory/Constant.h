@@ -116,6 +116,7 @@
 #define kDianpuChangeNotification           @"DianpuChangeNotification"
 #define kFenleiResponseNotification         @"FenleiResponseNotification"
 #define kShowFenleiViewNotification         @"ShowFenleiViewNotification"
+#define kShowGouwucheViewNotification       @"ShowGouwucheViewNotification"
 #define kInBasketResponseNotification       @"InBasketResponseNotification"
 #define kAddGouwucheResponseNotification    @"AddGouwucheResponseNotification"
 #define kRemoveGouwucheResponseNotification @"RemoveGouwucheResponseNotification"

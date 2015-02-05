@@ -73,6 +73,7 @@
 		94A8FEC31A81035A00F2A226 /* RYPhotoBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A8FEBF1A81035A00F2A226 /* RYPhotoBrowserViewController.xib */; };
 		94A8FEC61A810B8800F2A226 /* GouwuConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A8FEC51A810B8800F2A226 /* GouwuConfirmView.m */; };
 		94A8FEC81A810C7700F2A226 /* GouwuConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A8FEC71A810C7700F2A226 /* GouwuConfirmView.xib */; };
+		94ADE2141A835A0B00DACA56 /* TaocanDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94ADE2131A835A0B00DACA56 /* TaocanDetailViewController.m */; };
 		94AFF2201A7FA76200B88E5B /* ShangpinListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */; };
 		94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */; };
 		94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2251A7FABC400B88E5B /* MJRefreshBaseView.m */; };
@@ -240,6 +241,8 @@
 		94A8FEC41A810B8800F2A226 /* GouwuConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwuConfirmView.h; sourceTree = "<group>"; };
 		94A8FEC51A810B8800F2A226 /* GouwuConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwuConfirmView.m; sourceTree = "<group>"; };
 		94A8FEC71A810C7700F2A226 /* GouwuConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GouwuConfirmView.xib; sourceTree = "<group>"; };
+		94ADE2121A835A0B00DACA56 /* TaocanDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaocanDetailViewController.h; sourceTree = "<group>"; };
+		94ADE2131A835A0B00DACA56 /* TaocanDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaocanDetailViewController.m; sourceTree = "<group>"; };
 		94AFF21E1A7FA76200B88E5B /* ShangpinListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinListViewController.h; sourceTree = "<group>"; };
 		94AFF21F1A7FA76200B88E5B /* ShangpinListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinListViewController.m; sourceTree = "<group>"; };
 		94AFF2221A7FABC400B88E5B /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				947B420A1A81E0E200D4B13A /* TaocanListViewController.m */,
 				947B420C1A81E9BF00D4B13A /* TaocanTableCell.h */,
 				947B420D1A81E9BF00D4B13A /* TaocanTableCell.m */,
+				94ADE2121A835A0B00DACA56 /* TaocanDetailViewController.h */,
+				94ADE2131A835A0B00DACA56 /* TaocanDetailViewController.m */,
 				94C94AC71A77C6A400DE8C2F /* 实体扫购 */,
 			);
 			name = "首页";
@@ -814,6 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94AFF22D1A7FABC400B88E5B /* MJRefreshHeaderView.m in Sources */,
+				94ADE2141A835A0B00DACA56 /* TaocanDetailViewController.m in Sources */,
 				947932D21A7664170057C2B6 /* RYHUDManager.m in Sources */,
 				94D925F61A4D2CF0009412C0 /* PannelViewController.m in Sources */,
 				9479330B1A76854D0057C2B6 /* DianpuModel.m in Sources */,
