@@ -998,11 +998,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Hui Liu (W776LS9R9F)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RootDirectory/SupportFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RootDirectory/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RootDirectory;
+				PROVISIONING_PROFILE = "2565bac0-b1bb-452d-88ed-154d5ac19398";
 			};
 			name = Debug;
 		};
@@ -1011,11 +1013,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Hui Liu (W776LS9R9F)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RootDirectory/SupportFiles/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/RootDirectory/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RootDirectory;
+				PROVISIONING_PROFILE = "2565bac0-b1bb-452d-88ed-154d5ac19398";
 			};
 			name = Release;
 		};
