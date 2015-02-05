@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSMutableArray *gouwucheArray;
 @property (nonatomic, assign) NSInteger currentPageNum;
+@property (nonatomic, assign) BOOL firstLoadTime;
 
 @end
 
@@ -21,6 +22,7 @@
 
 @synthesize refreshControl,refreshFooterView;
 @synthesize gouwucheArray,currentPageNum;
+@synthesize firstLoadTime;
 
 #pragma mark - Private methods
 - (UIRefreshControl *)refreshControl
@@ -117,6 +119,7 @@
         //上拉加载更多内容
         [gvc callServerToGetListDataWithPage:gvc.currentPageNum];
     };
+    self.firstLoadTime = YES;
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
     [self callServerToGetListDataWithPage:kInitPageNumber];
 }
@@ -131,7 +134,7 @@
     else if([segue.identifier isEqualToString:@"GouwucheListToTaocanDetail"])
     {
         TaocanDetailViewController *tdvc = (TaocanDetailViewController *)segue.destinationViewController;
-//        tdvc.taocanId = sender;
+        tdvc.taocanModel = sender;
     }
 }
 
@@ -189,7 +192,8 @@
     }
     else if(gouwuType == kGouwuTypeTaocan)
     {
-        [self performSegueWithIdentifier:@"GouwucheListToTaocanDetail" sender:gm.gId];
+        TaocanModel *tm = [[TaocanModel alloc] initWithGouwucheModel:gm];
+        [self performSegueWithIdentifier:@"GouwucheListToTaocanDetail" sender:tm];
     }
 }
 
@@ -271,7 +275,16 @@
         [self reloadZongjiPrice];
         if(nextPage == 0)
         {
-            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+            if(self.gouwucheArray.count == 0)
+                [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+            else
+            {
+                if(self.firstLoadTime)
+                {
+                    [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+                    self.firstLoadTime = NO;
+                }
+            }
         }
         else
         {

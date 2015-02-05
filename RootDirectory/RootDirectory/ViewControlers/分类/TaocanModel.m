@@ -10,4 +10,22 @@
 
 @implementation TaocanModel
 
+- (id)initWithGouwucheModel:(GouwucheModel *)gm
+{
+    if(self = [super init])
+    {
+        /*
+         cId;
+         picURL;
+         cName;
+         cNewPrice;
+         cOldPrice;
+         */
+        self.cId = gm.gId;
+        self.cName = gm.gName;
+        self.picURL = gm.picURL;
+    }
+    return self;
+}
+
 @end

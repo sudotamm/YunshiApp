@@ -8,6 +8,7 @@
 
 #import "RYBaseModel.h"
 
+@class GouwucheModel;
 @interface TaocanModel : RYBaseModel
 
 @property (nonatomic, copy) NSString *cId;
@@ -17,5 +18,7 @@
 @property (nonatomic, copy) NSString *cOldPrice;
 
 @property (nonatomic, strong) NSMutableArray *shangpinArray;
+
+- (id)initWithGouwucheModel:(GouwucheModel *)gm;
 
 @end

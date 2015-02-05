@@ -272,9 +272,13 @@
         }
 
         [self.contentTableView reloadData];
+
         if(nextPage == 0)
         {
-            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:4.f];
+            if(self.shangpinArray.count == 0)
+                [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+            else
+                [[RYHUDManager sharedManager] stoppedNetWorkActivity];
         }
         else
         {
