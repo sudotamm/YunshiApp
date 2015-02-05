@@ -10,7 +10,7 @@
 #import "MJRefreshFooterView.h"
 #import "GouwucheTableCell.h"
 
-@interface GouwucheViewController : BaseViewController
+@interface GouwucheViewController : BaseViewController<GouwucheTableCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
 @property (nonatomic, retain) UIRefreshControl *refreshControl;

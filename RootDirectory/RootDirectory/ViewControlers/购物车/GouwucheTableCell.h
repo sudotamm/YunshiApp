@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GouwucheTableCellDelegate;
+
 @interface GouwucheTableCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UIButton *checkButton;
@@ -17,10 +19,17 @@
 @property (nonatomic, weak) IBOutlet UIButton *jianButton;
 @property (nonatomic, weak) IBOutlet UIButton *jiaButton;
 @property (nonatomic, weak) IBOutlet UITextField *shuliangField;
+@property (nonatomic, weak) id<GouwucheTableCellDelegate> delegate;
 
 - (IBAction)checkButtonClicked:(id)sender;
 - (IBAction)jiaButtonClicked:(id)sender;
 - (IBAction)jianButtonClicked:(id)sender;
 - (void)reloadWithGouwucheModel:(GouwucheModel *)gm;
+
+@end
+
+@protocol GouwucheTableCellDelegate <NSObject>
+
+- (void)didGouwucheClickedWithCell:(GouwucheTableCell *)cell;
 
 @end

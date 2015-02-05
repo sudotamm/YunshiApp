@@ -11,6 +11,9 @@
             <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_popup" translatesAutoresizingMaskIntoConstraints="NO" id="rej-yd-fY1">
+                    <rect key="frame" x="0.0" y="0.0" width="250" height="250"/>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="商品名称" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ly9-Gx-V1d">
                     <rect key="frame" x="10" y="25" width="230" height="20"/>
                     <constraints>
@@ -195,19 +198,22 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="rej-yd-fY1" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" id="60k-PG-Ieb"/>
                 <constraint firstItem="ly9-Gx-V1d" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" constant="10" id="6c4-DN-KRK"/>
                 <constraint firstAttribute="trailing" secondItem="j8L-8F-riR" secondAttribute="trailing" constant="10" id="6ei-D2-Z2K"/>
                 <constraint firstItem="aRe-Na-4P8" firstAttribute="top" secondItem="j8L-8F-riR" secondAttribute="bottom" constant="10" id="6h0-8y-Pqg"/>
                 <constraint firstItem="aRe-Na-4P8" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" constant="10" id="7R5-Ti-9fs"/>
                 <constraint firstItem="E1m-FJ-HtB" firstAttribute="top" secondItem="ly9-Gx-V1d" secondAttribute="bottom" constant="10" id="9qx-dW-bUR"/>
+                <constraint firstAttribute="bottom" secondItem="rej-yd-fY1" secondAttribute="bottom" id="BMf-hK-LhY"/>
                 <constraint firstAttribute="trailing" secondItem="aRe-Na-4P8" secondAttribute="trailing" constant="10" id="Cbg-gv-3bH"/>
                 <constraint firstItem="ly9-Gx-V1d" firstAttribute="top" secondItem="PXU-v2-J5G" secondAttribute="top" constant="25" id="I2S-P4-Pao"/>
                 <constraint firstAttribute="trailing" secondItem="E1m-FJ-HtB" secondAttribute="trailing" constant="10" id="LxI-uP-DqQ"/>
                 <constraint firstItem="43h-7Y-UG5" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" constant="10" id="MES-H0-nuk"/>
                 <constraint firstItem="43h-7Y-UG5" firstAttribute="top" secondItem="aRe-Na-4P8" secondAttribute="bottom" constant="10" id="OSz-o6-q7O"/>
                 <constraint firstAttribute="trailing" secondItem="43h-7Y-UG5" secondAttribute="trailing" constant="10" id="Sw1-go-f02"/>
+                <constraint firstItem="rej-yd-fY1" firstAttribute="top" secondItem="PXU-v2-J5G" secondAttribute="top" id="TyE-KL-Fji"/>
                 <constraint firstAttribute="trailing" secondItem="Hv1-mA-m1c" secondAttribute="trailing" constant="10" id="b6l-1h-D8n"/>
                 <constraint firstItem="E1m-FJ-HtB" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" constant="10" id="dYu-x8-PIx"/>
                 <constraint firstItem="Hv1-mA-m1c" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" constant="10" id="heo-NE-Wbs"/>
@@ -215,6 +221,7 @@
                 <constraint firstItem="j8L-8F-riR" firstAttribute="leading" secondItem="PXU-v2-J5G" secondAttribute="leading" constant="10" id="pk3-yg-qBG"/>
                 <constraint firstItem="Hv1-mA-m1c" firstAttribute="top" secondItem="E1m-FJ-HtB" secondAttribute="bottom" constant="10" id="qdI-lv-7IF"/>
                 <constraint firstItem="j8L-8F-riR" firstAttribute="top" secondItem="Hv1-mA-m1c" secondAttribute="bottom" constant="5" id="tAU-f7-fGL"/>
+                <constraint firstAttribute="trailing" secondItem="rej-yd-fY1" secondAttribute="trailing" id="uKh-nW-mue"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -233,6 +240,7 @@
     </objects>
     <resources>
         <image name="bg_kuanzi" width="21" height="21"/>
+        <image name="bg_popup" width="41" height="41"/>
         <image name="btn_red" width="21" height="21"/>
         <image name="ico-add" width="26" height="26"/>
         <image name="ico-add-active" width="26" height="26"/>

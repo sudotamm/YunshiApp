@@ -134,6 +134,13 @@
     [[RYHUDManager sharedManager] showWithMessage:@"套餐详情页面" customView:nil hideDelay:2.f];
 }
 
+#pragma mark - GouwucheTableCellDelegate methods
+- (void)didGouwucheClickedWithCell:(GouwucheTableCell *)cell
+{
+    //点击加/减/checkbox 按钮之后重新计算当前总计
+    NSLog(@"重新计算。");
+}
+
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {

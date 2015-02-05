@@ -13,15 +13,40 @@
 #pragma mark - Public methods
 - (IBAction)checkButtonClicked:(id)sender
 {
-
+    self.checkButton.selected = !self.checkButton.selected;
+    [self.delegate didGouwucheClickedWithCell:self];
 }
 - (IBAction)jiaButtonClicked:(id)sender
 {
-
+    NSInteger count = [self.shuliangField.text integerValue];
+    count++;
+    self.shuliangField.text = [NSString stringWithFormat:@"%@",@(count)];
+    if(count <=1)
+    {
+        self.jianButton.enabled = NO;
+    }
+    else
+    {
+        self.jianButton.enabled = YES;
+    }
+    //小计修改
+    [self.delegate didGouwucheClickedWithCell:self];
 }
 - (IBAction)jianButtonClicked:(id)sender
 {
-
+    NSInteger count = [self.shuliangField.text integerValue];
+    count--;
+    self.shuliangField.text = [NSString stringWithFormat:@"%@",@(count)];
+    if(count <=1)
+    {
+        self.jianButton.enabled = NO;
+    }
+    else
+    {
+        self.jianButton.enabled = YES;
+    }
+    //小计修改
+    [self.delegate didGouwucheClickedWithCell:self];
 }
 
 - (void)reloadWithGouwucheModel:(GouwucheModel *)gm

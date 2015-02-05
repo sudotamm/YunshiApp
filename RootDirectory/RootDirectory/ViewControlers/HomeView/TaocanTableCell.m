@@ -22,7 +22,7 @@
     [self.iconImgView aysnLoadImageWithUrl:tm.picURL placeHolder:@"loading_square"];
     
     CGFloat youhui = tm.cOldPrice.floatValue - tm.cNewPrice.floatValue;
-    self.youhuiLabel.text = [NSString stringWithFormat:@"立省：￥%.2f",youhui];
+    self.youhuiLabel.text = [NSString stringWithFormat:@"￥%.2f",youhui];
 }
 
 - (void)awakeFromNib {
