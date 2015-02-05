@@ -9,6 +9,7 @@
 #import "ShangpinDetailViewController.h"
 #import "TaocanCollectionCell.h"
 #import "RYPhotoBrowserViewController.h"
+#import "TaocanDetailViewController.h"
 
 @interface ShangpinDetailViewController ()
 
@@ -172,7 +173,11 @@
 #pragma mark - UICollectionViewDelegate methods
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"套餐详情...");
+    TaocanModel *tm = [self.detailModel.taocanArray objectAtIndex:indexPath.row];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    TaocanDetailViewController *tdvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaocanDetailViewController"];
+    tdvc.taocanModel = tm;
+    [self.navigationController pushViewController:tdvc animated:YES];
 }
 
 #pragma mark - RYDownloaderDelegate methods

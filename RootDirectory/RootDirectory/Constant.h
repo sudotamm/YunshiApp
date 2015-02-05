@@ -134,11 +134,12 @@
 //首页
 #define kDianpuListUrl      @"shopList"
 #define kBasketListUrl      @"basketList"
+#define kTaocanDetailUrl    @"comboDetail"
 //分类
 #define kFenleiListUrl      @"goodsCategory"
 #define kShangpinListUrl    @"goodsList"
 #define kShangpinDetailUrl  @"goodsInfo"
-#define kIsInBasketUrl      @"isInBasket"
+#define kIsInBasketUrl      @"isInCart"
 #define kEditGouwucheUrl    @"editCart"
 //购物车
 #define kGouwucheListUrl    @"cartList"

@@ -62,7 +62,7 @@
     if([segue.identifier isEqualToString:@"TaocanListToDetail"])
     {
         TaocanDetailViewController *tdvc = (TaocanDetailViewController *)segue.destinationViewController;
-        tdvc.taocanId = sender;
+        tdvc.taocanModel = sender;
     }
 }
 
@@ -97,7 +97,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     TaocanModel *tm = [self.taocaoArray objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"TaocanListToDetail" sender:tm.cId];
+    [self performSegueWithIdentifier:@"TaocanListToDetail" sender:tm];
 }
 
 #pragma mark - TaocanTableCellDelegate methods

@@ -60,7 +60,7 @@
     [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.userId forKey:@"userId"];
     [paramDict setObject:[NSString stringWithFormat:@"%@",@(pageNum)] forKey:@"page"];
     [paramDict setObject:[NSString stringWithFormat:@"%@",@(kPageCount)] forKey:@"dataCount"];
-
+    [paramDict setObject:[HomeDataManager sharedManger].currentDianpu.sCode forKey:@"sCode"];
     [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
                                                              postParams:paramDict
                                                             contentType:@"application/json"
@@ -131,7 +131,7 @@
     else if([segue.identifier isEqualToString:@"GouwucheListToTaocanDetail"])
     {
         TaocanDetailViewController *tdvc = (TaocanDetailViewController *)segue.destinationViewController;
-        tdvc.taocanId = sender;
+//        tdvc.taocanId = sender;
     }
 }
 
@@ -151,6 +151,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GouwucheTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GouwucheTableCell"];
+    cell.delegate = self;
     if(IsIos8)
     {
         cell.layoutMargins = UIEdgeInsetsZero;

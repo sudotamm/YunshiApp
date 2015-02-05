@@ -7,9 +7,19 @@
 //
 
 #import "BaseViewController.h"
+#import "ShangpinTableCell.h"
 
-@interface TaocanDetailViewController : BaseViewController
+@interface TaocanDetailViewController : BaseViewController<ShangpinTableCellDelegate>
 
-@property (nonatomic, copy) NSString *taocanId;
+@property (nonatomic, weak) IBOutlet UITableView *contentTableView;
+@property (nonatomic, weak) IBOutlet RYAsynImageView *iconImgView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *jiageLabel;
+@property (nonatomic, weak) IBOutlet UILabel *youhuiLabel;
+
+- (IBAction)buyButtonClicked:(id)sender;
+- (IBAction)jiesuanButtonClicked:(id)sender;
+
+@property (nonatomic, strong) TaocanModel *taocanModel;
 
 @end

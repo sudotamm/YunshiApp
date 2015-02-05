@@ -16,4 +16,6 @@
 @property (nonatomic, copy) NSString *cNewPrice;
 @property (nonatomic, copy) NSString *cOldPrice;
 
+@property (nonatomic, strong) NSMutableArray *shangpinArray;
+
 @end

@@ -70,9 +70,7 @@
     [self.navigationController pushViewController:slvc animated:YES];
 }
 - (IBAction)lilanButtonClicked:(id)sender
-{
-    NSLog(@"精选礼篮...");
-}
+{}
 
 - (IBAction)cuyifenxiangButtonClicked:(id)sender
 {
