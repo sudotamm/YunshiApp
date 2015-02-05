@@ -20,5 +20,7 @@
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *addr;
 @property (nonatomic, copy) NSString *birthday;
+@property (nonatomic, copy) NSString *levelCode;
+@property (nonatomic, copy) NSString *totalQtum;
 
 @end

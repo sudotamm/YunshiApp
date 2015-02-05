@@ -17,8 +17,10 @@
 
 
 
-
-
+-(IBAction)settingClick:(id)sender;
+-(IBAction)myInfoClick:(id)sender;
+-(IBAction)myKeCheng:(id)sender;
+-(IBAction)myOrderClick:(id)sender;
 
 
 @end

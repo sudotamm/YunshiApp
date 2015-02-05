@@ -93,6 +93,24 @@
 		94EB34A01A7D186900937044 /* FenleiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB349F1A7D186900937044 /* FenleiModel.m */; };
 		94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */; };
 		94EB34A61A7D31CD00937044 /* FenleiThirdTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */; };
+		A665AA631A830B0B00D5562A /* KechengCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA5B1A830B0B00D5562A /* KechengCell.m */; };
+		A665AA641A830B0B00D5562A /* KechengCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA5C1A830B0B00D5562A /* KechengCell.xib */; };
+		A665AA651A830B0B00D5562A /* ChuyiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA5E1A830B0B00D5562A /* ChuyiViewController.m */; };
+		A665AA661A830B0B00D5562A /* ChuyiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA5F1A830B0B00D5562A /* ChuyiViewController.xib */; };
+		A665AA671A830B0B00D5562A /* KeChengDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA611A830B0B00D5562A /* KeChengDetailViewController.m */; };
+		A665AA681A830B0B00D5562A /* KeChengDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA621A830B0B00D5562A /* KeChengDetailViewController.xib */; };
+		A665AA7B1A830B1700D5562A /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA6A1A830B1700D5562A /* SettingViewController.m */; };
+		A665AA7C1A830B1700D5562A /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA6B1A830B1700D5562A /* SettingViewController.xib */; };
+		A665AA7D1A830B1700D5562A /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA6D1A830B1700D5562A /* MyInfoCell.m */; };
+		A665AA7E1A830B1700D5562A /* MyInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA6E1A830B1700D5562A /* MyInfoCell.xib */; };
+		A665AA7F1A830B1700D5562A /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA701A830B1700D5562A /* MyInfoViewController.m */; };
+		A665AA801A830B1700D5562A /* MyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA711A830B1700D5562A /* MyInfoViewController.xib */; };
+		A665AA811A830B1700D5562A /* MyKeChengViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA731A830B1700D5562A /* MyKeChengViewController.m */; };
+		A665AA821A830B1700D5562A /* MyKeChengViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA741A830B1700D5562A /* MyKeChengViewController.xib */; };
+		A665AA831A830B1700D5562A /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA761A830B1700D5562A /* OrderCell.m */; };
+		A665AA841A830B1700D5562A /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA771A830B1700D5562A /* OrderCell.xib */; };
+		A665AA851A830B1700D5562A /* MyOrderListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA791A830B1700D5562A /* MyOrderListViewController.m */; };
+		A665AA861A830B1700D5562A /* MyOrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA7A1A830B1700D5562A /* MyOrderListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -259,6 +277,33 @@
 		94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiSecondTableCell.m; sourceTree = "<group>"; };
 		94EB34A41A7D31CD00937044 /* FenleiThirdTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiThirdTableCell.h; sourceTree = "<group>"; };
 		94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiThirdTableCell.m; sourceTree = "<group>"; };
+		A665AA5A1A830B0B00D5562A /* KechengCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KechengCell.h; sourceTree = "<group>"; };
+		A665AA5B1A830B0B00D5562A /* KechengCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KechengCell.m; sourceTree = "<group>"; };
+		A665AA5C1A830B0B00D5562A /* KechengCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KechengCell.xib; sourceTree = "<group>"; };
+		A665AA5D1A830B0B00D5562A /* ChuyiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChuyiViewController.h; sourceTree = "<group>"; };
+		A665AA5E1A830B0B00D5562A /* ChuyiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChuyiViewController.m; sourceTree = "<group>"; };
+		A665AA5F1A830B0B00D5562A /* ChuyiViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChuyiViewController.xib; sourceTree = "<group>"; };
+		A665AA601A830B0B00D5562A /* KeChengDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeChengDetailViewController.h; sourceTree = "<group>"; };
+		A665AA611A830B0B00D5562A /* KeChengDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeChengDetailViewController.m; sourceTree = "<group>"; };
+		A665AA621A830B0B00D5562A /* KeChengDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KeChengDetailViewController.xib; sourceTree = "<group>"; };
+		A665AA691A830B1700D5562A /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		A665AA6A1A830B1700D5562A /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		A665AA6B1A830B1700D5562A /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		A665AA6C1A830B1700D5562A /* MyInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoCell.h; sourceTree = "<group>"; };
+		A665AA6D1A830B1700D5562A /* MyInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoCell.m; sourceTree = "<group>"; };
+		A665AA6E1A830B1700D5562A /* MyInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoCell.xib; sourceTree = "<group>"; };
+		A665AA6F1A830B1700D5562A /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
+		A665AA701A830B1700D5562A /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
+		A665AA711A830B1700D5562A /* MyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfoViewController.xib; sourceTree = "<group>"; };
+		A665AA721A830B1700D5562A /* MyKeChengViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKeChengViewController.h; sourceTree = "<group>"; };
+		A665AA731A830B1700D5562A /* MyKeChengViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKeChengViewController.m; sourceTree = "<group>"; };
+		A665AA741A830B1700D5562A /* MyKeChengViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyKeChengViewController.xib; sourceTree = "<group>"; };
+		A665AA751A830B1700D5562A /* OrderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		A665AA761A830B1700D5562A /* OrderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
+		A665AA771A830B1700D5562A /* OrderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
+		A665AA781A830B1700D5562A /* MyOrderListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListViewController.h; sourceTree = "<group>"; };
+		A665AA791A830B1700D5562A /* MyOrderListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOrderListViewController.m; sourceTree = "<group>"; };
+		A665AA7A1A830B1700D5562A /* MyOrderListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +373,24 @@
 				947933021A767E9F0057C2B6 /* DataCenter */,
 				94BFC14B1A805F830003D942 /* UserViewController.h */,
 				94BFC14C1A805F830003D942 /* UserViewController.m */,
+				A665AA691A830B1700D5562A /* SettingViewController.h */,
+				A665AA6A1A830B1700D5562A /* SettingViewController.m */,
+				A665AA6B1A830B1700D5562A /* SettingViewController.xib */,
+				A665AA6C1A830B1700D5562A /* MyInfoCell.h */,
+				A665AA6D1A830B1700D5562A /* MyInfoCell.m */,
+				A665AA6E1A830B1700D5562A /* MyInfoCell.xib */,
+				A665AA6F1A830B1700D5562A /* MyInfoViewController.h */,
+				A665AA701A830B1700D5562A /* MyInfoViewController.m */,
+				A665AA711A830B1700D5562A /* MyInfoViewController.xib */,
+				A665AA721A830B1700D5562A /* MyKeChengViewController.h */,
+				A665AA731A830B1700D5562A /* MyKeChengViewController.m */,
+				A665AA741A830B1700D5562A /* MyKeChengViewController.xib */,
+				A665AA751A830B1700D5562A /* OrderCell.h */,
+				A665AA761A830B1700D5562A /* OrderCell.m */,
+				A665AA771A830B1700D5562A /* OrderCell.xib */,
+				A665AA781A830B1700D5562A /* MyOrderListViewController.h */,
+				A665AA791A830B1700D5562A /* MyOrderListViewController.m */,
+				A665AA7A1A830B1700D5562A /* MyOrderListViewController.xib */,
 			);
 			path = "我";
 			sourceTree = "<group>";
@@ -392,6 +455,7 @@
 				94D925F81A4D3154009412C0 /* RootTabBarViewController.m */,
 				947932E71A7664290057C2B6 /* 通用 */,
 				94B776541A77BEC900364BC2 /* 注册登录 */,
+				A665AA591A830AFD00D5562A /* 厨艺 */,
 				941D8CF01A75CB1A00FA27C7 /* 我 */,
 				941D8CEF1A75CB1500FA27C7 /* 购物车 */,
 				941D8CEE1A75CB0D00FA27C7 /* 搜索 */,
@@ -643,6 +707,22 @@
 			name = "实体扫购";
 			sourceTree = "<group>";
 		};
+		A665AA591A830AFD00D5562A /* 厨艺 */ = {
+			isa = PBXGroup;
+			children = (
+				A665AA5A1A830B0B00D5562A /* KechengCell.h */,
+				A665AA5B1A830B0B00D5562A /* KechengCell.m */,
+				A665AA5C1A830B0B00D5562A /* KechengCell.xib */,
+				A665AA5D1A830B0B00D5562A /* ChuyiViewController.h */,
+				A665AA5E1A830B0B00D5562A /* ChuyiViewController.m */,
+				A665AA5F1A830B0B00D5562A /* ChuyiViewController.xib */,
+				A665AA601A830B0B00D5562A /* KeChengDetailViewController.h */,
+				A665AA611A830B0B00D5562A /* KeChengDetailViewController.m */,
+				A665AA621A830B0B00D5562A /* KeChengDetailViewController.xib */,
+			);
+			path = "厨艺";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -701,18 +781,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				9401719D1A399D5A0084087D /* Main.storyboard in Resources */,
+				A665AA821A830B1700D5562A /* MyKeChengViewController.xib in Resources */,
+				A665AA7C1A830B1700D5562A /* SettingViewController.xib in Resources */,
 				94C94ACE1A77C70600DE8C2F /* AppResource.xcassets in Resources */,
 				940AFA3A1A3EB026003D6B93 /* Loading.xcassets in Resources */,
 				947656581A393AD6007DBE24 /* Icon.xcassets in Resources */,
 				947932FA1A7677540057C2B6 /* DianpuView.xib in Resources */,
+				A665AA801A830B1700D5562A /* MyInfoViewController.xib in Resources */,
 				947932FF1A767A350057C2B6 /* DianpuChooseView.xib in Resources */,
 				947932F11A7668900057C2B6 /* MainService.plist in Resources */,
+				A665AA841A830B1700D5562A /* OrderCell.xib in Resources */,
 				94A8FEC81A810C7700F2A226 /* GouwuConfirmView.xib in Resources */,
+				A665AA7E1A830B1700D5562A /* MyInfoCell.xib in Resources */,
 				94A8FEC31A81035A00F2A226 /* RYPhotoBrowserViewController.xib in Resources */,
+				A665AA681A830B0B00D5562A /* KeChengDetailViewController.xib in Resources */,
+				A665AA661A830B0B00D5562A /* ChuyiViewController.xib in Resources */,
 				94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */,
 				94A8FEC11A81035A00F2A226 /* RYPhotoBrowserCell.xib in Resources */,
 				94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */,
 				947932EC1A76643C0057C2B6 /* ImagesContainView.xib in Resources */,
+				A665AA641A830B0B00D5562A /* KechengCell.xib in Resources */,
+				A665AA861A830B1700D5562A /* MyOrderListViewController.xib in Resources */,
 				94C94ACC1A77C6BE00DE8C2F /* QRcodeScanViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,7 +827,9 @@
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,
 				947B420E1A81E9BF00D4B13A /* TaocanTableCell.m in Sources */,
+				A665AA631A830B0B00D5562A /* KechengCell.m in Sources */,
 				947932E51A7664170057C2B6 /* RYRootBlurViewManager.m in Sources */,
+				A665AA7F1A830B1700D5562A /* MyInfoViewController.m in Sources */,
 				94A8FEC01A81035A00F2A226 /* RYPhotoBrowserCell.m in Sources */,
 				941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */,
 				94A8FEC21A81035A00F2A226 /* RYPhotoBrowserViewController.m in Sources */,
@@ -750,20 +841,25 @@
 				9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */,
 				947B42111A82565800D4B13A /* GouwucheTableCell.m in Sources */,
 				94A8FEB81A80FF6D00F2A226 /* TaocanCollectionCell.m in Sources */,
+				A665AA7B1A830B1700D5562A /* SettingViewController.m in Sources */,
 				94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */,
 				947B42151A8258AF00D4B13A /* GouwucheDataManager.m in Sources */,
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
 				94BFC14E1A805F830003D942 /* UserViewController.m in Sources */,
+				A665AA831A830B1700D5562A /* OrderCell.m in Sources */,
 				94AFF2201A7FA76200B88E5B /* ShangpinListViewController.m in Sources */,
+				A665AA811A830B1700D5562A /* MyKeChengViewController.m in Sources */,
 				947932D31A7664170057C2B6 /* MBProgressHUD.m in Sources */,
 				94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */,
 				947932E01A7664170057C2B6 /* RYCycleScrollView.m in Sources */,
 				947932E31A7664170057C2B6 /* UIImage+RYBlurGlass.m in Sources */,
+				A665AA7D1A830B1700D5562A /* MyInfoCell.m in Sources */,
 				947932F51A7676520057C2B6 /* HomeDataManager.m in Sources */,
 				947932E41A7664170057C2B6 /* UIImage+RYAssetLaunchImage.m in Sources */,
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,
+				A665AA651A830B0B00D5562A /* ChuyiViewController.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
 				94A8FEB51A80EDAD00F2A226 /* TaocanModel.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,
@@ -785,6 +881,7 @@
 				947932D41A7664170057C2B6 /* NSObject+RYPropertyList.m in Sources */,
 				946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */,
 				947655D11A393290007DBE24 /* AppDelegate.m in Sources */,
+				A665AA671A830B0B00D5562A /* KeChengDetailViewController.m in Sources */,
 				947932DD1A7664170057C2B6 /* NSArray+RYLocationTransform.m in Sources */,
 				947932DF1A7664170057C2B6 /* RYCommonMethods.m in Sources */,
 				94AFF22C1A7FABC400B88E5B /* MJRefreshFooterView.m in Sources */,
@@ -794,6 +891,7 @@
 				947932EF1A7667850057C2B6 /* ServiceCell.m in Sources */,
 				9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */,
 				947932D71A7664170057C2B6 /* RYAppBackgroundConfiger.m in Sources */,
+				A665AA851A830B1700D5562A /* MyOrderListViewController.m in Sources */,
 				94AFF2301A7FACCA00B88E5B /* ShangpinModel.m in Sources */,
 				946C9A261A7FC77900B07D52 /* ShangpinCollectionCell.m in Sources */,
 			);

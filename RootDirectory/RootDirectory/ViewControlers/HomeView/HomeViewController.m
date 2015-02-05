@@ -11,6 +11,8 @@
 #import "DianpuChooseView.h"
 #import "QRcodeScanViewController.h"
 #import "ShangpinListViewController.h"
+#import "ChuyiViewController.h"
+
 
 #define kListCount 4
 
@@ -74,7 +76,8 @@
 
 - (IBAction)cuyifenxiangButtonClicked:(id)sender
 {
-    NSLog(@"厨艺分享...");
+    ChuyiViewController* vc = [[ChuyiViewController alloc] initWithNibName:@"ChuyiViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - Notification methods

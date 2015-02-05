@@ -11,6 +11,8 @@
 @implementation ABCMember
 
 @synthesize code,msg,userId,name,phone,gender,email,addr,birthday;
+@synthesize levelCode,totalQtum;
+
 
 - (id)init
 {
@@ -33,6 +35,10 @@
     [aCoder encodeObject:email forKey:@"email"];
     [aCoder encodeObject:addr forKey:@"addr"];
     [aCoder encodeObject:birthday forKey:@"birthday"];
+    [aCoder encodeObject:levelCode forKey:@"levelCode"];
+    [aCoder encodeObject:totalQtum forKey:@"totalQtum"];
+    
+    
 }
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
@@ -47,6 +53,9 @@
         self.email = [aDecoder decodeObjectForKey:@"email"];
         self.addr = [aDecoder decodeObjectForKey:@"addr"];
         self.birthday = [aDecoder decodeObjectForKey:@"birthday"];
+        self.levelCode = [aDecoder decodeObjectForKey:@"levelCode"];
+        self.totalQtum = [aDecoder decodeObjectForKey:@"totalQtum"];
+        
     }
     return self;
 }
