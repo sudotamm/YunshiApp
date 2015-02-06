@@ -120,6 +120,7 @@
 #define kInBasketResponseNotification       @"InBasketResponseNotification"
 #define kAddGouwucheResponseNotification    @"AddGouwucheResponseNotification"
 #define kRemoveGouwucheResponseNotification @"RemoveGouwucheResponseNotification"
+#define kShangpinhuiKuiResponseNotification @"ShangpinhuiKuiResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
@@ -143,5 +144,5 @@
 #define kEditGouwucheUrl    @"editCart"
 //购物车
 #define kGouwucheListUrl    @"cartList"
-
+#define kManehuikuiUrl      @"getGift"
 #endif

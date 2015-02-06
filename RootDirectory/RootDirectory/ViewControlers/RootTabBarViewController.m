@@ -11,6 +11,7 @@
 #import "GouwucheViewController.h"
 #import "ShangpinListViewController.h"
 #import "GouwuConfirmView.h"
+#import "GouwuHuikuiView.h"
 
 @interface RootTabBarViewController ()
 
@@ -46,6 +47,13 @@
     [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:gcv position:CGPointZero];
 }
 
+- (void)shangpinHuikuiResponseWithNotification:(NSNotification *)notification
+{
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GouwuHuikuiView" owner:self options:nil];
+    GouwuHuikuiView *ghv = [nibs lastObject];
+    [ghv reloadData];
+    [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:ghv position:CGPointZero];
+}
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad
@@ -76,6 +84,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showFenleiViewWithNotification:) name:kShowFenleiViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showGouwucheViewWithNotification:) name:kShowGouwucheViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inbasketResponseWithNotification:) name:kInBasketResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shangpinHuikuiResponseWithNotification:) name:kShangpinhuiKuiResponseNotification object:nil];
 }
 
 - (void)dealloc

@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "GouwucheModel.h"
+#import "ShanginHuikuiModel.h"
 
 @interface GouwucheDataManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *shangpinHuikuiArray;
+
 + (instancetype)sharedManager;
+
+- (void)requestManehuikuiWithUserId:(NSString *)userId
+                          mendianId:(NSString *)mendianId
+                         gouwuArray:(NSMutableArray *)gouwuArray;
 
 @end

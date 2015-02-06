@@ -72,7 +72,16 @@
 
 - (IBAction)xiayibuButtonClicked:(id)sender
 {
+    NSMutableArray *selectedArray = [NSMutableArray array];
+    for(GouwucheModel *gm in self.gouwucheArray)
+    {
+        if(gm.isSelected)
+            [selectedArray addObject:gm];
+    }
     
+    [[GouwucheDataManager sharedManager] requestManehuikuiWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                                           mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                          gouwuArray:selectedArray];
 }
 
 #pragma mark - Notification methods
