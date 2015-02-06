@@ -24,6 +24,8 @@
         self.cId = gm.gId;
         self.cName = gm.gName;
         self.picURL = gm.picURL;
+        self.cNewPrice = gm.price;
+        self.cOldPrice = gm.oldPrice;
     }
     return self;
 }

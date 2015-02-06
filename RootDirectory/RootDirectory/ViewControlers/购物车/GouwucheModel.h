@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *gId;
 @property (nonatomic, copy) NSString *gName;
 @property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *oldPrice;
 @property (nonatomic, copy) NSString *picURL;
 @property (nonatomic, copy) NSString *num;
 @property (nonatomic, copy) NSString *sCode;

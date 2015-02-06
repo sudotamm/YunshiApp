@@ -10,9 +10,15 @@
 #import "GouwucheModel.h"
 #import "ShanginHuikuiModel.h"
 
+typedef NS_ENUM(NSInteger, GouwucheXiadanShangpinType) {
+    kGouwucheXiadannShangpinNormal = 0,
+    kGouwucheXiadannShangpinHuikui = 1
+};
+
 @interface GouwucheDataManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *shangpinHuikuiArray;
+@property (nonatomic, strong) NSMutableArray *selctedGouwuArray;
 
 + (instancetype)sharedManager;
 
@@ -20,4 +26,8 @@
                           mendianId:(NSString *)mendianId
                          gouwuArray:(NSMutableArray *)gouwuArray;
 
+- (void)requestSaveOrderWithUserId:(NSString *)userId
+                          mendianId:(NSString *)mendianId
+                         gouwuArray:(NSMutableArray *)gouwuArray
+                       fankuiArray:(NSMutableArray *)fankuiArray;
 @end

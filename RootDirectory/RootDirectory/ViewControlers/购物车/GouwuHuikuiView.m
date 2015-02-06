@@ -22,7 +22,16 @@
 - (IBAction)quedingButtonClicked:(id)sender
 {
     [[RYRootBlurViewManager sharedManger] hideBlurView];
-    [[RYHUDManager sharedManager] showWithMessage:@"开始下单..." customView:nil hideDelay:2.f];
+    NSMutableArray *selectedArray = [NSMutableArray array];
+    for(ShanginHuikuiModel *shm in [GouwucheDataManager sharedManager].shangpinHuikuiArray)
+    {
+        if(shm.isSelected)
+            [selectedArray addObject:shm];
+    }
+    [[GouwucheDataManager sharedManager] requestSaveOrderWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                                          mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                         gouwuArray:[GouwucheDataManager sharedManager].selctedGouwuArray
+                                                        fankuiArray:selectedArray];
 }
 
 #pragma mark - UIView methods

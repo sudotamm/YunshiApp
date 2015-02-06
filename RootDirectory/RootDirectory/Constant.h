@@ -145,4 +145,5 @@
 //购物车
 #define kGouwucheListUrl    @"cartList"
 #define kManehuikuiUrl      @"getGift"
+#define kSaveOrderUrl       @"saveOrder"
 #endif
