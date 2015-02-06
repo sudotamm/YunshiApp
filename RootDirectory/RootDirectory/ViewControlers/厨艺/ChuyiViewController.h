@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-
+#import "TrainingBean.h"
 
 
 @interface ChuyiViewController : BaseViewController
@@ -18,6 +18,11 @@
 @property (nonatomic,strong) IBOutlet UIDatePicker* picker;
 @property (nonatomic,strong) IBOutlet UIButton* dateBtn;
 @property (nonatomic,strong) IBOutlet UIView* pickerView;
+@property (nonatomic,copy) NSString* trainingTime;
+@property (nonatomic,copy) NSString* page;
+@property (nonatomic,strong) NSMutableArray* trainingArray;
+
+
 
 
 -(IBAction)datePick:(id)sender;

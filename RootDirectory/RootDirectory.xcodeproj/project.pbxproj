@@ -99,6 +99,7 @@
 		94EB34A01A7D186900937044 /* FenleiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB349F1A7D186900937044 /* FenleiModel.m */; };
 		94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */; };
 		94EB34A61A7D31CD00937044 /* FenleiThirdTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */; };
+		A602EE981A8521BC002CCB74 /* TrainingBean.m in Sources */ = {isa = PBXBuildFile; fileRef = A602EE971A8521BC002CCB74 /* TrainingBean.m */; };
 		A665AA631A830B0B00D5562A /* KechengCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA5B1A830B0B00D5562A /* KechengCell.m */; };
 		A665AA641A830B0B00D5562A /* KechengCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A665AA5C1A830B0B00D5562A /* KechengCell.xib */; };
 		A665AA651A830B0B00D5562A /* ChuyiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A665AA5E1A830B0B00D5562A /* ChuyiViewController.m */; };
@@ -293,6 +294,8 @@
 		94EB34A21A7D26E700937044 /* FenleiSecondTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiSecondTableCell.m; sourceTree = "<group>"; };
 		94EB34A41A7D31CD00937044 /* FenleiThirdTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FenleiThirdTableCell.h; sourceTree = "<group>"; };
 		94EB34A51A7D31CD00937044 /* FenleiThirdTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FenleiThirdTableCell.m; sourceTree = "<group>"; };
+		A602EE961A8521BC002CCB74 /* TrainingBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrainingBean.h; sourceTree = "<group>"; };
+		A602EE971A8521BC002CCB74 /* TrainingBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrainingBean.m; sourceTree = "<group>"; };
 		A665AA5A1A830B0B00D5562A /* KechengCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KechengCell.h; sourceTree = "<group>"; };
 		A665AA5B1A830B0B00D5562A /* KechengCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KechengCell.m; sourceTree = "<group>"; };
 		A665AA5C1A830B0B00D5562A /* KechengCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KechengCell.xib; sourceTree = "<group>"; };
@@ -733,9 +736,19 @@
 			name = "实体扫购";
 			sourceTree = "<group>";
 		};
+		A602EE951A8521A3002CCB74 /* DataCenter */ = {
+			isa = PBXGroup;
+			children = (
+				A602EE961A8521BC002CCB74 /* TrainingBean.h */,
+				A602EE971A8521BC002CCB74 /* TrainingBean.m */,
+			);
+			name = DataCenter;
+			sourceTree = "<group>";
+		};
 		A665AA591A830AFD00D5562A /* 厨艺 */ = {
 			isa = PBXGroup;
 			children = (
+				A602EE951A8521A3002CCB74 /* DataCenter */,
 				A665AA5A1A830B0B00D5562A /* KechengCell.h */,
 				A665AA5B1A830B0B00D5562A /* KechengCell.m */,
 				A665AA5C1A830B0B00D5562A /* KechengCell.xib */,
@@ -882,6 +895,7 @@
 				A665AA811A830B1700D5562A /* MyKeChengViewController.m in Sources */,
 				947932D31A7664170057C2B6 /* MBProgressHUD.m in Sources */,
 				94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */,
+				A602EE981A8521BC002CCB74 /* TrainingBean.m in Sources */,
 				947932E01A7664170057C2B6 /* RYCycleScrollView.m in Sources */,
 				947932E31A7664170057C2B6 /* UIImage+RYBlurGlass.m in Sources */,
 				A665AA7D1A830B1700D5562A /* MyInfoCell.m in Sources */,

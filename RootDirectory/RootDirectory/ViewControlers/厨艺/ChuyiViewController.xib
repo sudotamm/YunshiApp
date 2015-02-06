@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChuyiViewController">
             <connections>
+                <outlet property="dateBtn" destination="me5-Rk-dpd" id="763-cI-MLI"/>
                 <outlet property="picker" destination="ZK8-zd-6DT" id="bxj-R1-4U6"/>
                 <outlet property="pickerView" destination="KB0-iw-77o" id="13A-2y-0bm"/>
                 <outlet property="tv" destination="fKP-YX-hrK" id="JDE-s8-W2f"/>

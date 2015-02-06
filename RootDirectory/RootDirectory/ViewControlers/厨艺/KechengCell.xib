@@ -46,6 +46,14 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ppq-hz-dod">
+                        <rect key="frame" x="214" y="104" width="91" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="已预约完毕" backgroundImage="btn_grey">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w3w-iP-ua5">
                         <rect key="frame" x="214" y="104" width="91" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -68,6 +76,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="btn_grey" width="271" height="76"/>
         <image name="btn_red" width="21" height="21"/>
         <image name="tmp1" width="750" height="326"/>
     </resources>
