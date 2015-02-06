@@ -1004,7 +1004,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/RootDirectory/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RootDirectory;
-				PROVISIONING_PROFILE = "2565bac0-b1bb-452d-88ed-154d5ac19398";
+				PROVISIONING_PROFILE = "e680cf57-43bc-4ccb-9bbc-9ee2420e4f87";
 			};
 			name = Debug;
 		};
@@ -1019,7 +1019,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/RootDirectory/SupportFiles/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = RootDirectory;
-				PROVISIONING_PROFILE = "2565bac0-b1bb-452d-88ed-154d5ac19398";
+				PROVISIONING_PROFILE = "e680cf57-43bc-4ccb-9bbc-9ee2420e4f87";
 			};
 			name = Release;
 		};
