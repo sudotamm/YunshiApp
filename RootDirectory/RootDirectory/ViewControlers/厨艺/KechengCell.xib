@@ -64,6 +64,7 @@
             <connections>
                 <outlet property="addr" destination="UwQ-Ik-i9l" id="fvv-02-IWG"/>
                 <outlet property="datetime" destination="Hbo-2Q-7wL" id="3PI-CN-EW5"/>
+                <outlet property="greyBtn" destination="Ppq-hz-dod" id="bQo-3n-gLz"/>
                 <outlet property="name" destination="Ni6-ja-HaE" id="wET-Yw-OPr"/>
                 <outlet property="person" destination="P1N-x5-BTC" id="3ru-Pe-lpO"/>
                 <outlet property="sendBtn" destination="w3w-iP-ua5" id="aZd-2y-mtV"/>

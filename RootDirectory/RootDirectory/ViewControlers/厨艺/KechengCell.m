@@ -12,7 +12,7 @@
 
 
 @synthesize sendBtn,name,addr,datetime,person;
-
+@synthesize greyBtn;
 
 
 @end

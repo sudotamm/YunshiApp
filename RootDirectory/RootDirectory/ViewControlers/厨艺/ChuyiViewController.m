@@ -27,7 +27,7 @@
     [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.phone forKey:@"userId"];
     [paramDict setObject:self.trainingTime forKey:@"trainingTime"];
     [paramDict setObject:@"0" forKey:@"isMyTraining"];
-    [paramDict setObject:@"40" forKey:@"dataCount"];
+    [paramDict setObject:@"100" forKey:@"dataCount"];
     [paramDict setObject:self.page forKey:@"page"];
     
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载课程列表中..."];
@@ -189,10 +189,20 @@
     
     if (![bean.status isEqualToString:@"1"]) {
         cell.sendBtn.hidden = YES;
+        
     }
     else {
-        cell.sendBtn.tag = indexPath.row;
-        [cell.sendBtn addTarget:self action:@selector(yueClick:) forControlEvents:UIControlEventTouchDown];
+        
+        if ([bean.isApply isEqualToString:@"1"]) {
+            cell.sendBtn.hidden = YES;
+            [cell.greyBtn setTitle:@"已报名" forState:UIControlStateNormal];
+        }
+        else {
+            cell.sendBtn.tag = indexPath.row;
+            [cell.sendBtn addTarget:self action:@selector(yueClick:) forControlEvents:UIControlEventTouchDown];
+        }
+        
+        
     }
     
     RYAsynImageView* iconImgView = [[RYAsynImageView alloc] init];
@@ -214,11 +224,35 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        TrainingBean* bean = (TrainingBean*)[self.trainingArray objectAtIndex:alertView.tag];
+        
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+        [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.phone forKey:@"userId"];
+        [paramDict setObject:bean.tId forKey:@"tId"];
+        
+        [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"报名申请中..."];
+        NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,@"applyTraining"];
+        [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                                 postParams:paramDict
+                                                                contentType:@"application/json"
+                                                                   delegate:self
+                                                                    purpose:@"报名课程"];
+    }
+}
+
 
 -(IBAction)yueClick:(id)sender
 {
     UIButton* btn = (UIButton*)sender;
-    NSLog(@"yue:%d",btn.tag);
+//    TrainingBean* bean = (TrainingBean*)[self.trainingArray objectAtIndex:btn.tag];
+    
+    UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您确定要参与该课程吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    av.tag = btn.tag;
+    [av show];
+    
 }
 
 #pragma mark - RYDownloaderDelegate methods
@@ -226,13 +260,16 @@
 {
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
     
-    [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+    
     
     if([downloader.purpose isEqualToString:@"课程列表"])
     {
         //获取验证码返回
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
+            
+            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            
             if ([self.page isEqualToString:@"1"]) {
                 [self.trainingArray removeAllObjects];
             }
@@ -263,16 +300,28 @@
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }
-
-    
-    
+    else if([downloader.purpose isEqualToString:@"报名课程"])
+    {
+        //获取验证码返回
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            [[RYHUDManager sharedManager] showWithMessage:@"报名成功" customView:nil hideDelay:2.f];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"报名请求失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
     
     
 }
 
 - (void)downloader:(RYDownloader*)downloader didFinishWithError:(NSString*)message
 {
-    [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+//    [[RYHUDManager sharedManager] stoppedNetWorkActivity];
     [[RYHUDManager sharedManager] showWithMessage:kNetWorkErrorString customView:nil hideDelay:2.f];
 }
 

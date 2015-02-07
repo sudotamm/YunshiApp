@@ -12,10 +12,17 @@
 
 
 @interface MyKeChengViewController : BaseViewController
-
+{
+    BOOL isHistory;
+}
 
 @property (nonatomic,strong) IBOutlet UITableView* tv;
+@property (nonatomic,copy) NSString* page;
+@property (nonatomic,strong) NSMutableArray* trainingArray;
+@property (nonatomic,strong) IBOutlet UISegmentedControl* segment;
 
+
+-(IBAction)searchSwith:(id)sender;
 
 
 @end
