@@ -11,7 +11,8 @@
 @implementation KechengCell
 
 
-@synthesize sendBtn,name,addr,datetime,person,imgView;
+@synthesize sendBtn,name,addr,datetime,person;
+
 
 
 @end

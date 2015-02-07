@@ -195,6 +195,14 @@
         [cell.sendBtn addTarget:self action:@selector(yueClick:) forControlEvents:UIControlEventTouchDown];
     }
     
+    RYAsynImageView* iconImgView = [[RYAsynImageView alloc] init];
+    [cell.contentView addSubview:iconImgView];
+    iconImgView.frame = CGRectMake(20, 20, 100, 100);
+    iconImgView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    iconImgView.layer.borderWidth = 1.f;
+    iconImgView.cacheDir = kSmallImgCacheDir;
+    [iconImgView aysnLoadImageWithUrl:bean.picURL placeHolder:@"loading_square"];
+    
     
     return cell;
     
