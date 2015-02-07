@@ -23,6 +23,15 @@
 		945C4A9E1A863AB0008338CC /* RYPickerView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945C4A981A863AB0008338CC /* RYPickerView.xcassets */; };
 		945C4A9F1A863AB0008338CC /* RYTextPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A9A1A863AB0008338CC /* RYTextPickerView.m */; };
 		945C4AA01A863AB0008338CC /* RYTextPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4A9B1A863AB0008338CC /* RYTextPickerView.xib */; };
+		945C4AA41A864D11008338CC /* AddressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AA21A864D11008338CC /* AddressListViewController.m */; };
+		945C4AA51A864D11008338CC /* AddressListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4AA31A864D11008338CC /* AddressListViewController.xib */; };
+		945C4AA81A864E85008338CC /* UserInfoDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AA71A864E85008338CC /* UserInfoDataManager.m */; };
+		945C4AAB1A864F3C008338CC /* AddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AAA1A864F3C008338CC /* AddressModel.m */; };
+		945C4AAF1A86509C008338CC /* AddressTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AAD1A86509C008338CC /* AddressTableCell.m */; };
+		945C4AB01A86509C008338CC /* AddressTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4AAE1A86509C008338CC /* AddressTableCell.xib */; };
+		945C4AB41A8658A6008338CC /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AB21A8658A6008338CC /* AddAddressViewController.m */; };
+		945C4AB51A8658A6008338CC /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4AB31A8658A6008338CC /* AddAddressViewController.xib */; };
+		945C4AB81A865F11008338CC /* RegionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AB71A865F11008338CC /* RegionModel.m */; };
 		946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */; };
 		946C9A261A7FC77900B07D52 /* ShangpinCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */; };
 		947655D11A393290007DBE24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D01A393290007DBE24 /* AppDelegate.m */; };
@@ -155,6 +164,21 @@
 		945C4A991A863AB0008338CC /* RYTextPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYTextPickerView.h; sourceTree = "<group>"; };
 		945C4A9A1A863AB0008338CC /* RYTextPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYTextPickerView.m; sourceTree = "<group>"; };
 		945C4A9B1A863AB0008338CC /* RYTextPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RYTextPickerView.xib; sourceTree = "<group>"; };
+		945C4AA11A864D11008338CC /* AddressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressListViewController.h; sourceTree = "<group>"; };
+		945C4AA21A864D11008338CC /* AddressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressListViewController.m; sourceTree = "<group>"; };
+		945C4AA31A864D11008338CC /* AddressListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressListViewController.xib; sourceTree = "<group>"; };
+		945C4AA61A864E85008338CC /* UserInfoDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoDataManager.h; sourceTree = "<group>"; };
+		945C4AA71A864E85008338CC /* UserInfoDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoDataManager.m; sourceTree = "<group>"; };
+		945C4AA91A864F3C008338CC /* AddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressModel.h; sourceTree = "<group>"; };
+		945C4AAA1A864F3C008338CC /* AddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressModel.m; sourceTree = "<group>"; };
+		945C4AAC1A86509C008338CC /* AddressTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressTableCell.h; sourceTree = "<group>"; };
+		945C4AAD1A86509C008338CC /* AddressTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressTableCell.m; sourceTree = "<group>"; };
+		945C4AAE1A86509C008338CC /* AddressTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressTableCell.xib; sourceTree = "<group>"; };
+		945C4AB11A8658A6008338CC /* AddAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
+		945C4AB21A8658A6008338CC /* AddAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
+		945C4AB31A8658A6008338CC /* AddAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
+		945C4AB61A865F11008338CC /* RegionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionModel.h; sourceTree = "<group>"; };
+		945C4AB71A865F11008338CC /* RegionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionModel.m; sourceTree = "<group>"; };
 		946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinTableCell.h; sourceTree = "<group>"; };
 		946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinTableCell.m; sourceTree = "<group>"; };
 		946C9A241A7FC77900B07D52 /* ShangpinCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinCollectionCell.h; sourceTree = "<group>"; };
@@ -445,6 +469,15 @@
 				A665AA781A830B1700D5562A /* MyOrderListViewController.h */,
 				A665AA791A830B1700D5562A /* MyOrderListViewController.m */,
 				A665AA7A1A830B1700D5562A /* MyOrderListViewController.xib */,
+				945C4AA11A864D11008338CC /* AddressListViewController.h */,
+				945C4AA21A864D11008338CC /* AddressListViewController.m */,
+				945C4AA31A864D11008338CC /* AddressListViewController.xib */,
+				945C4AAC1A86509C008338CC /* AddressTableCell.h */,
+				945C4AAD1A86509C008338CC /* AddressTableCell.m */,
+				945C4AAE1A86509C008338CC /* AddressTableCell.xib */,
+				945C4AB11A8658A6008338CC /* AddAddressViewController.h */,
+				945C4AB21A8658A6008338CC /* AddAddressViewController.m */,
+				945C4AB31A8658A6008338CC /* AddAddressViewController.xib */,
 			);
 			path = "我";
 			sourceTree = "<group>";
@@ -675,6 +708,12 @@
 		947933021A767E9F0057C2B6 /* DataCenter */ = {
 			isa = PBXGroup;
 			children = (
+				945C4AA61A864E85008338CC /* UserInfoDataManager.h */,
+				945C4AA71A864E85008338CC /* UserInfoDataManager.m */,
+				945C4AA91A864F3C008338CC /* AddressModel.h */,
+				945C4AAA1A864F3C008338CC /* AddressModel.m */,
+				945C4AB61A865F11008338CC /* RegionModel.h */,
+				945C4AB71A865F11008338CC /* RegionModel.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -859,6 +898,7 @@
 				94C94ACE1A77C70600DE8C2F /* AppResource.xcassets in Resources */,
 				940AFA3A1A3EB026003D6B93 /* Loading.xcassets in Resources */,
 				947656581A393AD6007DBE24 /* Icon.xcassets in Resources */,
+				945C4AB51A8658A6008338CC /* AddAddressViewController.xib in Resources */,
 				947932FA1A7677540057C2B6 /* DianpuView.xib in Resources */,
 				945C4A9D1A863AB0008338CC /* RYDatePickerView.xib in Resources */,
 				A665AA801A830B1700D5562A /* MyInfoViewController.xib in Resources */,
@@ -868,6 +908,7 @@
 				A665AA841A830B1700D5562A /* OrderCell.xib in Resources */,
 				945C4A9E1A863AB0008338CC /* RYPickerView.xcassets in Resources */,
 				94A8FEC81A810C7700F2A226 /* GouwuConfirmView.xib in Resources */,
+				945C4AB01A86509C008338CC /* AddressTableCell.xib in Resources */,
 				A665AA7E1A830B1700D5562A /* MyInfoCell.xib in Resources */,
 				948F104D1A84892800E113F8 /* GouwuHuikuiView.xib in Resources */,
 				94A8FEC31A81035A00F2A226 /* RYPhotoBrowserViewController.xib in Resources */,
@@ -878,6 +919,7 @@
 				94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */,
 				948F10521A848FBF00E113F8 /* HuikuiCollectionCell.xib in Resources */,
 				947932EC1A76643C0057C2B6 /* ImagesContainView.xib in Resources */,
+				945C4AA51A864D11008338CC /* AddressListViewController.xib in Resources */,
 				A665AA641A830B0B00D5562A /* KechengCell.xib in Resources */,
 				A665AA861A830B1700D5562A /* MyOrderListViewController.xib in Resources */,
 				94C94ACC1A77C6BE00DE8C2F /* QRcodeScanViewController.xib in Resources */,
@@ -923,6 +965,7 @@
 				947B42111A82565800D4B13A /* GouwucheTableCell.m in Sources */,
 				94A8FEB81A80FF6D00F2A226 /* TaocanCollectionCell.m in Sources */,
 				948F104B1A84891300E113F8 /* GouwuHuikuiView.m in Sources */,
+				945C4AAB1A864F3C008338CC /* AddressModel.m in Sources */,
 				A665AA7B1A830B1700D5562A /* SettingViewController.m in Sources */,
 				94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */,
 				947B42151A8258AF00D4B13A /* GouwucheDataManager.m in Sources */,
@@ -937,15 +980,19 @@
 				947932D31A7664170057C2B6 /* MBProgressHUD.m in Sources */,
 				94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */,
 				947932E01A7664170057C2B6 /* RYCycleScrollView.m in Sources */,
+				945C4AA81A864E85008338CC /* UserInfoDataManager.m in Sources */,
 				947932E31A7664170057C2B6 /* UIImage+RYBlurGlass.m in Sources */,
 				A665AA7D1A830B1700D5562A /* MyInfoCell.m in Sources */,
+				945C4AB81A865F11008338CC /* RegionModel.m in Sources */,
 				947932F51A7676520057C2B6 /* HomeDataManager.m in Sources */,
 				945C4A8A1A861C1A008338CC /* GouwuQingdanViewController.m in Sources */,
 				945C4A9C1A863AB0008338CC /* RYDatePickerView.m in Sources */,
 				947932E41A7664170057C2B6 /* UIImage+RYAssetLaunchImage.m in Sources */,
+				945C4AAF1A86509C008338CC /* AddressTableCell.m in Sources */,
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,
 				A665AA651A830B0B00D5562A /* ChuyiViewController.m in Sources */,
+				945C4AA41A864D11008338CC /* AddressListViewController.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
 				94A8FEB51A80EDAD00F2A226 /* TaocanModel.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,
@@ -954,6 +1001,7 @@
 				94A8FEAF1A80ED0F00F2A226 /* ShangpinDetailViewController.m in Sources */,
 				947932D11A7664170057C2B6 /* RYDownloaderManager.m in Sources */,
 				94EB34A61A7D31CD00937044 /* FenleiThirdTableCell.m in Sources */,
+				945C4AB41A8658A6008338CC /* AddAddressViewController.m in Sources */,
 				947655D41A393290007DBE24 /* StartViewController.m in Sources */,
 				94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */,
 				947932DC1A7664170057C2B6 /* UIDevice+RYUDID.m in Sources */,

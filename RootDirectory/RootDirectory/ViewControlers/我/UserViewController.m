@@ -11,7 +11,7 @@
 #import "MyInfoViewController.h"
 #import "MyKeChengViewController.h"
 #import "MyOrderListViewController.h"
-
+#import "AddressListViewController.h"
 
 
 @interface UserViewController ()
@@ -36,7 +36,9 @@
 
 - (IBAction)dizhiButtonClicked:(id)sender
 {
-    NSLog(@"收货地址.");
+    AddressListViewController *alvc = [[AddressListViewController alloc] init];
+    alvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:alvc animated:YES];
 }
 
 - (IBAction)shoucanButtonClicked:(id)sender

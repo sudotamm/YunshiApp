@@ -7,16 +7,19 @@
 //
 
 #import "PeisongXuanzeViewController.h"
+#import "AddressListViewController.h"
 
 #define kDateStringFormat @"yyyy-MM-dd HH:mm"
 
 @interface PeisongXuanzeViewController ()
 
+@property (nonatomic, strong) AddressModel *chosenAddress;
+
 @end
 
 @implementation PeisongXuanzeViewController
 
-@synthesize datePicker;
+@synthesize datePicker,chosenAddress;
 
 #pragma mark - Private methods
 
@@ -80,6 +83,13 @@
     }
 }
 
+- (void)addressChosenWithNotification:(NSNotification *)notification
+{
+    [self.navigationController popToViewController:self animated:YES];
+    self.chosenAddress = notification.object;
+    self.xinxiField.text = self.chosenAddress.addr;
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
@@ -88,6 +98,7 @@
     [self setNaviTitle:@"配送选择"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addressChosenWithNotification:) name:kAddressChosenNotification object:nil];
     if(self.viewType == kPeisongViewTypeYuyueziti)
     {
         self.zhaipeiHeightConstraint.constant = 0;
@@ -117,7 +128,10 @@
     }
     else if(textField == self.xinxiField)
     {
-        NSLog(@"跳转地址列表页面.");
+        AddressListViewController *alvc = [[AddressListViewController alloc] init];
+        alvc.forChosen = YES;
+        alvc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:alvc animated:YES];
         return NO;
     }
     return YES;

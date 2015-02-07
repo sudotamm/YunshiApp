@@ -2439,7 +2439,7 @@
         <!--Shangpin Detail View Controller-->
         <scene sceneID="wS4-tK-MBP">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="gHh-fZ-zav" customClass="ShangpinDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShangpinDetailViewController" hidesBottomBarWhenPushed="YES" id="gHh-fZ-zav" customClass="ShangpinDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ey8-k3-T0U"/>
                         <viewControllerLayoutGuide type="bottom" id="Plb-qY-Tgs"/>
@@ -3666,8 +3666,8 @@
         <image name="user-userhead" width="270" height="270"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L7E-ne-Aeq"/>
         <segue reference="XuF-c8-60p"/>
         <segue reference="hEE-Fn-wUY"/>
+        <segue reference="L7E-ne-Aeq"/>
     </inferredMetricsTieBreakers>
 </document>

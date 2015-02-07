@@ -19,4 +19,5 @@
 #import "ABCMemberDataManager.h"
 #import "FenleiDataManager.h"
 #import "GouwucheDataManager.h"
+#import "UserInfoDataManager.h"
 #endif

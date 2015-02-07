@@ -1,0 +1,24 @@
+//
+//  AddAddressViewController.h
+//  RootDirectory
+//
+//  Created by ryan on 2/7/15.
+//  Copyright (c) 2015 Ryan. All rights reserved.
+//
+
+#import "BaseViewController.h"
+#import "RYTextPickerView.h"
+
+@interface AddAddressViewController : BaseViewController<RYTextPickerViewDelegate>
+
+@property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
+@property (nonatomic, weak) IBOutlet UITextField *xingmingField;
+@property (nonatomic, weak) IBOutlet UITextField *shoujiField;
+@property (nonatomic, weak) IBOutlet UITextField *quyuField;
+@property (nonatomic, weak) IBOutlet UITextField *dizhiField;
+@property (nonatomic, strong) RYTextPickerView *textPicker;
+@property (nonatomic, strong) AddressModel *addressModel;
+
+- (IBAction)wanchengButtonClicked:(id)sender;
+
+@end

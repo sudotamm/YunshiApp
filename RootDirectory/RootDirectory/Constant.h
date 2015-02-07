@@ -122,6 +122,10 @@
 #define kRemoveGouwucheResponseNotification @"RemoveGouwucheResponseNotification"
 #define kShangpinhuiKuiResponseNotification @"ShangpinhuiKuiResponseNotification"
 #define kDingdanResponseNotification        @"DingdanResponseNotification"
+#define kAddressListResponseNotification    @"AddressListResponseNotification"
+#define kAddressRegionResponseNotification  @"AddressRegionResponseNotification"
+#define kAddressEditResponseNotification    @"AddressEditResponseNotification"
+#define kAddressChosenNotification          @"AddressChosenNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
@@ -147,4 +151,8 @@
 #define kGouwucheListUrl    @"cartList"
 #define kManehuikuiUrl      @"getGift"
 #define kSaveOrderUrl       @"saveOrder"
+//我
+#define kAddressListUrl     @"addrList"
+#define kAddressRegionUrl   @"addrRegion"
+#define kAddressEditUrl     @"editAddr"
 #endif
