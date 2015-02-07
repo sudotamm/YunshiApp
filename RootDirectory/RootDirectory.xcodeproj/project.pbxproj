@@ -16,6 +16,13 @@
 		9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9451AAB01A4188A600CF4C33 /* CommonNaviController.m */; };
 		945C4A8A1A861C1A008338CC /* GouwuQingdanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */; };
 		945C4A8D1A8623C4008338CC /* GouwuQingdanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */; };
+		945C4A901A8632E9008338CC /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A8F1A8632E9008338CC /* OrderDetailViewController.m */; };
+		945C4A931A86343F008338CC /* PeisongXuanzeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A921A86343F008338CC /* PeisongXuanzeViewController.m */; };
+		945C4A9C1A863AB0008338CC /* RYDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A961A863AB0008338CC /* RYDatePickerView.m */; };
+		945C4A9D1A863AB0008338CC /* RYDatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4A971A863AB0008338CC /* RYDatePickerView.xib */; };
+		945C4A9E1A863AB0008338CC /* RYPickerView.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945C4A981A863AB0008338CC /* RYPickerView.xcassets */; };
+		945C4A9F1A863AB0008338CC /* RYTextPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A9A1A863AB0008338CC /* RYTextPickerView.m */; };
+		945C4AA01A863AB0008338CC /* RYTextPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4A9B1A863AB0008338CC /* RYTextPickerView.xib */; };
 		946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */; };
 		946C9A261A7FC77900B07D52 /* ShangpinCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */; };
 		947655D11A393290007DBE24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D01A393290007DBE24 /* AppDelegate.m */; };
@@ -137,6 +144,17 @@
 		945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwuQingdanViewController.m; sourceTree = "<group>"; };
 		945C4A8B1A8623C4008338CC /* GouwuQingdanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwuQingdanTableCell.h; sourceTree = "<group>"; };
 		945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwuQingdanTableCell.m; sourceTree = "<group>"; };
+		945C4A8E1A8632E9008338CC /* OrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailViewController.h; sourceTree = "<group>"; };
+		945C4A8F1A8632E9008338CC /* OrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailViewController.m; sourceTree = "<group>"; };
+		945C4A911A86343F008338CC /* PeisongXuanzeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeisongXuanzeViewController.h; sourceTree = "<group>"; };
+		945C4A921A86343F008338CC /* PeisongXuanzeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeisongXuanzeViewController.m; sourceTree = "<group>"; };
+		945C4A951A863AB0008338CC /* RYDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYDatePickerView.h; sourceTree = "<group>"; };
+		945C4A961A863AB0008338CC /* RYDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYDatePickerView.m; sourceTree = "<group>"; };
+		945C4A971A863AB0008338CC /* RYDatePickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RYDatePickerView.xib; sourceTree = "<group>"; };
+		945C4A981A863AB0008338CC /* RYPickerView.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = RYPickerView.xcassets; sourceTree = "<group>"; };
+		945C4A991A863AB0008338CC /* RYTextPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RYTextPickerView.h; sourceTree = "<group>"; };
+		945C4A9A1A863AB0008338CC /* RYTextPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RYTextPickerView.m; sourceTree = "<group>"; };
+		945C4A9B1A863AB0008338CC /* RYTextPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RYTextPickerView.xib; sourceTree = "<group>"; };
 		946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinTableCell.h; sourceTree = "<group>"; };
 		946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinTableCell.m; sourceTree = "<group>"; };
 		946C9A241A7FC77900B07D52 /* ShangpinCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinCollectionCell.h; sourceTree = "<group>"; };
@@ -395,6 +413,10 @@
 				945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */,
 				945C4A8B1A8623C4008338CC /* GouwuQingdanTableCell.h */,
 				945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */,
+				945C4A911A86343F008338CC /* PeisongXuanzeViewController.h */,
+				945C4A921A86343F008338CC /* PeisongXuanzeViewController.m */,
+				945C4A8E1A8632E9008338CC /* OrderDetailViewController.h */,
+				945C4A8F1A8632E9008338CC /* OrderDetailViewController.m */,
 			);
 			path = "购物车";
 			sourceTree = "<group>";
@@ -425,6 +447,20 @@
 				A665AA7A1A830B1700D5562A /* MyOrderListViewController.xib */,
 			);
 			path = "我";
+			sourceTree = "<group>";
+		};
+		945C4A941A863AB0008338CC /* RYPickerView-Arc */ = {
+			isa = PBXGroup;
+			children = (
+				945C4A951A863AB0008338CC /* RYDatePickerView.h */,
+				945C4A961A863AB0008338CC /* RYDatePickerView.m */,
+				945C4A971A863AB0008338CC /* RYDatePickerView.xib */,
+				945C4A981A863AB0008338CC /* RYPickerView.xcassets */,
+				945C4A991A863AB0008338CC /* RYTextPickerView.h */,
+				945C4A9A1A863AB0008338CC /* RYTextPickerView.m */,
+				945C4A9B1A863AB0008338CC /* RYTextPickerView.xib */,
+			);
+			path = "RYPickerView-Arc";
 			sourceTree = "<group>";
 		};
 		947655BF1A393290007DBE24 = {
@@ -616,6 +652,7 @@
 		947932E71A7664290057C2B6 /* 通用 */ = {
 			isa = PBXGroup;
 			children = (
+				945C4A941A863AB0008338CC /* RYPickerView-Arc */,
 				94A8FEB91A81035A00F2A226 /* RYPhotoBrowser-Arc */,
 				947932E81A76643C0057C2B6 /* ImagesContainView.h */,
 				947932E91A76643C0057C2B6 /* ImagesContainView.m */,
@@ -823,10 +860,13 @@
 				940AFA3A1A3EB026003D6B93 /* Loading.xcassets in Resources */,
 				947656581A393AD6007DBE24 /* Icon.xcassets in Resources */,
 				947932FA1A7677540057C2B6 /* DianpuView.xib in Resources */,
+				945C4A9D1A863AB0008338CC /* RYDatePickerView.xib in Resources */,
 				A665AA801A830B1700D5562A /* MyInfoViewController.xib in Resources */,
 				947932FF1A767A350057C2B6 /* DianpuChooseView.xib in Resources */,
+				945C4AA01A863AB0008338CC /* RYTextPickerView.xib in Resources */,
 				947932F11A7668900057C2B6 /* MainService.plist in Resources */,
 				A665AA841A830B1700D5562A /* OrderCell.xib in Resources */,
+				945C4A9E1A863AB0008338CC /* RYPickerView.xcassets in Resources */,
 				94A8FEC81A810C7700F2A226 /* GouwuConfirmView.xib in Resources */,
 				A665AA7E1A830B1700D5562A /* MyInfoCell.xib in Resources */,
 				948F104D1A84892800E113F8 /* GouwuHuikuiView.xib in Resources */,
@@ -859,6 +899,7 @@
 				94A1F6851A79219F00953C3C /* FenleiDataManager.m in Sources */,
 				94A8FEC61A810B8800F2A226 /* GouwuConfirmView.m in Sources */,
 				94D925F91A4D3154009412C0 /* RootTabBarViewController.m in Sources */,
+				945C4A931A86343F008338CC /* PeisongXuanzeViewController.m in Sources */,
 				947932DA1A7664170057C2B6 /* NSDate+RYAdditions.m in Sources */,
 				947932D61A7664170057C2B6 /* RYImageDownloader.m in Sources */,
 				94A1F6811A791C2C00953C3C /* FenleiTableCell.m in Sources */,
@@ -887,8 +928,10 @@
 				947B42151A8258AF00D4B13A /* GouwucheDataManager.m in Sources */,
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
+				945C4A901A8632E9008338CC /* OrderDetailViewController.m in Sources */,
 				94BFC14E1A805F830003D942 /* UserViewController.m in Sources */,
 				A665AA831A830B1700D5562A /* OrderCell.m in Sources */,
+				945C4A9F1A863AB0008338CC /* RYTextPickerView.m in Sources */,
 				94AFF2201A7FA76200B88E5B /* ShangpinListViewController.m in Sources */,
 				A665AA811A830B1700D5562A /* MyKeChengViewController.m in Sources */,
 				947932D31A7664170057C2B6 /* MBProgressHUD.m in Sources */,
@@ -898,6 +941,7 @@
 				A665AA7D1A830B1700D5562A /* MyInfoCell.m in Sources */,
 				947932F51A7676520057C2B6 /* HomeDataManager.m in Sources */,
 				945C4A8A1A861C1A008338CC /* GouwuQingdanViewController.m in Sources */,
+				945C4A9C1A863AB0008338CC /* RYDatePickerView.m in Sources */,
 				947932E41A7664170057C2B6 /* UIImage+RYAssetLaunchImage.m in Sources */,
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,

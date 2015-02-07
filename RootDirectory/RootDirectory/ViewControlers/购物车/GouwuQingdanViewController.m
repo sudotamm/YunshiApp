@@ -8,6 +8,7 @@
 
 #import "GouwuQingdanViewController.h"
 #import "GouwuQingdanTableCell.h"
+#import "PeisongXuanzeViewController.h"
 
 @interface GouwuQingdanViewController ()
 
@@ -19,7 +20,44 @@
 
 - (IBAction)xiayibuButtonClicked:(id)sender
 {
-
+    BOOL containYuyueziti = NO;
+    BOOL containZhaipei = NO;
+    for(id qingdanModel in [GouwucheDataManager sharedManager].qingdanArray)
+    {
+        if([qingdanModel isKindOfClass:[GouwucheModel class]])
+        {
+            GouwucheModel *gm = (GouwucheModel *)qingdanModel;
+            if(gm.peisongFangshi == kPeisongFangshiYuyueziti)
+                containYuyueziti = YES;
+            if(gm.peisongFangshi == kPeisongFangshiZaipei)
+                containZhaipei = YES;
+        }
+        else
+        {
+            ShanginHuikuiModel *shm = (ShanginHuikuiModel *)qingdanModel;
+            if(shm.peisongFangshi == kPeisongFangshiYuyueziti)
+                containYuyueziti = YES;
+            if(shm.peisongFangshi == kPeisongFangshiZaipei)
+                containZhaipei = YES;
+        }
+    }
+    if(!containZhaipei && !containYuyueziti)
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"全部自提" customView:nil hideDelay:2.f];
+        NSLog(@"上传配送信息。");
+    }
+    else
+    {
+        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        PeisongXuanzeViewController *pxvc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"PeisongXuanzeViewController"];
+        if(containYuyueziti && containZhaipei)
+            pxvc.viewType = kPeisongViewTypeZitiZhaipei;
+        else if(containYuyueziti && !containZhaipei)
+            pxvc.viewType = kPeisongViewTypeYuyueziti;
+        else if(!containYuyueziti && containZhaipei)
+            pxvc.viewType = kPeisongViewTypeZhaiPei;
+        [self.navigationController pushViewController:pxvc animated:YES];
+    }
 }
 
 - (void)reloadZongjiPrice
