@@ -74,6 +74,11 @@
 
 - (IBAction)cuyifenxiangButtonClicked:(id)sender
 {
+    if(![[ABCMemberDataManager sharedManager] isLogined])
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowLoginViewNotification object:nil];
+        return;
+    }
     ChuyiViewController* vc = [[ChuyiViewController alloc] initWithNibName:@"ChuyiViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }

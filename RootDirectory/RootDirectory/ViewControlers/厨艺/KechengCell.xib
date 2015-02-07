@@ -14,10 +14,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tmp1" id="9Xh-0s-nqC">
-                        <rect key="frame" x="20" y="20" width="100" height="100"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="课程名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ni6-ja-HaE">
                         <rect key="frame" x="128" y="13" width="174" height="42"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,6 +42,14 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ppq-hz-dod">
+                        <rect key="frame" x="214" y="104" width="91" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <state key="normal" title="已预约完毕" backgroundImage="btn_grey">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="w3w-iP-ua5">
                         <rect key="frame" x="214" y="104" width="91" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -60,7 +64,7 @@
             <connections>
                 <outlet property="addr" destination="UwQ-Ik-i9l" id="fvv-02-IWG"/>
                 <outlet property="datetime" destination="Hbo-2Q-7wL" id="3PI-CN-EW5"/>
-                <outlet property="imgView" destination="9Xh-0s-nqC" id="5Oh-E8-L9S"/>
+                <outlet property="greyBtn" destination="Ppq-hz-dod" id="bQo-3n-gLz"/>
                 <outlet property="name" destination="Ni6-ja-HaE" id="wET-Yw-OPr"/>
                 <outlet property="person" destination="P1N-x5-BTC" id="3ru-Pe-lpO"/>
                 <outlet property="sendBtn" destination="w3w-iP-ua5" id="aZd-2y-mtV"/>
@@ -68,8 +72,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="btn_grey" width="271" height="76"/>
         <image name="btn_red" width="21" height="21"/>
-        <image name="tmp1" width="750" height="326"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

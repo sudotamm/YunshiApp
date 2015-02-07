@@ -15,6 +15,8 @@
 @property (strong, nonatomic) IBOutlet UILabel* addr;
 @property (strong, nonatomic) IBOutlet UILabel* datetime;
 @property (strong, nonatomic) IBOutlet UILabel* person;
-@property (strong, nonatomic) IBOutlet UIImageView* imgView;
+@property (strong, nonatomic) IBOutlet UIButton *greyBtn;
+
+
 
 @end
