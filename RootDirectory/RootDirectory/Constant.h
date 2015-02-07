@@ -121,6 +121,7 @@
 #define kAddGouwucheResponseNotification    @"AddGouwucheResponseNotification"
 #define kRemoveGouwucheResponseNotification @"RemoveGouwucheResponseNotification"
 #define kShangpinhuiKuiResponseNotification @"ShangpinhuiKuiResponseNotification"
+#define kDingdanResponseNotification        @"DingdanResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"

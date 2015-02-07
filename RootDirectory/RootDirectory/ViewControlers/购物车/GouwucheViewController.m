@@ -109,6 +109,11 @@
     }
 }
 
+- (void)dingdanResponseWithNotification:(NSNotification *)notification
+{
+    [self performSegueWithIdentifier:@"GouwucheListToQingdanList" sender:nil];
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
@@ -117,6 +122,7 @@
     [self setNaviTitle:@"购物车"];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addGouwucheResponseWithNotification:) name:kAddGouwucheResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeGouwucheResponseWithNotification:) name:kRemoveGouwucheResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dingdanResponseWithNotification:) name:kDingdanResponseNotification object:nil];
     //移除空cell的seperator line
     self.contentTableView.tableFooterView = [UIView new];
     //下拉刷新
@@ -210,6 +216,7 @@
 - (void)reloadZongjiPrice
 {
     CGFloat zongji = 0;
+    //商品总价
     for(GouwucheModel *gm in self.gouwucheArray)
     {
         if(gm.isSelected)
@@ -217,13 +224,37 @@
             zongji += [gm.price floatValue]*[gm.num integerValue];
         }
     }
-    self.zongjiLabel.text = [NSString stringWithFormat:@"￥%.2f",zongji];
     if(zongji > 0)
     {
         self.xiayibuButton.enabled = YES;
     }
     else
         self.xiayibuButton.enabled = NO;
+    NSInteger yunfei;
+    //计算运费
+    if([GouwucheDataManager sharedManager].deliverFee == 0)
+    {
+        //免运费
+        yunfei = 0;
+    }
+    else
+    {
+        if([GouwucheDataManager sharedManager].deliverThreshold == 99999999)
+        {
+            //不包邮
+            yunfei = [GouwucheDataManager sharedManager].deliverFee;
+        }
+        else
+        {
+            //阀值包邮
+            if(zongji >= [GouwucheDataManager sharedManager].deliverThreshold)
+                yunfei = 0;
+            else
+                yunfei = [GouwucheDataManager sharedManager].deliverFee;
+        }
+    }
+    zongji = zongji+yunfei;
+    self.zongjiLabel.text = [NSString stringWithFormat:@"￥%.2f",zongji];
 }
 
 - (void)didGouwucheClickedWithCell:(GouwucheTableCell *)cell
@@ -243,6 +274,8 @@
         NSInteger nextPage = [[dict objectForKey:@"page"] integerValue];
         NSInteger deliverFee = [[dict objectForKey:@"deliverFee"] integerValue];
         NSInteger deliverThreshold = [[dict objectForKey:@"deliverThreshold"] integerValue];
+        [GouwucheDataManager sharedManager].deliverFee = deliverFee;
+        [GouwucheDataManager sharedManager].deliverThreshold = deliverThreshold;
         if(deliverFee == 0)
         {
             //免运费

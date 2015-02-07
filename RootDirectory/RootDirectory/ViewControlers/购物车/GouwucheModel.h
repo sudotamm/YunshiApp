@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString *num;
 @property (nonatomic, copy) NSString *sCode;
 @property (nonatomic, copy) NSString *gType;
-
+@property (nonatomic, assign) PeisongFangshi peisongFangshi;
 @property (nonatomic, assign) BOOL isSelected;      //购物车产品列表选中状态，默认选中
 
 @end

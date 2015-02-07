@@ -11,7 +11,13 @@
 #define kManehuikuiDownlaoderKey        @"ManehuikuiDownlaoderKey"
 #define kSaveOrderDownloaderKey         @"SaveOrderDownloaderKey"
 
+@interface GouwucheDataManager()
+
+@end
+
 @implementation GouwucheDataManager
+
+@synthesize qingdanArray,qingdanOrderId;
 
 + (instancetype)sharedManager
 {
@@ -55,6 +61,10 @@
                         gouwuArray:(NSMutableArray *)gouwuArray
                        fankuiArray:(NSMutableArray *)fankuiArray
 {
+    self.qingdanArray = [NSMutableArray array];
+    [self.qingdanArray addObjectsFromArray:gouwuArray];
+    [self.qingdanArray addObjectsFromArray:fankuiArray];
+    
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
     NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kSaveOrderUrl];
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
@@ -144,8 +154,12 @@
         {
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             NSString *orderId = [dict objectForKey:@"ordered"];
-            //跳转订单详情
-            NSLog(@"跳转订单详情页面...%@",orderId);
+            if(orderId.length > 0)
+            {
+                self.qingdanOrderId = orderId;
+                //跳转购物清单页面
+                [[NSNotificationCenter defaultCenter] postNotificationName:kDingdanResponseNotification object:nil];
+            }
         }
         else
         {

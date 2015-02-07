@@ -14,6 +14,8 @@
 		941D8CF91A75CB9F00FA27C7 /* GouwucheViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941D8CF81A75CB9F00FA27C7 /* GouwucheViewController.m */; };
 		9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440C3B61A7A606100575038 /* RegisterViewController.m */; };
 		9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9451AAB01A4188A600CF4C33 /* CommonNaviController.m */; };
+		945C4A8A1A861C1A008338CC /* GouwuQingdanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */; };
+		945C4A8D1A8623C4008338CC /* GouwuQingdanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */; };
 		946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */; };
 		946C9A261A7FC77900B07D52 /* ShangpinCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 946C9A251A7FC77900B07D52 /* ShangpinCollectionCell.m */; };
 		947655D11A393290007DBE24 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 947655D01A393290007DBE24 /* AppDelegate.m */; };
@@ -131,6 +133,10 @@
 		9440C3B61A7A606100575038 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9451AAAF1A4188A600CF4C33 /* CommonNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNaviController.h; sourceTree = "<group>"; };
 		9451AAB01A4188A600CF4C33 /* CommonNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNaviController.m; sourceTree = "<group>"; };
+		945C4A881A861C1A008338CC /* GouwuQingdanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwuQingdanViewController.h; sourceTree = "<group>"; };
+		945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwuQingdanViewController.m; sourceTree = "<group>"; };
+		945C4A8B1A8623C4008338CC /* GouwuQingdanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwuQingdanTableCell.h; sourceTree = "<group>"; };
+		945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwuQingdanTableCell.m; sourceTree = "<group>"; };
 		946C9A211A7FAFD000B07D52 /* ShangpinTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinTableCell.h; sourceTree = "<group>"; };
 		946C9A221A7FAFD000B07D52 /* ShangpinTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinTableCell.m; sourceTree = "<group>"; };
 		946C9A241A7FC77900B07D52 /* ShangpinCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinCollectionCell.h; sourceTree = "<group>"; };
@@ -385,6 +391,10 @@
 				948F104E1A848CEC00E113F8 /* HuikuiCollectionCell.h */,
 				948F104F1A848CEC00E113F8 /* HuikuiCollectionCell.m */,
 				948F10511A848FBF00E113F8 /* HuikuiCollectionCell.xib */,
+				945C4A881A861C1A008338CC /* GouwuQingdanViewController.h */,
+				945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */,
+				945C4A8B1A8623C4008338CC /* GouwuQingdanTableCell.h */,
+				945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */,
 			);
 			path = "购物车";
 			sourceTree = "<group>";
@@ -855,6 +865,7 @@
 				941D8CF31A75CB6600FA27C7 /* FenleiViewController.m in Sources */,
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,
+				945C4A8D1A8623C4008338CC /* GouwuQingdanTableCell.m in Sources */,
 				947B420E1A81E9BF00D4B13A /* TaocanTableCell.m in Sources */,
 				A665AA631A830B0B00D5562A /* KechengCell.m in Sources */,
 				947932E51A7664170057C2B6 /* RYRootBlurViewManager.m in Sources */,
@@ -886,6 +897,7 @@
 				947932E31A7664170057C2B6 /* UIImage+RYBlurGlass.m in Sources */,
 				A665AA7D1A830B1700D5562A /* MyInfoCell.m in Sources */,
 				947932F51A7676520057C2B6 /* HomeDataManager.m in Sources */,
+				945C4A8A1A861C1A008338CC /* GouwuQingdanViewController.m in Sources */,
 				947932E41A7664170057C2B6 /* UIImage+RYAssetLaunchImage.m in Sources */,
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,

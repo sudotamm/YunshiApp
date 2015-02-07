@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *picURL;
 @property (nonatomic, copy) NSString *oldPrice;
 @property (nonatomic, copy) NSString *gnewPrice;
-
+@property (nonatomic, assign) PeisongFangshi peisongFangshi;
 @property (nonatomic, assign) BOOL isSelected;      //回馈商品产品列表选中状态，默认没选中
 
 @end
