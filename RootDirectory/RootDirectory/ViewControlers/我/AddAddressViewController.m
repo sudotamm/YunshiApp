@@ -52,17 +52,20 @@
     {
         AddressEditType editType;
         NSString *addressId = @"";
-        NSString *regionId = @"";;
+        NSString *regionId = @"";
+        NSString *isDefault = @"0";
         if(self.addressModel)
         {
             editType = kAddressEditTypeEdit;
             addressId = self.addressModel.aId;
             regionId = self.addressModel.rId;
+            isDefault = self.addressModel.isDefault;
         }
         else
         {
             editType = kAddressEditTypeAdd;
             addressId = @"";
+            isDefault = @"0";
             for(RegionModel *rm in [UserInfoDataManager sharedManager].regionArray)
             {
                 if([rm.rName isEqualToString:self.quyuField.text])
@@ -79,7 +82,7 @@
                                                                    shouji:self.shoujiField.text
                                                                  regionId:regionId
                                                                   address:self.dizhiField.text
-                                                                isDefault:@"0"];
+                                                                isDefault:isDefault];
     }
 }
 
