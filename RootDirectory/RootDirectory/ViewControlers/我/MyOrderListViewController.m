@@ -57,7 +57,7 @@
 {
     UIButton* btn = (UIButton*)sender;
     
-    NSLog(@"pay:%d",btn.tag);
+    NSLog(@"pay:%ld",btn.tag);
     
 }
 

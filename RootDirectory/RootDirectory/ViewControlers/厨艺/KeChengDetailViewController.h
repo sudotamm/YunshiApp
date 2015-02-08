@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "TrainingBean.h"
 
 
 @interface KeChengDetailViewController : BaseViewController
 
+@property (nonatomic, weak) IBOutlet RYAsynImageView *headerImgView;
+@property (nonatomic, strong) TrainingBean* bean;
+@property (nonatomic, strong) IBOutlet UILabel* nameLabel;
+@property (nonatomic, strong) IBOutlet UILabel* addrLabel;
+@property (nonatomic, strong) IBOutlet UILabel* timeLabel;
 
 
+-(IBAction)dachu:(id)sender;
+-(IBAction)shipu:(id)sender;
 
 
 @end

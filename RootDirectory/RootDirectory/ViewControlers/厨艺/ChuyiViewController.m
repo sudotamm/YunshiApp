@@ -27,6 +27,8 @@
     [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.phone forKey:@"userId"];
     [paramDict setObject:self.trainingTime forKey:@"trainingTime"];
     [paramDict setObject:@"0" forKey:@"isMyTraining"];
+    [paramDict setObject:@"0" forKey:@"isHistory"];
+    
     [paramDict setObject:@"100" forKey:@"dataCount"];
     [paramDict setObject:self.page forKey:@"page"];
     
@@ -46,6 +48,14 @@
     
     
     [self setNaviTitle:@"厨艺课程"];
+    
+//    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+//    NSInteger interval = [zone secondsFromGMTForDate:[NSDate date]];
+//    NSDate *localeDate = [[NSDate date] dateByAddingTimeInterval: interval];
+//    [self.picker setMinimumDate:localeDate];
+    
+    [self.picker setMinimumDate:[NSDate date]];
+    
     
     // 全部时间
     self.trainingTime = @"";
@@ -68,14 +78,15 @@
 
 -(IBAction)datePick:(id)sender
 {
+
     NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | kCFCalendarUnitHour | kCFCalendarUnitMinute;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.picker.date];
     
     NSInteger year = [components year];
     NSInteger month = [components month];
     NSInteger day = [components day];
-//    NSInteger hour = [components hour];
-//    NSInteger min = [components minute];
+    //    NSInteger hour = [components hour];
+    //    NSInteger min = [components minute];
     
     
     NSString* tmpDate = [NSString stringWithFormat:@"%d-",year];
@@ -100,8 +111,6 @@
     self.trainingTime = tmpDate;
     self.page = @"1";
     [self getTrainingList];
-    
-    
 }
 
 -(IBAction)dateClick:(id)sender
@@ -221,6 +230,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     KeChengDetailViewController* vc = [[KeChengDetailViewController alloc] initWithNibName:@"KeChengDetailViewController" bundle:nil];
+    vc.bean = (TrainingBean*)[self.trainingArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

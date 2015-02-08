@@ -30,6 +30,16 @@
     [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.phone forKey:@"userId"];
     [paramDict setObject:@"" forKey:@"trainingTime"];
     [paramDict setObject:@"1" forKey:@"isMyTraining"];
+    
+    if (isHistory==YES) {
+        [paramDict setObject:@"1" forKey:@"isHistory"];
+    }
+    else {
+        if (isHistory==YES) {
+            [paramDict setObject:@"0" forKey:@"isHistory"];
+        }
+    }
+    
     [paramDict setObject:@"100" forKey:@"dataCount"];
     [paramDict setObject:self.page forKey:@"page"];
     
@@ -122,6 +132,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     KeChengDetailViewController* vc = [[KeChengDetailViewController alloc] initWithNibName:@"KeChengDetailViewController" bundle:nil];
+    vc.bean = (TrainingBean*)[self.trainingArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
