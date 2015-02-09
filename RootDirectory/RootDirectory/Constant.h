@@ -126,6 +126,7 @@
 #define kAddressRegionResponseNotification  @"AddressRegionResponseNotification"
 #define kAddressEditResponseNotification    @"AddressEditResponseNotification"
 #define kAddressChosenNotification          @"AddressChosenNotification"
+#define kUpdateDeliverResponseNotification  @"UpdateDeliverResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
@@ -151,6 +152,8 @@
 #define kGouwucheListUrl    @"cartList"
 #define kManehuikuiUrl      @"getGift"
 #define kSaveOrderUrl       @"saveOrder"
+#define kUpdateDeliverUrl   @"updateDeliverType"
+#define kOrderDetailUrl     @"orderDetail"
 //我
 #define kAddressListUrl     @"addrList"
 #define kAddressRegionUrl   @"addrRegion"

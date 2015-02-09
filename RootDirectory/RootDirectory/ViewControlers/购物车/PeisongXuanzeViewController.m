@@ -79,7 +79,27 @@
     }
     else
     {
-        NSLog(@"上传配送信息。");
+        NSString *yyztTime = self.yuyueshijianField.text;
+        NSDate *yyztDate = [NSDate dateFromStringByFormat:kDateStringFormat string:yyztTime];
+        NSString *zpTime = self.zhaipeishijianField.text;
+        NSDate *zpDate = [NSDate dateFromStringByFormat:kDateStringFormat string:zpTime];
+        
+        NSString *yyztTimeStr = [NSDate dateToStringByFormat:@"yyyyMMddHHmm" date:yyztDate];
+        if(nil == yyztTimeStr)
+            yyztTimeStr = @"";
+        NSString *zpTimeStr = [NSDate dateToStringByFormat:@"yyyyMMddHHmm" date:zpDate];
+        if(nil == zpTimeStr)
+            zpTimeStr = @"";
+        
+        [[GouwucheDataManager sharedManager] requestUpdateDeliverInfoWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                                                        orderId:[GouwucheDataManager sharedManager].qingdanOrderId
+                                                                       yyztName:self.xingmingField.text
+                                                                          sCode:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                                      yyztPhone:self.dianhuaField.text
+                                                                       yyztTime:yyztTimeStr
+                                                                       zpAddrId:self.chosenAddress.aId
+                                                                         zpTime:zpTimeStr
+                                                                           list:[GouwucheDataManager sharedManager].qingdanArray];
     }
 }
 

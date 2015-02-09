@@ -112,6 +112,14 @@
 		94C94ACE1A77C70600DE8C2F /* AppResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94C94ACD1A77C70600DE8C2F /* AppResource.xcassets */; };
 		94C94AD21A77C78700DE8C2F /* QRcodeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94C94AD01A77C78700DE8C2F /* QRcodeResultViewController.m */; };
 		94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94C94AD11A77C78700DE8C2F /* QRcodeResultViewController.xib */; };
+		94D00E7C1A88D63A00E3AA39 /* OrderDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D00E7B1A88D63A00E3AA39 /* OrderDetailModel.m */; };
+		94D00E7F1A88D92D00E3AA39 /* DeliverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D00E7E1A88D92D00E3AA39 /* DeliverModel.m */; };
+		94D00E821A88E04200E3AA39 /* DeliverHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D00E811A88E04200E3AA39 /* DeliverHeaderView.m */; };
+		94D00E841A88E06700E3AA39 /* DeliverHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D00E831A88E06700E3AA39 /* DeliverHeaderView.xib */; };
+		94D00E871A88F16300E3AA39 /* OrderDetailTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D00E861A88F16300E3AA39 /* OrderDetailTableCell.m */; };
+		94D00E8A1A88FCB700E3AA39 /* DingdanShangpinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D00E891A88FCB700E3AA39 /* DingdanShangpinModel.m */; };
+		94D00E8D1A8902FB00E3AA39 /* DeliverFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D00E8C1A8902FB00E3AA39 /* DeliverFooterView.m */; };
+		94D00E8F1A89030D00E3AA39 /* DeliverFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94D00E8E1A89030D00E3AA39 /* DeliverFooterView.xib */; };
 		94D925F61A4D2CF0009412C0 /* PannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D925F51A4D2CF0009412C0 /* PannelViewController.m */; };
 		94D925F91A4D3154009412C0 /* RootTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94D925F81A4D3154009412C0 /* RootTabBarViewController.m */; };
 		94EB34A01A7D186900937044 /* FenleiModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94EB349F1A7D186900937044 /* FenleiModel.m */; };
@@ -332,6 +340,20 @@
 		94C94ACF1A77C78700DE8C2F /* QRcodeResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRcodeResultViewController.h; sourceTree = "<group>"; };
 		94C94AD01A77C78700DE8C2F /* QRcodeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRcodeResultViewController.m; sourceTree = "<group>"; };
 		94C94AD11A77C78700DE8C2F /* QRcodeResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRcodeResultViewController.xib; sourceTree = "<group>"; };
+		94D00E7A1A88D63A00E3AA39 /* OrderDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailModel.h; sourceTree = "<group>"; };
+		94D00E7B1A88D63A00E3AA39 /* OrderDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailModel.m; sourceTree = "<group>"; };
+		94D00E7D1A88D92D00E3AA39 /* DeliverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliverModel.h; sourceTree = "<group>"; };
+		94D00E7E1A88D92D00E3AA39 /* DeliverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliverModel.m; sourceTree = "<group>"; };
+		94D00E801A88E04200E3AA39 /* DeliverHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliverHeaderView.h; sourceTree = "<group>"; };
+		94D00E811A88E04200E3AA39 /* DeliverHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliverHeaderView.m; sourceTree = "<group>"; };
+		94D00E831A88E06700E3AA39 /* DeliverHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliverHeaderView.xib; sourceTree = "<group>"; };
+		94D00E851A88F16300E3AA39 /* OrderDetailTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDetailTableCell.h; sourceTree = "<group>"; };
+		94D00E861A88F16300E3AA39 /* OrderDetailTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDetailTableCell.m; sourceTree = "<group>"; };
+		94D00E881A88FCB700E3AA39 /* DingdanShangpinModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DingdanShangpinModel.h; sourceTree = "<group>"; };
+		94D00E891A88FCB700E3AA39 /* DingdanShangpinModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DingdanShangpinModel.m; sourceTree = "<group>"; };
+		94D00E8B1A8902FB00E3AA39 /* DeliverFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliverFooterView.h; sourceTree = "<group>"; };
+		94D00E8C1A8902FB00E3AA39 /* DeliverFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeliverFooterView.m; sourceTree = "<group>"; };
+		94D00E8E1A89030D00E3AA39 /* DeliverFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliverFooterView.xib; sourceTree = "<group>"; };
 		94D925F41A4D2CF0009412C0 /* PannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PannelViewController.h; sourceTree = "<group>"; };
 		94D925F51A4D2CF0009412C0 /* PannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PannelViewController.m; sourceTree = "<group>"; };
 		94D925F71A4D3154009412C0 /* RootTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabBarViewController.h; sourceTree = "<group>"; };
@@ -444,6 +466,14 @@
 				945C4A921A86343F008338CC /* PeisongXuanzeViewController.m */,
 				945C4A8E1A8632E9008338CC /* OrderDetailViewController.h */,
 				945C4A8F1A8632E9008338CC /* OrderDetailViewController.m */,
+				94D00E851A88F16300E3AA39 /* OrderDetailTableCell.h */,
+				94D00E861A88F16300E3AA39 /* OrderDetailTableCell.m */,
+				94D00E801A88E04200E3AA39 /* DeliverHeaderView.h */,
+				94D00E811A88E04200E3AA39 /* DeliverHeaderView.m */,
+				94D00E831A88E06700E3AA39 /* DeliverHeaderView.xib */,
+				94D00E8B1A8902FB00E3AA39 /* DeliverFooterView.h */,
+				94D00E8C1A8902FB00E3AA39 /* DeliverFooterView.m */,
+				94D00E8E1A89030D00E3AA39 /* DeliverFooterView.xib */,
 			);
 			path = "购物车";
 			sourceTree = "<group>";
@@ -730,6 +760,12 @@
 				947B42171A8258C200D4B13A /* GouwucheModel.m */,
 				948F10461A84885700E113F8 /* ShanginHuikuiModel.h */,
 				948F10471A84885700E113F8 /* ShanginHuikuiModel.m */,
+				94D00E7A1A88D63A00E3AA39 /* OrderDetailModel.h */,
+				94D00E7B1A88D63A00E3AA39 /* OrderDetailModel.m */,
+				94D00E7D1A88D92D00E3AA39 /* DeliverModel.h */,
+				94D00E7E1A88D92D00E3AA39 /* DeliverModel.m */,
+				94D00E881A88FCB700E3AA39 /* DingdanShangpinModel.h */,
+				94D00E891A88FCB700E3AA39 /* DingdanShangpinModel.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -926,11 +962,13 @@
 				948F104D1A84892800E113F8 /* GouwuHuikuiView.xib in Resources */,
 				94A8FEC31A81035A00F2A226 /* RYPhotoBrowserViewController.xib in Resources */,
 				A665AA681A830B0B00D5562A /* KeChengDetailViewController.xib in Resources */,
+				94D00E841A88E06700E3AA39 /* DeliverHeaderView.xib in Resources */,
 				A665AA661A830B0B00D5562A /* ChuyiViewController.xib in Resources */,
 				94AFF22A1A7FABC400B88E5B /* MJRefresh.bundle in Resources */,
 				94A8FEC11A81035A00F2A226 /* RYPhotoBrowserCell.xib in Resources */,
 				94C94AD31A77C78700DE8C2F /* QRcodeResultViewController.xib in Resources */,
 				948F10521A848FBF00E113F8 /* HuikuiCollectionCell.xib in Resources */,
+				94D00E8F1A89030D00E3AA39 /* DeliverFooterView.xib in Resources */,
 				947932EC1A76643C0057C2B6 /* ImagesContainView.xib in Resources */,
 				945C4AA51A864D11008338CC /* AddressListViewController.xib in Resources */,
 				A665AA641A830B0B00D5562A /* KechengCell.xib in Resources */,
@@ -961,6 +999,7 @@
 				941D8CF31A75CB6600FA27C7 /* FenleiViewController.m in Sources */,
 				947932E21A7664170057C2B6 /* UIImage+RYScreenShot.m in Sources */,
 				947932D81A7664170057C2B6 /* RYMediaPicker.m in Sources */,
+				94D00E821A88E04200E3AA39 /* DeliverHeaderView.m in Sources */,
 				945C4A8D1A8623C4008338CC /* GouwuQingdanTableCell.m in Sources */,
 				947B420E1A81E9BF00D4B13A /* TaocanTableCell.m in Sources */,
 				A665AA631A830B0B00D5562A /* KechengCell.m in Sources */,
@@ -971,6 +1010,7 @@
 				94A8FEC21A81035A00F2A226 /* RYPhotoBrowserViewController.m in Sources */,
 				947B42181A8258C200D4B13A /* GouwucheModel.m in Sources */,
 				94EB34A01A7D186900937044 /* FenleiModel.m in Sources */,
+				94D00E7C1A88D63A00E3AA39 /* OrderDetailModel.m in Sources */,
 				941D8CF61A75CB8400FA27C7 /* SousuoViewController.m in Sources */,
 				94A8FEB21A80ED7F00F2A226 /* ShangpinDetailModel.m in Sources */,
 				947932E61A7664170057C2B6 /* RYBaseModel.m in Sources */,
@@ -1011,6 +1051,7 @@
 				94A8FEB51A80EDAD00F2A226 /* TaocanModel.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,
 				947932D51A7664170057C2B6 /* RYAsynImageView.m in Sources */,
+				94D00E8D1A8902FB00E3AA39 /* DeliverFooterView.m in Sources */,
 				947932DB1A7664170057C2B6 /* UIView+RYUtilities.m in Sources */,
 				94A8FEAF1A80ED0F00F2A226 /* ShangpinDetailViewController.m in Sources */,
 				947932D11A7664170057C2B6 /* RYDownloaderManager.m in Sources */,
@@ -1020,6 +1061,7 @@
 				94EB34A31A7D26E700937044 /* FenleiSecondTableCell.m in Sources */,
 				947932DC1A7664170057C2B6 /* UIDevice+RYUDID.m in Sources */,
 				9476565D1A393B1E007DBE24 /* main.m in Sources */,
+				94D00E8A1A88FCB700E3AA39 /* DingdanShangpinModel.m in Sources */,
 				947932EB1A76643C0057C2B6 /* ImagesContainView.m in Sources */,
 				94C94ACB1A77C6BE00DE8C2F /* QRcodeScanViewController.m in Sources */,
 				947B420B1A81E0E200D4B13A /* TaocanListViewController.m in Sources */,
@@ -1030,10 +1072,12 @@
 				947932D41A7664170057C2B6 /* NSObject+RYPropertyList.m in Sources */,
 				946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */,
 				947655D11A393290007DBE24 /* AppDelegate.m in Sources */,
+				94D00E871A88F16300E3AA39 /* OrderDetailTableCell.m in Sources */,
 				A665AA671A830B0B00D5562A /* KeChengDetailViewController.m in Sources */,
 				947932DD1A7664170057C2B6 /* NSArray+RYLocationTransform.m in Sources */,
 				947932DF1A7664170057C2B6 /* RYCommonMethods.m in Sources */,
 				94AFF22C1A7FABC400B88E5B /* MJRefreshFooterView.m in Sources */,
+				94D00E7F1A88D92D00E3AA39 /* DeliverModel.m in Sources */,
 				947932FD1A767A190057C2B6 /* DianpuChooseView.m in Sources */,
 				947932E11A7664170057C2B6 /* UIImage+RYUtilities.m in Sources */,
 				947932D01A7664170057C2B6 /* RYDownloader.m in Sources */,

@@ -10,6 +10,7 @@
 
 #define kManehuikuiDownlaoderKey        @"ManehuikuiDownlaoderKey"
 #define kSaveOrderDownloaderKey         @"SaveOrderDownloaderKey"
+#define kUpdadteDeliverDownloaderKey    @"UpdadteDeliverDownloaderKey"
 
 @interface GouwucheDataManager()
 
@@ -99,6 +100,56 @@
                                                                 purpose:kSaveOrderDownloaderKey];
 }
 
+- (void)requestUpdateDeliverInfoWithUserId:(NSString *)userId
+                                   orderId:(NSString *)orderId
+                                  yyztName:(NSString *)yyztName
+                                     sCode:(NSString *)sCode
+                                 yyztPhone:(NSString *)yyztPhone
+                                  yyztTime:(NSString *)yyztTime
+                                  zpAddrId:(NSString *)zpAddrId
+                                    zpTime:(NSString *)zpTime
+                                      list:(NSMutableArray *)list
+{
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kUpdateDeliverUrl];
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:userId forKey:@"userId"];
+    [paramDict setObject:orderId forKey:@"ordered"];
+    
+    [paramDict setObject:yyztName==nil?@"":yyztName forKey:@"yyztName"];
+    [paramDict setObject:sCode forKey:@"sCode"];
+    [paramDict setObject:yyztPhone==nil?@"":yyztPhone forKey:@"yyztPhone"];
+    [paramDict setObject:yyztTime==nil?@"":yyztTime forKey:@"yyztTime"];
+    [paramDict setObject:zpAddrId==nil?@"":zpAddrId forKey:@"zpAddrId"];
+    [paramDict setObject:zpTime==nil?@"":zpTime forKey:@"zpTime"];
+    NSMutableArray *array = [NSMutableArray array];
+    for(id qingdanModel in list)
+    {
+        NSMutableDictionary *dictTemp = [NSMutableDictionary dictionary];
+        if([qingdanModel isKindOfClass:[GouwucheModel class]])
+        {
+            GouwucheModel *gm = (GouwucheModel *)qingdanModel;
+            [dictTemp setObject:gm.gId forKey:@"gId"];
+            [dictTemp setObject:[NSString stringWithFormat:@"%@",@(gm.peisongFangshi+1)] forKey:@"deliverType"];
+            [dictTemp setObject:[NSString stringWithFormat:@"%@",@(kGouwucheXiadannShangpinNormal)] forKey:@"valveType"];
+        }
+        else
+        {
+            ShanginHuikuiModel *shm = (ShanginHuikuiModel *)qingdanModel;
+            [dictTemp setObject:shm.gName forKey:@"gId"];
+            [dictTemp setObject:[NSString stringWithFormat:@"%@",@(shm.peisongFangshi+1)] forKey:@"deliverType"];
+            [dictTemp setObject:[NSString stringWithFormat:@"%@",@(kGouwucheXiadannShangpinHuikui)] forKey:@"valveType"];
+        }
+        [array addObject:dictTemp];
+    }
+    [paramDict setObject:array forKey:@"list"];
+    
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:kUpdadteDeliverDownloaderKey];
+}
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
@@ -166,6 +217,22 @@
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"生成订单失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kUpdadteDeliverDownloaderKey])
+    {
+        //更新订单配送信息
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateDeliverResponseNotification object:nil];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"更新订单配送信息失败";
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }

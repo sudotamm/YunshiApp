@@ -9,6 +9,7 @@
 #import "GouwuQingdanViewController.h"
 #import "GouwuQingdanTableCell.h"
 #import "PeisongXuanzeViewController.h"
+#import "OrderDetailViewController.h"
 
 @interface GouwuQingdanViewController ()
 
@@ -43,8 +44,15 @@
     }
     if(!containZhaipei && !containYuyueziti)
     {
-        [[RYHUDManager sharedManager] showWithMessage:@"全部自提" customView:nil hideDelay:2.f];
-        NSLog(@"上传配送信息。");
+        [[GouwucheDataManager sharedManager] requestUpdateDeliverInfoWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                                                        orderId:[GouwucheDataManager sharedManager].qingdanOrderId
+                                                                       yyztName:@""
+                                                                          sCode:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                                      yyztPhone:@""
+                                                                       yyztTime:@""
+                                                                       zpAddrId:@""
+                                                                         zpTime:@""
+                                                                           list:[GouwucheDataManager sharedManager].qingdanArray];
     }
     else
     {
@@ -146,15 +154,38 @@
     }
 }
 
+#pragma mark - Notification methods
+- (void)updateDeliverResponseWithNotification:(NSNotification *)notification
+{
+    [self.navigationController popToViewController:self animated:NO];
+    [self performSegueWithIdentifier:@"QingdanListToOrderDetail" sender:nil];
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"购物清单"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliverResponseWithNotification:) name:kUpdateDeliverResponseNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
     [self reloadJiesuanView];
     [self reloadZongjiPrice];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"QingdanListToOrderDetail"])
+    {
+        OrderDetailViewController *odvc = (OrderDetailViewController *)segue.destinationViewController;
+        odvc.orderId = [GouwucheDataManager sharedManager].qingdanOrderId;
+        odvc.orderType = kOrderTypeWeifukuan;
+    }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITableViewDataSource methods
