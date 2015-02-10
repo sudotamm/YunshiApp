@@ -20,4 +20,5 @@
 #import "FenleiDataManager.h"
 #import "GouwucheDataManager.h"
 #import "UserInfoDataManager.h"
+#import "AlixPayManager.h"
 #endif

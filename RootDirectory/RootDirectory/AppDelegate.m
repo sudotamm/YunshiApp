@@ -108,4 +108,23 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    if ([url.host isEqualToString:@"safepay"])
+    {
+        
+        [[AlipaySDK defaultService] processAuth_V2Result:url
+                                         standbyCallback:^(NSDictionary *resultDic) {
+                                             NSLog(@"result = %@",resultDic);
+                                             NSString *resultStr = resultDic[@"result"];
+                                             [[AlixPayManager sharedManager] alipayResponseWithResult:resultStr];
+                                         }];
+        
+    }
+    
+    return YES;
+}
+
 @end

@@ -155,6 +155,7 @@
 #define kSaveOrderUrl       @"saveOrder"
 #define kUpdateDeliverUrl   @"updateDeliverType"
 #define kOrderDetailUrl     @"orderDetail"
+#define kPayedCallbackUrl   @"pushPayStatus"
 //我
 #define kAddressListUrl     @"addrList"
 #define kAddressRegionUrl   @"addrRegion"

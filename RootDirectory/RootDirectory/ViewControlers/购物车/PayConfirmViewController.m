@@ -17,7 +17,7 @@
 #pragma mark - Public methods
 - (IBAction)querenfukuanButtonClicked:(id)sender
 {
-    NSLog(@"跳转支付宝...");
+    [[AlixPayManager sharedManager] callAlixpayToPayWithOrderDetail:self.orderDetail];
 }
 
 #pragma mark - UIViewController methods
