@@ -127,6 +127,7 @@
 #define kAddressEditResponseNotification    @"AddressEditResponseNotification"
 #define kAddressChosenNotification          @"AddressChosenNotification"
 #define kUpdateDeliverResponseNotification  @"UpdateDeliverResponseNotification"
+#define kPayConfirmResponseNotification     @"PayConfirmResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"

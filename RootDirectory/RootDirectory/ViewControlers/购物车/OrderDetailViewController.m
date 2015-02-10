@@ -10,6 +10,8 @@
 #import "OrderDetailTableCell.h"
 #import "DeliverHeaderView.h"
 #import "DeliverFooterView.h"
+#import "PayConfirmView.h"
+#import "PayConfirmViewController.h"
 
 @interface OrderDetailViewController ()
 
@@ -63,7 +65,17 @@
 #pragma mark - Public methods
 - (IBAction)qujiesuanButtonClicked:(id)sender
 {
-    
+    NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"PayConfirmView" owner:self options:nil];
+    PayConfirmView *pcv = [nibs lastObject];
+    [GouwucheDataManager sharedManager].payType = kOrderPayTypeAlipay;  //默认支付宝付款
+    [pcv reloadWithOrderPayType:[GouwucheDataManager sharedManager].payType];
+    [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:pcv position:CGPointZero];
+}
+
+#pragma mark - Notification methods
+- (void)payConfirmResponseWithNotification:(NSNotification *)notification
+{
+    [self performSegueWithIdentifier:@"OrderDetailToPayConfirm" sender:nil];
 }
 
 #pragma mark - UIViewController methods
@@ -72,7 +84,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"订单详情"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payConfirmResponseWithNotification:) name:kPayConfirmResponseNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
+    if(self.orderType == kOrderTypeWeifukuan)
+        self.bottomHeightConstraint.constant = 50.f;
+    else
+        self.bottomHeightConstraint.constant = 0;
     [self reloadOrderDetail];
     [self requestOrderDetailWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
                                orderId:self.orderId
@@ -80,9 +97,19 @@
                              orderType:self.orderType];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"OrderDetailToPayConfirm"])
+    {
+        PayConfirmViewController *pcvc = (PayConfirmViewController *)segue.destinationViewController;
+        pcvc.orderDetail = self.orderDetail;
+    }
+}
+
 - (void)dealloc
 {
     [[RYDownloaderManager sharedManager] cancelDownloaderWithDelegate:self purpose:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITableViewDataSource methods

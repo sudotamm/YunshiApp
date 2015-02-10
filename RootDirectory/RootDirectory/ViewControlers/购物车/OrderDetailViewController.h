@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *lianxifangshiLabel;
 @property (nonatomic, weak) IBOutlet UILabel *shouhuodizhiLabel;
 @property (nonatomic, weak) IBOutlet UILabel *zongjiLabel;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomHeightConstraint;
 
 @property (nonatomic, copy) NSString *orderId;
 @property (nonatomic, assign) OrderType orderType;
