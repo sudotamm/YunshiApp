@@ -48,7 +48,7 @@
     
     
     [self setNaviTitle:@"厨艺课程"];
-    
+    self.tv.tableFooterView = [UIView new];
 //    NSTimeZone *zone = [NSTimeZone systemTimeZone];
 //    NSInteger interval = [zone secondsFromGMTForDate:[NSDate date]];
 //    NSDate *localeDate = [[NSDate date] dateByAddingTimeInterval: interval];

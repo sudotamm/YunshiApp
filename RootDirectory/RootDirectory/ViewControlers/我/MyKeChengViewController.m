@@ -35,9 +35,9 @@
         [paramDict setObject:@"1" forKey:@"isHistory"];
     }
     else {
-        if (isHistory==YES) {
-            [paramDict setObject:@"0" forKey:@"isHistory"];
-        }
+//        if (isHistory==YES) {
+            [paramDict setObject:@"2" forKey:@"isHistory"];
+//        }
     }
     
     [paramDict setObject:@"100" forKey:@"dataCount"];
@@ -57,7 +57,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setNaviTitle:@"我的课程"];
-    
+    self.tv.tableFooterView = [UIView new];
     isHistory = YES;
     
     self.trainingArray = [NSMutableArray array];
@@ -65,11 +65,6 @@
     
     [self getTrainingList];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -82,7 +77,7 @@
 {
     
     KechengCell *cell = (KechengCell*)[[[NSBundle mainBundle] loadNibNamed:@"KechengCell" owner:nil options:nil] lastObject];
-    
+    cell.backgroundColor = [UIColor whiteColor];
     TrainingBean* bean = (TrainingBean*)[self.trainingArray objectAtIndex:indexPath.row];
     
     cell.name.text = [NSString stringWithFormat:@"课程名: %@",bean.tName];
@@ -233,13 +228,6 @@
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
 }
 
 - (void)downloader:(RYDownloader*)downloader didFinishWithError:(NSString*)message
