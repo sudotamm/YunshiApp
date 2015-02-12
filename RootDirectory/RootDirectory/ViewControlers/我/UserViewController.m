@@ -12,6 +12,7 @@
 #import "MyKeChengViewController.h"
 #import "MyOrderListViewController.h"
 #import "AddressListViewController.h"
+#import "ShangpinListViewController.h"
 
 
 @interface UserViewController ()
@@ -43,7 +44,11 @@
 
 - (IBAction)shoucanButtonClicked:(id)sender
 {
-    NSLog(@"我的收藏.");
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ShangpinListViewController *slvc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ShangpinListViewController"];
+    slvc.listType = kListCollection;
+    slvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:slvc animated:YES];
 }
 
 -(IBAction)settingClick:(id)sender

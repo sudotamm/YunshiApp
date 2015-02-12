@@ -11,6 +11,7 @@
 #define kAddressListDownloaderKey       @"AddressListDownloaderKey"
 #define kAddressRegionDownloaderKey     @"AddressRegionDownloaderKey"
 #define kAddressEditDownloaderKey       @"AddressEditDownloaderKey"
+#define kDelCollectionDownloaderKey     @"DelCollectionDownloaderKey"
 
 @implementation UserInfoDataManager
 
@@ -51,6 +52,21 @@
                                                             contentType:@"application/json"
                                                                delegate:self
                                                                 purpose:kAddressRegionDownloaderKey];
+}
+
+- (void)requestCancelCollectionWithUserId:(NSString *)userId
+                                      gId:(NSString *)gId
+{
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:userId forKey:@"userId"];
+    [paramDict setObject:gId forKey:@"gId"];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kDelCollectionUrl];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:kDelCollectionDownloaderKey];
 }
 
 - (void)requestEditAddressWithUserId:(NSString *)userId
@@ -153,6 +169,22 @@
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"地址编辑失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kDelCollectionDownloaderKey])
+    {
+        //取消收藏返回
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kDelCollectionResponseNotification object:nil];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"取消收藏失败";
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }

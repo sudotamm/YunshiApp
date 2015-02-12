@@ -34,4 +34,9 @@ typedef NS_ENUM(NSInteger, AddressEditType)
                             regionId:(NSString *)regionId
                              address:(NSString *)address
                            isDefault:(NSString *)isDefault;
+
+- (void)requestCancelCollectionWithUserId:(NSString *)userId
+                                      gId:(NSString *)gId;
+
+
 @end

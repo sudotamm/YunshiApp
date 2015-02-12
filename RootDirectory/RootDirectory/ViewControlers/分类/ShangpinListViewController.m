@@ -56,53 +56,71 @@
 #pragma mark - Public methods
 - (void)callServerToGetListDataWithPage:(NSInteger)pageNum
 {
-    /*
-    searchKeyWords
-    page
-    dataCount
-    searchType
-    categoryCode
-    sCode
-     */
     self.currentPageNum = pageNum;
-    NSString *searchKeyWords = self.searchBar.text;
-    if(nil == searchKeyWords)
-        searchKeyWords = @"";
-    NSString *page = [NSString stringWithFormat:@"%@",@(pageNum)];
-    NSString *dataCount = [NSString stringWithFormat:@"%@",@(kPageCount)];
-    NSString *searchType = nil;
-    NSString *categoryCode = nil;
-    if(self.listType == kListNormal)
+    if(self.listType == kListCollection)
     {
-        categoryCode = self.fenleiModel.cCode;
-        searchType = @"0";
-    }
-    else if(self.listType == kListBenyueqianggou)
-    {
-        categoryCode = @"";
-        searchType = @"1";
+        NSString *page = [NSString stringWithFormat:@"%@",@(pageNum)];
+        NSString *dataCount = [NSString stringWithFormat:@"%@",@(kPageCount)];
+        NSString *sCode = [HomeDataManager sharedManger].currentDianpu.sCode;
+        NSString *userId = [ABCMemberDataManager sharedManager].loginMember.userId;
+        NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kCollectionListUrl];
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+        [paramDict setObject:page forKey:@"page"];
+        [paramDict setObject:dataCount forKey:@"dataCount"];
+        [paramDict setObject:sCode forKey:@"sCode"];
+        [paramDict setObject:userId forKey:@"userId"];
+        [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                                 postParams:paramDict
+                                                                contentType:@"application/json"
+                                                                   delegate:self
+                                                                    purpose:nil];
     }
     else
     {
-        categoryCode = @"";
-        searchType = @"0";
+        NSString *searchKeyWords = self.searchBar.text;
+        if(nil == searchKeyWords)
+            searchKeyWords = @"";
+        NSString *page = [NSString stringWithFormat:@"%@",@(pageNum)];
+        NSString *dataCount = [NSString stringWithFormat:@"%@",@(kPageCount)];
+        NSString *searchType = nil;
+        NSString *categoryCode = nil;
+        if(self.listType == kListNormal)
+        {
+            categoryCode = self.fenleiModel.cCode;
+            searchType = @"0";
+        }
+        else if(self.listType == kListBenyueqianggou)
+        {
+            categoryCode = @"";
+            searchType = @"1";
+        }
+        else
+        {
+            categoryCode = @"";
+            searchType = @"0";
+        }
+        NSString *sCode = [HomeDataManager sharedManger].currentDianpu.sCode;
+        NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kShangpinListUrl];
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+        [paramDict setObject:searchKeyWords forKey:@"searchKeyWords"];
+        [paramDict setObject:page forKey:@"page"];
+        [paramDict setObject:dataCount forKey:@"dataCount"];
+        [paramDict setObject:searchType forKey:@"searchType"];
+        [paramDict setObject:categoryCode forKey:@"categoryCode"];
+        [paramDict setObject:sCode forKey:@"sCode"];
+        [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                                 postParams:paramDict
+                                                                contentType:@"application/json"
+                                                                   delegate:self
+                                                                    purpose:nil];
     }
-    NSString *sCode = [HomeDataManager sharedManger].currentDianpu.sCode;
-    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kShangpinListUrl];
-    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-    [paramDict setObject:searchKeyWords forKey:@"searchKeyWords"];
-    [paramDict setObject:page forKey:@"page"];
-    [paramDict setObject:dataCount forKey:@"dataCount"];
-    [paramDict setObject:searchType forKey:@"searchType"];
-    [paramDict setObject:categoryCode forKey:@"categoryCode"];
-    [paramDict setObject:sCode forKey:@"sCode"];
-    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
-                                                             postParams:paramDict
-                                                            contentType:@"application/json"
-                                                               delegate:self
-                                                                purpose:nil];
 }
 
+#pragma mark - Notification methosd
+- (void)cancelCollectionResponseWithNotification:(NSNotification *)notification
+{
+    [self callServerToGetListDataWithPage:kInitPageNumber];
+}
 
 #pragma mark - BaseViewController methods
 - (void)rightItemTapped
@@ -130,20 +148,27 @@
     if(self.listType == kListSearch)
     {
         [self setNaviTitle:@"搜索商品"];
+        [self setRightNaviItemWithTitle:@"切换" imageName:nil];
         self.contentTableView.tableHeaderView = self.searchBar;
     }
     else if(self.listType == kListBenyueqianggou)
     {
         [self setNaviTitle:@"本月抢购"];
+        [self setRightNaviItemWithTitle:@"切换" imageName:nil];
         self.contentTableView.tableHeaderView = nil;
+    }
+    else if(self.listType == kListCollection)
+    {
+        [self setNaviTitle:@"我的收藏"];
+        self.contentTableView.tableHeaderView = nil;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelCollectionResponseWithNotification:) name:kDelCollectionResponseNotification object:nil];
     }
     else
     {
         [self setNaviTitle:@"商品列表"];
+        [self setRightNaviItemWithTitle:@"切换" imageName:nil];
         self.contentTableView.tableHeaderView = nil;
     }
-    
-    [self setRightNaviItemWithTitle:@"切换" imageName:nil];
     //移除空cell的seperator line
     self.contentTableView.tableFooterView = [UIView new];
     //下拉刷新
@@ -171,6 +196,7 @@
 - (void)dealloc
 {
     [[RYDownloaderManager sharedManager] cancelDownloaderWithDelegate:self purpose:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -193,6 +219,27 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"ShangpinListToDetail" sender:sm.gId];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(self.listType == kListCollection)
+        return YES;
+    else
+        return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        if(self.listType == kListCollection)
+        {
+            ShangpinModel *sm = [self.shangpinArray objectAtIndex:indexPath.row];
+            [[UserInfoDataManager sharedManager] requestCancelCollectionWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                                                               gId:sm.gId];
+        }
+    }
 }
 
 #pragma mark - ShangpinTableCellDelegate methods

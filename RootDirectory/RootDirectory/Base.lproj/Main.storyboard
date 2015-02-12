@@ -4338,8 +4338,8 @@
         <image name="user-userhead" width="270" height="270"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0oM-D4-wHe"/>
-        <segue reference="XuF-c8-60p"/>
         <segue reference="L7E-ne-Aeq"/>
+        <segue reference="Mea-O5-uTP"/>
+        <segue reference="XuF-c8-60p"/>
     </inferredMetricsTieBreakers>
 </document>

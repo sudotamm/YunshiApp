@@ -128,6 +128,7 @@
 #define kAddressChosenNotification          @"AddressChosenNotification"
 #define kUpdateDeliverResponseNotification  @"UpdateDeliverResponseNotification"
 #define kPayConfirmResponseNotification     @"PayConfirmResponseNotification"
+#define kDelCollectionResponseNotification  @"DelCollectionResponseNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
@@ -161,4 +162,6 @@
 #define kAddressRegionUrl   @"addrRegion"
 #define kAddressEditUrl     @"editAddr"
 #define kOrderListUrl       @"orderList"
+#define kCollectionListUrl  @"collectionList"
+#define kDelCollectionUrl   @"delCollection"
 #endif

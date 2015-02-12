@@ -14,7 +14,8 @@ typedef NS_ENUM(NSInteger, ShangpinListType)
 {
     kListNormal = 0,
     kListBenyueqianggou = 1,
-    kListSearch = 2
+    kListSearch = 2,
+    kListCollection
 };
 
 @interface ShangpinListViewController : BaseViewController<ShangpinTableCellDelegate>
