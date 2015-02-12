@@ -17,12 +17,18 @@
 @synthesize bean;
 @synthesize nameLabel,addrLabel,timeLabel;
 
+#pragma mark - BaseViewController methods
+
 - (void)rightItemTapped
 {
-    
+    NSMutableDictionary *shareDict = [NSMutableDictionary dictionary];
+    UIImage *shareImage = [UIImage assetLaunchImage];
+    [shareDict setObject:shareImage forKey:@"image"];
+    [shareDict setObject:@"分享自食理洋嘗" forKey:@"content"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowShareViewNotification object:shareDict];
 }
 
-
+#pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,13 +38,11 @@
     [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
     
     self.headerImgView.cacheDir = kSmallImgCacheDir;
-    [self.headerImgView aysnLoadImageWithUrl:bean.picURL placeHolder:@"loading_square"];
+    [self.headerImgView aysnLoadImageWithUrl:bean.picURL placeHolder:@"loading_rectangle"];
     
     self.nameLabel.text = bean.tName;
     self.addrLabel.text = bean.addr;
     self.timeLabel.text = bean.tTime;
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

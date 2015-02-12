@@ -61,6 +61,50 @@
     if([self tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:shouyeIndex]])
         self.selectedIndex = shouyeIndex;
 }
+
+- (void)showShareViewWithNotification:(NSNotification *)notification
+{
+    NSDictionary *dict = notification.object;
+    NSString *content = [dict objectForKey:@"content"];
+    UIImage *image = [dict objectForKey:@"image"];
+    
+    NSArray *shareList = [ShareSDK getShareListWithType:ShareTypeWeixiSession, ShareTypeWeixiTimeline, nil];
+    //构造分享内容
+    id<ISSContent> publishContent = [ShareSDK content:content
+                                       defaultContent:@""
+                                                image:[ShareSDK jpegImageWithImage:image quality:1]
+                                                title:@"ShareSDK"
+                                                  url:@""
+                                          description:content
+                                            mediaType:SSPublishContentMediaTypeImage];
+    //创建弹出菜单容器
+    id<ISSContainer> container = [ShareSDK container];
+    id<ISSAuthOptions> authOptions = [ShareSDK authOptionsWithAutoAuth:YES
+                                                         allowCallback:NO
+                                                         authViewStyle:SSAuthViewStyleFullScreenPopup
+                                                          viewDelegate:nil
+                                               authManagerViewDelegate:nil];
+    id<ISSShareOptions> shareOptions = [ShareSDK simpleShareOptionsWithTitle:@"内容分享" shareViewDelegate:nil];
+    //弹出分享菜单
+    [ShareSDK showShareActionSheet:container
+                         shareList:shareList
+                           content:publishContent
+                     statusBarTips:NO
+                       authOptions:authOptions
+                      shareOptions:shareOptions
+                            result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+                                
+                                if (state == SSResponseStateSuccess)
+                                {
+                                    [[RYHUDManager sharedManager] showWithMessage:@"分享成功" customView:nil hideDelay:2.f];
+                                }
+                                else if (state == SSResponseStateFail)
+                                {
+                                    [[RYHUDManager sharedManager] showWithMessage:@"分享失败" customView:nil hideDelay:2.f];
+                                    NSLog(NSLocalizedString(@"TEXT_ShARE_FAI", @"分享失败,错误码:%d,错误描述:%@"), [error errorCode], [error errorDescription]);
+                                }
+                            }];
+}
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad
@@ -93,6 +137,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inbasketResponseWithNotification:) name:kInBasketResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shangpinHuikuiResponseWithNotification:) name:kShangpinhuiKuiResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutWithNotification:) name:kUserLogoutNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShareViewWithNotification:) name:kShowShareViewNotification object:nil];
 }
 
 - (void)dealloc

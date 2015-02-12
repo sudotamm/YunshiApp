@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "WXApi.h"
 
 @interface AppDelegate ()
 
@@ -68,6 +69,25 @@
         self.window.rootViewController = self.rootTabBarViewController;
 }
 
+- (void)registerShareSDK
+{
+    //配置shareSDK
+    [ShareSDK registerApp:@"4a88b2fb067c"];
+    [ShareSDK ssoEnabled:YES];
+    /**
+     1
+     连接微信应用以使用相关功能，此应用需要引用WeChatConnection.framework和微信官方SDK
+     http://open.weixin.qq.com上注册应用，并将相关信息填写以下字段
+     **/
+    [ShareSDK connectWeChatWithAppId:@"wx60b8897f9ce5c592"                  //TODO 此为ShareSDK的
+                           appSecret:@"e826c005947d14ec72256bc7f607ee31"
+                           wechatCls:[WXApi class]];
+    
+
+    
+}
+
+
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -78,6 +98,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showPannelViewWithNotification:) name:kShowPannelViewNotification object:nil];
+    [self registerShareSDK];
     self.window.tintColor = kMainProjColor;
     return YES;
 }
@@ -109,6 +130,13 @@
 }
 
 - (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
@@ -121,10 +149,15 @@
                                              NSString *resultStr = resultDic[@"result"];
                                              [[AlixPayManager sharedManager] alipayResponseWithResult:resultStr];
                                          }];
-        
+        return YES;
     }
-    
-    return YES;
+    else
+    {
+        return [ShareSDK handleOpenURL:url
+                     sourceApplication:sourceApplication
+                            annotation:annotation
+                            wxDelegate:self];
+    }
 }
 
 @end

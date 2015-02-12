@@ -21,4 +21,5 @@
 #import "GouwucheDataManager.h"
 #import "UserInfoDataManager.h"
 #import "AlixPayManager.h"
+#import <ShareSDK/ShareSDK.h>
 #endif

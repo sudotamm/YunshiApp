@@ -13,6 +13,7 @@
 
 @interface KeChengDetailViewController : BaseViewController
 
+@property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 @property (nonatomic, weak) IBOutlet RYAsynImageView *headerImgView;
 @property (nonatomic, strong) TrainingBean* bean;
 @property (nonatomic, strong) IBOutlet UILabel* nameLabel;

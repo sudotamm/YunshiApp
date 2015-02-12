@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KeChengDetailViewController">
             <connections>
                 <outlet property="addrLabel" destination="M83-S3-vha" id="tcl-Jv-YFE"/>
+                <outlet property="contentScrollView" destination="zOk-UX-UBK" id="uSh-19-nMA"/>
                 <outlet property="headerImgView" destination="cOl-7N-s3r" id="R7F-os-Z93"/>
                 <outlet property="nameLabel" destination="HPx-9i-gBX" id="nff-Zc-Y5f"/>
                 <outlet property="timeLabel" destination="GTl-UQ-ItG" id="ygF-eL-8CA"/>

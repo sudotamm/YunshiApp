@@ -129,6 +129,7 @@
 #define kUpdateDeliverResponseNotification  @"UpdateDeliverResponseNotification"
 #define kPayConfirmResponseNotification     @"PayConfirmResponseNotification"
 #define kDelCollectionResponseNotification  @"DelCollectionResponseNotification"
+#define kShowShareViewNotification          @"ShowShareViewNotification"
 
 //ServerUrl
 #define kServerAddress      @"http://58.211.42.172:6081/api/"
