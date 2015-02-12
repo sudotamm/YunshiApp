@@ -140,12 +140,24 @@
         [[RYHUDManager sharedManager] showWithMessage:@"暂未添加任何商品" customView:nil hideDelay:2.f];
     }
 }
+
+#pragma mark - BaseViewController methods
+
+- (void)rightItemTapped
+{
+    NSMutableDictionary *shareDict = [NSMutableDictionary dictionary];
+    UIImage *shareImage = [UIImage screenShotForScrollView:self.contentScrollView];
+    [shareDict setObject:shareImage forKey:@"image"];
+    [shareDict setObject:@"分享自食理洋嘗" forKey:@"content"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowShareViewNotification object:shareDict];
+}
+
 #pragma mark - UIViewController methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"商品详情"];
-    
+    [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
     [self reloadShangpinDetail];
     [self requestShangpinDetailWithShangpinId:self.shangpinId mendianId:[HomeDataManager sharedManger].currentDianpu.sCode];
 }
