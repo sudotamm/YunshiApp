@@ -22,8 +22,11 @@
 
 + (UIImage *) screenShotForScrollView:(UIScrollView *)scrollView
 {
+    if(CGSizeEqualToSize(scrollView.contentSize, CGSizeZero))
+    {
+        return nil;
+    }
     UIImage* image = nil;
-    
     UIGraphicsBeginImageContext(scrollView.contentSize);
     {
         CGPoint savedContentOffset = scrollView.contentOffset;
