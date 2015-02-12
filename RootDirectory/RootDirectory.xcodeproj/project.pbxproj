@@ -32,6 +32,7 @@
 		945C4AB41A8658A6008338CC /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AB21A8658A6008338CC /* AddAddressViewController.m */; };
 		945C4AB51A8658A6008338CC /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 945C4AB31A8658A6008338CC /* AddAddressViewController.xib */; };
 		945C4AB81A865F11008338CC /* RegionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4AB71A865F11008338CC /* RegionModel.m */; };
+		945ED5B11A8C3DCD00D1F738 /* OrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 945ED5B01A8C3DCD00D1F738 /* OrderModel.m */; };
 		946080A51A8A2718000C5119 /* PayConfirmView.m in Sources */ = {isa = PBXBuildFile; fileRef = 946080A41A8A2718000C5119 /* PayConfirmView.m */; };
 		946080A71A8A272A000C5119 /* PayConfirmView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 946080A61A8A272A000C5119 /* PayConfirmView.xib */; };
 		946080AA1A8A2C6D000C5119 /* PayConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 946080A91A8A2C6D000C5119 /* PayConfirmViewController.m */; };
@@ -219,6 +220,8 @@
 		945C4AB31A8658A6008338CC /* AddAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		945C4AB61A865F11008338CC /* RegionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionModel.h; sourceTree = "<group>"; };
 		945C4AB71A865F11008338CC /* RegionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionModel.m; sourceTree = "<group>"; };
+		945ED5AF1A8C3DCD00D1F738 /* OrderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderModel.h; sourceTree = "<group>"; };
+		945ED5B01A8C3DCD00D1F738 /* OrderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderModel.m; sourceTree = "<group>"; };
 		946080A31A8A2718000C5119 /* PayConfirmView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayConfirmView.h; sourceTree = "<group>"; };
 		946080A41A8A2718000C5119 /* PayConfirmView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayConfirmView.m; sourceTree = "<group>"; };
 		946080A61A8A272A000C5119 /* PayConfirmView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayConfirmView.xib; sourceTree = "<group>"; };
@@ -1090,6 +1093,8 @@
 				947B42171A8258C200D4B13A /* GouwucheModel.m */,
 				948F10461A84885700E113F8 /* ShanginHuikuiModel.h */,
 				948F10471A84885700E113F8 /* ShanginHuikuiModel.m */,
+				945ED5AF1A8C3DCD00D1F738 /* OrderModel.h */,
+				945ED5B01A8C3DCD00D1F738 /* OrderModel.m */,
 				94D00E7A1A88D63A00E3AA39 /* OrderDetailModel.h */,
 				94D00E7B1A88D63A00E3AA39 /* OrderDetailModel.m */,
 				94D00E7D1A88D92D00E3AA39 /* DeliverModel.h */,
@@ -1395,6 +1400,7 @@
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,
 				A665AA651A830B0B00D5562A /* ChuyiViewController.m in Sources */,
 				945C4AA41A864D11008338CC /* AddressListViewController.m in Sources */,
+				945ED5B11A8C3DCD00D1F738 /* OrderModel.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
 				94A8FEB51A80EDAD00F2A226 /* TaocanModel.m in Sources */,
 				947932F81A7677430057C2B6 /* DianpuView.m in Sources */,

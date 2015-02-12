@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "MJRefreshFooterView.h"
+#import "OrderCell.h"
 
-@interface MyOrderListViewController : BaseViewController
+@interface MyOrderListViewController : BaseViewController<OrderCellDelegate>
 
-@property (nonatomic,strong) IBOutlet UITableView* tv;
+@property (nonatomic, weak) IBOutlet UISegmentedControl *segmentControl;
+@property (nonatomic, weak) IBOutlet UITableView* contentTableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) MJRefreshFooterView *refreshFooterView;
 
+- (IBAction)segmentValueChanged:(id)sender;
 
 @end

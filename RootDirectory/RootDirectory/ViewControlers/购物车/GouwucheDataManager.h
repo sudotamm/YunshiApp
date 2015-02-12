@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, OrderPayType)
 #import "ShanginHuikuiModel.h"
 #import "DingdanShangpinModel.h"
 #import "DeliverModel.h"
+#import "OrderModel.h"
 #import "OrderDetailModel.h"
 
 @interface GouwucheDataManager : NSObject

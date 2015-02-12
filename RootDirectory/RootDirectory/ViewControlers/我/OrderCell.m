@@ -10,8 +10,10 @@
 
 @implementation OrderCell
 
-
-@synthesize sendBtn,orderNo,datetime,price;
+- (IBAction)shengchengerweimaButtonClicked:(id)sender
+{
+    [self.delegate didGenerateQRCodeWithCell:self];
+}
 
 
 @end

@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol OrderCellDelegate;
+
 @interface OrderCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIButton *sendBtn;
-@property (strong, nonatomic) IBOutlet UILabel* orderNo;
-@property (strong, nonatomic) IBOutlet UILabel* datetime;
-@property (strong, nonatomic) IBOutlet UILabel* price;
+@property (weak, nonatomic) IBOutlet UILabel* orderNo;
+@property (weak, nonatomic) IBOutlet UILabel* datetime;
+@property (weak, nonatomic) IBOutlet UILabel* price;
+@property (nonatomic, weak) id<OrderCellDelegate> delegate;
+
+- (IBAction)shengchengerweimaButtonClicked:(id)sender;
+
+@end
+
+@protocol OrderCellDelegate <NSObject>
+
+- (void)didGenerateQRCodeWithCell:(OrderCell *)cell;
 
 @end

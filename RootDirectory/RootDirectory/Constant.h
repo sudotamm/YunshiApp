@@ -160,4 +160,5 @@
 #define kAddressListUrl     @"addrList"
 #define kAddressRegionUrl   @"addrRegion"
 #define kAddressEditUrl     @"editAddr"
+#define kOrderListUrl       @"orderList"
 #endif

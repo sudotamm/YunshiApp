@@ -13,8 +13,8 @@
 @interface GouwucheViewController : BaseViewController<GouwucheTableCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
-@property (nonatomic, retain) UIRefreshControl *refreshControl;
-@property (nonatomic, retain) MJRefreshFooterView *refreshFooterView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) MJRefreshFooterView *refreshFooterView;
 @property (nonatomic, weak) IBOutlet UILabel *zongjiLabel;
 @property (nonatomic, weak) IBOutlet UILabel *yunfeiTipLabel;
 @property (nonatomic, weak) IBOutlet UILabel *yunfeiLabel;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -7,7 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyOrderListViewController">
             <connections>
-                <outlet property="tv" destination="FHs-DV-Ha6" id="MyI-Xj-PK6"/>
+                <outlet property="contentTableView" destination="FHs-DV-Ha6" id="1bZ-PM-xbf"/>
+                <outlet property="segmentControl" destination="ujI-21-Ff3" id="ZDT-ha-JEK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,55 +17,67 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="EYT-dA-qmc">
-                    <rect key="frame" x="0.0" y="69" width="320" height="499"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYT-dA-qmc">
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" id="FHs-DV-Ha6">
-                            <rect key="frame" x="0.0" y="-27" width="320" height="526"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxk-dw-uGI">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ujI-21-Ff3">
+                                    <rect key="frame" x="15" y="8" width="290" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="RMy-6m-IaB"/>
+                                    </constraints>
+                                    <segments>
+                                        <segment title="未付款"/>
+                                        <segment title="已付款"/>
+                                        <segment title="历史订单"/>
+                                    </segments>
+                                    <color key="tintColor" red="0.23529411759999999" green="0.69019607839999997" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <connections>
+                                        <action selector="segmentValueChanged:" destination="-1" eventType="valueChanged" id="unX-Es-cdu"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ujI-21-Ff3" firstAttribute="leading" secondItem="wxk-dw-uGI" secondAttribute="leading" constant="15" id="331-Ln-mkZ"/>
+                                <constraint firstAttribute="height" constant="45" id="Q7c-Mu-TyX"/>
+                                <constraint firstAttribute="centerY" secondItem="ujI-21-Ff3" secondAttribute="centerY" id="eQu-Ky-GU8"/>
+                                <constraint firstAttribute="trailing" secondItem="ujI-21-Ff3" secondAttribute="trailing" constant="15" id="tmG-u4-1vj"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FHs-DV-Ha6">
+                            <rect key="frame" x="0.0" y="45" width="320" height="459"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="3eh-e0-c5G"/>
                                 <outlet property="delegate" destination="-1" id="7lh-jc-7Bp"/>
                             </connections>
                         </tableView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c3F-B3-omk">
-                            <rect key="frame" x="31" y="13" width="86" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="未付款">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="u7b-EX-RDP">
-                            <rect key="frame" x="117" y="13" width="86" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="已付款">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jzG-DT-gdf">
-                            <rect key="frame" x="203" y="13" width="86" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <state key="normal" title="历史订单">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
                     </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="wxk-dw-uGI" firstAttribute="top" secondItem="EYT-dA-qmc" secondAttribute="top" id="16y-T1-2RD"/>
+                        <constraint firstAttribute="trailing" secondItem="wxk-dw-uGI" secondAttribute="trailing" id="81A-Vi-WK2"/>
+                        <constraint firstAttribute="trailing" secondItem="FHs-DV-Ha6" secondAttribute="trailing" id="K2h-rF-XWA"/>
+                        <constraint firstItem="FHs-DV-Ha6" firstAttribute="leading" secondItem="EYT-dA-qmc" secondAttribute="leading" id="OfL-0t-RXS"/>
+                        <constraint firstItem="wxk-dw-uGI" firstAttribute="leading" secondItem="EYT-dA-qmc" secondAttribute="leading" id="WI1-0p-ai6"/>
+                        <constraint firstAttribute="bottom" secondItem="FHs-DV-Ha6" secondAttribute="bottom" id="jDS-sl-W3T"/>
+                        <constraint firstItem="FHs-DV-Ha6" firstAttribute="top" secondItem="wxk-dw-uGI" secondAttribute="bottom" id="pQe-iQ-c58"/>
+                    </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="backgroundColor" red="0.95294117647058818" green="0.95686274509803915" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="EYT-dA-qmc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="05K-Ff-rIs"/>
+                <constraint firstAttribute="trailing" secondItem="EYT-dA-qmc" secondAttribute="trailing" id="cHq-X2-URK"/>
+                <constraint firstAttribute="bottom" secondItem="EYT-dA-qmc" secondAttribute="bottom" id="iu9-eL-UWd"/>
+                <constraint firstItem="EYT-dA-qmc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="j0i-Jt-2r0"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="298" y="385"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
