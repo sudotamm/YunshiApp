@@ -7,9 +7,8 @@
 //
 
 #import "MyInfoViewController.h"
-#import "MyInfoCell.h"
 
-
+#define kInfoDateFormat     @"yyyy-MM-dd"
 
 @interface MyInfoViewController ()
 
@@ -17,214 +16,64 @@
 
 @implementation MyInfoViewController
 
-@synthesize tmpMember;
-@synthesize tv;
-@synthesize tmpPwd;
-@synthesize picker;
-@synthesize pickerView;
-@synthesize tmpTf;
-@synthesize inputView,inputBgView;
+@synthesize datePicker,textPicker;
 
+#pragma mark - Private methods
 
-- (void)viewWillAppear:(BOOL)animated
+- (RYDatePickerView *)datePicker
 {
-    [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShow:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardHide:) name:UIKeyboardWillHideNotification object:nil];
+    if(nil == datePicker)
+    {
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"RYDatePickerView" owner:self options:nil];
+        datePicker = [nibs lastObject];
+        datePicker.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        datePicker.delegate = self;
+    }
+    return datePicker;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
+- (RYTextPickerView *)textPicker
 {
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    if(nil == textPicker)
+    {
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"RYTextPickerView" owner:self options:nil];
+        textPicker = [nibs lastObject];
+        textPicker.delegate = self;
+    }
+    return textPicker;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [self setNaviTitle:@"我的信息"];
-    
-    // 弄个临时bean存编辑后 但未提交数据
-    self.tmpMember = [[ABCMember alloc] init];
-    self.tmpMember.code = [ABCMemberDataManager sharedManager].loginMember.code;
-    self.tmpMember.msg = [ABCMemberDataManager sharedManager].loginMember.msg;
-    self.tmpMember.userId = [ABCMemberDataManager sharedManager].loginMember.userId;
-    self.tmpMember.name = [ABCMemberDataManager sharedManager].loginMember.name;
-    self.tmpMember.phone = [ABCMemberDataManager sharedManager].loginMember.phone;
-    self.tmpMember.gender = [ABCMemberDataManager sharedManager].loginMember.gender;
-    self.tmpMember.email = [ABCMemberDataManager sharedManager].loginMember.email;
-    self.tmpMember.addr = [ABCMemberDataManager sharedManager].loginMember.addr;
-    self.tmpMember.birthday = [ABCMemberDataManager sharedManager].loginMember.birthday;
-    self.tmpMember.levelCode = [ABCMemberDataManager sharedManager].loginMember.levelCode;
-    self.tmpMember.totalQtum = [ABCMemberDataManager sharedManager].loginMember.totalQtum;
-    
-    
-    [self.tv reloadData];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark - Public methods
+- (IBAction)baocunButtonClicked:(id)sender
 {
-    return 10;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    if (indexPath.row<2) {
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        if (indexPath.row==0) {
-            
-            if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"1"]) {
-                cell.textLabel.text = @"当前会员等级: 银卡会员";
-            }
-            else if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"2"]) {
-                cell.textLabel.text = @"当前会员等级: 金卡会员";
-            }
-            else if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"3"]) {
-                cell.textLabel.text = @"当前会员等级: 白金会员";
-            }
-            else if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"4"]) {
-                cell.textLabel.text = @"当前会员等级: 至尊会员";
-            }
-            else  {
-                cell.textLabel.text = @"当前会员等级: 普通会员";
-            }
-            
-        }
-        else {
-            
-            if ([[ABCMemberDataManager sharedManager].loginMember.totalQtum length]<1) {
-                cell.textLabel.text = @"有效累计消费: 0元";
-            }
-            else {
-                cell.textLabel.text = [NSString stringWithFormat:@"有效累计消费: %@元",[ABCMemberDataManager sharedManager].loginMember.totalQtum];
-            }
-            
-        }
-        
-        return cell;
+    [self.view endEditing:YES];
+    if ([self.xingmingField.text length]>30) {
+        [[RYHUDManager sharedManager] showWithMessage:@"姓名最多30个字符" customView:nil hideDelay:2.f];
+        return;
     }
-    else {
-        
-        MyInfoCell *cell = (MyInfoCell*)[[[NSBundle mainBundle] loadNibNamed:@"MyInfoCell" owner:nil options:nil] lastObject];
-        
-        
-        
-        if (indexPath.row==2) {
-            cell.name.text = @"个人信息";
-            cell.inputTf.hidden = YES;
-            cell.sendBtn.hidden = NO;
-            [cell.sendBtn addTarget:self action:@selector(saveInfo) forControlEvents:UIControlEventTouchDown];
-            
-        }
-        else if (indexPath.row==3) {
-            cell.name.text = @"姓名: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = self.tmpMember.name;
-        
-            cell.inputBtn.tag = indexPath.row;
-            [cell.inputBtn addTarget:self action:@selector(inputClick:) forControlEvents:UIControlEventTouchDown];
-        
-        }
-        else if (indexPath.row==4) {
-            cell.name.text = @"电话: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = self.tmpMember.phone;
-            cell.inputTf.enabled = NO;
-        }
-        else if (indexPath.row==5) {
-            cell.name.text = @"性别: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = self.tmpMember.gender;
-            
-            UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [cell.contentView addSubview:btn];
-            btn.frame = cell.inputTf.frame;
-            [btn addTarget:self action:@selector(pickGender) forControlEvents:UIControlEventTouchDown];
-        }
-        else if (indexPath.row==6) {
-            cell.name.text = @"Email: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = self.tmpMember.email;
-            
-            cell.inputBtn.tag = indexPath.row;
-            [cell.inputBtn addTarget:self action:@selector(inputClick:) forControlEvents:UIControlEventTouchDown];
-        }
-        else if (indexPath.row==7) {
-            cell.name.text = @"地址: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = self.tmpMember.addr;
-            
-            cell.inputBtn.tag = indexPath.row;
-            [cell.inputBtn addTarget:self action:@selector(inputClick:) forControlEvents:UIControlEventTouchDown];
-        }
-        else if (indexPath.row==8) {
-            cell.name.text = @"生日: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = self.tmpMember.birthday;
-            
-            UIButton* btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            [cell.contentView addSubview:btn];
-            btn.frame = cell.inputTf.frame;
-            [btn addTarget:self action:@selector(pickBirthday) forControlEvents:UIControlEventTouchDown];
-        }
-        else {
-            cell.name.text = @"新密码: ";
-            cell.inputTf.tag = indexPath.row;
-            cell.inputTf.text = tmpPwd;
-            
-            CGRect frame = cell.inputTf.frame;
-            frame.size.width -= 52;
-            cell.inputTf.frame = frame;
-            
-            cell.sendBtn.hidden = NO;
-            [cell.sendBtn setTitle:@"确认" forState:UIControlStateNormal];
-            [cell.sendBtn addTarget:self action:@selector(changePwd) forControlEvents:UIControlEventTouchDown];
-            
-            cell.inputBtn.tag = indexPath.row;
-            [cell.inputBtn addTarget:self action:@selector(inputClick:) forControlEvents:UIControlEventTouchDown];
-        }
-
-        return cell;
-        
+    else if ([self.emailField.text length]>30) {
+        [[RYHUDManager sharedManager] showWithMessage:@"邮箱最多30个字符" customView:nil hideDelay:2.f];
+        return;
     }
-    
-    
-}
-
--(void)saveInfo
-{
-    if ([self.tmpMember.name length]>30) {
-        [[[UIAlertView alloc] initWithTitle:@"提示" message:@"姓名最多30个字符" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    else if ([self.dizhiField.text length]>30) {
+        [[RYHUDManager sharedManager] showWithMessage:@"地址最多30个字符" customView:nil hideDelay:2.f];
+        return;
     }
-    else if ([self.tmpMember.email length]>30) {
-        [[[UIAlertView alloc] initWithTitle:@"提示" message:@"邮箱最多30个字符" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-    }
-    else if ([self.tmpMember.addr length]>30) {
-        [[[UIAlertView alloc] initWithTitle:@"提示" message:@"地址最多30个字符" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-    }
-    else {
+    else
+    {
+        NSString *name = self.xingmingField.text == nil?@"":self.xingmingField.text;
+        NSString *gender = self.xingbieField.text == nil?@"":self.xingbieField.text;
+        NSString *email = self.emailField.text == nil?@"":self.emailField.text;
+        NSString *address = self.dizhiField.text == nil?@"":self.dizhiField.text;
+        NSString *birthday = self.shengriField.text == nil?@"":self.shengriField.text;
+        
         NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-        [paramDict setObject:self.tmpMember.userId forKey:@"userId"];
-        [paramDict setObject:self.tmpMember.name forKey:@"name"];
-        [paramDict setObject:self.tmpMember.gender forKey:@"gender"];
-        [paramDict setObject:self.tmpMember.email forKey:@"email"];
-        [paramDict setObject:self.tmpMember.addr forKey:@"addr"];
-        [paramDict setObject:self.tmpMember.birthday forKey:@"birthday"];
-        
+        [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.userId forKey:@"userId"];
+        [paramDict setObject:name forKey:@"name"];
+        [paramDict setObject:gender forKey:@"gender"];
+        [paramDict setObject:email forKey:@"email"];
+        [paramDict setObject:address forKey:@"addr"];
+        [paramDict setObject:birthday forKey:@"birthday"];
         
         [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"更改信息中..."];
         NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,@"updateUserInfo"];
@@ -238,159 +87,126 @@
     
     
 }
-
--(void)changePwd
+- (IBAction)querenButtonClicked:(id)sender
 {
-    NSCharacterSet *disallowedCharacters = [[NSCharacterSet
-                                             characterSetWithCharactersInString:@"0123456789QWERTYUIOPLKJHGFDSAZXCVBNMqwertyuioplkjhgfdsazxcvbnm "] invertedSet];
-    NSRange foundRange = [self.tmpPwd rangeOfCharacterFromSet:disallowedCharacters];
+    [self.view endEditing:YES];
+    if(self.mimaField.text.length == 0)
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"请输入新密码" customView:nil hideDelay:2.f];
+        return;
+    }
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.userId forKey:@"userId"];
+    [paramDict setObject:self.mimaField.text forKey:@"pwd"];
     
-    if ([self.tmpPwd length]>30||[self.tmpPwd length]<8||foundRange.location != NSNotFound) {
-        [[[UIAlertView alloc] initWithTitle:@"提示" message:@"密码只能是8-20的英文或数字" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"更改密码中..."];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,@"changePwd"];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:@"更改密码"];
+}
+
+#pragma mark - UIViewController methods
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    [self setNaviTitle:@"我的信息"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    //会员等级
+    if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"1"]) {
+        self.levelLabel.text = @"银卡会员";
+    }
+    else if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"2"]) {
+        self.levelLabel.text = @"金卡会员";
+    }
+    else if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"3"]) {
+        self.levelLabel.text = @"白金会员";
+    }
+    else if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"4"]) {
+        self.levelLabel.text = @"至尊会员";
+    }
+    else  {
+        self.levelLabel.text = @"普通会员";
+    }
+    //会员消费
+    if ([[ABCMemberDataManager sharedManager].loginMember.totalQtum length]<1) {
+        self.xiaofeiLabel.text = @"0元";
     }
     else {
-        NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
-        [paramDict setObject:self.tmpMember.userId forKey:@"userId"];
-        [paramDict setObject:self.tmpPwd forKey:@"pwd"];
-        
-        
-        [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"更改密码中..."];
-        NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,@"changePwd"];
-        [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
-                                                                 postParams:paramDict
-                                                                contentType:@"application/json"
-                                                                   delegate:self
-                                                                    purpose:@"更改密码"];
+        self.xiaofeiLabel.text = [NSString stringWithFormat:@"有效累计消费: %@元",[ABCMemberDataManager sharedManager].loginMember.totalQtum];
     }
-    
-    
-    
+    //姓名
+    self.xingmingField.text = [ABCMemberDataManager sharedManager].loginMember.name;
+    //电话
+    self.dianhuaField.text = [ABCMemberDataManager sharedManager].loginMember.phone;
+    self.dianhuaField.enabled = NO;
+    //性别
+    self.xingbieField.text = [ABCMemberDataManager sharedManager].loginMember.gender;
+    //email
+    self.emailField.text = [ABCMemberDataManager sharedManager].loginMember.email;
+    //地址
+    self.dizhiField.text = [ABCMemberDataManager sharedManager].loginMember.addr;
+    //生日 - yyyy-MM-dd
+    self.shengriField.text = [ABCMemberDataManager sharedManager].loginMember.birthday;
 }
 
--(void)pickGender
+- (void)dealloc
 {
-    UIActionSheet* as = [[UIActionSheet alloc] initWithTitle:@"选择性别" delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"男",@"女", nil];
-    [as showInView:self.view];
+    [[RYDownloaderManager sharedManager] cancelDownloaderWithDelegate:self purpose:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+#pragma mark - UITextFieldDelegate methods
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    if (buttonIndex==0) {
-        self.tmpMember.gender = @"男";
+    if(textField == self.xingbieField)
+    {
+        textField.inputView = self.textPicker;
+        NSArray *array = @[@"男",@"女"];
+        NSInteger index = [array indexOfObject:textField.text];
+        if(index < 0)
+            index = 0;
+        if(index > 1)
+            index = 0;
+        [self.textPicker reloadData:array defaultIndex:index];
     }
-    else if (buttonIndex==1) {
-        self.tmpMember.gender = @"女";
+    else if(textField == self.shengriField)
+    {
+        textField.inputView = self.datePicker;
+        NSDate *date = [NSDate dateFromStringByFormat:kInfoDateFormat string:textField.text];
+        if(nil == date)
+            date = [NSDate date];
+        [self.datePicker reloadWithDate:date];
     }
-    
-    [self.tv reloadData];
-    
-}
-
--(void)pickBirthday
-{
-    self.pickerView.hidden = NO;
-}
-
--(IBAction)pickerConfirm:(id)sender
-{
-    self.pickerView.hidden = YES;
-    
-    NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | kCFCalendarUnitHour | kCFCalendarUnitMinute;
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.picker.date];
-    
-    NSInteger year = [components year];
-    NSInteger month = [components month];
-    NSInteger day = [components day];
-    
-    
-    
-    NSString* tmpBirthday = [NSString stringWithFormat:@"%d-",year];
-    
-    if (month<10) {
-        tmpBirthday = [NSString stringWithFormat:@"%@0%d-",tmpBirthday,month];
-    }
-    else {
-        tmpBirthday = [NSString stringWithFormat:@"%@%d-",tmpBirthday,month];
-    }
-    
-    if (day<10) {
-        tmpBirthday = [NSString stringWithFormat:@"%@0%d ",tmpBirthday,day];
-    }
-    else {
-        tmpBirthday = [NSString stringWithFormat:@"%@%d ",tmpBirthday,day];
-    }
-    
-    self.tmpMember.birthday = tmpBirthday;
-    
-    [self.tv reloadData];
-    
-}
-
--(IBAction)inputClick:(id)sender
-{
-    
-    UIButton* btn = (UIButton*)sender;
-    self.tmpTf.tag = btn.tag;
-    
-    if (btn.tag==3) {
-        self.tmpTf.text = self.tmpMember.name;
-    }
-    else if (btn.tag==6) {
-        self.tmpTf.text = self.tmpMember.email;
-    }
-    else if (btn.tag==7) {
-        self.tmpTf.text = self.tmpMember.addr;
-    }
-    else {
-        self.tmpTf.text = self.tmpPwd;
-    }
-    
-    if (![self.tmpTf isFirstResponder]) {
-        [self.tmpTf becomeFirstResponder];
-    }
-    self.inputBgView.hidden = NO;
-
-    
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    if (textField == self.tmpTf) {
-        if ([self.tmpTf isFirstResponder]) {
-            [self.tmpTf resignFirstResponder];
-        }
-        
-        self.inputBgView.hidden = YES;
-        
-        if (textField.tag==3) {
-            self.tmpMember.name = textField.text;
-        }
-        else if (textField.tag==6) {
-            self.tmpMember.email = textField.text;
-        }
-        else if (textField.tag==7) {
-            self.tmpMember.addr = textField.text;
-        }
-        else {
-            self.tmpPwd = textField.text;
-        }
-        
-        [self.tv reloadData];
-    }
-    
-    
-    
-    
     return YES;
 }
 
--(void)keyboardShow:(NSNotification *)note
+#pragma mark - RYTextPickerViewDelegate methods
+- (void)didTextCanceledWithPicker:(RYTextPickerView *)pickerView
 {
-    
-    CGRect keyBoardRect = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect frame = self.inputView.frame;
-    frame.origin.y = keyBoardRect.origin.y - frame.size.height;
-    self.inputView.frame = frame;
+    [self.view endEditing:YES];
+}
+- (void)didTextConfirmed:(NSString *)textValue withPicker:(RYTextPickerView *)pickerView
+{
+    self.xingbieField.text = textValue;
+    [self.view endEditing:YES];
+}
+
+#pragma mark - RYDatePickerViewDelegate methods
+- (void)didDateCanceledWithPicker:(RYDatePickerView *)pickerView
+{
+    [self.view endEditing:YES];
+}
+- (void)didDateConfirmed:(NSDate *)date withPicker:(RYDatePickerView *)pickerView
+{
+    NSString *dateStr = [NSDate dateToStringByFormat:kInfoDateFormat date:date];
+    self.shengriField.text = dateStr;
+    [self.view endEditing:YES];
 }
 
 #pragma mark - RYDownloaderDelegate methods
@@ -404,21 +220,11 @@
         {
             [[RYHUDManager sharedManager] showWithMessage:@"信息修改成功" customView:nil hideDelay:2.f];
             
-            // 修改成功后 临时值赋给真实值
-            self.tmpMember = [[ABCMember alloc] init];
-            [ABCMemberDataManager sharedManager].loginMember.code = self.tmpMember.code;
-//            self.tmpMember.msg = [ABCMemberDataManager sharedManager].loginMember.msg;
-//            self.tmpMember.userId = [ABCMemberDataManager sharedManager].loginMember.userId;
-            [ABCMemberDataManager sharedManager].loginMember.name = self.tmpMember.name;
-//            self.tmpMember.phone = [ABCMemberDataManager sharedManager].loginMember.phone;
-            [ABCMemberDataManager sharedManager].loginMember.gender = self.tmpMember.gender;
-            [ABCMemberDataManager sharedManager].loginMember.email = self.tmpMember.email;
-            [ABCMemberDataManager sharedManager].loginMember.addr = self.tmpMember.addr;
-            [ABCMemberDataManager sharedManager].loginMember.birthday = self.tmpMember.birthday;
-            self.tmpMember.levelCode = [ABCMemberDataManager sharedManager].loginMember.levelCode;
-            self.tmpMember.totalQtum = [ABCMemberDataManager sharedManager].loginMember.totalQtum;
-            
-            
+            [ABCMemberDataManager sharedManager].loginMember.name = self.xingmingField.text;
+            [ABCMemberDataManager sharedManager].loginMember.gender = self.xingbieField.text;
+            [ABCMemberDataManager sharedManager].loginMember.email = self.emailField.text;
+            [ABCMemberDataManager sharedManager].loginMember.addr = self.dizhiField.text;
+            [ABCMemberDataManager sharedManager].loginMember.birthday = self.shengriField.text;
         }
         else
         {
@@ -434,11 +240,7 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] showWithMessage:@"更改密码成功" customView:nil hideDelay:2.f];
-            
-            self.tmpPwd = @"";
-            
-            [self.tv reloadData];
-            
+            self.mimaField.text = nil;
         }
         else
         {
@@ -448,10 +250,6 @@
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }
-    
-    
-    
-    
 }
 
 - (void)downloader:(RYDownloader*)downloader didFinishWithError:(NSString*)message
@@ -459,6 +257,16 @@
     [[RYHUDManager sharedManager] showWithMessage:kNetWorkErrorString customView:nil hideDelay:2.f];
 }
 
+#pragma mark - Keyboard Notification methords
+- (void)keyboardWillShow:(NSNotification *)notification
+{
+    CGSize keyboardSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    self.contentScrollView.contentInset = UIEdgeInsetsMake(self.contentScrollView.contentInset.top, self.contentScrollView.contentInset.left, keyboardSize.height, self.contentScrollView.contentInset.right);
+}
 
+- (void)keyboardWillHide:(NSNotification *)notification
+{
+    self.contentScrollView.contentInset = UIEdgeInsetsMake(self.contentScrollView.contentInset.top, self.contentScrollView.contentInset.left, 0, self.contentScrollView.contentInset.right);
+}
 
 @end

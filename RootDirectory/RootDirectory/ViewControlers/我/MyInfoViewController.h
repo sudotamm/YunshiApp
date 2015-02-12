@@ -8,22 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
-#import "ABCMember.h"
+#import "RYTextPickerView.h"
+#import "RYDatePickerView.h"
 
-@interface MyInfoViewController : BaseViewController<UIActionSheetDelegate,UITextFieldDelegate>
+@interface MyInfoViewController : BaseViewController<RYTextPickerViewDelegate,RYDatePickerViewDelegate>
 
+@property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
+@property (nonatomic, weak) IBOutlet UILabel *levelLabel;
+@property (nonatomic, weak) IBOutlet UILabel *xiaofeiLabel;
+@property (nonatomic, weak) IBOutlet UITextField *xingmingField;
+@property (nonatomic, weak) IBOutlet UITextField *dianhuaField;
+@property (nonatomic, weak) IBOutlet UITextField *xingbieField;
+@property (nonatomic, weak) IBOutlet UITextField *emailField;
+@property (nonatomic, weak) IBOutlet UITextField *shengriField;
+@property (nonatomic, weak) IBOutlet UITextField *dizhiField;
+@property (nonatomic, weak) IBOutlet UITextField *mimaField;
 
-@property (nonatomic,strong) ABCMember* tmpMember;
-@property (nonatomic,strong) IBOutlet UITableView* tv;
-@property (nonatomic,copy) NSString* tmpPwd;
-@property (nonatomic,strong) IBOutlet UIDatePicker* picker;
-@property (nonatomic,strong) IBOutlet UIView* pickerView;
-@property (nonatomic,strong) IBOutlet UITextField* tmpTf;
-@property (nonatomic,strong) IBOutlet UIView* inputView;
-@property (nonatomic,strong) IBOutlet UIView* inputBgView;
+@property (nonatomic, strong) RYDatePickerView *datePicker;
+@property (nonatomic, strong) RYTextPickerView *textPicker;
 
-
--(IBAction)pickerConfirm:(id)sender;
+- (IBAction)baocunButtonClicked:(id)sender;
+- (IBAction)querenButtonClicked:(id)sender;
 
 
 
