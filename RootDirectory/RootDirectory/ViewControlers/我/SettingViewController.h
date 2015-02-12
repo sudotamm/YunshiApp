@@ -12,6 +12,7 @@
 @interface SettingViewController : BaseViewController<UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
+@property (nonatomic, strong) IBOutlet UIView *footerView;
 
 @property (nonatomic,copy) NSString* downloadURL;
 

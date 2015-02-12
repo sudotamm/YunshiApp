@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "RYPhotoBrowserViewController.h"
 
 @interface SettingViewController ()
 
@@ -22,7 +23,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self setNaviTitle:@"设置"];
-    
+    self.contentTableView.tableFooterView = [UIView new];
 }
 
 - (void)dealloc
@@ -45,6 +46,7 @@
         cell.layoutMargins = UIEdgeInsetsZero;
         cell.preservesSuperviewLayoutMargins = NO;
     }
+    cell.backgroundColor = [UIColor whiteColor];
     cell.textLabel.textColor = [UIColor colorWithWhite:0.1f alpha:1.f];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -80,7 +82,22 @@
             break;
         case 1:
         {
-            
+            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *documentDirectory = [paths lastObject];
+            NSString *zhangDir = [documentDirectory stringByAppendingPathComponent:@"zhangchen"];
+            NSFileManager *manager = [NSFileManager defaultManager];
+            if(![manager fileExistsAtPath:zhangDir])
+                [manager createDirectoryAtPath:zhangDir withIntermediateDirectories:NO attributes:nil error:nil];
+            UIImage *cacheImg = [UIImage imageNamed:@"img_zhangchen"];
+            NSString *path = [NSString stringWithFormat:@"%@/%@",zhangDir,@"img_zhangchen"];
+            NSData *cacheData = UIImageJPEGRepresentation(cacheImg, 1);
+            [cacheData writeToFile:path atomically:NO];
+            NSMutableArray *array = [NSMutableArray arrayWithObject:path];
+            RYPhotoBrowserViewController *pbvc = [[RYPhotoBrowserViewController alloc] init];
+            pbvc.photoArray = array;
+            pbvc.imageCacheDir = @"zhangchen";
+            pbvc.placeHolder = @"loading_square";
+            [self.navigationController pushViewController:pbvc animated:YES];
         }
             break;
         case 2:
@@ -99,7 +116,12 @@
             break;
         case 3:
         {
-            
+            if(tableView.tableFooterView == self.footerView)
+            {
+                tableView.tableFooterView = [UIView new];
+            }
+            else
+                tableView.tableFooterView = self.footerView;
         }
             break;
             
@@ -147,8 +169,6 @@
             
             
             NSString* verNum = [NSString stringWithFormat:@"%@",[dict objectForKey:@"verNum"]];
-            
-            
 //            verNum = @"1.1";
             
             NSRange r = [verNum rangeOfString:@"."];
@@ -187,11 +207,6 @@
                     
                 }
             }
-            
-            
-            
-            
-            
             [[RYHUDManager sharedManager] showWithMessage:@"未检测到新版本" customView:nil hideDelay:2.f];
             
             
