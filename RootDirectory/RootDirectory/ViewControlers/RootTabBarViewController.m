@@ -54,6 +54,13 @@
     [ghv reloadData];
     [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:ghv position:CGPointZero];
 }
+
+- (void)userLogoutWithNotification:(NSNotification *)notification
+{
+    NSInteger shouyeIndex = 0;
+    if([self tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:shouyeIndex]])
+        self.selectedIndex = shouyeIndex;
+}
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad
@@ -85,6 +92,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showGouwucheViewWithNotification:) name:kShowGouwucheViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(inbasketResponseWithNotification:) name:kInBasketResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shangpinHuikuiResponseWithNotification:) name:kShangpinhuiKuiResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutWithNotification:) name:kUserLogoutNotification object:nil];
 }
 
 - (void)dealloc

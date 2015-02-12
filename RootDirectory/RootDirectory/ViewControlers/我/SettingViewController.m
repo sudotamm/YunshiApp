@@ -25,11 +25,12 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc
+{
+    [[RYDownloaderManager sharedManager] cancelDownloaderWithDelegate:self purpose:nil];
+    self.contentTableView.dataSource = nil;
+    self.contentTableView.delegate = nil;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 4;
@@ -39,11 +40,20 @@
 {
     
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cellID"];
+    if(IsIos8)
+    {
+        cell.layoutMargins = UIEdgeInsetsZero;
+        cell.preservesSuperviewLayoutMargins = NO;
+    }
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.1f alpha:1.f];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    cell.detailTextLabel.text = nil;
+    cell.textLabel.font = [UIFont systemFontOfSize:16.f];
+    cell.detailTextLabel.font = [UIFont systemFontOfSize:14.f];
     if (indexPath.row==0) {
         cell.textLabel.text = @"语言";
+        cell.detailTextLabel.text = @"中文";
     }
     else if (indexPath.row==1) {
         cell.textLabel.text = @"会员章程";
@@ -109,7 +119,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (alertView.tag==1) {
-        if (buttonIndex==1) {
+        if (buttonIndex==1)
+        {
+            [self.navigationController popToRootViewControllerAnimated:NO];
             [[ABCMemberDataManager sharedManager] logout];
         }
     }
@@ -121,8 +133,6 @@
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",self.downloadURL]]];
         }
     }
-    
-    
 }
 
 #pragma mark - RYDownloaderDelegate methods
