@@ -60,7 +60,7 @@
                 // 通知服务端，完成订单
                 [self requestFinishAlixPayOrderWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId orderId:self.payedOrderDetail.orderId];
                 
-                NSString * message = @"谢谢购买!";
+                NSString * message = @"我们已经收到您的订单，将尽快处理!";
                 UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"购买成功"
                                                                      message:message
                                                                     delegate:nil

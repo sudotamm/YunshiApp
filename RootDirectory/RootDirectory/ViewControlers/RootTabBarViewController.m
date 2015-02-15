@@ -12,6 +12,7 @@
 #import "ShangpinListViewController.h"
 #import "GouwuConfirmView.h"
 #import "GouwuHuikuiView.h"
+#import "GenerateQRCodeView.h"
 
 @interface RootTabBarViewController ()
 
@@ -53,6 +54,19 @@
     GouwuHuikuiView *ghv = [nibs lastObject];
     [ghv reloadData];
     [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:ghv position:CGPointZero];
+}
+
+
+- (void)showQRGenerateViewWithNotification:(NSNotification *)notification
+{
+    NSString *qrString = notification.object;
+    if(qrString.length > 0)
+    {
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GenerateQRCodeView" owner:self options:nil];
+        GenerateQRCodeView *ghv = [nibs lastObject];
+        [ghv reloadWithQRString:qrString];
+        [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:ghv position:CGPointZero];
+    }
 }
 
 - (void)userLogoutWithNotification:(NSNotification *)notification
@@ -138,6 +152,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shangpinHuikuiResponseWithNotification:) name:kShangpinhuiKuiResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutWithNotification:) name:kUserLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShareViewWithNotification:) name:kShowShareViewNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showQRGenerateViewWithNotification:) name:kShowQRGenerateViewNotification object:nil];
 }
 
 - (void)dealloc

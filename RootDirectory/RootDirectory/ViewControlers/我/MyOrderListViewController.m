@@ -151,7 +151,9 @@
 #pragma mark - OrderCellDelegate methods
 - (void)didGenerateQRCodeWithCell:(OrderCell *)cell
 {
-    [[RYHUDManager sharedManager] showWithMessage:@"生成二维码" customView:nil hideDelay:2.f];
+    NSIndexPath *indexPath = [self.contentTableView indexPathForCell:cell];
+    NSString *qrString = [NSString stringWithFormat:@"hello world:%@",@(indexPath.row)];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
 }
 
 
