@@ -318,7 +318,9 @@
         if(nextPage == 0)
         {
             if(self.gouwucheArray.count == 0)
+            {
                 [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+            }
             else
             {
                 if(self.firstLoadTime)
@@ -332,6 +334,14 @@
         {
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             self.currentPageNum = nextPage;
+        }
+        if(self.gouwucheArray.count == 0)
+        {
+            self.jiesuanHeightConstraint.constant = 0;
+        }
+        else
+        {
+            self.jiesuanHeightConstraint.constant = 80.f;
         }
     }
     else

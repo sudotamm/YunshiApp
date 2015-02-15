@@ -1107,6 +1107,7 @@
                     <navigationItem key="navigationItem" id="7Jx-gm-MVD"/>
                     <connections>
                         <outlet property="contentTableView" destination="ypd-pN-j5c" id="IHW-zL-12k"/>
+                        <outlet property="jiesuanHeightConstraint" destination="r6f-8l-yMZ" id="1Lv-Tk-qQe"/>
                         <outlet property="xiayibuButton" destination="em4-E4-HIb" id="YiH-d0-aLJ"/>
                         <outlet property="yunfeiLabel" destination="V5K-Wf-zqS" id="Z8E-Hs-SQP"/>
                         <outlet property="yunfeiTipLabel" destination="9Cs-vp-47r" id="v32-QX-krz"/>
@@ -4338,8 +4339,8 @@
         <image name="user-userhead" width="270" height="270"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L7E-ne-Aeq"/>
-        <segue reference="Mea-O5-uTP"/>
+        <segue reference="0oM-D4-wHe"/>
         <segue reference="XuF-c8-60p"/>
+        <segue reference="L7E-ne-Aeq"/>
     </inferredMetricsTieBreakers>
 </document>

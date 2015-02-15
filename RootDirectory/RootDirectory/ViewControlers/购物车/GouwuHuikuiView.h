@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HuikuiCollectionCell.h"
 
-@interface GouwuHuikuiView : UIView
+@interface GouwuHuikuiView : UIView<HuikuiCollectionCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 

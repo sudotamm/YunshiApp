@@ -16,14 +16,15 @@
 
 @implementation HuikuiCollectionCell
 
-@synthesize currentSHM;
+@synthesize currentSHM,delegate;
 
 #pragma mark - Public methods
 
 - (IBAction)checkButtonClicked:(id)sender
 {
-    self.checkButton.selected = !self.checkButton.selected;
-    self.currentSHM.isSelected = !self.currentSHM.isSelected;
+//    self.checkButton.selected = !self.checkButton.selected;
+//    self.currentSHM.isSelected = !self.currentSHM.isSelected;
+    [self.delegate didCheckButtonClickedWithCell:self];
 }
 
 - (void)reloadWithShangpinHuikui:(ShanginHuikuiModel *)shm

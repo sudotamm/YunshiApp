@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *yunfeiTipLabel;
 @property (nonatomic, weak) IBOutlet UILabel *yunfeiLabel;
 @property (nonatomic, weak) IBOutlet UIButton *xiayibuButton;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *jiesuanHeightConstraint;
 
 - (IBAction)xiayibuButtonClicked:(id)sender;
 

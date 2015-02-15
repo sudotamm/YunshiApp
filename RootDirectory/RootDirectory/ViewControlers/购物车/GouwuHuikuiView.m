@@ -51,6 +51,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     HuikuiCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kReuseCellIdentify forIndexPath:indexPath];
+    cell.delegate = self;
     ShanginHuikuiModel *shm = [[GouwucheDataManager sharedManager].shangpinHuikuiArray objectAtIndex:indexPath.row];
     [cell reloadWithShangpinHuikui:shm];
     return cell;
@@ -60,5 +61,23 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {}
 
-
+#pragma mark - HuikuiCollectionCellDelegate methods
+- (void)didCheckButtonClickedWithCell:(HuikuiCollectionCell *)huikuiCell
+{
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:huikuiCell];
+    ShanginHuikuiModel *chosenShm = [[GouwucheDataManager sharedManager].shangpinHuikuiArray objectAtIndex:indexPath.row];
+    
+    for(ShanginHuikuiModel *shm in [GouwucheDataManager sharedManager].shangpinHuikuiArray)
+    {
+        if(shm == chosenShm)
+        {
+            shm.isSelected = !shm.isSelected;
+        }
+        else
+        {
+            shm.isSelected = NO;
+        }
+    }
+    [self reloadData];
+}
 @end
