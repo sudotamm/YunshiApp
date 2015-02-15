@@ -133,7 +133,8 @@
 #define kShowQRGenerateViewNotification     @"ShowQRGenerateViewNotification"
 
 //ServerUrl
-#define kServerAddress      @"http://180.166.75.178:8009/api/"
+#define kIpAddress          @"http://180.166.75.178:8009/"
+#define kServerAddress      [kIpAddress stringByAppendingString:@"api/"]
 //注册登录
 #define kLoginUrl           @"login"
 #define kRegisterUrl        @"register"

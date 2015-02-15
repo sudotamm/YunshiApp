@@ -22,7 +22,7 @@
     self.pageControl.numberOfPages = productAds.count;
     self.pageControl.currentPage = 0;
     
-    [self.cycleScrollView reloadWithImages:productAds placeHolder:@"loading_rectangle_square.png" cacheDir:kLargeImgCacheDir];
+    [self.cycleScrollView reloadWithImages:productAds placeHolder:@"loading_rectangle" cacheDir:kLargeImgCacheDir];
     if (self.pageControl.numberOfPages == 1) {
         self.cycleScrollView.scrollEnabled = NO;
     }

@@ -131,6 +131,8 @@
 		948F104D1A84892800E113F8 /* GouwuHuikuiView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948F104C1A84892800E113F8 /* GouwuHuikuiView.xib */; };
 		948F10501A848CEC00E113F8 /* HuikuiCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F104F1A848CEC00E113F8 /* HuikuiCollectionCell.m */; };
 		948F10521A848FBF00E113F8 /* HuikuiCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 948F10511A848FBF00E113F8 /* HuikuiCollectionCell.xib */; };
+		94900F401A90CB5E003A13CC /* CCRYAsynImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94900F3F1A90CB5E003A13CC /* CCRYAsynImageView.m */; };
+		94900F431A90CBE1003A13CC /* CCRYCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94900F411A90CBE1003A13CC /* CCRYCycleScrollView.m */; };
 		94927ECA1A90635100C0A6C1 /* GenerateQRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94927EC91A90635100C0A6C1 /* GenerateQRCodeView.m */; };
 		94927ECC1A90636400C0A6C1 /* GenerateQRCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94927ECB1A90636400C0A6C1 /* GenerateQRCodeView.xib */; };
 		94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A0F1D41A523DD700A147EC /* RootNaviViewController.m */; };
@@ -487,6 +489,10 @@
 		948F104E1A848CEC00E113F8 /* HuikuiCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HuikuiCollectionCell.h; sourceTree = "<group>"; };
 		948F104F1A848CEC00E113F8 /* HuikuiCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HuikuiCollectionCell.m; sourceTree = "<group>"; };
 		948F10511A848FBF00E113F8 /* HuikuiCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HuikuiCollectionCell.xib; sourceTree = "<group>"; };
+		94900F3E1A90CB5E003A13CC /* CCRYAsynImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRYAsynImageView.h; sourceTree = "<group>"; };
+		94900F3F1A90CB5E003A13CC /* CCRYAsynImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRYAsynImageView.m; sourceTree = "<group>"; };
+		94900F411A90CBE1003A13CC /* CCRYCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRYCycleScrollView.m; sourceTree = "<group>"; };
+		94900F421A90CBE1003A13CC /* CCRYCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRYCycleScrollView.h; sourceTree = "<group>"; };
 		94927EC81A90635100C0A6C1 /* GenerateQRCodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateQRCodeView.h; sourceTree = "<group>"; };
 		94927EC91A90635100C0A6C1 /* GenerateQRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateQRCodeView.m; sourceTree = "<group>"; };
 		94927ECB1A90636400C0A6C1 /* GenerateQRCodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GenerateQRCodeView.xib; sourceTree = "<group>"; };
@@ -1174,6 +1180,10 @@
 				947932E81A76643C0057C2B6 /* ImagesContainView.h */,
 				947932E91A76643C0057C2B6 /* ImagesContainView.m */,
 				947932EA1A76643C0057C2B6 /* ImagesContainView.xib */,
+				94900F421A90CBE1003A13CC /* CCRYCycleScrollView.h */,
+				94900F411A90CBE1003A13CC /* CCRYCycleScrollView.m */,
+				94900F3E1A90CB5E003A13CC /* CCRYAsynImageView.h */,
+				94900F3F1A90CB5E003A13CC /* CCRYAsynImageView.m */,
 			);
 			path = "通用";
 			sourceTree = "<group>";
@@ -1551,6 +1561,7 @@
 				947932DE1A7664170057C2B6 /* RYXMLReader.m in Sources */,
 				948F10501A848CEC00E113F8 /* HuikuiCollectionCell.m in Sources */,
 				946080A51A8A2718000C5119 /* PayConfirmView.m in Sources */,
+				94900F401A90CB5E003A13CC /* CCRYAsynImageView.m in Sources */,
 				947932D91A7664170057C2B6 /* RYReverseLocation.m in Sources */,
 				947932D41A7664170057C2B6 /* NSObject+RYPropertyList.m in Sources */,
 				946C9A231A7FAFD000B07D52 /* ShangpinTableCell.m in Sources */,
@@ -1569,6 +1580,7 @@
 				947932FD1A767A190057C2B6 /* DianpuChooseView.m in Sources */,
 				946081141A8A3697000C5119 /* Order.m in Sources */,
 				947932E11A7664170057C2B6 /* UIImage+RYUtilities.m in Sources */,
+				94900F431A90CBE1003A13CC /* CCRYCycleScrollView.m in Sources */,
 				947932D01A7664170057C2B6 /* RYDownloader.m in Sources */,
 				946080AA1A8A2C6D000C5119 /* PayConfirmViewController.m in Sources */,
 				947932EF1A7667850057C2B6 /* ServiceCell.m in Sources */,

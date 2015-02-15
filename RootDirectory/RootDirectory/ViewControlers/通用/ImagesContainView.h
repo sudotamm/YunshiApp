@@ -8,13 +8,13 @@
 //13-9-23 更新：适应ios7.0，修改了UIView 不响应setimage:的方法，详见CustomPageControl.h。neo
 
 #import <UIKit/UIKit.h>
-#import "RYCycleScrollView.h"
+#import "CCRYCycleScrollView.h"
 
 @protocol ImagesContainViewDelegate;
 
-@interface ImagesContainView : UIView<RYCycleScrollViewDelegate>
+@interface ImagesContainView : UIView<CCRYCycleScrollViewDelegate>
 
-@property (nonatomic, weak) IBOutlet RYCycleScrollView *cycleScrollView;
+@property (nonatomic, weak) IBOutlet CCRYCycleScrollView *cycleScrollView;
 @property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
 @property (nonatomic, weak) id<ImagesContainViewDelegate> delegate;
 

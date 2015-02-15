@@ -8,6 +8,8 @@
 
 #import "QRcodeScanViewController.h"
 #import "QRcodeResultViewController.h"
+#import "TaocanDetailViewController.h"
+#import "ShangpinDetailViewController.h"
 
 @interface QRcodeScanViewController ()
 {
@@ -137,17 +139,43 @@
     _session = nil;
     [_preview removeFromSuperlayer];
     [timer invalidate];
-    
-    if (_stringValue)
-    {
-        NSLog(@"%@", _stringValue);
 
-        //        [[RYHUDManager sharedManager] showWithMessage:_stringValue customView:nil hideDelay:2.f];
-        QRcodeResultViewController *qrvc = [[QRcodeResultViewController alloc] init];
-        qrvc.resultString = _stringValue;
-        qrvc.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:qrvc animated:YES];
-//        [qrvc release];
+    /**
+     扫购二维码格式
+     门店号+/+标志位（1-单品、2-套餐）+/+商品或套餐编码
+     01/1/1110100012
+     */
+    NSArray *array = [_stringValue componentsSeparatedByString:@"/"];
+    if(array.count == 3)
+    {
+        NSString *mendianId = [array objectAtIndex:0];
+        if(![mendianId isEqualToString:[HomeDataManager sharedManger].currentDianpu.sCode])
+        {
+            [[RYHUDManager sharedManager] showWithMessage:@"非当前门店商品，无法识别" customView:nil hideDelay:2.f];
+            return;
+        }
+        GouwuType gouwuType = (GouwuType)[[array objectAtIndex:1] integerValue];
+        NSString *gouwuId = [array lastObject];
+        if(gouwuType == kGouwuTypeShangpin)
+        {
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ShangpinDetailViewController *sdvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"ShangpinDetailViewController"];
+            sdvc.shangpinId = gouwuId;
+            [self.navigationController pushViewController:sdvc animated:YES];
+        }
+        else
+        {
+            TaocanModel *tm = [[TaocanModel alloc] init];
+            tm.cId = gouwuId;
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            TaocanDetailViewController *tdvc = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaocanDetailViewController"];
+            tdvc.taocanModel = tm;
+            [self.navigationController pushViewController:tdvc animated:YES];
+        }
+    }
+    else
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"非正确商品二维码，无法识别" customView:nil hideDelay:2.f];
     }
 }
 @end

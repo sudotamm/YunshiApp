@@ -6,20 +6,20 @@
 //  Copyright (c) 2013年 Ryan. All rights reserved.
 //
 
-#import "RYCycleScrollView.h"
-#import "RYAsynImageView.h"
+#import "CCRYCycleScrollView.h"
+#import "CCRYAsynImageView.h"
 
-@interface RYCycleScrollView()
+@interface CCRYCycleScrollView()
 
 @end
 
-@implementation RYCycleScrollView
+@implementation CCRYCycleScrollView
 
 @synthesize cycleArray,cycleDelegate;
 
 -(void)asyncImageViewTappedWithGesture:(UITapGestureRecognizer *)gesture
 {
-    RYAsynImageView *asynImgView = (RYAsynImageView *)(gesture.view);
+    CCRYAsynImageView *asynImgView = (CCRYAsynImageView *)(gesture.view);
     if(asynImgView.tag < 0 || asynImgView.tag >= self.cycleArray.count)
         return;
     if(asynImgView.tag == 0)
@@ -38,9 +38,9 @@
 {
     for(id v in self.subviews)
     {
-        if([v isKindOfClass:[RYAsynImageView class]])
+        if([v isKindOfClass:[CCRYAsynImageView class]])
         {
-            RYAsynImageView *asynImgView = (RYAsynImageView *)v;
+            CCRYAsynImageView *asynImgView = (CCRYAsynImageView *)v;
             [asynImgView removeFromSuperview];
         }
     }
@@ -54,7 +54,7 @@
         for(NSString *str in self.cycleArray)
         {
             //设置frame
-            RYAsynImageView *asynImgView = [[RYAsynImageView alloc] init];
+            CCRYAsynImageView *asynImgView = [[CCRYAsynImageView alloc] init];
             asynImgView.contentMode = UIViewContentModeScaleAspectFill;
             CGRect rect = self.bounds;
             rect.size.width = self.frame.size.width;

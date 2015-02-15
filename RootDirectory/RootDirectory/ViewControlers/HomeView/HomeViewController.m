@@ -27,6 +27,7 @@
 @synthesize serviceCollectionView;
 @synthesize serviceArray;
 @synthesize dianpuView;
+@synthesize imgContainView;
 
 #pragma mark - Properties methods
 - (DianpuView *)dianpuView
@@ -39,6 +40,17 @@
     }
     return dianpuView;
 }
+
+- (ImagesContainView *)imgContainView
+{
+    if(nil == imgContainView)
+    {
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"ImagesContainView" owner:self options:nil];
+        imgContainView = [nibs lastObject];
+    }
+    return imgContainView;
+}
+
 
 #pragma mark - Private methods
 - (void)showDianpuChooseView
@@ -139,6 +151,27 @@
     self.middleHeightConstraint.constant = self.view.frame.size.width/3/1.8;
     self.bottomHeightConstraint.constant = self.view.frame.size.width*310/1080;
     self.fenleiHeightConstraint.constant = 160.f*kUIYScaleValue;
+    //加载头图
+    [self.headerContainView addSubview:self.imgContainView];
+    self.imgContainView.frame = self.headerContainView.bounds;
+    self.toutuArray = [NSMutableArray array];
+    for(NSInteger i = 0; i < 6; i++)
+    {
+        NSString *imgPath = [kIpAddress stringByAppendingFormat:@"img/UI/ad%@.png",@(i)];
+        [self.toutuArray addObject:imgPath];
+    }
+    [self.imgContainView reloadWithProductAds:self.toutuArray];
+    self.headerImgView.hidden = YES;
+    //加载礼篮/抢购/厨艺图片
+    self.lilanImgView.cacheDir = kLargeImgCacheDir;
+    NSString *lilanPath = [kIpAddress stringByAppendingString:@"img/UI/ll.png"];
+    [self.lilanImgView aysnLoadImageWithUrl:lilanPath placeHolder:@"home_btn3"];
+    self.qianggouImgView.cacheDir = kLargeImgCacheDir;
+    NSString *qianggouPath = [kIpAddress stringByAppendingString:@"img/UI/qg.png"];
+    [self.qianggouImgView aysnLoadImageWithUrl:qianggouPath placeHolder:@"home_btn2"];
+    self.cuyiImgView.cacheDir = kLargeImgCacheDir;
+    NSString *chuyiPath = [kIpAddress stringByAppendingString:@"img/UI/cy.png"];
+    [self.cuyiImgView aysnLoadImageWithUrl:chuyiPath placeHolder:@"tmp4"];
 }
 
 - (void)dealloc
