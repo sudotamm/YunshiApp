@@ -412,7 +412,7 @@
                                             <constraint firstAttribute="width" constant="80" id="cCw-fN-u0T"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="手机号" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlV-Ft-04C">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlV-Ft-04C">
                                         <rect key="frame" x="10" y="130" width="355" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="dDU-AN-uby"/>

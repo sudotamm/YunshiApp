@@ -61,6 +61,28 @@
     [[RYRootBlurViewManager sharedManger] showWithBlurImage:nil contentView:dcv position:CGPointMake(10.f, 64.f)];
 }
 
+- (void)loadToutu
+{
+    self.toutuArray = [NSMutableArray array];
+    for(NSInteger i = 0; i < 6; i++)
+    {
+        NSString *imgPath = [kIpAddress stringByAppendingFormat:@"img/UI/ad%@.png",@(i)];
+        [self.toutuArray addObject:imgPath];
+    }
+    [self.imgContainView reloadWithProductAds:self.toutuArray];
+    self.headerImgView.hidden = YES;
+    //加载礼篮/抢购/厨艺图片
+    self.lilanImgView.cacheDir = kLargeImgCacheDir;
+    NSString *lilanPath = [kIpAddress stringByAppendingString:@"img/UI/ll.png"];
+    [self.lilanImgView aysnLoadImageWithUrl:lilanPath placeHolder:@"home_btn3"];
+    self.qianggouImgView.cacheDir = kLargeImgCacheDir;
+    NSString *qianggouPath = [kIpAddress stringByAppendingString:@"img/UI/qg.png"];
+    [self.qianggouImgView aysnLoadImageWithUrl:qianggouPath placeHolder:@"home_btn2"];
+    self.cuyiImgView.cacheDir = kLargeImgCacheDir;
+    NSString *chuyiPath = [kIpAddress stringByAppendingString:@"img/UI/cy.png"];
+    [self.cuyiImgView aysnLoadImageWithUrl:chuyiPath placeHolder:@"tmp4"];
+}
+
 #pragma mark - IBAction methods
 - (IBAction)shaogouButtonClicked:(id)sender
 {
@@ -128,6 +150,7 @@
 }
 
 #pragma mark - UIViewController methods
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -154,24 +177,8 @@
     //加载头图
     [self.headerContainView addSubview:self.imgContainView];
     self.imgContainView.frame = self.headerContainView.bounds;
-    self.toutuArray = [NSMutableArray array];
-    for(NSInteger i = 0; i < 6; i++)
-    {
-        NSString *imgPath = [kIpAddress stringByAppendingFormat:@"img/UI/ad%@.png",@(i)];
-        [self.toutuArray addObject:imgPath];
-    }
-    [self.imgContainView reloadWithProductAds:self.toutuArray];
-    self.headerImgView.hidden = YES;
-    //加载礼篮/抢购/厨艺图片
-    self.lilanImgView.cacheDir = kLargeImgCacheDir;
-    NSString *lilanPath = [kIpAddress stringByAppendingString:@"img/UI/ll.png"];
-    [self.lilanImgView aysnLoadImageWithUrl:lilanPath placeHolder:@"home_btn3"];
-    self.qianggouImgView.cacheDir = kLargeImgCacheDir;
-    NSString *qianggouPath = [kIpAddress stringByAppendingString:@"img/UI/qg.png"];
-    [self.qianggouImgView aysnLoadImageWithUrl:qianggouPath placeHolder:@"home_btn2"];
-    self.cuyiImgView.cacheDir = kLargeImgCacheDir;
-    NSString *chuyiPath = [kIpAddress stringByAppendingString:@"img/UI/cy.png"];
-    [self.cuyiImgView aysnLoadImageWithUrl:chuyiPath placeHolder:@"tmp4"];
+    
+    [self performSelector:@selector(loadToutu) withObject:nil afterDelay:0];
 }
 
 - (void)dealloc
@@ -213,7 +220,12 @@
 #pragma mark - UICollectionViewDelegate methods
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(collectionView.frame.size.width/4.f, collectionView.frame.size.height/2.f);
+    if((Is3_5Inch) || (Is4Inch))
+    {
+        return CGSizeMake(79.5f, collectionView.frame.size.height/2.f);
+    }
+    else
+        return CGSizeMake(collectionView.frame.size.width/4.f, collectionView.frame.size.height/2.f);
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath

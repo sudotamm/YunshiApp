@@ -23,12 +23,16 @@
 
 @synthesize phoneLabel;
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.phoneLabel.text = [ABCMemberDataManager sharedManager].loginMember.phone;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setNaviTitle:@"个人中心"];
-    
-    self.phoneLabel.text = [ABCMemberDataManager sharedManager].loginMember.phone;
     self.bottomHeightConstraint.constant = 280.f*(kUIYScaleValue);
 }
 

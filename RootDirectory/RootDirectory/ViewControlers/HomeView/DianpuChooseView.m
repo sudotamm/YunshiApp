@@ -17,7 +17,7 @@
     self.dianpuArray = array;
     //设置popover的高度
     CGRect rect = self.frame;
-    rect.size.height = /*self.contentTableView.rowHeight*/30.f*self.dianpuArray.count+20.f;
+    rect.size.height = /*self.contentTableView.rowHeight*/35.f*self.dianpuArray.count+20.f;
     self.frame = rect;
     [self.dianpuTableView reloadData];
 }
