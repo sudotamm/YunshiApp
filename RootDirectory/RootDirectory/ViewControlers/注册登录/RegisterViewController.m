@@ -88,7 +88,7 @@
         [paramDict setObject:self.phoneLabel.text forKey:@"phone"];
         [paramDict setObject:self.passwordLabel.text forKey:@"pwd"];
         [paramDict setObject:self.yanzhengmaLabel.text forKey:@"vCode"];
-        [[ABCMemberDataManager sharedManager] requestRegisterwithDict:paramDict userId:self.phoneLabel.text];
+        [[ABCMemberDataManager sharedManager] requestRegisterwithDict:paramDict userId:self.phoneLabel.text pwd:self.passwordLabel.text];
     }
 }
 - (IBAction)dengluButtonClicked:(id)sender

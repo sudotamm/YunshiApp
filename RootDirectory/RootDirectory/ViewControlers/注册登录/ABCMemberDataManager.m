@@ -9,6 +9,7 @@
 #import "ABCMemberDataManager.h"
 
 #define kLoginDownlaoderKey         @"LoginDownlaoderKey"
+#define kRegisterLoginDownlaoderKey @"RegisterLoginDownlaoderKey"
 #define kRegisterDownlaoderKey      @"RegisterDownlaoderKey"
 #define kVerifyCodeDownloaderKey    @"VerifyCodeDownloaderKey"
 #define kResetPwdDownloaderKey      @"ResetPwdDownloaderKey"
@@ -17,12 +18,13 @@
 @interface ABCMemberDataManager()
 
 @property (nonatomic, copy) NSString *registerUserId;
+@property (nonatomic, copy) NSString *registerPwd;
 
 @end
 
 @implementation ABCMemberDataManager
 
-@synthesize loginMember,registerUserId;
+@synthesize loginMember,registerUserId,registerPwd;
 
 #pragma mark - Singleton methods
 
@@ -92,9 +94,10 @@
                                                                 purpose:kVerifyCodeDownloaderKey];
 }
 
-- (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict userId:(NSString *)userId
+- (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict userId:(NSString *)userId pwd:(NSString *)pwd
 {
     self.registerUserId = userId;
+    self.registerPwd = pwd;
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"注册中..."];
     NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kRegisterUrl];
     [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
@@ -163,9 +166,16 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] showWithMessage:@"注册成功！\n\n请完善会员信息，\n生日当天凭身份证\n到门店可领取生日礼品一份。" customView:nil hideDelay:4.f];
-            self.loginMember = [[ABCMember alloc] init];
-            self.loginMember.userId = self.registerUserId;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kRegisterResponseNoitification object:nil];
+            //登录逻辑
+            NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+            [paramDict setObject:self.registerUserId forKey:@"phone"];
+            [paramDict setObject:self.registerPwd forKey:@"pwd"];
+            NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kLoginUrl];
+            [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                                     postParams:paramDict
+                                                                    contentType:@"application/json"
+                                                                       delegate:self
+                                                                        purpose:kRegisterLoginDownlaoderKey];
         }
         else
         {
@@ -181,6 +191,22 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            self.loginMember = [[ABCMember alloc] initWithRYDict:dict];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kLoginResponseNotification object:nil];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"登录失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kRegisterLoginDownlaoderKey])
+    {
+        //登录返回
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
             self.loginMember = [[ABCMember alloc] initWithRYDict:dict];
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginResponseNotification object:nil];
         }

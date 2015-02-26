@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="25" id="vsQ-Jj-VfI"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <state key="normal" title="生成支付二维码" backgroundImage="btn_red">
+                        <state key="normal" title="生成提货二维码" backgroundImage="btn_red">
                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>

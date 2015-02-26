@@ -26,7 +26,7 @@
     {
         NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"RYDatePickerView" owner:self options:nil];
         datePicker = [nibs lastObject];
-        datePicker.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+        datePicker.datePicker.datePickerMode = UIDatePickerModeDate;
         datePicker.delegate = self;
     }
     return datePicker;

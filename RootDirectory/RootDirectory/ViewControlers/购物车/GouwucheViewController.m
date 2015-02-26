@@ -120,6 +120,11 @@
 }
 
 #pragma mark - UIViewController methods
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self callServerToGetListDataWithPage:kInitPageNumber];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -147,7 +152,6 @@
     };
     self.firstLoadTime = YES;
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
-    [self callServerToGetListDataWithPage:kInitPageNumber];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
