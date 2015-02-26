@@ -50,6 +50,11 @@
     return refreshFooterView;
 }
 
+- (void)endFooterRefresh
+{
+    [self.refreshFooterView endRefreshing];
+}
+
 #pragma mark - Public methods
 - (void)callServerToGetListDataWithPage:(NSInteger)pageNum
 {
@@ -87,7 +92,13 @@
     __weak MyOrderListViewController *gvc = self;
     self.refreshFooterView.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
         //上拉加载更多内容
-        [gvc callServerToGetListDataWithPage:gvc.currentPageNum];
+        if(gvc.currentPageNum == 0)
+        {
+            [gvc performSelector:@selector(endFooterRefresh) withObject:nil afterDelay:0];
+            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+        }
+        else
+            [gvc callServerToGetListDataWithPage:gvc.currentPageNum];
     };
     self.segmentControl.selectedSegmentIndex = 0;
     [self callServerToGetListDataWithPage:kInitPageNumber];
@@ -180,6 +191,7 @@
         [self.contentTableView reloadData];
         if(nextPage == 0)
         {
+            self.currentPageNum = nextPage;
             if(self.orderArray.count == 0)
                 [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
             else

@@ -52,6 +52,10 @@
     return refreshFooterView;
 }
 
+- (void)endFooterRefresh
+{
+    [self.refreshFooterView endRefreshing];
+}
 
 #pragma mark - Public methods
 - (void)callServerToGetListDataWithPage:(NSInteger)pageNum
@@ -156,18 +160,21 @@
         [self setNaviTitle:@"本月抢购"];
         [self setRightNaviItemWithTitle:@"切换" imageName:nil];
         self.contentTableView.tableHeaderView = nil;
+        [self callServerToGetListDataWithPage:kInitPageNumber];
     }
     else if(self.listType == kListCollection)
     {
         [self setNaviTitle:@"我的收藏"];
         self.contentTableView.tableHeaderView = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelCollectionResponseWithNotification:) name:kDelCollectionResponseNotification object:nil];
+        [self callServerToGetListDataWithPage:kInitPageNumber];
     }
     else
     {
         [self setNaviTitle:@"商品列表"];
         [self setRightNaviItemWithTitle:@"切换" imageName:nil];
         self.contentTableView.tableHeaderView = nil;
+        [self callServerToGetListDataWithPage:kInitPageNumber];
     }
     //移除空cell的seperator line
     self.contentTableView.tableFooterView = [UIView new];
@@ -178,9 +185,14 @@
     __weak ShangpinListViewController *slvc = self;
     self.refreshFooterView.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
         //上拉加载更多内容
-        [slvc callServerToGetListDataWithPage:slvc.currentPageNum];
+        if(slvc.currentPageNum == 0)
+        {
+            [slvc performSelector:@selector(endFooterRefresh) withObject:nil afterDelay:0];
+            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+        }
+        else
+            [slvc callServerToGetListDataWithPage:slvc.currentPageNum];
     };
-    [self callServerToGetListDataWithPage:kInitPageNumber];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -319,17 +331,13 @@
         }
 
         [self.contentTableView reloadData];
-
+        self.currentPageNum = nextPage;
         if(nextPage == 0)
         {
             if(self.shangpinArray.count == 0)
                 [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
             else
                 [[RYHUDManager sharedManager] stoppedNetWorkActivity];
-        }
-        else
-        {
-            self.currentPageNum = nextPage;
         }
     }
     else

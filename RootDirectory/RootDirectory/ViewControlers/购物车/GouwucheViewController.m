@@ -53,6 +53,11 @@
     return refreshFooterView;
 }
 
+- (void)endFooterRefresh
+{
+    [self.refreshFooterView endRefreshing];
+}
+
 #pragma mark - Public methods
 - (void)callServerToGetListDataWithPage:(NSInteger)pageNum
 {
@@ -132,7 +137,13 @@
     __weak GouwucheViewController *gvc = self;
     self.refreshFooterView.beginRefreshingBlock = ^(MJRefreshBaseView *refreshView) {
         //上拉加载更多内容
-        [gvc callServerToGetListDataWithPage:gvc.currentPageNum];
+        if(gvc.currentPageNum == 0)
+        {
+            [gvc performSelector:@selector(endFooterRefresh) withObject:nil afterDelay:0];
+            [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
+        }
+        else
+            [gvc callServerToGetListDataWithPage:gvc.currentPageNum];
     };
     self.firstLoadTime = YES;
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
@@ -317,6 +328,7 @@
         [self reloadZongjiPrice];
         if(nextPage == 0)
         {
+            self.currentPageNum = nextPage;
             if(self.gouwucheArray.count == 0)
             {
                 [[RYHUDManager sharedManager] showWithMessage:kAllDataLoaded customView:nil hideDelay:2.f];
