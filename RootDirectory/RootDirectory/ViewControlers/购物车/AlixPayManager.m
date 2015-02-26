@@ -85,6 +85,30 @@
     }
 }
 
+- (void)showPayResultSucceed:(BOOL)paySucceed
+{
+    if(paySucceed)
+    {
+        NSString * message = @"我们已经收到您的订单，将尽快处理!";
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"购买成功"
+                                                             message:message
+                                                            delegate:self
+                                                   cancelButtonTitle:@"确定"
+                                                   otherButtonTitles:nil];
+        [alertView show];
+    }
+    else
+    {
+        NSString * message = @"请稍后再试！";
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"购买失败"
+                                                             message:message
+                                                            delegate:nil
+                                                   cancelButtonTitle:@"确定"
+                                                   otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+
 - (void)callAlixpayToPayWithOrderDetail:(OrderDetailModel *)odm
 {
     self.payedOrderDetail = odm;
@@ -148,10 +172,15 @@
         orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
                        orderSpec, signedString, @"RSA"];
         
+        
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
-            NSString *resultStr = resultDic[@"result"];
-            [self alipayResponseWithResult:resultStr];
+            NSString *finalResultStr = [resultDic objectForKey:@"success"];
+            if([finalResultStr rangeOfString:@"true"].length > 0)
+            {
+                [self showPayResultSucceed:YES];
+            }
+            else
+                [self showPayResultSucceed:NO];
         }];
     }
 }
@@ -178,6 +207,12 @@
 - (void)downloader:(RYDownloader*)downloader didFinishWithError:(NSString*)message
 {
     [[RYHUDManager sharedManager] showWithMessage:kNetWorkErrorString customView:nil hideDelay:2.f];
+}
+
+#pragma mark - UIAlertViewDelegate methods
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kAliPayResponseSucceedNotification object:nil];
 }
 
 @end

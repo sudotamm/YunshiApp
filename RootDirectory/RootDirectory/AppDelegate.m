@@ -142,13 +142,26 @@
          annotation:(id)annotation {
     if ([url.host isEqualToString:@"safepay"])
     {
+        [[AlipaySDK defaultService] processAuthResult:url standbyCallback:^(NSDictionary *resultDic) {
+            NSString *finalResultStr = [resultDic objectForKey:@"success"];
+            if([finalResultStr rangeOfString:@"true"].length > 0)
+            {
+                [[AlixPayManager sharedManager] showPayResultSucceed:YES];
+            }
+            else
+                [[AlixPayManager sharedManager] showPayResultSucceed:NO];
+        }];
         
-        [[AlipaySDK defaultService] processAuth_V2Result:url
-                                         standbyCallback:^(NSDictionary *resultDic) {
-                                             NSLog(@"result = %@",resultDic);
-                                             NSString *resultStr = resultDic[@"result"];
-                                             [[AlixPayManager sharedManager] alipayResponseWithResult:resultStr];
-                                         }];
+//        [[AlipaySDK defaultService] processAuth_V2Result:url
+//                                         standbyCallback:^(NSDictionary *resultDic) {
+//                                             NSString *finalResultStr = [resultDic objectForKey:@"success"];
+//                                             if([finalResultStr rangeOfString:@"true"].length > 0)
+//                                             {
+//                                                 [[AlixPayManager sharedManager] showPayResultSucceed:YES];
+//                                             }
+//                                             else
+//                                                 [[AlixPayManager sharedManager] showPayResultSucceed:NO];
+//                                         }];
         return YES;
     }
     else

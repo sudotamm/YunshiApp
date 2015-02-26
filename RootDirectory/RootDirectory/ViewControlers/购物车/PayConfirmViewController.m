@@ -20,13 +20,19 @@
     [[AlixPayManager sharedManager] callAlixpayToPayWithOrderDetail:self.orderDetail];
 }
 
+#pragma mark - Notification methods
+- (void)alipayResponseSucceedWithNotification:(NSNotification *)notification
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"支付订单"];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(alipayResponseSucceedWithNotification:) name:kAliPayResponseSucceedNotification object:nil];
     NSInteger num = self.orderDetail.xtList.gouwucheArray.count+self.orderDetail.yyztList.gouwucheArray.count+self.orderDetail.zpList.gouwucheArray.count;
     self.shuliangLabel.text = [NSString stringWithFormat:@"共%@件",@(num)];
     self.zongjiaLabel.text = [NSString stringWithFormat:@"总价：￥%@",self.orderDetail.price];
@@ -41,5 +47,9 @@
     }
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 @end

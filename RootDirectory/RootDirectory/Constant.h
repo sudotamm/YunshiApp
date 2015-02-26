@@ -131,6 +131,7 @@
 #define kDelCollectionResponseNotification  @"DelCollectionResponseNotification"
 #define kShowShareViewNotification          @"ShowShareViewNotification"
 #define kShowQRGenerateViewNotification     @"ShowQRGenerateViewNotification"
+#define kAliPayResponseSucceedNotification  @"AliPayResponseSucceedNotification"
 
 //ServerUrl
 #define kIpAddress          @"http://180.166.75.178:8009/"

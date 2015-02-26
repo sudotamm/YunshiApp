@@ -24,6 +24,7 @@
 - (void)callAlixpayToPayWithOrderDetail:(OrderDetailModel *)odm;
 
 - (void)alipayResponseWithResult:(NSString *)resultStr;
+- (void)showPayResultSucceed:(BOOL)paySucceed;
 
 - (void)requestFinishAlixPayOrderWithUserId:(NSString *)userId
                                     orderId:(NSString *)orderId;
