@@ -16,12 +16,17 @@
 @interface OrderDetailViewController ()
 
 @property (nonatomic, strong) OrderDetailModel *orderDetail;
+@property (nonatomic, assign) BOOL containYyzt;
+@property (nonatomic, assign) BOOL containZp;
+@property (nonatomic, assign) BOOL containXt;
+@property (nonatomic, assign) NSInteger peisongCount;
 
 @end
 
 @implementation OrderDetailViewController
 
 @synthesize orderDetail;
+@synthesize containXt,containYyzt,containZp,peisongCount;
 
 #pragma mark - Private methods
 - (void)requestOrderDetailWithUserId:(NSString *)userId
@@ -115,38 +120,72 @@
 #pragma mark - UITableViewDataSource methods
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSInteger sectionCount = 0;
-    if(self.orderDetail.yyztList.gouwucheArray.count > 0)
-        sectionCount++;
-    if(self.orderDetail.zpList.gouwucheArray.count > 0)
-        sectionCount++;
-    if(self.orderDetail.xtList.gouwucheArray.count > 0)
-        sectionCount++;
-    return sectionCount;
+    return self.peisongCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0)
+    if(self.peisongCount == 3)
     {
-        if(self.orderDetail.yyztList.gouwucheArray.count > 0)
+        if(section == 0)
+        {
             return self.orderDetail.yyztList.gouwucheArray.count;
-        else if(self.orderDetail.zpList.gouwucheArray.count > 0)
+        }
+        else if(section == 1)
+        {
             return self.orderDetail.zpList.gouwucheArray.count;
+        }
         else
+        {
             return self.orderDetail.xtList.gouwucheArray.count;
+        }
     }
-    else if(section == 1)
+    else if(self.peisongCount == 2)
     {
-        if(self.orderDetail.zpList.gouwucheArray.count > 0)
-            return self.orderDetail.zpList.gouwucheArray.count;
-        else
-            return self.orderDetail.xtList.gouwucheArray.count;
+        if(!self.containXt)
+        {
+            if(section == 0)
+            {
+                return self.orderDetail.yyztList.gouwucheArray.count;
+            }
+            else
+            {
+                return self.orderDetail.zpList.gouwucheArray.count;
+            }
+        }
+        if(!self.containZp)
+        {
+            if(section == 0)
+            {
+                return self.orderDetail.yyztList.gouwucheArray.count;
+            }
+            else
+            {
+                return self.orderDetail.xtList.gouwucheArray.count;
+            }
+        }
+        if(!self.containYyzt)
+        {
+            if(section == 0)
+            {
+                return self.orderDetail.zpList.gouwucheArray.count;
+            }
+            else
+            {
+                return self.orderDetail.xtList.gouwucheArray.count;
+            }
+        }
     }
     else
     {
-        return self.orderDetail.xtList.gouwucheArray.count;
+        if(self.containYyzt)
+            return self.orderDetail.yyztList.gouwucheArray.count;
+        if(self.containZp)
+            return self.orderDetail.zpList.gouwucheArray.count;
+        if(self.containXt)
+            return self.orderDetail.xtList.gouwucheArray.count;
     }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -159,26 +198,67 @@
     }
     NSInteger section = indexPath.section;
     NSMutableArray *gouwucheArray = nil;
-    if(section == 0)
+    if(self.peisongCount == 3)
     {
-        if(self.orderDetail.yyztList.gouwucheArray.count > 0)
+        if(section == 0)
+        {
             gouwucheArray = self.orderDetail.yyztList.gouwucheArray;
-        else if(self.orderDetail.zpList.gouwucheArray.count > 0)
+        }
+        else if(section == 1)
+        {
             gouwucheArray = self.orderDetail.zpList.gouwucheArray;
+        }
         else
+        {
             gouwucheArray = self.orderDetail.xtList.gouwucheArray;
+        }
     }
-    else if(section == 1)
+    else if(self.peisongCount == 2)
     {
-        if(self.orderDetail.zpList.gouwucheArray.count > 0)
-            gouwucheArray = self.orderDetail.zpList.gouwucheArray;
-        else
-            gouwucheArray = self.orderDetail.xtList.gouwucheArray;
+        if(!self.containXt)
+        {
+            if(section == 0)
+            {
+                gouwucheArray = self.orderDetail.yyztList.gouwucheArray;
+            }
+            else
+            {
+                gouwucheArray = self.orderDetail.zpList.gouwucheArray;
+            }
+        }
+        if(!self.containZp)
+        {
+            if(section == 0)
+            {
+                gouwucheArray = self.orderDetail.yyztList.gouwucheArray;
+            }
+            else
+            {
+                gouwucheArray = self.orderDetail.xtList.gouwucheArray;
+            }
+        }
+        if(!self.containYyzt)
+        {
+            if(section == 0)
+            {
+                gouwucheArray = self.orderDetail.zpList.gouwucheArray;
+            }
+            else
+            {
+                gouwucheArray = self.orderDetail.xtList.gouwucheArray;
+            }
+        }
     }
     else
     {
-        gouwucheArray = self.orderDetail.xtList.gouwucheArray;
+        if(self.containYyzt)
+            gouwucheArray = self.orderDetail.yyztList.gouwucheArray;
+        if(self.containZp)
+            gouwucheArray = self.orderDetail.zpList.gouwucheArray;
+        if(self.containXt)
+            gouwucheArray = self.orderDetail.xtList.gouwucheArray;
     }
+    
     DingdanShangpinModel *dsm = [gouwucheArray objectAtIndex:indexPath.row];
     [cell reloadWithGouwucheModel:dsm];
     return cell;
@@ -189,14 +269,15 @@
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"DeliverHeaderView" owner:self options:nil];
     DeliverHeaderView *hv = [nibs lastObject];
     DeliverModel *dm = nil;
-    if(section == 0)
+    
+    if(self.peisongCount == 3)
     {
-        if(self.orderDetail.yyztList.gouwucheArray.count > 0)
+        if(section == 0)
         {
             dm = self.orderDetail.yyztList;
             hv.titleLabel.text = @"预约自提";
         }
-        else if(self.orderDetail.zpList.gouwucheArray.count > 0)
+        else if(section == 1)
         {
             dm = self.orderDetail.zpList;
             hv.titleLabel.text = @"宅配送";
@@ -207,23 +288,65 @@
             hv.titleLabel.text = @"现提";
         }
     }
-    else if(section == 1)
+    else if(self.peisongCount == 2)
     {
-        if(self.orderDetail.zpList.gouwucheArray.count > 0)
+        if(!self.containXt)
         {
-            dm = self.orderDetail.zpList;
-            hv.titleLabel.text = @"宅配送";
+            if(section == 0)
+            {
+                dm = self.orderDetail.yyztList;
+                hv.titleLabel.text = @"预约自提";
+            }
+            else
+            {
+                dm = self.orderDetail.zpList;
+                hv.titleLabel.text = @"宅配送";
+            }
         }
-        else
+        if(!self.containZp)
         {
-            dm = self.orderDetail.xtList;
-            hv.titleLabel.text = @"现提";
+            if(section == 0)
+            {
+                dm = self.orderDetail.yyztList;
+                hv.titleLabel.text = @"预约自提";
+            }
+            else
+            {
+                dm = self.orderDetail.xtList;
+                hv.titleLabel.text = @"现提";
+            }
+        }
+        if(!self.containYyzt)
+        {
+            if(section == 0)
+            {
+                dm = self.orderDetail.zpList;
+                hv.titleLabel.text = @"宅配送";
+            }
+            else
+            {
+                dm = self.orderDetail.xtList;
+                hv.titleLabel.text = @"现提";
+            }
         }
     }
     else
     {
-        dm = self.orderDetail.xtList;
-        hv.titleLabel.text = @"现提";
+        if(self.containYyzt)
+        {
+            dm = self.orderDetail.yyztList;
+            hv.titleLabel.text = @"预约自提";
+        }
+        if(self.containZp)
+        {
+            dm = self.orderDetail.zpList;
+            hv.titleLabel.text = @"宅配送";
+        }
+        if(self.containXt)
+        {
+            dm = self.orderDetail.xtList;
+            hv.titleLabel.text = @"现提";
+        }
     }
     [hv reloadWithDeliverModel:dm];
     return hv;
@@ -233,13 +356,14 @@
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"DeliverFooterView" owner:self options:nil];
     DeliverFooterView *fv = [nibs lastObject];
     DeliverModel *dm = nil;
-    if(section == 0)
+    
+    if(self.peisongCount == 3)
     {
-        if(self.orderDetail.yyztList.gouwucheArray.count > 0)
+        if(section == 0)
         {
             dm = self.orderDetail.yyztList;
         }
-        else if(self.orderDetail.zpList.gouwucheArray.count > 0)
+        else if(section == 1)
         {
             dm = self.orderDetail.zpList;
         }
@@ -248,20 +372,56 @@
             dm = self.orderDetail.xtList;
         }
     }
-    else if(section == 1)
+    else if(self.peisongCount == 2)
     {
-        if(self.orderDetail.zpList.gouwucheArray.count > 0)
+        if(!self.containXt)
         {
-            dm = self.orderDetail.zpList;
+            if(section == 0)
+            {
+                dm = self.orderDetail.yyztList;
+            }
+            else
+            {
+                dm = self.orderDetail.zpList;
+            }
         }
-        else
+        if(!self.containZp)
         {
-            dm = self.orderDetail.xtList;
+            if(section == 0)
+            {
+                dm = self.orderDetail.yyztList;
+            }
+            else
+            {
+                dm = self.orderDetail.xtList;
+            }
+        }
+        if(!self.containYyzt)
+        {
+            if(section == 0)
+            {
+                dm = self.orderDetail.zpList;
+            }
+            else
+            {
+                dm = self.orderDetail.xtList;
+            }
         }
     }
     else
     {
-        dm = self.orderDetail.xtList;
+        if(self.containYyzt)
+        {
+            dm = self.orderDetail.yyztList;
+        }
+        if(self.containZp)
+        {
+            dm = self.orderDetail.zpList;
+        }
+        if(self.containXt)
+        {
+            dm = self.orderDetail.xtList;
+        }
     }
     [fv reloadWithDeliverModel:dm];
     return fv;
@@ -287,6 +447,21 @@
     {
         [[RYHUDManager sharedManager] stoppedNetWorkActivity];
         self.orderDetail = [[OrderDetailModel alloc] initWithRYDict:dict];
+        
+        if(self.orderDetail.yyztList.gouwucheArray.count > 0)
+            self.containYyzt = YES;
+        if(self.orderDetail.zpList.gouwucheArray.count > 0)
+            self.containZp = YES;
+        if(self.orderDetail.xtList.gouwucheArray.count > 0)
+            self.containXt = YES;
+        self.peisongCount = 0;
+        if(self.containYyzt)
+            self.peisongCount++;
+        if(self.containZp)
+            self.peisongCount++;
+        if(self.containXt)
+            self.peisongCount++;
+        
         [self reloadOrderDetail];
     }
     else

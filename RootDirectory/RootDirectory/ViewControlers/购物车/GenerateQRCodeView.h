@@ -11,6 +11,8 @@
 @interface GenerateQRCodeView : UIView
 
 @property (nonatomic, weak) IBOutlet UIImageView *qrImageView;
+@property (nonatomic, weak) IBOutlet UILabel *tip1Label;
+@property (nonatomic, weak) IBOutlet UILabel *tip2Label;
 
 - (void)reloadWithQRString:(NSString *)qrString;
 

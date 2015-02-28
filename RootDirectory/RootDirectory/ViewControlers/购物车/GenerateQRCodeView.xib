@@ -21,15 +21,6 @@
                         <constraint firstAttribute="width" constant="120" id="xSj-WB-wxY"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcC-1o-q0B">
-                    <rect key="frame" x="10" y="164" width="230" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="rqX-bI-g0d"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="凭二维码支付" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAQ-ds-xX0">
                     <rect key="frame" x="10" y="186" width="230" height="20"/>
                     <constraints>
@@ -69,6 +60,15 @@
                         <action selector="guanbiButtonClicked:" destination="1fx-Na-xEz" eventType="touchUpInside" id="fHb-rq-COV"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcC-1o-q0B">
+                    <rect key="frame" x="10" y="164" width="230" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="rqX-bI-g0d"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -93,6 +93,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="qrImageView" destination="DmV-ef-JiQ" id="Lxk-p3-e01"/>
+                <outlet property="tip1Label" destination="JcC-1o-q0B" id="3yf-Lj-q9s"/>
+                <outlet property="tip2Label" destination="uAQ-ds-xX0" id="8BU-vy-AS4"/>
             </connections>
             <point key="canvasLocation" x="259" y="317"/>
         </view>

@@ -15,6 +15,25 @@
 
 - (void)reloadWithQRString:(NSString *)qrString
 {
+    NSArray *array = [qrString componentsSeparatedByString:@"/"];
+    if(array.count == 1)
+    {
+        //付款二维码
+        self.tip1Label.text = @"下单成功";
+        self.tip2Label.text = @"凭二维码支付";
+    }
+    else if(array.count == 2)
+    {
+        //提货二维码
+        self.tip1Label.text = @"购买成功";
+        self.tip2Label.text = @"凭二维码提货";
+    }
+    else
+    {
+        //课程预约二维码
+        self.tip1Label.text = @"预约成功";
+        self.tip2Label.text = @"凭二维码上课";
+    }
     UIImage *qrImage = [RYCommonMethods qrImageForString:qrString];
     self.qrImageView.image = qrImage;
 }

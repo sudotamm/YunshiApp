@@ -132,6 +132,28 @@
             cell.preservesSuperviewLayoutMargins = NO;
         }
     }
+    if(self.segmentControl.selectedSegmentIndex == 0)
+    {
+        //未付款
+        cell.statuLabel.hidden = YES;
+        cell.erweimaButton.hidden = NO;
+        [cell.erweimaButton setTitle:@"生成付款二维码" forState:UIControlStateNormal];
+    }
+    else if(self.segmentControl.selectedSegmentIndex == 1)
+    {
+        //已付款
+        cell.statuLabel.hidden = YES;
+        cell.erweimaButton.hidden = NO;
+        [cell.erweimaButton setTitle:@"生成提货二维码" forState:UIControlStateNormal];
+    }
+    else
+    {
+        //历史订单
+        cell.statuLabel.hidden = NO;
+        cell.erweimaButton.hidden = YES;
+        //显示订单状态
+        cell.statuLabel.text = @"已过期";
+    }
     OrderModel *om = [self.orderArray objectAtIndex:indexPath.row];
     cell.orderNo.text = [NSString stringWithFormat:@"编号: %@",om.oId];
     if(self.segmentControl.selectedSegmentIndex+1 == kOrderTypeWeifukuan)
@@ -163,10 +185,20 @@
 - (void)didGenerateQRCodeWithCell:(OrderCell *)cell
 {
     NSIndexPath *indexPath = [self.contentTableView indexPathForCell:cell];
-    NSString *qrString = [NSString stringWithFormat:@"hello world:%@",@(indexPath.row)];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
+    OrderModel *om = [self.orderArray objectAtIndex:indexPath.row];
+    if(self.segmentControl.selectedSegmentIndex == 0)
+    {
+        //生成付款二维码
+        NSString *qrString = [NSString stringWithFormat:@"A%@",om.oId];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
+    }
+    else if(self.segmentControl.selectedSegmentIndex == 1)
+    {
+        //生成提货二维码
+        NSString *qrString = [NSString stringWithFormat:@"%@/%@",[ABCMemberDataManager sharedManager].loginMember.userId,@"提货单号"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
+    }
 }
-
 
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data

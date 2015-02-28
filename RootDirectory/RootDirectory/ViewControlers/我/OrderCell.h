@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel* datetime;
 @property (weak, nonatomic) IBOutlet UILabel* price;
 @property (nonatomic, weak) id<OrderCellDelegate> delegate;
+@property (nonatomic, weak) IBOutlet UIButton *erweimaButton;
+@property (nonatomic, weak) IBOutlet UILabel *statuLabel;
 
 - (IBAction)shengchengerweimaButtonClicked:(id)sender;
 

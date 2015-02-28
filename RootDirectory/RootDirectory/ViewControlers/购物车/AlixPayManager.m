@@ -212,6 +212,7 @@
 #pragma mark - UIAlertViewDelegate methods
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+    [self requestFinishAlixPayOrderWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId orderId:self.payedOrderDetail.orderId];
     [[NSNotificationCenter defaultCenter] postNotificationName:kAliPayResponseSucceedNotification object:nil];
 }
 

@@ -42,8 +42,8 @@
 {
     if(self.viewType == kPeisongViewTypeYuyueziti)
     {
-        if(self.xingmingField.text.length == 0)
-            return @"请输入提货姓名";
+//        if(self.xingmingField.text.length == 0)
+//            return @"请输入提货姓名";
         if(self.dianhuaField.text.length == 0)
             return @"请输入联系电话";
         if(self.yuyueshijianField.text.length == 0)
@@ -58,8 +58,8 @@
     }
     else
     {
-        if(self.xingmingField.text.length == 0)
-            return @"请输入提货姓名";
+//        if(self.xingmingField.text.length == 0)
+//            return @"请输入提货姓名";
         if(self.dianhuaField.text.length == 0)
             return @"请输入联系电话";
         if(self.yuyueshijianField.text.length == 0)
@@ -154,6 +154,7 @@
         self.zitiHeightConstraint.constant = 0;
     }
     self.dianzhiLabel.text = [HomeDataManager sharedManger].currentDianpu.sName;
+    self.dianhuaField.text = [ABCMemberDataManager sharedManager].loginMember.userId;
 }
 
 - (void)dealloc

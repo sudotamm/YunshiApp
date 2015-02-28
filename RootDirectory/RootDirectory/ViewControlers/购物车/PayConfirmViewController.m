@@ -17,7 +17,16 @@
 #pragma mark - Public methods
 - (IBAction)querenfukuanButtonClicked:(id)sender
 {
-    [[AlixPayManager sharedManager] callAlixpayToPayWithOrderDetail:self.orderDetail];
+    if([GouwucheDataManager sharedManager].payType == kOrderPayTypeAlipay)
+    {
+        [[AlixPayManager sharedManager] callAlixpayToPayWithOrderDetail:self.orderDetail];
+    }
+    else
+    {
+        //生成付款二维码
+        NSString *qrString = [NSString stringWithFormat:@"A%@",self.orderDetail.orderId];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
+    }
 }
 
 #pragma mark - Notification methods

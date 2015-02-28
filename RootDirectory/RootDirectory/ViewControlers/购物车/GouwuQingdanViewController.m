@@ -119,6 +119,7 @@
     }
     zongji = zongji+yunfei;
     self.zongjiLabel.text = [NSString stringWithFormat:@"￥%.2f",zongji];
+    self.zongjiYunfeiLabel.text = [NSString stringWithFormat:@"￥%.2f",(CGFloat)yunfei];
 }
 
 - (void)reloadJiesuanView
@@ -131,11 +132,11 @@
         self.yunfeiTipLabel.hidden = YES;
         self.yunfeiLabel.hidden = NO;
         self.yunfeiLabel.text = @"免运费（指定区域）";
-        self.zongjiYunfeiLabel.text = @"免运费";
+//        self.zongjiYunfeiLabel.text = @"￥0.00";
     }
     else
     {
-        self.zongjiYunfeiLabel.text = [NSString stringWithFormat:@"￥%@",@(deliverFee)];
+//        self.zongjiYunfeiLabel.text = [NSString stringWithFormat:@"￥%@",@(deliverFee)];
         if(deliverThreshold == 99999999)
         {
             //不包邮

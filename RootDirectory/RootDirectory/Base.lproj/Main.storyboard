@@ -2453,7 +2453,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jj6-w1-bAC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWO-6c-p51" customClass="RYAsynImageView">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LWO-6c-p51" customClass="RYAsynImageView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="160" id="p3v-8k-3zI"/>
@@ -2878,6 +2878,7 @@
                         <outlet property="buyButton" destination="tYp-i4-xOL" id="QyQ-yt-51I"/>
                         <outlet property="contentScrollView" destination="jj6-w1-bAC" id="HXk-wb-Byg"/>
                         <outlet property="guigeLabel" destination="GZQ-OS-h08" id="DMr-aY-U7c"/>
+                        <outlet property="headerHeightConstraint" destination="p3v-8k-3zI" id="0Xd-ki-SqS"/>
                         <outlet property="headerImgView" destination="LWO-6c-p51" id="FCJ-dc-hNt"/>
                         <outlet property="jiaButton" destination="xAE-Tz-uN0" id="QRW-5M-JHK"/>
                         <outlet property="jiageLabel" destination="UAt-cN-wP1" id="p0d-pf-dgc"/>
@@ -4274,6 +4275,7 @@
                         <outlet property="middleHeightConstraint" destination="71U-e8-Ev2" id="HLq-GU-GZt"/>
                         <outlet property="qianggouImgView" destination="liR-km-RzT" id="WRD-b3-S3V"/>
                         <outlet property="serviceCollectionView" destination="ioU-JG-tij" id="DJH-qq-KkB"/>
+                        <outlet property="toutuHeightConstraint" destination="PEB-ZV-0zR" id="Qra-UR-n0c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ku2-6Q-K42" userLabel="First Responder" sceneMemberID="firstResponder"/>

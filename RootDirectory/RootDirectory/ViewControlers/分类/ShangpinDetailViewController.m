@@ -33,7 +33,7 @@
         self.contentScrollView.hidden = NO;
         
         self.headerImgView.cacheDir = kLargeImgCacheDir;
-        [self.headerImgView aysnLoadImageWithUrl:self.detailModel.picURL placeHolder:@"loading_rectangle"];
+        [self.headerImgView aysnLoadImageWithUrl:self.detailModel.picURL placeHolder:@"loading_square"];
         self.nameLabel.text = self.detailModel.gName;
         self.jiageLabel.text = [NSString stringWithFormat:@"￥%@",self.detailModel.price];
         self.guigeLabel.text = self.detailModel.spec;
@@ -158,6 +158,7 @@
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"商品详情"];
     [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
+    self.headerHeightConstraint.constant = self.view.frame.size.width*0.8;
     [self reloadShangpinDetail];
     [self requestShangpinDetailWithShangpinId:self.shangpinId mendianId:[HomeDataManager sharedManger].currentDianpu.sCode];
 }

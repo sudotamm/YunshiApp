@@ -18,6 +18,7 @@
 @property (nonatomic, strong) ImagesContainView *imgContainView;
 @property (nonatomic, weak) IBOutlet UICollectionView *serviceCollectionView;
 @property (nonatomic, strong) DianpuView *dianpuView;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *toutuHeightConstraint;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *middleHeightConstraint;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *fenleiHeightConstraint;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *bottomHeightConstraint;

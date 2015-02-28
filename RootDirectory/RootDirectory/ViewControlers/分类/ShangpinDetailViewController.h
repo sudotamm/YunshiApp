@@ -22,6 +22,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *shuliangLabel;
 @property (nonatomic, weak) IBOutlet UICollectionView *taocanCollectionView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *taocanHeightConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *headerHeightConstraint;
 
 @property (nonatomic, copy) NSString *shangpinId;
 
