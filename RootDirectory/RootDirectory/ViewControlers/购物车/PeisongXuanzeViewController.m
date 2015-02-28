@@ -87,10 +87,10 @@
         NSString *zpTime = self.zhaipeishijianField.text;
         NSDate *zpDate = [NSDate dateFromStringByFormat:kDateStringFormat string:zpTime];
         
-        NSString *yyztTimeStr = [NSDate dateToStringByFormat:@"yyyyMMddHHmm" date:yyztDate];
+        NSString *yyztTimeStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd HH:mm" date:yyztDate];
         if(nil == yyztTimeStr)
             yyztTimeStr = @"";
-        NSString *zpTimeStr = [NSDate dateToStringByFormat:@"yyyyMMddHHmm" date:zpDate];
+        NSString *zpTimeStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd HH:mm" date:zpDate];
         if(nil == zpTimeStr)
             zpTimeStr = @"";
         
