@@ -132,6 +132,7 @@
             cell.preservesSuperviewLayoutMargins = NO;
         }
     }
+    OrderModel *om = [self.orderArray objectAtIndex:indexPath.row];
     if(self.segmentControl.selectedSegmentIndex == 0)
     {
         //未付款
@@ -152,9 +153,13 @@
         cell.statuLabel.hidden = NO;
         cell.erweimaButton.hidden = YES;
         //显示订单状态
-        cell.statuLabel.text = @"已过期";
+        if([om.payStatus isEqualToString:@"2"])
+            cell.statuLabel.text = @"已付款";
+        else if([om.payStatus isEqualToString:@"F"])
+            cell.statuLabel.text = @"已失效";
+        else
+            cell.statuLabel.text = @"已过期";
     }
-    OrderModel *om = [self.orderArray objectAtIndex:indexPath.row];
     cell.orderNo.text = [NSString stringWithFormat:@"编号: %@",om.oId];
     if(self.segmentControl.selectedSegmentIndex+1 == kOrderTypeWeifukuan)
         cell.price.textColor = [UIColor colorWithRed:207.f/255 green:30.f/255 blue:30.f/255 alpha:1.f];
@@ -195,7 +200,7 @@
     else if(self.segmentControl.selectedSegmentIndex == 1)
     {
         //生成提货二维码
-        NSString *qrString = [NSString stringWithFormat:@"%@/%@",[ABCMemberDataManager sharedManager].loginMember.userId,@"提货单号"];
+        NSString *qrString = [NSString stringWithFormat:@"%@/%@",[ABCMemberDataManager sharedManager].loginMember.userId,om.singlePickCode];
         [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
     }
 }
@@ -217,8 +222,36 @@
         }
         for(NSDictionary *dictTemp in array)
         {
-            OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTemp];
-            [self.orderArray addObject:om];
+            if(self.segmentControl.selectedSegmentIndex == 1)
+            {
+                //已付款 订单需要根据提货号进行拆分
+                NSString *pickCode = [dictTemp objectForKey:@"pickcode"];
+                NSArray *codeArray = [pickCode componentsSeparatedByString:@";"];
+                if(codeArray.count > 1)
+                {
+                    for(NSInteger i = 0; i < codeArray.count; i++)
+                    {
+                        NSMutableDictionary *dictTempSingle = [NSMutableDictionary dictionaryWithDictionary:dictTemp];
+                        NSString *singleCode = [codeArray objectAtIndex:i];
+                        if(nil == singleCode)
+                            singleCode = @"";
+                        [dictTempSingle setObject:singleCode forKey:@"singlePickCode"];
+                        OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTempSingle];
+                        [self.orderArray addObject:om];
+                    }
+                }
+                else
+                {
+                    OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTemp];
+                    om.singlePickCode = om.pickcode;
+                    [self.orderArray addObject:om];
+                }
+            }
+            else
+            {
+                OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTemp];
+                [self.orderArray addObject:om];
+            }
         }
         [self.contentTableView reloadData];
         if(nextPage == 0)
