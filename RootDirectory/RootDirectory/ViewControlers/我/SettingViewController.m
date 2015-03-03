@@ -171,9 +171,9 @@
             NSString* verNum = [NSString stringWithFormat:@"%@",[dict objectForKey:@"verNum"]];
 //            verNum = @"1.1";
             
-            NSRange r = [verNum rangeOfString:@"."];
+//            NSRange r = [verNum rangeOfString:@"."];
             
-            if (r.length>0) {
+            if (verNum.length>0) {
                 NSString* currentVerNum = [NSString stringWithFormat:@"%@",[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
                 
                 if (![currentVerNum isEqualToString:verNum]) {
@@ -184,7 +184,7 @@
                         
 //                        self.downloadURL = @"http://www.baidu.com";
                         
-                        if ([self.downloadURL length]>8) {
+                        if ([self.downloadURL length]>0) {
                             
                             if ([[NSString stringWithFormat:@"%@",[dict objectForKey:@"isMust"]] isEqualToString:@"1"]) {
                                 UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请更新至最新版本" delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -208,8 +208,6 @@
                 }
             }
             [[RYHUDManager sharedManager] showWithMessage:@"未检测到新版本" customView:nil hideDelay:2.f];
-            
-            
         }
         else
         {

@@ -22,4 +22,5 @@
 #import "UserInfoDataManager.h"
 #import "AlixPayManager.h"
 #import <ShareSDK/ShareSDK.h>
+#import "VersionCheckManager.h"
 #endif

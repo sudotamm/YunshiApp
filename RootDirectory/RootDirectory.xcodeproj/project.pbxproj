@@ -30,6 +30,7 @@
 		9430B3071A8CA70D0096B5BF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9430B3061A8CA70D0096B5BF /* MessageUI.framework */; };
 		9440C3B71A7A606100575038 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9440C3B61A7A606100575038 /* RegisterViewController.m */; };
 		9451AAB11A4188A600CF4C33 /* CommonNaviController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9451AAB01A4188A600CF4C33 /* CommonNaviController.m */; };
+		945B0AD41AA5BED5002097BE /* VersionCheckManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 945B0AD31AA5BED5002097BE /* VersionCheckManager.m */; };
 		945C4A8A1A861C1A008338CC /* GouwuQingdanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */; };
 		945C4A8D1A8623C4008338CC /* GouwuQingdanTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A8C1A8623C4008338CC /* GouwuQingdanTableCell.m */; };
 		945C4A901A8632E9008338CC /* OrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 945C4A8F1A8632E9008338CC /* OrderDetailViewController.m */; };
@@ -229,6 +230,8 @@
 		9440C3B61A7A606100575038 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9451AAAF1A4188A600CF4C33 /* CommonNaviController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonNaviController.h; sourceTree = "<group>"; };
 		9451AAB01A4188A600CF4C33 /* CommonNaviController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonNaviController.m; sourceTree = "<group>"; };
+		945B0AD21AA5BED5002097BE /* VersionCheckManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VersionCheckManager.h; sourceTree = "<group>"; };
+		945B0AD31AA5BED5002097BE /* VersionCheckManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VersionCheckManager.m; sourceTree = "<group>"; };
 		945C4A881A861C1A008338CC /* GouwuQingdanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwuQingdanViewController.h; sourceTree = "<group>"; };
 		945C4A891A861C1A008338CC /* GouwuQingdanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GouwuQingdanViewController.m; sourceTree = "<group>"; };
 		945C4A8B1A8623C4008338CC /* GouwuQingdanTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GouwuQingdanTableCell.h; sourceTree = "<group>"; };
@@ -1208,6 +1211,8 @@
 				945C4AAA1A864F3C008338CC /* AddressModel.m */,
 				945C4AB61A865F11008338CC /* RegionModel.h */,
 				945C4AB71A865F11008338CC /* RegionModel.m */,
+				945B0AD21AA5BED5002097BE /* VersionCheckManager.h */,
+				945B0AD31AA5BED5002097BE /* VersionCheckManager.m */,
 			);
 			name = DataCenter;
 			sourceTree = "<group>";
@@ -1512,6 +1517,7 @@
 				94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */,
 				94A0F1D51A523DD700A147EC /* RootNaviViewController.m in Sources */,
 				945C4A901A8632E9008338CC /* OrderDetailViewController.m in Sources */,
+				945B0AD41AA5BED5002097BE /* VersionCheckManager.m in Sources */,
 				94BFC14E1A805F830003D942 /* UserViewController.m in Sources */,
 				A665AA831A830B1700D5562A /* OrderCell.m in Sources */,
 				946081421A8A44B0000C5119 /* NSString+SBJSON.m in Sources */,
