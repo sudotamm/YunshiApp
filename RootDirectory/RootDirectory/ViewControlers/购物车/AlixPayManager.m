@@ -89,6 +89,8 @@
 {
     if(paySucceed)
     {
+        [self requestFinishAlixPayOrderWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId orderId:self.payedOrderDetail.orderId];
+        
         NSString * message = @"我们已经收到您的订单，将尽快处理!";
         UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"购买成功"
                                                              message:message
@@ -202,7 +204,8 @@
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
-
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"支付同步返回: %@",dict);
 }
 - (void)downloader:(RYDownloader*)downloader didFinishWithError:(NSString*)message
 {
@@ -212,7 +215,6 @@
 #pragma mark - UIAlertViewDelegate methods
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self requestFinishAlixPayOrderWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId orderId:self.payedOrderDetail.orderId];
     [[NSNotificationCenter defaultCenter] postNotificationName:kAliPayResponseSucceedNotification object:nil];
 }
 
