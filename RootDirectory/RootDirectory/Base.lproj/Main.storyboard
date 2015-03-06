@@ -2344,19 +2344,29 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="x2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wto-jX-23W">
+                                                    <rect key="frame" x="325" y="70" width="35" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="j0t-bc-sGA" firstAttribute="leading" secondItem="UCA-eO-Pt6" secondAttribute="leading" id="1zs-52-i8d"/>
                                                 <constraint firstItem="UCA-eO-Pt6" firstAttribute="top" secondItem="XCq-vT-79r" secondAttribute="top" constant="11" id="2lz-xX-T6b"/>
+                                                <constraint firstItem="wto-jX-23W" firstAttribute="bottom" secondItem="rwZ-b2-dBQ" secondAttribute="bottom" id="71P-6k-nCs"/>
+                                                <constraint firstItem="L9K-PF-Axz" firstAttribute="leading" secondItem="wto-jX-23W" secondAttribute="leading" id="7j1-JF-Yiz"/>
                                                 <constraint firstAttribute="centerY" secondItem="Mvs-Q4-1L2" secondAttribute="centerY" id="CmW-Qv-SaU"/>
                                                 <constraint firstItem="L9K-PF-Axz" firstAttribute="leading" secondItem="3Z6-6o-j21" secondAttribute="trailing" constant="10" id="IyR-eP-Rac"/>
                                                 <constraint firstItem="UCA-eO-Pt6" firstAttribute="leading" secondItem="Mvs-Q4-1L2" secondAttribute="trailing" constant="10" id="Jtm-ho-8fx"/>
                                                 <constraint firstItem="j0t-bc-sGA" firstAttribute="top" secondItem="UCA-eO-Pt6" secondAttribute="bottom" constant="3" id="LFA-qI-Pa4"/>
+                                                <constraint firstItem="L9K-PF-Axz" firstAttribute="trailing" secondItem="wto-jX-23W" secondAttribute="trailing" constant="5" id="OZ4-zb-CkD"/>
                                                 <constraint firstItem="3Z6-6o-j21" firstAttribute="leading" secondItem="Mvs-Q4-1L2" secondAttribute="trailing" constant="10" id="QF4-vR-7rq"/>
                                                 <constraint firstItem="3Z6-6o-j21" firstAttribute="top" secondItem="UCA-eO-Pt6" secondAttribute="bottom" constant="21" id="Qpk-44-IbM"/>
                                                 <constraint firstAttribute="bottom" secondItem="L9K-PF-Axz" secondAttribute="bottom" constant="5" id="SWK-Yw-XCO"/>
                                                 <constraint firstItem="rwZ-b2-dBQ" firstAttribute="leading" secondItem="Mvs-Q4-1L2" secondAttribute="trailing" constant="10" id="UOU-Yw-2gE"/>
                                                 <constraint firstItem="j0t-bc-sGA" firstAttribute="trailing" secondItem="UCA-eO-Pt6" secondAttribute="trailing" id="ccz-4J-jY0"/>
+                                                <constraint firstItem="wto-jX-23W" firstAttribute="top" secondItem="rwZ-b2-dBQ" secondAttribute="top" id="hB6-yN-oXg"/>
                                                 <constraint firstItem="rwZ-b2-dBQ" firstAttribute="top" secondItem="j0t-bc-sGA" secondAttribute="bottom" constant="16" id="mfJ-P3-aq6"/>
                                                 <constraint firstAttribute="trailing" secondItem="L9K-PF-Axz" secondAttribute="trailing" constant="10" id="ovm-H7-4MC"/>
                                                 <constraint firstAttribute="trailing" secondItem="UCA-eO-Pt6" secondAttribute="trailing" constant="15" id="q0N-oM-VJe"/>
@@ -2371,6 +2381,7 @@
                                             <outlet property="iconImgView" destination="Mvs-Q4-1L2" id="DTu-j5-3Kj"/>
                                             <outlet property="jiageLabel" destination="j0t-bc-sGA" id="9gR-g7-fNj"/>
                                             <outlet property="nameLabel" destination="UCA-eO-Pt6" id="dcw-2K-hDp"/>
+                                            <outlet property="numberLabel" destination="wto-jX-23W" id="GF0-gf-BVG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

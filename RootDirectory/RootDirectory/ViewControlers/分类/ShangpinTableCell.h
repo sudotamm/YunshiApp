@@ -17,6 +17,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *jiageLabel;
 @property (nonatomic, weak) IBOutlet UILabel *guigeLabel;
 @property (nonatomic, weak) IBOutlet UILabel *chandiLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberLabel;
 @property (nonatomic, weak) id<ShangpinTableCellDelegate> delegate;
 
 - (IBAction)buyButtonClicked:(id)sender;

@@ -119,6 +119,11 @@
     cell.delegate = self;
     ShangpinModel *sm = [self.taocanModel.shangpinArray objectAtIndex:indexPath.row];
     [cell reloadWithShangpin:sm];
+    NSInteger shuliang = [sm.number integerValue];
+    cell.numberLabel.hidden = NO;
+    if(shuliang < 1)
+        shuliang = 1;
+    cell.numberLabel.text = [NSString stringWithFormat:@"x%@",@(shuliang)];
     return cell;
 }
 
