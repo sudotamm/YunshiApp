@@ -34,6 +34,7 @@
     self.yuyuezitiButton.enabled = YES;
     self.zaipeiButton.enabled = YES;
     btn.enabled = NO;
+    [self.delegate didYunsongfangshiChangedWithCell:self];
 }
 
 - (IBAction)zitiButtonClicked:(id)sender

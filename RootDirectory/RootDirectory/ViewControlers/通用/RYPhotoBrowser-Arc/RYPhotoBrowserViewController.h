@@ -21,5 +21,6 @@
 @property (nonatomic, copy) NSString *imageCacheDir;    //图片缓存目录
 @property (nonatomic, copy) NSString *placeHolder;      //图片加载占位图
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) BOOL showShare;
 - (void)reloadWithPhotos:(NSArray *)array;
 @end

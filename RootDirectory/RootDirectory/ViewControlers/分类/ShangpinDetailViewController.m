@@ -157,7 +157,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"商品详情"];
-    [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
+//    [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
     self.headerHeightConstraint.constant = self.view.frame.size.width*0.8;
     [self reloadShangpinDetail];
     [self requestShangpinDetailWithShangpinId:self.shangpinId mendianId:[HomeDataManager sharedManger].currentDianpu.sCode];

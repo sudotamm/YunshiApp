@@ -7,7 +7,6 @@
 //
 
 #import "GouwuQingdanViewController.h"
-#import "GouwuQingdanTableCell.h"
 #import "PeisongXuanzeViewController.h"
 #import "OrderDetailViewController.h"
 
@@ -71,6 +70,7 @@
 - (void)reloadZongjiPrice
 {
     CGFloat zongji = 0;
+    BOOL isAllZiti = YES;
     //商品总价
     for(id qingdanModel in [GouwucheDataManager sharedManager].qingdanArray)
     {
@@ -78,12 +78,16 @@
         if([qingdanModel isKindOfClass:[GouwucheModel class]])
         {
             GouwucheModel *gm = (GouwucheModel *)qingdanModel;
+            if(gm.peisongFangshi != kPeisongFangshiZiti)
+                isAllZiti = NO;
             price = [gm.price floatValue];
             zongji += price*[gm.num integerValue];
         }
         else
         {
             ShanginHuikuiModel *shm = (ShanginHuikuiModel *)qingdanModel;
+            if(shm.peisongFangshi != kPeisongFangshiZiti)
+                isAllZiti = NO;
             price = [shm.gnewPrice floatValue];
             zongji += price*1;
         }
@@ -95,28 +99,33 @@
     else
         self.xiayibuButton.enabled = NO;
     NSInteger yunfei;
-    //计算运费
-    if([GouwucheDataManager sharedManager].deliverFee == 0)
-    {
-        //免运费
+    if(isAllZiti)
         yunfei = 0;
-    }
     else
     {
-        if([GouwucheDataManager sharedManager].deliverThreshold == 99999999)
+        //计算运费
+        if([GouwucheDataManager sharedManager].deliverFee == 0)
         {
-            //不包邮
-            yunfei = [GouwucheDataManager sharedManager].deliverFee;
+            //免运费
+            yunfei = 0;
         }
         else
         {
-            //阀值包邮
-            if(zongji >= [GouwucheDataManager sharedManager].deliverThreshold)
-                yunfei = 0;
-            else
+            if([GouwucheDataManager sharedManager].deliverThreshold == 99999999)
+            {
+                //不包邮
                 yunfei = [GouwucheDataManager sharedManager].deliverFee;
+            }
+            else
+            {
+                //阀值包邮
+                if(zongji >= [GouwucheDataManager sharedManager].deliverThreshold)
+                    yunfei = 0;
+                else
+                    yunfei = [GouwucheDataManager sharedManager].deliverFee;
+            }
         }
-    }
+}
     zongji = zongji+yunfei;
     self.zongjiLabel.text = [NSString stringWithFormat:@"￥%.2f",zongji];
     self.zongjiYunfeiLabel.text = [NSString stringWithFormat:@"￥%.2f",(CGFloat)yunfei];
@@ -198,6 +207,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GouwuQingdanTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GouwuQingdanTableCell"];
+    cell.delegate = self;
     if(IsIos8)
     {
         cell.layoutMargins = UIEdgeInsetsZero;
@@ -208,8 +218,10 @@
     return cell;
 }
 
-#pragma mark - UITableViewDelegate methods
+#pragma mark - GouwuQingdanTableCellDelegate methods
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{}
+- (void)didYunsongfangshiChangedWithCell:(GouwuQingdanTableCell *)cell
+{
+    [self reloadZongjiPrice];
+}
 @end

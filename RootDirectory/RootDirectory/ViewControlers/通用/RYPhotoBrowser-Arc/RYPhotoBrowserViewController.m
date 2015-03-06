@@ -74,7 +74,7 @@
 
 - (void)rightItemTapped
 {
-    //图片保存到相册功能
+    /**图片保存到相册功能
     NSArray *visibleCells = [self.photoCollectionView visibleCells];
     if(visibleCells.count > 0)
     {
@@ -82,6 +82,20 @@
         if(cell.detailImageView.image)
         {
             UIImageWriteToSavedPhotosAlbum(cell.detailImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        }
+    }
+    */
+    NSArray *visibleCells = [self.photoCollectionView visibleCells];
+    if(visibleCells.count > 0)
+    {
+        RYPhotoBrowserCell *cell = [visibleCells objectAtIndex:0];
+        if(cell.detailImageView.image)
+        {
+            NSMutableDictionary *shareDict = [NSMutableDictionary dictionary];
+            UIImage *shareImage = cell.detailImageView.image;
+            [shareDict setObject:shareImage forKey:@"image"];
+            [shareDict setObject:@"分享自食理洋嘗" forKey:@"content"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kShowShareViewNotification object:shareDict];
         }
     }
 }
@@ -105,6 +119,10 @@
     // Do any additional setup after loading the view from its nib.
     if(IsIos7)
         self.automaticallyAdjustsScrollViewInsets = NO;
+    if(self.showShare)
+    {
+        [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
+    }
     [self.photoCollectionView registerNib:[UINib nibWithNibName:@"RYPhotoBrowserCell" bundle:nil] forCellWithReuseIdentifier:kCellReuseIdentify];
     [self performSelector:@selector(jumpToDefaultIndex) withObject:nil afterDelay:0];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(oneClicked)];

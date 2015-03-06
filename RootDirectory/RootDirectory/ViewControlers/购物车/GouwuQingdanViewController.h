@@ -7,8 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "GouwuQingdanTableCell.h"
 
-@interface GouwuQingdanViewController : BaseViewController
+@interface GouwuQingdanViewController : BaseViewController<GouwuQingdanTableCellDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
 @property (nonatomic, weak) IBOutlet UILabel *zongjiLabel;

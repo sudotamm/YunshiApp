@@ -152,13 +152,13 @@
     if(self.listType == kListSearch)
     {
         [self setNaviTitle:@"搜索商品"];
-        [self setRightNaviItemWithTitle:@"切换" imageName:nil];
+        [self setRightNaviItemWithTitle:nil imageName:@"fenleiqiehuan"];
         self.contentTableView.tableHeaderView = self.searchBar;
     }
     else if(self.listType == kListBenyueqianggou)
     {
         [self setNaviTitle:@"本月抢购"];
-        [self setRightNaviItemWithTitle:@"切换" imageName:nil];
+        [self setRightNaviItemWithTitle:nil imageName:@"fenleiqiehuan"];
         self.contentTableView.tableHeaderView = nil;
         [self callServerToGetListDataWithPage:kInitPageNumber];
     }
@@ -172,7 +172,7 @@
     else
     {
         [self setNaviTitle:@"商品列表"];
-        [self setRightNaviItemWithTitle:@"切换" imageName:nil];
+        [self setRightNaviItemWithTitle:nil imageName:@"fenleiqiehuan"];
         self.contentTableView.tableHeaderView = nil;
         [self callServerToGetListDataWithPage:kInitPageNumber];
     }

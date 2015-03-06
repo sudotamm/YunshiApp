@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol GouwuQingdanTableCellDelegate;
+
 @interface GouwuQingdanTableCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet RYAsynImageView *iconImgView;
@@ -17,11 +19,18 @@
 @property (nonatomic, weak) IBOutlet UIButton *zitiButton;
 @property (nonatomic, weak) IBOutlet UIButton *yuyuezitiButton;
 @property (nonatomic, weak) IBOutlet UIButton *zaipeiButton;
+@property (nonatomic, weak) id<GouwuQingdanTableCellDelegate> delegate;
 
 - (IBAction)zitiButtonClicked:(id)sender;
 - (IBAction)yuyuezitiButtonClicked:(id)sender;
 - (IBAction)zaipeiButtonClicked:(id)sender;
 
 - (void)reloadWithGouwuQingdanModel:(id)gouwuQingdanModel;
+
+@end
+
+@protocol GouwuQingdanTableCellDelegate <NSObject>
+
+- (void)didYunsongfangshiChangedWithCell:(GouwuQingdanTableCell *)cell;
 
 @end
