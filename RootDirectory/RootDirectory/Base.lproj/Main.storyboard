@@ -268,7 +268,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入验证码" minimumFontSize="17" background="bg_input" translatesAutoresizingMaskIntoConstraints="NO" id="0Mr-2r-3yj">
                                         <rect key="frame" x="15" y="95" width="260" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXr-sb-WFd">
                                         <rect key="frame" x="15" y="240" width="345" height="40"/>
