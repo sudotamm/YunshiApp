@@ -1641,7 +1641,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yi Hui Liu (ZBV386ZP24)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yi Hui Liu (ZBV386ZP24)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1661,6 +1662,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "1f7899b9-d401-459e-86e8-a2fc48b0a433";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1682,7 +1684,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yi Hui Liu (ZBV386ZP24)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yi Hui Liu (ZBV386ZP24)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1695,6 +1698,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "1f7899b9-d401-459e-86e8-a2fc48b0a433";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1705,7 +1709,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Hui Liu (W776LS9R9F)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yi Hui Liu (ZBV386ZP24)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RootDirectory/Utilities/Alipay2_2",
@@ -1730,7 +1734,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RootDirectory;
-				PROVISIONING_PROFILE = "e680cf57-43bc-4ccb-9bbc-9ee2420e4f87";
+				PROVISIONING_PROFILE = "1f7899b9-d401-459e-86e8-a2fc48b0a433";
 			};
 			name = Debug;
 		};
@@ -1739,7 +1743,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Hui Liu (W776LS9R9F)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yi Hui Liu (ZBV386ZP24)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RootDirectory/Utilities/Alipay2_2",
@@ -1764,7 +1768,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RootDirectory;
-				PROVISIONING_PROFILE = "e680cf57-43bc-4ccb-9bbc-9ee2420e4f87";
+				PROVISIONING_PROFILE = "1f7899b9-d401-459e-86e8-a2fc48b0a433";
 			};
 			name = Release;
 		};
