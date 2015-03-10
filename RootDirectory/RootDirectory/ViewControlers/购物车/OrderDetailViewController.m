@@ -56,7 +56,7 @@
         self.dingdanhaoLabel.text = self.orderDetail.orderId;
         self.huiyuanhaoLabel.text = self.orderDetail.phone;
         self.xingmingLabel.text = self.orderDetail.name;
-        self.lianxifangshiLabel.text = self.orderDetail.phone;
+        self.lianxifangshiLabel.text = self.orderDetail.zptel;
         self.shouhuodizhiLabel.text = self.orderDetail.addr;
         self.zongjiLabel.text = [NSString stringWithFormat:@"￥%@",self.orderDetail.price];
         [self.contentTableView reloadData];

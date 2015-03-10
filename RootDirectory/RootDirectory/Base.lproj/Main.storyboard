@@ -4071,7 +4071,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_btn3" translatesAutoresizingMaskIntoConstraints="NO" id="c02-ZC-aDl" userLabel="lilanImageView" customClass="CCRYAsynImageView">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="70"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agt-Ay-ovA" userLabel="lilanButton">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agt-Ay-ovA" userLabel="lilanButton">
                                                 <rect key="frame" x="250" y="0.0" width="125" height="70"/>
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -4224,7 +4224,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tmp4" translatesAutoresizingMaskIntoConstraints="NO" id="sKh-ag-tGg" userLabel="cuyiImgView" customClass="CCRYAsynImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-Q9-2Dv" userLabel="cuyiButton">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-Q9-2Dv" userLabel="cuyiButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
