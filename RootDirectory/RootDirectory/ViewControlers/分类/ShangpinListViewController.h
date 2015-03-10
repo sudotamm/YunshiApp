@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, ShangpinListType)
     kListNormal = 0,
     kListBenyueqianggou = 1,
     kListSearch = 2,
+    kListGuanggao = 3,
     kListCollection
 };
 

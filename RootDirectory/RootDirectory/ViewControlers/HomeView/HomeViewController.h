@@ -11,7 +11,7 @@
 #import "DianpuView.h"
 #import "CCRYAsynImageView.h"
 
-@interface HomeViewController : BaseViewController
+@interface HomeViewController : BaseViewController<ImagesContainViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIImageView *headerImgView;
 @property (nonatomic, weak) IBOutlet UIView *headerContainView;

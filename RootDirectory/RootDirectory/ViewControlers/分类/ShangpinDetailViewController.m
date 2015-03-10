@@ -120,6 +120,7 @@
         pbvc.photoArray = array;
         pbvc.imageCacheDir = kMaxImgCacheDir;
         pbvc.placeHolder = @"loading_square";
+        pbvc.showShare = YES;
         [self.navigationController pushViewController:pbvc animated:YES];
     }
     else

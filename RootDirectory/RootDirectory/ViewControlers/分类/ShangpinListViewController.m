@@ -98,6 +98,11 @@
             categoryCode = @"";
             searchType = @"1";
         }
+        else if(self.listType == kListGuanggao)
+        {
+            categoryCode = @"";
+            searchType = @"0";
+        }
         else
         {
             categoryCode = @"";

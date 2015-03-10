@@ -47,6 +47,7 @@
     {
         NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"ImagesContainView" owner:self options:nil];
         imgContainView = [nibs lastObject];
+        imgContainView.delegate = self;
     }
     return imgContainView;
 }
@@ -234,5 +235,15 @@
     [FenleiDataManager sharedManager].redirectFenlei = @(indexPath.row);
     [self.navigationController popToRootViewControllerAnimated:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:kShowFenleiViewNotification object:nil];
+}
+
+#pragma mark - ImagesContainViewDelegate methods
+- (void)didTappedWithProductAd:(NSString *)productAd
+{
+    UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ShangpinListViewController *slvc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ShangpinListViewController"];
+    slvc.listType = kListGuanggao;
+    slvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:slvc animated:YES];
 }
 @end
