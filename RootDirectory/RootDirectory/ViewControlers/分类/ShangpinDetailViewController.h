@@ -19,6 +19,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *buyButton;
 @property (nonatomic, weak) IBOutlet UITextField *shuliangField;
 @property (nonatomic, weak) IBOutlet UILabel *guigeLabel;
+@property (nonatomic, weak) IBOutlet UILabel *bianmaLabel;
 @property (nonatomic, weak) IBOutlet UILabel *shuliangLabel;
 @property (nonatomic, weak) IBOutlet UICollectionView *taocanCollectionView;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *taocanHeightConstraint;

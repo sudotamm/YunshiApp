@@ -37,6 +37,7 @@
         self.nameLabel.text = self.detailModel.gName;
         self.jiageLabel.text = [NSString stringWithFormat:@"￥%@",self.detailModel.price];
         self.guigeLabel.text = self.detailModel.spec;
+        self.bianmaLabel.text = self.detailModel.gId;
         //套餐列表
         if(self.detailModel.taocanArray.count > 0)
         {

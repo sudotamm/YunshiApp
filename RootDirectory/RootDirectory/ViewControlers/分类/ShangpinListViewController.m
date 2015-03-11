@@ -125,6 +125,11 @@
     }
 }
 
+- (IBAction)searchButtonClicked:(id)sender
+{
+    [self searchBarSearchButtonClicked:self.searchBar];
+}
+
 #pragma mark - Notification methosd
 - (void)cancelCollectionResponseWithNotification:(NSNotification *)notification
 {
@@ -158,7 +163,7 @@
     {
         [self setNaviTitle:@"搜索商品"];
         [self setRightNaviItemWithTitle:nil imageName:@"fenleiqiehuan"];
-        self.contentTableView.tableHeaderView = self.searchBar;
+        self.contentTableView.tableHeaderView = self.searchView;
     }
     else if(self.listType == kListBenyueqianggou)
     {
@@ -282,6 +287,11 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self.view endEditing:YES];
+    if(searchBar.text.length == 0)
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"请输入搜索内容." customView:nil hideDelay:2.f];
+        return;
+    }
     [self callServerToGetListDataWithPage:kInitPageNumber];
 }
 

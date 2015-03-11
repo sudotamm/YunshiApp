@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, ShangpinListType)
 @property (nonatomic, retain) UIRefreshControl *refreshControl;
 @property (nonatomic, retain) MJRefreshFooterView *refreshFooterView;
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
+@property (nonatomic, weak) IBOutlet UIView *searchView;
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 
 //2宫格展示
@@ -31,5 +32,7 @@ typedef NS_ENUM(NSInteger, ShangpinListType)
 
 @property (nonatomic, strong) FenleiModel *fenleiModel;
 @property (nonatomic, assign) ShangpinListType listType;
+
+- (IBAction)searchButtonClicked:(id)sender;
 
 @end

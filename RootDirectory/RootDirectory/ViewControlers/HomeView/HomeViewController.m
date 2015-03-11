@@ -176,7 +176,7 @@
     self.bottomHeightConstraint.constant = self.view.frame.size.width*310/1080;
     self.fenleiHeightConstraint.constant = 160.f*kUIYScaleValue;
     //加载头图
-    self.toutuHeightConstraint.constant = self.view.frame.size.width*0.6;
+    self.toutuHeightConstraint.constant = self.view.frame.size.width*0.44;
     [self.headerContainView addSubview:self.imgContainView];
     self.imgContainView.frame = self.headerContainView.bounds;
     

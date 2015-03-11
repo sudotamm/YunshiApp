@@ -21,8 +21,8 @@
     {
         self.currentDianpu = [[DianpuModel alloc] init];
         //初始化默认店铺
-        self.currentDianpu.sName = @"环球港店";
-        self.currentDianpu.sCode = @"01";
+        self.currentDianpu.sName = @"宅配直通";//@"环球港店";
+        self.currentDianpu.sCode = @"00";//@"01";
     }
     return self;
 }

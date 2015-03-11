@@ -63,6 +63,11 @@
         self.jiageLabel.text = [NSString stringWithFormat:@"￥%@",gm.price];
         self.shuliangField.text = [NSString stringWithFormat:@"%@",gm.num];
         [self.iconImgView aysnLoadImageWithUrl:gm.picURL placeHolder:@"loading_square"];
+        //内测完之后，在环球港点开店前，只有宅配。
+        if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+        {
+            gm.peisongFangshi = kPeisongFangshiZaipei;
+        }
         peisong = gm.peisongFangshi;
     }
     else if([gouwuQingdanModel isKindOfClass:[ShanginHuikuiModel class]])
@@ -72,6 +77,11 @@
         self.jiageLabel.text = [NSString stringWithFormat:@"￥%@",shm.gnewPrice];
         self.shuliangField.text = @"1";
         [self.iconImgView aysnLoadImageWithUrl:shm.picURL placeHolder:@"loading_square"];
+        //内测完之后，在环球港点开店前，只有宅配。
+        if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+        {
+            shm.peisongFangshi = kPeisongFangshiZaipei;
+        }
         peisong = shm.peisongFangshi;
     }
     if(peisong == kPeisongFangshiZiti)
@@ -91,6 +101,19 @@
         self.zaipeiButton.enabled = NO;
         self.zitiButton.enabled = YES;
         self.yuyuezitiButton.enabled = YES;
+    }
+    //内测完之后，在环球港点开店前，只有宅配。
+    if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+    {
+        self.zitiButton.hidden = YES;
+        self.yuyuezitiButton.hidden = YES;
+        self.zaipeiButton.hidden = NO;
+    }
+    else
+    {
+        self.zitiButton.hidden = NO;
+        self.yuyuezitiButton.hidden = NO;
+        self.zaipeiButton.hidden = NO;
     }
 }
 

@@ -38,6 +38,12 @@ typedef NS_ENUM(NSInteger, OrderPayType)
     kOrderPayTypeUserpay = 1,       //收银台付款
 };
 
+typedef NS_ENUM(NSInteger, OrderCancelType)
+{
+    kOrderCancelTypeDelete = 1,       //删除订单
+    kOrderCancelTypeCancel = 2,       //取消订单
+};
+
 #import <Foundation/Foundation.h>
 #import "GouwucheModel.h"
 #import "ShanginHuikuiModel.h"
@@ -91,4 +97,7 @@ typedef NS_ENUM(NSInteger, OrderPayType)
                                   zpAddrId:(NSString *)zpAddrId
                                     zpTime:(NSString *)zpTime
                                       list:(NSMutableArray *)list;
+
+- (void)requestCancelOrderWithOrderId:(NSString *)orderId
+                           cancelType:(OrderCancelType)cancelType;
 @end

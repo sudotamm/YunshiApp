@@ -55,8 +55,8 @@
         {
             //设置frame
             CCRYAsynImageView *asynImgView = [[CCRYAsynImageView alloc] init];
-            asynImgView.contentMode = UIViewContentModeScaleAspectFill;
-            asynImgView.clipsToBounds = YES;
+//            asynImgView.contentMode = UIViewContentModeScaleAspectFill;
+//            asynImgView.clipsToBounds = YES;
             CGRect rect = self.bounds;
             rect.size.width = self.frame.size.width;
             rect.origin.x = index*self.frame.size.width;

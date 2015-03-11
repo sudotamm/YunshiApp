@@ -127,6 +127,7 @@
 #define kAddressEditResponseNotification    @"AddressEditResponseNotification"
 #define kAddressChosenNotification          @"AddressChosenNotification"
 #define kUpdateDeliverResponseNotification  @"UpdateDeliverResponseNotification"
+#define kCancelOrderResponseNotification    @"CancelOrderResponseNotification"
 #define kPayConfirmResponseNotification     @"PayConfirmResponseNotification"
 #define kDelCollectionResponseNotification  @"DelCollectionResponseNotification"
 #define kShowShareViewNotification          @"ShowShareViewNotification"
@@ -161,6 +162,7 @@
 #define kUpdateDeliverUrl   @"updateDeliverType"
 #define kOrderDetailUrl     @"orderDetail"
 #define kPayedCallbackUrl   @"pushPayStatus"
+#define kCancelOrderUrl     @"cancelOrder"
 //我
 #define kAddressListUrl     @"addrList"
 #define kAddressRegionUrl   @"addrRegion"

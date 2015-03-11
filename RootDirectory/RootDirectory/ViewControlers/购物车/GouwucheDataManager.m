@@ -11,6 +11,7 @@
 #define kManehuikuiDownlaoderKey        @"ManehuikuiDownlaoderKey"
 #define kSaveOrderDownloaderKey         @"SaveOrderDownloaderKey"
 #define kUpdadteDeliverDownloaderKey    @"UpdadteDeliverDownloaderKey"
+#define kCancelOrderDownloaderKey       @"CancelOrderDownloaderKey"
 
 @interface GouwucheDataManager()
 
@@ -150,6 +151,22 @@
                                                                delegate:self
                                                                 purpose:kUpdadteDeliverDownloaderKey];
 }
+
+- (void)requestCancelOrderWithOrderId:(NSString *)orderId
+                           cancelType:(OrderCancelType)cancelType
+{
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kCancelOrderUrl];
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.userId forKey:@"userId"];
+    [paramDict setObject:orderId forKey:@"oId"];
+    [paramDict setObject:[NSString stringWithFormat:@"%@",@(cancelType)] forKey:@"type"];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:kCancelOrderDownloaderKey];
+}
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
@@ -233,6 +250,22 @@
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"更新订单配送信息失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kCancelOrderDownloaderKey])
+    {
+        //取消订单返回信息
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kCancelOrderResponseNotification object:nil];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"取消订单失败";
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }

@@ -171,13 +171,26 @@
     [self performSegueWithIdentifier:@"QingdanListToOrderDetail" sender:nil];
 }
 
-#pragma mark - UIViewController methods
+- (void)cancelOrderResponseWithNotification:(NSNotification *)notification
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
+#pragma mark - BaseViewController methods
+- (void)leftItemTapped
+{
+    [[GouwucheDataManager sharedManager] requestCancelOrderWithOrderId:[GouwucheDataManager sharedManager].qingdanOrderId
+                                                            cancelType:kOrderCancelTypeCancel];
+}
+
+#pragma mark - UIViewController methods
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setNaviTitle:@"购物清单"];
+    [self setLeftNaviItemWithTitle:@"取消" imageName:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliverResponseWithNotification:) name:kUpdateDeliverResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelOrderResponseWithNotification:) name:kCancelOrderResponseNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
     [self reloadJiesuanView];
     [self reloadZongjiPrice];

@@ -162,6 +162,7 @@
     if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
     {
         [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+        self.taocanModel = [[TaocanModel alloc] initWithRYDict:dict];
         self.taocanModel.shangpinArray = [NSMutableArray array];
         NSArray *array = [dict objectForKey:@"list"];
         for(NSDictionary *dictShangpin in array)
@@ -169,6 +170,7 @@
             ShangpinModel *sm = [[ShangpinModel alloc] initWithRYDict:dictShangpin];
             [self.taocanModel.shangpinArray addObject:sm];
         }
+        [self reloadTaocanDetail];
         [self reloadShangpinList];
     }
     else
