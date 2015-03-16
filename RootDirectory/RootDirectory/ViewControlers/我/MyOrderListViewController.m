@@ -231,13 +231,19 @@
                 {
                     for(NSInteger i = 0; i < codeArray.count; i++)
                     {
-                        NSMutableDictionary *dictTempSingle = [NSMutableDictionary dictionaryWithDictionary:dictTemp];
                         NSString *singleCode = [codeArray objectAtIndex:i];
-                        if(nil == singleCode)
-                            singleCode = @"";
-                        [dictTempSingle setObject:singleCode forKey:@"singlePickCode"];
-                        OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTempSingle];
-                        [self.orderArray addObject:om];
+                        NSArray *codePriceArray = [singleCode componentsSeparatedByString:@","];
+                        if(codePriceArray.count == 2)
+                        {
+                            NSString *codeStr = [codePriceArray firstObject];
+                            NSString *priceStr =[codePriceArray lastObject];
+                            
+                            NSMutableDictionary *dictTempSingle = [NSMutableDictionary dictionaryWithDictionary:dictTemp];
+                            [dictTempSingle setObject:codeStr forKey:@"singlePickCode"];
+                            [dictTempSingle setObject:priceStr forKey:@"price"];
+                            OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTempSingle];
+                            [self.orderArray addObject:om];
+                        }
                     }
                 }
                 else

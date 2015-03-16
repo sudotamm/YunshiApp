@@ -177,7 +177,8 @@
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
             NSString *finalResultStr = [resultDic objectForKey:@"success"];
-            if([finalResultStr rangeOfString:@"true"].length > 0)
+            NSString *finalResultCode = [resultDic objectForKey:@"resultStatus"];
+            if([finalResultStr rangeOfString:@"true"].length > 0 || [finalResultCode isEqualToString:@"9000"])
             {
                 [self showPayResultSucceed:YES];
             }

@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "RYDatePickerView.h"
+#import "RYTextPickerView.h"
 
 typedef NS_ENUM(NSInteger, PeisongViewType)
 {
@@ -16,7 +17,7 @@ typedef NS_ENUM(NSInteger, PeisongViewType)
     kPeisongViewTypeZitiZhaipei = 2
 };
 
-@interface PeisongXuanzeViewController : BaseViewController<RYDatePickerViewDelegate>
+@interface PeisongXuanzeViewController : BaseViewController<RYDatePickerViewDelegate,RYTextPickerViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UIScrollView *contentScrollView;
 @property (nonatomic, weak) IBOutlet UILabel *dianzhiLabel;
@@ -30,6 +31,7 @@ typedef NS_ENUM(NSInteger, PeisongViewType)
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *zhaipeiHeightConstraint;
 
 @property (nonatomic, strong) RYDatePickerView *datePicker;
+@property (nonatomic, strong) RYTextPickerView *textPicker;
 
 @property (nonatomic, assign) PeisongViewType viewType;
 

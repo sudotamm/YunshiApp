@@ -242,7 +242,7 @@
 {
     UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ShangpinListViewController *slvc = [mainStoryBoard instantiateViewControllerWithIdentifier:@"ShangpinListViewController"];
-    slvc.listType = kListGuanggao;
+    slvc.listType = kListBenyueqianggou;
     slvc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:slvc animated:YES];
 }

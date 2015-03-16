@@ -40,7 +40,9 @@
 - (IBAction)pickerDoneButtonClicked:(id)sender
 {
     NSInteger row = [self.textPicker selectedRowInComponent:0];
-    NSString *strPrv = [self.pickViewInputArray objectAtIndex:row];
+    NSString *strPrv = nil;
+    if(row < self.pickViewInputArray.count)
+        strPrv = [self.pickViewInputArray objectAtIndex:row];
     [self.delegate didTextConfirmed:strPrv withPicker:self];
 }
 

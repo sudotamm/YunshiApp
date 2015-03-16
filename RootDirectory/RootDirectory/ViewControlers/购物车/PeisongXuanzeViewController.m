@@ -21,7 +21,7 @@
 
 @implementation PeisongXuanzeViewController
 
-@synthesize datePicker,chosenAddress;
+@synthesize datePicker,chosenAddress,textPicker;
 
 #pragma mark - Private methods
 
@@ -37,6 +37,18 @@
     }
     return datePicker;
 }
+
+- (RYTextPickerView *)textPicker
+{
+    if(nil == textPicker)
+    {
+        NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"RYTextPickerView" owner:self options:nil];
+        textPicker = [nibs lastObject];
+        textPicker.delegate = self;
+    }
+    return textPicker;
+}
+
 
 - (NSString *)checkFields
 {
@@ -113,6 +125,29 @@
     self.xinxiField.text = self.chosenAddress.addr;
 }
 
+- (void)shijianResponseSucceedWithNotification:(NSNotification *)notification
+{
+    NSMutableArray *array = [NSMutableArray array];
+    NSDate *minDate = [NSDate dateWithTimeInterval:60*60*1 sinceDate:[NSDate date]];
+    NSString *currentHour = [NSDate dateToStringByFormat:kDateStringFormat date:minDate];
+    for(NSInteger i = 0; i < [GouwucheDataManager sharedManager].yuyueshijianArray.count; i++)
+    {
+        NSString *tempHour = [[GouwucheDataManager sharedManager].yuyueshijianArray objectAtIndex:i];
+        if([currentHour compare:tempHour options:NSNumericSearch] == NSOrderedAscending)
+        {
+            [array addObject:tempHour];
+        }
+    }
+    if(array.count > 0)
+    {
+        self.yuyueshijianField.text = [array firstObject];
+    }
+    else
+    {
+        self.yuyueshijianField.text = @"";
+    }
+}
+
 #pragma mark - UIViewController methods
 
 - (void)viewDidLoad {
@@ -122,32 +157,19 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addressChosenWithNotification:) name:kAddressChosenNotification object:nil];
-    /**
-     时间选择不是全时段的，有规则的。
-     自提预约：
-     默认为下一个整点，可修改。（可指定下一个整点到次日门店营业结束前的一个整点之间的，门店的营业时间内的每一个整点）。
-     宅配时间：
-     区内配送时间，下单时间+两小时起，按整点选择配送时间，当天和次日的9：00～21：00。
-     跨区配送时间，次日三个时段，由后台维护。
-     */
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shijianResponseSucceedWithNotification:) name:kShijianResponseSucceedNotification object:nil];
+    
+//    if([GouwucheDataManager sharedManager].yuyueshijianArray.count > 0 || [GouwucheDataManager sharedManager].quneishijianArray.count > 0 || [GouwucheDataManager sharedManager].quwaishijianArray.count > 0)
+//    {
+//    
+//    }
+//    else
+//    {
+        [[GouwucheDataManager sharedManager] requestPeisongshijian];
+//    }
     if(self.viewType == kPeisongViewTypeYuyueziti)
     {
         self.zhaipeiHeightConstraint.constant = 0;
-        NSDate *currentDate = [NSDate date];
-        NSCalendar *calendar = [NSCalendar currentCalendar];
-        NSDateComponents *dateComponent = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:currentDate];
-        NSInteger year = dateComponent.year;
-        NSInteger month = dateComponent.month;
-        NSInteger day = dateComponent.day;
-        NSInteger hour = dateComponent.hour;
-        NSDateComponents *startDateComponent = [[NSDateComponents alloc] init];
-        startDateComponent.year = year;
-        startDateComponent.month = month;
-        startDateComponent.day = day;
-        startDateComponent.hour = hour+1;
-        NSDate *startDate = [[NSCalendar currentCalendar] dateFromComponents:startDateComponent];
-        self.yuyueshijianField.text = [NSDate dateToStringByFormat:kDateStringFormat date:startDate];
-        
     }
     else if(self.viewType == kPeisongViewTypeZhaiPei)
     {
@@ -167,70 +189,129 @@
 {
     if(textField == self.yuyueshijianField || textField == self.zhaipeishijianField)
     {
-        textField.inputView = self.datePicker;
+        /**
+         时间选择不是全时段的，有规则的。
+         自提预约：
+         默认为一小时后的整点，可修改。（可指定下一个整点到次日门店营业结束前的一个整点之间的，门店的营业时间内的每一个整点）。
+         宅配时间：
+         区内配送时间，下单时间+两小时起，按整点选择配送时间，当天和次日的9：00～21：00。
+         跨区配送时间，次日三个时段，由后台维护。
+         */
+        
+        textField.inputView = self.textPicker;
         if(textField == self.yuyueshijianField)
         {
-            NSDate *currentDate = [NSDate date];
-            NSCalendar *calendar = [NSCalendar currentCalendar];
-            NSDateComponents *dateComponent = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:currentDate];
-            NSInteger year = dateComponent.year;
-            NSInteger month = dateComponent.month;
-            NSInteger day = dateComponent.day;
-            NSInteger hour = dateComponent.hour;
-            NSDateComponents *startDateComponent = [[NSDateComponents alloc] init];
-            startDateComponent.year = year;
-            startDateComponent.month = month;
-            startDateComponent.day = day;
-            startDateComponent.hour = hour+1;
-            NSDate *startDate = [[NSCalendar currentCalendar] dateFromComponents:startDateComponent];
-            
-            NSDateComponents *endDateComponent = [[NSDateComponents alloc] init];
-            endDateComponent.year = year;
-            endDateComponent.month = month;
-            endDateComponent.day = day+1;
-            endDateComponent.hour = kMenDianEndHour-1;
-            NSDate *endDate = [[NSCalendar currentCalendar] dateFromComponents:endDateComponent];
-            
-            self.datePicker.datePicker.minimumDate = startDate;
-            self.datePicker.datePicker.maximumDate = endDate;
-            
-            NSDate *date = [NSDate dateFromStringByFormat:kDateStringFormat string:textField.text];
-            if(nil == date)
-                date = startDate;
-            
-            [self.datePicker reloadWithDate:date];
+            if([GouwucheDataManager sharedManager].yuyueshijianArray.count > 0)
+            {
+                NSMutableArray *array = [NSMutableArray array];
+                
+                NSDate *minDate = [NSDate dateWithTimeInterval:60*60*1 sinceDate:[NSDate date]];
+                NSString *currentHour = [NSDate dateToStringByFormat:kDateStringFormat date:minDate];
+                
+                for(NSInteger i = 0; i < [GouwucheDataManager sharedManager].yuyueshijianArray.count; i++)
+                {
+                    NSString *tempHour = [[GouwucheDataManager sharedManager].yuyueshijianArray objectAtIndex:i];
+                    if([currentHour compare:tempHour options:NSNumericSearch] == NSOrderedAscending)
+                    {
+                        [array addObject:tempHour];
+                    }
+                }
+                NSInteger index = 0;
+                for(NSString *str in array)
+                {
+                    if([str isEqualToString:textField.text])
+                    {
+                        break;
+                    }
+                    index++;
+                }
+                if(index >= array.count)
+                    index = 0;
+                [self.textPicker reloadData:array defaultIndex:index];
+            }
+            else
+            {
+                return NO;
+            }
         }
         else
         {
-            NSDate *currentDate = [NSDate date];
-            NSCalendar *calendar = [NSCalendar currentCalendar];
-            NSDateComponents *dateComponent = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour fromDate:currentDate];
-            NSInteger year = dateComponent.year;
-            NSInteger month = dateComponent.month;
-            NSInteger day = dateComponent.day;
-            NSInteger hour = dateComponent.hour;
-            NSDateComponents *startDateComponent = [[NSDateComponents alloc] init];
-            startDateComponent.year = year;
-            startDateComponent.month = month;
-            startDateComponent.day = day;
-            startDateComponent.hour = hour+2;
-            NSDate *startDate = [[NSCalendar currentCalendar] dateFromComponents:startDateComponent];
-            
-            NSDateComponents *endDateComponent = [[NSDateComponents alloc] init];
-            endDateComponent.year = year;
-            endDateComponent.month = month;
-            endDateComponent.day = day+1;
-            endDateComponent.hour = kMenDianEndHour;
-            NSDate *endDate = [[NSCalendar currentCalendar] dateFromComponents:endDateComponent];
-            
-            self.datePicker.datePicker.minimumDate = startDate;
-            self.datePicker.datePicker.maximumDate = endDate;
-            
-            NSDate *date = [NSDate dateFromStringByFormat:kDateStringFormat string:textField.text];
-            if(nil == date)
-                date = startDate;
-            
-            [self.datePicker reloadWithDate:date];
+            if(nil == self.chosenAddress)
+            {
+                [[RYHUDManager sharedManager] showWithMessage:@"请先选取配送地址." customView:nil hideDelay:2.f];
+                return NO;
+            }
+            else
+            {
+                //判断区内还是区外配送
+                if([[HomeDataManager sharedManger].currentDianpu.regionId rangeOfString:self.chosenAddress.rId].length > 0)
+                {
+                    //区内配送
+                    if([GouwucheDataManager sharedManager].quneishijianArray.count > 0)
+                    {
+                        NSMutableArray *array = [NSMutableArray array];
+                        NSDate *minDate = [NSDate dateWithTimeInterval:60*60*2 sinceDate:[NSDate date]];
+                        NSString *minHour = [NSDate dateToStringByFormat:kDateStringFormat date:minDate];
+                        
+                        for(NSInteger i = 0; i < [GouwucheDataManager sharedManager].quneishijianArray.count; i++)
+                        {
+                            NSString *tempHour = [[GouwucheDataManager sharedManager].quneishijianArray objectAtIndex:i];
+                            if([minHour compare:tempHour options:NSNumericSearch] == NSOrderedAscending)
+                            {
+                                [array addObject:tempHour];
+                            }
+                        }
+                        NSInteger index = 0;
+                        for(NSString *str in array)
+                        {
+                            if([str isEqualToString:textField.text])
+                            {
+                                break;
+                            }
+                            index++;
+                        }
+                        if(index >= array.count)
+                            index = 0;
+                        [self.textPicker reloadData:array defaultIndex:index];
+                    }
+                    else
+                    {
+                        return NO;
+                    }
+                }
+                else
+                {
+                    //区外配送
+                    if([GouwucheDataManager sharedManager].quwaishijianArray.count > 0)
+                    {
+                        NSMutableArray *array = [NSMutableArray array];
+                        NSString *todayMax = [NSDate dateToStringByFormat:@"yyyy-MM-dd 23:00" date:[NSDate date]];
+                        for(NSString *tempStr in [GouwucheDataManager sharedManager].quwaishijianArray)
+                        {
+                            if([todayMax compare:tempStr options:NSNumericSearch] == NSOrderedAscending)
+                            {
+                                [array addObject:tempStr];
+                            }
+                        }
+                        NSInteger index = 0;
+                        for(NSString *str in array)
+                        {
+                            if([str isEqualToString:textField.text])
+                            {
+                                break;
+                            }
+                            index++;
+                        }
+                        if(index >= array.count)
+                            index = 0;
+                        [self.textPicker reloadData:array defaultIndex:index];
+                    }
+                    else
+                    {
+                        return NO;
+                    }
+                }
+            }
         }
     }
     else if(textField == self.xinxiField)
@@ -259,6 +340,24 @@
     else if([self.zhaipeishijianField isFirstResponder])
     {
         self.zhaipeishijianField.text =dateStr;
+    }
+    [self.view endEditing:YES];
+}
+
+#pragma mark - RYTextPickerViewDelegate methods
+- (void)didTextCanceledWithPicker:(RYTextPickerView *)pickerView
+{
+    [self.view endEditing:YES];
+}
+- (void)didTextConfirmed:(NSString *)textValue withPicker:(RYTextPickerView *)pickerView
+{
+    if([self.yuyueshijianField isFirstResponder])
+    {
+        self.yuyueshijianField.text = textValue;
+    }
+    else if([self.zhaipeishijianField isFirstResponder])
+    {
+        self.zhaipeishijianField.text =textValue;
     }
     [self.view endEditing:YES];
 }

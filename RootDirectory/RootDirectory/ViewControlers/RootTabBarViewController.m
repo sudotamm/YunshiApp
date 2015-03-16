@@ -40,6 +40,13 @@
         self.selectedIndex = gouwucheIndex;
 }
 
+- (void)showShouYeViewWithNotification:(NSNotification *)notification
+{
+    NSInteger shouyeIndex = 0;
+    if([self tabBarController:self shouldSelectViewController:[self.viewControllers objectAtIndex:shouyeIndex]])
+        self.selectedIndex = shouyeIndex;
+}
+
 - (void)inbasketResponseWithNotification:(NSNotification *)notification
 {
     NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GouwuConfirmView" owner:self options:nil];
@@ -86,7 +93,7 @@
     //构造分享内容
     id<ISSContent> publishContent = [ShareSDK content:content
                                        defaultContent:@""
-                                                image:[ShareSDK jpegImageWithImage:image quality:1]
+                                                image:[ShareSDK jpegImageWithImage:image quality:0.6]
                                                 title:@"ShareSDK"
                                                   url:@""
                                           description:content
@@ -153,6 +160,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userLogoutWithNotification:) name:kUserLogoutNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShareViewWithNotification:) name:kShowShareViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showQRGenerateViewWithNotification:) name:kShowQRGenerateViewNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShouYeViewWithNotification:) name:kAliPayResponseSucceedNotification object:nil];
 }
 
 - (void)dealloc

@@ -12,6 +12,7 @@
 #define kSaveOrderDownloaderKey         @"SaveOrderDownloaderKey"
 #define kUpdadteDeliverDownloaderKey    @"UpdadteDeliverDownloaderKey"
 #define kCancelOrderDownloaderKey       @"CancelOrderDownloaderKey"
+#define kShijianDownloaderKey           @"ShijianDownloaderKey"
 
 @interface GouwucheDataManager()
 
@@ -167,6 +168,58 @@
                                                                delegate:self
                                                                 purpose:kCancelOrderDownloaderKey];
 }
+
+- (void)requestPeisongshijian
+{
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kPeisongshijianUrl];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:nil
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:kShijianDownloaderKey];
+}
+
+- (NSMutableArray *)shijianArrayForString:(NSString *)shijian containShouwei:(BOOL)containShouwei
+{
+    NSDate *todayDate = [NSDate date];
+    NSDate *tomorrowDate = [NSDate dateWithTimeInterval:60*60*24 sinceDate:todayDate];
+    NSString *todayStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd" date:todayDate];
+    NSString *tomorrowStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd" date:tomorrowDate];
+    
+    //处理预约时间
+    NSMutableArray *shijianArray = [NSMutableArray array];
+    NSArray *yuyueArray = [shijian componentsSeparatedByString:@"-"];
+    @try {
+        if(yuyueArray.count == 2)
+        {
+            NSString *yuyueStart = [yuyueArray firstObject];
+            NSString *yuyueEnd = [yuyueArray lastObject];
+            NSInteger start = [[[yuyueStart componentsSeparatedByString:@":"] firstObject] integerValue];
+            NSInteger end = [[[yuyueEnd componentsSeparatedByString:@":"] firstObject] integerValue];
+            if(!containShouwei)
+            {
+//                start += 1;
+                end -= 1;
+            }
+            for(NSInteger i = start; i <= end; i++)
+            {
+                NSString *todayHour = [NSString stringWithFormat:@"%@ %@:00",todayStr,@(i)];
+                [shijianArray addObject:todayHour];
+            }
+            for(NSInteger i = start; i <= end; i++)
+            {
+                NSString *tomorrowHour = [NSString stringWithFormat:@"%@ %@:00",tomorrowStr,@(i)];
+                [shijianArray addObject:tomorrowHour];
+            }
+        }
+    }
+    @catch (NSException *exception) {
+        shijianArray = [NSMutableArray array];
+    }
+    return shijianArray;
+}
+
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
@@ -266,6 +319,41 @@
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"取消订单失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kShijianDownloaderKey])
+    {
+        //预约时间返回信息
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            
+            NSString *appointTime = [dict objectForKey:@"appointTime"];
+            NSString *regionIn = [dict objectForKey:@"regionIn"];
+            NSString *regionOut = [dict objectForKey:@"regionOut"];
+            //处理预约时间
+            self.yuyueshijianArray = [NSMutableArray arrayWithArray:[self shijianArrayForString:appointTime containShouwei:NO]];
+            //处理区内时间
+            self.quneishijianArray = [NSMutableArray arrayWithArray:[self shijianArrayForString:regionIn containShouwei:NO]];
+            //处理区外时间
+            self.quwaishijianArray = [NSMutableArray array];
+            NSArray *quwaiArray = [regionOut componentsSeparatedByString:@"/"];
+            for(NSString *quwaiStr in quwaiArray)
+            {
+                NSMutableArray *tempArray = [self shijianArrayForString:quwaiStr containShouwei:YES];
+                [self.quwaishijianArray addObjectsFromArray:tempArray];
+            }
+            [self.quwaishijianArray sortUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
+                return [obj1 compare:obj2 options:NSNumericSearch];
+            }];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kShijianResponseSucceedNotification object:nil];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"配送时间获取失败";
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }

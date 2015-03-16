@@ -133,6 +133,7 @@
 #define kShowShareViewNotification          @"ShowShareViewNotification"
 #define kShowQRGenerateViewNotification     @"ShowQRGenerateViewNotification"
 #define kAliPayResponseSucceedNotification  @"AliPayResponseSucceedNotification"
+#define kShijianResponseSucceedNotification @"ShijianResponseSucceedNotification"
 
 //ServerUrl
 #define kIpAddress          @"http://180.166.75.178:8009/"
@@ -163,6 +164,7 @@
 #define kOrderDetailUrl     @"orderDetail"
 #define kPayedCallbackUrl   @"pushPayStatus"
 #define kCancelOrderUrl     @"cancelOrder"
+#define kPeisongshijianUrl  @"dispatchTime"
 //我
 #define kAddressListUrl     @"addrList"
 #define kAddressRegionUrl   @"addrRegion"

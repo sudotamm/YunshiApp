@@ -23,6 +23,7 @@
         //初始化默认店铺
         self.currentDianpu.sName = @"宅配直通";//@"环球港店";
         self.currentDianpu.sCode = @"00";//@"01";
+        self.currentDianpu.regionId = @"宝山区";
     }
     return self;
 }

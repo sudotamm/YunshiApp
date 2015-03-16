@@ -63,6 +63,12 @@ typedef NS_ENUM(NSInteger, OrderCancelType)
 @property (nonatomic, assign) NSInteger deliverThreshold;
 //确认支付参数
 @property (nonatomic, assign) OrderPayType payType;
+//预约时间
+@property (nonatomic, strong) NSMutableArray *yuyueshijianArray;
+//宅配时间  - 区内
+@property (nonatomic, strong) NSMutableArray *quneishijianArray;
+//宅配时间  - 区外
+@property (nonatomic, strong) NSMutableArray *quwaishijianArray;
 
 + (instancetype)sharedManager;
 
@@ -100,4 +106,6 @@ typedef NS_ENUM(NSInteger, OrderCancelType)
 
 - (void)requestCancelOrderWithOrderId:(NSString *)orderId
                            cancelType:(OrderCancelType)cancelType;
+
+- (void)requestPeisongshijian;
 @end
