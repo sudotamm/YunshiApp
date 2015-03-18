@@ -20,6 +20,7 @@
 {
     self.nameLabel.text = self.taocanModel.cName;
     self.jiageLabel.text = [NSString stringWithFormat:@"￥%@",nil==self.taocanModel.cNewPrice?@"":self.taocanModel.cNewPrice];
+    self.bianmaLabel.text = self.taocanModel.cId;
     [self.iconImgView aysnLoadImageWithUrl:self.taocanModel.picURL placeHolder:@"loading_square"];
     
     CGFloat youhui = self.taocanModel.cOldPrice.floatValue - self.taocanModel.cNewPrice.floatValue;

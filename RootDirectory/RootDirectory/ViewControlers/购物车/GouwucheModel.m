@@ -10,4 +10,20 @@
 
 @implementation GouwucheModel
 
+@synthesize peisongFangshi;
+
+- (id)initWithRYDict:(NSDictionary *)dict
+{
+    if(self = [super initWithRYDict:dict])
+    {
+        if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+        {
+            peisongFangshi = kPeisongFangshiZaipei;
+        }
+        else
+            peisongFangshi = kPeisongFangshiZiti;
+    }
+    return self;
+}
+
 @end

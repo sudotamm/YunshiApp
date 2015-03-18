@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,10 +14,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="100" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="tGG-2S-N6E">
-                        <rect key="frame" x="0.0" y="73" width="100" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回馈商品名称" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="tGG-2S-N6E">
+                        <rect key="frame" x="0.0" y="70" width="100" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="wGR-hE-ogF"/>
+                            <constraint firstAttribute="height" constant="30" id="wGR-hE-ogF"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
@@ -42,7 +42,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpF-V2-MPJ">
-                        <rect key="frame" x="30" y="87" width="40" height="40"/>
+                        <rect key="frame" x="30" y="90" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="XiT-qw-3tq"/>
                             <constraint firstAttribute="width" constant="40" id="dcz-jl-phz"/>
@@ -74,11 +74,11 @@
                 <constraint firstAttribute="centerX" secondItem="9y5-ee-fdo" secondAttribute="centerX" id="QHy-rt-1fB"/>
                 <constraint firstItem="tGG-2S-N6E" firstAttribute="leading" secondItem="sDO-k3-21x" secondAttribute="leading" id="VDW-ae-w2k"/>
                 <constraint firstItem="dpB-7b-hw9" firstAttribute="leading" secondItem="sDO-k3-21x" secondAttribute="leading" constant="5" id="VU3-86-cXK"/>
-                <constraint firstItem="LpF-V2-MPJ" firstAttribute="top" secondItem="9y5-ee-fdo" secondAttribute="bottom" constant="17" id="WyK-er-HrE"/>
+                <constraint firstItem="LpF-V2-MPJ" firstAttribute="top" secondItem="9y5-ee-fdo" secondAttribute="bottom" constant="20" id="WyK-er-HrE"/>
                 <constraint firstItem="e6m-02-9fy" firstAttribute="leading" secondItem="sDO-k3-21x" secondAttribute="leading" constant="5" id="bJC-PC-BFk"/>
                 <constraint firstAttribute="bottom" secondItem="dpB-7b-hw9" secondAttribute="bottom" id="gCA-KF-xBz"/>
                 <constraint firstAttribute="trailing" secondItem="dpB-7b-hw9" secondAttribute="trailing" constant="5" id="pXP-tA-HIl"/>
-                <constraint firstItem="tGG-2S-N6E" firstAttribute="top" secondItem="9y5-ee-fdo" secondAttribute="bottom" constant="3" id="uCO-NT-EBX"/>
+                <constraint firstItem="tGG-2S-N6E" firstAttribute="top" secondItem="9y5-ee-fdo" secondAttribute="bottom" id="uCO-NT-EBX"/>
             </constraints>
             <connections>
                 <outlet property="checkButton" destination="LpF-V2-MPJ" id="inr-V0-GGL"/>

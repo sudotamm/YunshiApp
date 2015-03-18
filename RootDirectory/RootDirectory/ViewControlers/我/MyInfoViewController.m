@@ -139,7 +139,7 @@
         self.xiaofeiLabel.text = @"0元";
     }
     else {
-        self.xiaofeiLabel.text = [NSString stringWithFormat:@"有效累计消费: %@元",[ABCMemberDataManager sharedManager].loginMember.totalQtum];
+        self.xiaofeiLabel.text = [NSString stringWithFormat:@"%@元",[ABCMemberDataManager sharedManager].loginMember.totalQtum];
     }
     //姓名
     self.xingmingField.text = [ABCMemberDataManager sharedManager].loginMember.name;

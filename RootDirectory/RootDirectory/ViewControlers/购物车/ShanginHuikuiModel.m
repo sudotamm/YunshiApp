@@ -10,6 +10,8 @@
 
 @implementation ShanginHuikuiModel
 
+@synthesize peisongFangshi;
+
 - (id)initWithRYDict:(NSDictionary *)dict
 {
     if(self = [super init])
@@ -33,6 +35,12 @@
                 NSLog(@"试图添加不存在的key:%@到实例:%@中.",key,NSStringFromClass([self class]));
             }
         }
+        if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+        {
+            peisongFangshi = kPeisongFangshiZaipei;
+        }
+        else
+            peisongFangshi = kPeisongFangshiZiti;
     }
     return self;
 }

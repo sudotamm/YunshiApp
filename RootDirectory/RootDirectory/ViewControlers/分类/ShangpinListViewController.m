@@ -39,6 +39,13 @@
 {
     if(rc.isRefreshing)
     {
+        if(self.listType == kListSearch && self.searchBar.text.length == 0)
+        {
+            [[RYHUDManager sharedManager] showWithMessage:@"请输入搜索内容." customView:nil hideDelay:2.f];
+            [rc endRefreshing];
+            return;
+        }
+        
         [self callServerToGetListDataWithPage:kInitPageNumber];
     }
 }
@@ -167,7 +174,7 @@
     }
     else if(self.listType == kListBenyueqianggou)
     {
-        [self setNaviTitle:@"本月抢购"];
+        [self setNaviTitle:@"本月抢鲜"];
         [self setRightNaviItemWithTitle:nil imageName:@"fenleiqiehuan"];
         self.contentTableView.tableHeaderView = nil;
         [self callServerToGetListDataWithPage:kInitPageNumber];

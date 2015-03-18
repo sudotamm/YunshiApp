@@ -103,6 +103,7 @@
 #define kSmallImgCacheDir   @"SmallImgCacheDir"
 #define kInitPageNumber     1
 #define kPageCount          20
+
 //Notification Keys
 //view notify
 #define kShowPannelViewNotification         @"ShowPannelViewNotification"

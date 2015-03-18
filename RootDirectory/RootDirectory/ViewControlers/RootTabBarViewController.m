@@ -66,11 +66,18 @@
 
 - (void)showQRGenerateViewWithNotification:(NSNotification *)notification
 {
+    NSDictionary *dict = notification.userInfo;
+    BOOL returnHome = NO;
+    if(dict)
+    {
+        returnHome = [[dict objectForKey:@"returnHome"] boolValue];
+    }
     NSString *qrString = notification.object;
     if(qrString.length > 0)
     {
         NSArray *nibs = [[NSBundle mainBundle] loadNibNamed:@"GenerateQRCodeView" owner:self options:nil];
         GenerateQRCodeView *ghv = [nibs lastObject];
+        ghv.returnHome = returnHome;
         [ghv reloadWithQRString:qrString];
         [[RYRootBlurViewManager sharedManger] showWithBlurImage:[UIImage imageNamed:@"bg_popover"] contentView:ghv position:CGPointZero];
     }

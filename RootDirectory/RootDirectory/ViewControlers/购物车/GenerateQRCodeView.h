@@ -13,6 +13,7 @@
 @property (nonatomic, weak) IBOutlet UIImageView *qrImageView;
 @property (nonatomic, weak) IBOutlet UILabel *tip1Label;
 @property (nonatomic, weak) IBOutlet UILabel *tip2Label;
+@property (nonatomic, assign) BOOL returnHome;
 
 - (void)reloadWithQRString:(NSString *)qrString;
 

@@ -25,7 +25,8 @@
     {
         //生成付款二维码
         NSString *qrString = [NSString stringWithFormat:@"A%@",self.orderDetail.orderId];
-        [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"returnHome"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString userInfo:dict];
     }
 }
 

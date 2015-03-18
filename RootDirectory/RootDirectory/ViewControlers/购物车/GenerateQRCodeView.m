@@ -53,11 +53,19 @@
         UIImageWriteToSavedPhotosAlbum(self.qrImageView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }
     [[RYRootBlurViewManager sharedManger] hideBlurView];
+    if(self.returnHome)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAliPayResponseSucceedNotification object:nil];
+    }
 }
 
 - (IBAction)guanbiButtonClicked:(id)sender
 {
     [[RYRootBlurViewManager sharedManger] hideBlurView];
+    if(self.returnHome)
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kAliPayResponseSucceedNotification object:nil];
+    }
 }
 
 @end

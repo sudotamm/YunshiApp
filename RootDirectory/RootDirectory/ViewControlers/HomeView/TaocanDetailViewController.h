@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *jiageLabel;
 @property (nonatomic, weak) IBOutlet UILabel *youhuiLabel;
+@property (nonatomic, weak) IBOutlet UILabel *bianmaLabel;
 
 - (IBAction)buyButtonClicked:(id)sender;
 - (IBAction)jiesuanButtonClicked:(id)sender;
