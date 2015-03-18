@@ -139,6 +139,7 @@
         cell.statuLabel.hidden = YES;
         cell.erweimaButton.hidden = NO;
         [cell.erweimaButton setTitle:@"生成付款二维码" forState:UIControlStateNormal];
+        cell.orderNo.text = [NSString stringWithFormat:@"编号: %@",om.oId];
     }
     else if(self.segmentControl.selectedSegmentIndex == 1)
     {
@@ -146,6 +147,7 @@
         cell.statuLabel.hidden = YES;
         cell.erweimaButton.hidden = NO;
         [cell.erweimaButton setTitle:@"生成提货二维码" forState:UIControlStateNormal];
+        cell.orderNo.text = [NSString stringWithFormat:@"编号: %@",om.singlePickCode];
     }
     else
     {
@@ -159,8 +161,10 @@
             cell.statuLabel.text = @"已失效";
         else
             cell.statuLabel.text = @"已过期";
+        
+        cell.orderNo.text = [NSString stringWithFormat:@"编号: %@",om.oId];
     }
-    cell.orderNo.text = [NSString stringWithFormat:@"编号: %@",om.oId];
+
     if(self.segmentControl.selectedSegmentIndex+1 == kOrderTypeWeifukuan)
         cell.price.textColor = [UIColor colorWithRed:207.f/255 green:30.f/255 blue:30.f/255 alpha:1.f];
     else
@@ -227,7 +231,7 @@
                 //已付款 订单需要根据提货号进行拆分
                 NSString *pickCode = [dictTemp objectForKey:@"pickcode"];
                 NSArray *codeArray = [pickCode componentsSeparatedByString:@";"];
-                if(codeArray.count > 1)
+                if(codeArray.count > 0)
                 {
                     for(NSInteger i = 0; i < codeArray.count; i++)
                     {
@@ -246,12 +250,12 @@
                         }
                     }
                 }
-                else
-                {
-                    OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTemp];
-                    om.singlePickCode = om.pickcode;
-                    [self.orderArray addObject:om];
-                }
+//                else
+//                {
+//                    OrderModel *om = [[OrderModel alloc] initWithRYDict:dictTemp];
+//                    om.singlePickCode = om.pickcode;
+//                    [self.orderArray addObject:om];
+//                }
             }
             else
             {
