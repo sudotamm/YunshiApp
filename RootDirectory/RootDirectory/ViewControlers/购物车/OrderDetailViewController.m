@@ -48,6 +48,25 @@
                                                                 purpose:nil];
 }
 
+- (void)requestPickDetailWithUserId:(NSString *)userId
+                             orderId:(NSString *)oId
+                               sCode:(NSString *)sCode
+                             pickId:(NSString *)pickId
+{
+    [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kPickDetailUrl];
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:userId forKey:@"userId"];
+    [paramDict setObject:oId forKey:@"orderId"];
+    [paramDict setObject:sCode forKey:@"sCode"];
+    [paramDict setObject:pickId forKey:@"pickID"];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:nil];
+}
+
 - (void)reloadOrderDetail
 {
     if(self.orderDetail)
@@ -88,7 +107,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNaviTitle:@"订单详情"];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(payConfirmResponseWithNotification:) name:kPayConfirmResponseNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
     if(self.orderType == kOrderTypeWeifukuan)
@@ -96,10 +115,22 @@
     else
         self.bottomHeightConstraint.constant = 0;
     [self reloadOrderDetail];
-    [self requestOrderDetailWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
-                               orderId:self.orderId
-                                 sCode:[HomeDataManager sharedManger].currentDianpu.sCode
-                             orderType:self.orderType];
+    if(self.tidanId.length > 0)
+    {
+        [self setNaviTitle:@"提单详情"];
+        [self requestPickDetailWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                  orderId:self.orderId
+                                    sCode:[HomeDataManager sharedManger].currentDianpu.sCode
+                                   pickId:self.tidanId];
+    }
+    else
+    {
+        [self setNaviTitle:@"订单详情"];
+        [self requestOrderDetailWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                   orderId:self.orderId
+                                     sCode:[HomeDataManager sharedManger].currentDianpu.sCode
+                                 orderType:self.orderType];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

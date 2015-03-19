@@ -21,6 +21,7 @@
 
 @property (nonatomic, copy) NSString *orderId;
 @property (nonatomic, assign) OrderType orderType;
+@property (nonatomic, copy) NSString *tidanId;
 
 - (IBAction)qujiesuanButtonClicked:(id)sender;
 @end

@@ -92,6 +92,12 @@
             zongji += price*1;
         }
     }
+    if([GouwucheDataManager sharedManager].discount > 0 && [GouwucheDataManager sharedManager].discount < 100)
+    {
+        //折扣提示
+        zongji = zongji*[GouwucheDataManager sharedManager].discount/100;
+    }
+    
     if(zongji > 0)
     {
         self.xiayibuButton.enabled = YES;
@@ -192,6 +198,13 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliverResponseWithNotification:) name:kUpdateDeliverResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelOrderResponseWithNotification:) name:kCancelOrderResponseNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
+    if([GouwucheDataManager sharedManager].discount > 0 && [GouwucheDataManager sharedManager].discount < 100)
+    {
+        //折扣提示
+        NSString *discountStr = [NSString stringWithFormat:@"当前折扣为%@折", [[GouwucheDataManager sharedManager] discountStr]];
+        [[RYHUDManager sharedManager] showWithMessage:discountStr customView:nil hideDelay:2.f];
+    }
+    
     [self reloadJiesuanView];
     [self reloadZongjiPrice];
 }

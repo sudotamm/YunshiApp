@@ -32,6 +32,49 @@
     return manager;
 }
 
+- (NSString *)discountStr
+{
+    NSMutableString *finalStr = [NSMutableString string];
+    NSString *numstr = [NSString stringWithFormat:@"%@",@(self.discount)];
+    for(NSInteger i = 0; i < numstr.length; i++)
+    {
+        NSString *subNumStr = [numstr substringWithRange:NSMakeRange(i, 1)];
+        NSInteger subnum = [subNumStr integerValue];
+        switch (subnum) {
+            case 1:
+                [finalStr appendString:@"一"];
+                break;
+            case 2:
+                [finalStr appendString:@"二"];
+                break;
+            case 3:
+                [finalStr appendString:@"三"];
+                break;
+            case 4:
+                [finalStr appendString:@"四"];
+                break;
+            case 5:
+                [finalStr appendString:@"五"];
+                break;
+            case 6:
+                [finalStr appendString:@"六"];
+                break;
+            case 7:
+                [finalStr appendString:@"七"];
+                break;
+            case 8:
+                [finalStr appendString:@"八"];
+                break;
+            case 9:
+                [finalStr appendString:@"九"];
+                break;
+            default:
+                break;
+        }
+    }
+    return finalStr;
+}
+
 - (void)requestManehuikuiWithUserId:(NSString *)userId
                           mendianId:(NSString *)mendianId
                          gouwuArray:(NSMutableArray *)gouwuArray
@@ -274,6 +317,12 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            NSString *zhekouStr = [dict objectForKey:@"discount"];
+            if(zhekouStr.length > 0)
+            {
+                NSInteger zhekou = [[dict objectForKey:@"discount"] integerValue];
+                self.discount = zhekou;
+            }
             NSString *orderId = [dict objectForKey:@"ordered"];
             if(orderId.length > 0)
             {

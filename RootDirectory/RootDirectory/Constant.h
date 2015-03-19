@@ -163,6 +163,7 @@
 #define kSaveOrderUrl       @"saveOrder"
 #define kUpdateDeliverUrl   @"updateDeliverType"
 #define kOrderDetailUrl     @"orderDetail"
+#define kPickDetailUrl      @"pickDetail"
 #define kPayedCallbackUrl   @"pushPayStatus"
 #define kCancelOrderUrl     @"cancelOrder"
 #define kPeisongshijianUrl  @"dispatchTime"

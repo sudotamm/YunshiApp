@@ -61,6 +61,7 @@ typedef NS_ENUM(NSInteger, OrderCancelType)
 @property (nonatomic, strong) NSMutableArray *qingdanArray;
 @property (nonatomic, assign) NSInteger deliverFee;
 @property (nonatomic, assign) NSInteger deliverThreshold;
+@property (nonatomic, assign) NSInteger discount;   //折扣信息
 //确认支付参数
 @property (nonatomic, assign) OrderPayType payType;
 //预约时间
@@ -69,6 +70,8 @@ typedef NS_ENUM(NSInteger, OrderCancelType)
 @property (nonatomic, strong) NSMutableArray *quneishijianArray;
 //宅配时间  - 区外
 @property (nonatomic, strong) NSMutableArray *quwaishijianArray;
+
+- (NSString *)discountStr;
 
 + (instancetype)sharedManager;
 

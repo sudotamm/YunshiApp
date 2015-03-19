@@ -186,6 +186,11 @@
     OrderModel *om = [self.orderArray objectAtIndex:indexPath.row];
     odvc.hidesBottomBarWhenPushed = YES;
     odvc.orderId = om.oId;
+    if(self.segmentControl.selectedSegmentIndex == 1)
+    {
+        //已付款
+        odvc.tidanId = om.singlePickCode;
+    }
     odvc.orderType = (OrderType)(self.segmentControl.selectedSegmentIndex+1);
     [self.navigationController pushViewController:odvc animated:YES];
 }
