@@ -23,4 +23,6 @@
 @property (nonatomic, copy) NSString *levelCode;
 @property (nonatomic, copy) NSString *totalQtum;
 
+@property (nonatomic, copy) NSString *password;
+
 @end

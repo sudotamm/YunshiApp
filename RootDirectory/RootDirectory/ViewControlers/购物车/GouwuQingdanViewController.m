@@ -170,6 +170,16 @@
     }
 }
 
+- (void)showZhekouInfo
+{
+    if([GouwucheDataManager sharedManager].discount > 0 && [GouwucheDataManager sharedManager].discount < 100)
+    {
+        //折扣提示
+        NSString *discountStr = [NSString stringWithFormat:@"当前折扣为%@折", @([GouwucheDataManager sharedManager].discount)];
+        [[RYHUDManager sharedManager] showWithMessage:discountStr customView:nil hideDelay:4.f];
+    }
+}
+
 #pragma mark - Notification methods
 - (void)updateDeliverResponseWithNotification:(NSNotification *)notification
 {
@@ -198,12 +208,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliverResponseWithNotification:) name:kUpdateDeliverResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelOrderResponseWithNotification:) name:kCancelOrderResponseNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
-    if([GouwucheDataManager sharedManager].discount > 0 && [GouwucheDataManager sharedManager].discount < 100)
-    {
-        //折扣提示
-        NSString *discountStr = [NSString stringWithFormat:@"当前折扣为%@折", [[GouwucheDataManager sharedManager] discountStr]];
-        [[RYHUDManager sharedManager] showWithMessage:discountStr customView:nil hideDelay:2.f];
-    }
+
+    [self performSelector:@selector(showZhekouInfo) withObject:nil afterDelay:0.3f];
     
     [self reloadJiesuanView];
     [self reloadZongjiPrice];

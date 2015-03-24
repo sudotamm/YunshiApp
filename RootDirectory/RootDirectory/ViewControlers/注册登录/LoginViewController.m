@@ -39,6 +39,7 @@
         NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
         [paramDict setObject:self.phoneField.text forKey:@"phone"];
         [paramDict setObject:self.passwordField.text forKey:@"pwd"];
+        [ABCMemberDataManager sharedManager].loginMember.password = self.passwordField.text;
         [[ABCMemberDataManager sharedManager] requestLoginWithDict:paramDict];
     }
 }

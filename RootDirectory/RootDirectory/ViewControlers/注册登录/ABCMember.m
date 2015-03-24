@@ -12,6 +12,7 @@
 
 @synthesize code,msg,userId,name,phone,gender,email,addr,birthday;
 @synthesize levelCode,totalQtum;
+@synthesize password;
 
 
 - (id)init
@@ -37,6 +38,7 @@
     [aCoder encodeObject:birthday forKey:@"birthday"];
     [aCoder encodeObject:levelCode forKey:@"levelCode"];
     [aCoder encodeObject:totalQtum forKey:@"totalQtum"];
+    [aCoder encodeObject:password forKey:@"password"];
     
     
 }
@@ -55,7 +57,7 @@
         self.birthday = [aDecoder decodeObjectForKey:@"birthday"];
         self.levelCode = [aDecoder decodeObjectForKey:@"levelCode"];
         self.totalQtum = [aDecoder decodeObjectForKey:@"totalQtum"];
-        
+        self.password = [aDecoder decodeObjectForKey:@"password"];
     }
     return self;
 }

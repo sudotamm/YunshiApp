@@ -14,6 +14,7 @@
 #define kVerifyCodeDownloaderKey    @"VerifyCodeDownloaderKey"
 #define kResetPwdDownloaderKey      @"ResetPwdDownloaderKey"
 #define kUpdateInfoDownloaderKey    @"UpdateInfoDownloaderKey"
+#define kUserInfoDownloaderKey      @"UserInfoDownloaderKey"
 
 @interface ABCMemberDataManager()
 
@@ -118,6 +119,16 @@
                                                                 purpose:kLoginDownlaoderKey];
 }
 
+- (void)requestUserInfoWithDict:(NSMutableDictionary *)paramDict
+{
+    NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kLoginUrl];
+    [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url
+                                                             postParams:paramDict
+                                                            contentType:@"application/json"
+                                                               delegate:self
+                                                                purpose:kUserInfoDownloaderKey];
+}
+
 - (void)requestResetPasswordWithDict:(NSMutableDictionary *)paramDict
 {
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"重置中..."];
@@ -190,8 +201,10 @@
         //登录返回
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
+            NSString *password = [self.loginMember.password copy];
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             self.loginMember = [[ABCMember alloc] initWithRYDict:dict];
+            self.loginMember.password = password;
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginResponseNotification object:nil];
         }
         else
@@ -199,6 +212,24 @@
             NSString *message = [dict objectForKey:kMessageKey];
             if(message.length == 0)
                 message = @"登录失败";
+            [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
+        }
+    }
+    else if([downloader.purpose isEqualToString:kUserInfoDownloaderKey])
+    {
+        //用户信息返回
+        if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
+        {
+            NSString *password = [self.loginMember.password copy];
+            self.loginMember = [[ABCMember alloc] initWithRYDict:dict];
+            self.loginMember.password = password;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUserInfoResponseNotification object:nil];
+        }
+        else
+        {
+            NSString *message = [dict objectForKey:kMessageKey];
+            if(message.length == 0)
+                message = @"用户信息获取失败";
             [[RYHUDManager sharedManager] showWithMessage:message customView:nil hideDelay:2.f];
         }
     }

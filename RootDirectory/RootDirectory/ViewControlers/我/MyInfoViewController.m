@@ -108,16 +108,8 @@
                                                                 purpose:@"更改密码"];
 }
 
-#pragma mark - UIViewController methods
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    [self setNaviTitle:@"我的信息"];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
+- (void)reloadUserInfo
+{
     //会员等级
     if ([[ABCMemberDataManager sharedManager].loginMember.levelCode isEqualToString:@"1"]) {
         self.levelLabel.text = @"银卡会员";
@@ -154,6 +146,31 @@
     self.dizhiField.text = [ABCMemberDataManager sharedManager].loginMember.addr;
     //生日 - yyyy-MM-dd
     self.shengriField.text = [ABCMemberDataManager sharedManager].loginMember.birthday;
+}
+
+#pragma mark - Notification methods
+- (void)userInfoResponseWithNotification:(NSNotification *)notification
+{
+    [self reloadUserInfo];
+}
+
+#pragma mark - UIViewController methods
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+    
+    [self setNaviTitle:@"我的信息"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userInfoResponseWithNotification:) name:kUserInfoResponseNotification object:nil];
+    
+    [self userInfoResponseWithNotification:nil];
+    
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.userId forKey:@"phone"];
+    [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.password forKey:@"pwd"];
+    [[ABCMemberDataManager sharedManager] requestUserInfoWithDict:paramDict];
 }
 
 - (void)dealloc

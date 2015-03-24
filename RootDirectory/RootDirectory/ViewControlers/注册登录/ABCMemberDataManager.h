@@ -23,6 +23,7 @@
 - (void)requestVerifyCodeWithDict:(NSMutableDictionary *)paramDict;
 - (void)requestRegisterwithDict:(NSMutableDictionary *)paramDict userId:(NSString *)userId pwd:(NSString *)pwd;
 - (void)requestLoginWithDict:(NSMutableDictionary *)paramDict;
+- (void)requestUserInfoWithDict:(NSMutableDictionary *)paramDict;
 - (void)requestResetPasswordWithDict:(NSMutableDictionary *)paramDict;
 - (void)requestUpdateUserInfoWithDict:(NSMutableDictionary *)paramDict;
 @end

@@ -111,6 +111,7 @@
 #define kVerifyCodeResonseNotification      @"VerifyCodeResonseNotification"
 #define kRegisterResponseNoitification      @"RegisterResponseNoitification"
 #define kLoginResponseNotification          @"LoginResponseNotification"
+#define kUserInfoResponseNotification       @"UserInfoResponseNotification"
 #define kUpdateInfoResponseNotification     @"UpdateInfoResponseNotification"
 #define kDianpuListResponseNotification     @"DianpuListResponseNotification"
 #define kShowLoginViewNotification          @"ShowLoginViewNotification"
