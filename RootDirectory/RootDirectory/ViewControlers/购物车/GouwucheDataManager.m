@@ -181,7 +181,7 @@
         else
         {
             ShanginHuikuiModel *shm = (ShanginHuikuiModel *)qingdanModel;
-            [dictTemp setObject:shm.gName forKey:@"gId"];
+            [dictTemp setObject:shm.gId forKey:@"gId"];
             [dictTemp setObject:[NSString stringWithFormat:@"%@",@(shm.peisongFangshi+1)] forKey:@"deliverType"];
             [dictTemp setObject:[NSString stringWithFormat:@"%@",@(kGouwucheXiadannShangpinHuikui)] forKey:@"valveType"];
         }
@@ -346,6 +346,12 @@
         {
             [[RYHUDManager sharedManager] stoppedNetWorkActivity];
             [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateDeliverResponseNotification object:nil];
+        }
+        else if([[dict objectForKey:kCodeKey] integerValue] == 2)
+        {
+            //订单过期
+            [[RYHUDManager sharedManager] showWithMessage:@"订单操作超时，请重新下单。" customView:nil hideDelay:3.f];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kUpdateDeliverTimeoutNotification object:nil];
         }
         else
         {

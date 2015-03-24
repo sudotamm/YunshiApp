@@ -129,6 +129,7 @@
 #define kAddressEditResponseNotification    @"AddressEditResponseNotification"
 #define kAddressChosenNotification          @"AddressChosenNotification"
 #define kUpdateDeliverResponseNotification  @"UpdateDeliverResponseNotification"
+#define kUpdateDeliverTimeoutNotification   @"UpdateDeliverTimeoutNotification"
 #define kCancelOrderResponseNotification    @"CancelOrderResponseNotification"
 #define kPayConfirmResponseNotification     @"PayConfirmResponseNotification"
 #define kDelCollectionResponseNotification  @"DelCollectionResponseNotification"
@@ -136,6 +137,7 @@
 #define kShowQRGenerateViewNotification     @"ShowQRGenerateViewNotification"
 #define kAliPayResponseSucceedNotification  @"AliPayResponseSucceedNotification"
 #define kShijianResponseSucceedNotification @"ShijianResponseSucceedNotification"
+#define kShowShouyeViewNotification         @"ShowShouyeViewNotification"
 
 //ServerUrl
 #define kIpAddress          @"http://180.166.75.178:8009/"

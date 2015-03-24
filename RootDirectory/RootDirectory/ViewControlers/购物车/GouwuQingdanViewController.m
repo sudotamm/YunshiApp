@@ -187,6 +187,12 @@
     [self performSegueWithIdentifier:@"QingdanListToOrderDetail" sender:nil];
 }
 
+- (void)updateDeliverTimeoutWithNotification:(NSNotification *)notification
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowShouyeViewNotification object:nil];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
 - (void)cancelOrderResponseWithNotification:(NSNotification *)notification
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -207,6 +213,7 @@
     [self setLeftNaviItemWithTitle:@"取消" imageName:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliverResponseWithNotification:) name:kUpdateDeliverResponseNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelOrderResponseWithNotification:) name:kCancelOrderResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDeliverTimeoutWithNotification:) name:kUpdateDeliverTimeoutNotification object:nil];
     self.contentTableView.tableFooterView = [UIView new];
 
     [self performSelector:@selector(showZhekouInfo) withObject:nil afterDelay:0.3f];

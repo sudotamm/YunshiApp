@@ -103,6 +103,11 @@
 }
 
 #pragma mark - UIViewController methods
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(delayBackToShouye) object:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -469,6 +474,12 @@
 }
 
 #pragma mark - RYDownloaderDelegate methods
+- (void)delayBackToShouye
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowShouyeViewNotification object:nil];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+}
+
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -494,6 +505,12 @@
             self.peisongCount++;
         
         [self reloadOrderDetail];
+    }
+    else if([[dict objectForKey:kCodeKey] integerValue] == 2)
+    {
+        //订单过期
+        [[RYHUDManager sharedManager] showWithMessage:@"订单操作超时，请重新下单。" customView:nil hideDelay:3.f];
+        [self performSelector:@selector(delayBackToShouye) withObject:nil afterDelay:3.f];
     }
     else
     {
