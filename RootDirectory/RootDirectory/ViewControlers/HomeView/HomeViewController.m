@@ -128,7 +128,8 @@
 
 - (void)dianpuChangeWithNoitfication:(NSNotification *)notification
 {
-    [self.dianpuView.dianpuLabel addAnimationWithType:kCATransitionMoveIn subtype:kCATransitionFromTop];
+    if(notification)
+        [self.dianpuView.dianpuLabel addAnimationWithType:kCATransitionMoveIn subtype:kCATransitionFromTop];
     self.dianpuView.dianpuLabel.text = [HomeDataManager sharedManger].currentDianpu.sName;
 }
 
