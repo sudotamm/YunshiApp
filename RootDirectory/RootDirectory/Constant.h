@@ -140,7 +140,13 @@
 #define kShowShouyeViewNotification         @"ShowShouyeViewNotification"
 
 //ServerUrl
-#define kIpAddress          @"http://180.166.75.178:8009/"
+/*
+ 这个是正式运营的的server 大家出下个版本时换上
+ 平时开发时 别用！！！
+ http://61.151.247.182:8009/
+ */
+
+#define kIpAddress          @"http://61.151.247.182:8009/"//@"http://180.166.75.178:8009/"
 #define kServerAddress      [kIpAddress stringByAppendingString:@"api/"]
 //注册登录
 #define kLoginUrl           @"login"

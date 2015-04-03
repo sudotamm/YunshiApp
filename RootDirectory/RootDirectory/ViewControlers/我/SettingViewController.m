@@ -34,7 +34,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,10 +60,10 @@
     else if (indexPath.row==1) {
         cell.textLabel.text = @"会员章程";
     }
+//    else if (indexPath.row==2) {
+//        cell.textLabel.text = @"获取最新版本";
+//    }
     else if (indexPath.row==2) {
-        cell.textLabel.text = @"获取最新版本";
-    }
-    else if (indexPath.row==3) {
         cell.textLabel.text = @"关于";
     }
     
@@ -100,6 +100,7 @@
             [self.navigationController pushViewController:pbvc animated:YES];
         }
             break;
+            /*
         case 2:
         {
             NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
@@ -114,7 +115,8 @@
                                                                         purpose:@"获取版本更新"];
         }
             break;
-        case 3:
+             */
+        case 2:
         {
             if(tableView.tableFooterView == self.footerView)
             {
