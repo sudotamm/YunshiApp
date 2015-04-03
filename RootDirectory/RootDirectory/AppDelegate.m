@@ -87,6 +87,16 @@
     
 }
 
+- (void)requestDefaultDianpu
+{
+    NSString *userId = [ABCMemberDataManager sharedManager].loginMember.userId;
+    if(nil == userId)
+        userId = @"";
+    NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
+    [paramDict setObject:userId forKey:@"userId"];
+    [[HomeDataManager sharedManger] requestDefaultDianpuWithDict:paramDict];
+}
+
 
 - (void)dealloc
 {
@@ -101,6 +111,7 @@
     [self registerShareSDK];
     self.window.tintColor = kMainProjColor;
     [[VersionCheckManager sharedManager] checkVersion];
+    [self requestDefaultDianpu];
     return YES;
 }
 

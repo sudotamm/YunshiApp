@@ -16,6 +16,7 @@
 
 + (instancetype)sharedManger;
 
+- (void)requestDefaultDianpuWithDict:(NSMutableDictionary *)paramDict;
 - (void)requestDianpuListWithDict:(NSMutableDictionary *)paramDict;
 
 @end
