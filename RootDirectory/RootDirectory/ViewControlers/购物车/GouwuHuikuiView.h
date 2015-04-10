@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 
 - (IBAction)quedingButtonClicked:(id)sender;
+- (IBAction)quxiaoButtonClicked:(id)sender;
 - (void)reloadData;
 
 @end

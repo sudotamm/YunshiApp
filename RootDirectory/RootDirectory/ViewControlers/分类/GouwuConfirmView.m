@@ -57,7 +57,7 @@
     if([FenleiDataManager sharedManager].inbasketNum > 0)
     {
         //购物车已有_,是否添加
-        self.tipLabel.text = [NSString stringWithFormat:@"购物车已有 %@ ,是否添加",@([FenleiDataManager sharedManager].inbasketNum)];
+        self.tipLabel.text = [NSString stringWithFormat:@"购物车已有 %@ ,是否覆盖",@([FenleiDataManager sharedManager].inbasketNum)];
     }
     else
     {

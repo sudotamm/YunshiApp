@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -3500,7 +3500,7 @@
                                                 <constraint firstItem="DgU-7B-ByD" firstAttribute="leading" secondItem="KQ6-mN-QeA" secondAttribute="leading" constant="10" id="xcp-Mm-ghc"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEY-AS-hzM">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEY-AS-hzM">
                                             <rect key="frame" x="0.0" y="60" width="375" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人姓名：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjK-NS-3zl">
@@ -3531,7 +3531,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="hEV-Ta-rUN" secondAttribute="trailing" constant="10" id="ziI-gj-59n"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SdC-iG-AOR">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SdC-iG-AOR">
                                             <rect key="frame" x="0.0" y="90" width="375" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="联系方式：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3WY-n7-XoE">
@@ -3562,7 +3562,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Gmo-H0-U1S" secondAttribute="trailing" constant="10" id="iag-7h-Cgg"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEy-QZ-Pbf">
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mEy-QZ-Pbf">
                                             <rect key="frame" x="0.0" y="120" width="375" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cUe-ue-wIQ">
@@ -3806,12 +3806,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addressHConstraint" destination="oSZ-oK-Xfs" id="pcf-bf-DlI"/>
                         <outlet property="bottomHeightConstraint" destination="Ao1-kB-KPh" id="4dr-98-fkF"/>
                         <outlet property="contentTableView" destination="khd-aJ-tmo" id="pX9-gg-bee"/>
+                        <outlet property="dingdanhaoHConstraint" destination="lBP-UB-E5D" id="k9A-6Z-QD1"/>
                         <outlet property="dingdanhaoLabel" destination="0NW-G6-X0b" id="qav-hj-c6D"/>
+                        <outlet property="headerView" destination="LTt-3F-mbW" id="Eid-81-drr"/>
+                        <outlet property="huiyuanhaoHConstraint" destination="euG-1t-E3O" id="CG2-2k-hwZ"/>
                         <outlet property="huiyuanhaoLabel" destination="7LS-jO-pSR" id="l4q-dV-Q9X"/>
                         <outlet property="lianxifangshiLabel" destination="Gmo-H0-U1S" id="E85-3O-luu"/>
+                        <outlet property="phoneHConstraint" destination="ItS-UW-V6d" id="ZtM-dk-e2f"/>
                         <outlet property="shouhuodizhiLabel" destination="18g-1A-mXE" id="fFa-mZ-Rug"/>
+                        <outlet property="xiangqingHConstraitn" destination="ej8-W1-YK1" id="oZ2-dO-utl"/>
+                        <outlet property="xingmingHConstraint" destination="imc-6E-kAF" id="HXv-bq-btJ"/>
                         <outlet property="xingmingLabel" destination="hEV-Ta-rUN" id="1jH-UN-0h9"/>
                         <outlet property="zongjiLabel" destination="Z9l-xA-g8l" id="7E0-88-uRb"/>
                         <segue destination="ERC-tl-ulp" kind="show" identifier="OrderDetailToPayConfirm" id="rH6-JG-PcI"/>
@@ -4311,7 +4318,7 @@
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tmp4" translatesAutoresizingMaskIntoConstraints="NO" id="sKh-ag-tGg" userLabel="cuyiImgView" customClass="CCRYAsynImageView">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-Q9-2Dv" userLabel="cuyiButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSw-Q9-2Dv" userLabel="cuyiButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

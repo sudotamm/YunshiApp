@@ -79,6 +79,25 @@
         self.shouhuodizhiLabel.text = self.orderDetail.addr;
         self.zongjiLabel.text = [NSString stringWithFormat:@"￥%@",self.orderDetail.price];
         [self.contentTableView reloadData];
+        
+        if(self.orderDetail.name.length == 0)
+            self.xingmingHConstraint.constant = 0;
+        else
+            self.xingmingHConstraint.constant = 30.f;
+        if(self.orderDetail.zptel.length == 0)
+            self.phoneHConstraint.constant = 0;
+        else
+            self.phoneHConstraint.constant = 30.f;
+        if(self.orderDetail.addr.length == 0)
+            self.addressHConstraint.constant = 0;
+        else
+            self.addressHConstraint.constant = 30.f;
+        
+        CGRect rect = self.headerView.frame;
+        rect.size.height = self.dingdanhaoHConstraint.constant+self.huiyuanhaoHConstraint.constant+self.xingmingHConstraint.constant+self.phoneHConstraint.constant+self.addressHConstraint.constant+self.xiangqingHConstraitn.constant;
+        self.headerView.frame = rect;
+        
+        self.contentTableView.tableHeaderView = self.headerView;
     }
     else
     {

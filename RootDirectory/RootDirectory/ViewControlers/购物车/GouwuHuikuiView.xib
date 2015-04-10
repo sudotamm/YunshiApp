@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -42,7 +42,7 @@
                     <rect key="frame" x="10" y="225" width="230" height="30"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aea-2a-JKm">
-                            <rect key="frame" x="70" y="0.0" width="90" height="30"/>
+                            <rect key="frame" x="130" y="0.0" width="90" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="90" id="Roe-kL-jXp"/>
                             </constraints>
@@ -55,13 +55,30 @@
                                 <action selector="quedingButtonClicked:" destination="nMU-Lr-Mi8" eventType="touchUpInside" id="Z99-6k-KOt"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q6z-cf-A5y">
+                            <rect key="frame" x="10" y="0.0" width="90" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="90" id="I0y-7F-0Dy"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="取消" backgroundImage="btn_red">
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="disabled" backgroundImage="btn_red"/>
+                            <connections>
+                                <action selector="quxiaoButtonClicked:" destination="nMU-Lr-Mi8" eventType="touchUpInside" id="yvI-BB-v5K"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="q6z-cf-A5y" firstAttribute="top" secondItem="rw7-AX-QCX" secondAttribute="top" id="4j5-y6-K4G"/>
                         <constraint firstAttribute="height" constant="30" id="6A3-fQ-ph6"/>
                         <constraint firstItem="aea-2a-JKm" firstAttribute="top" secondItem="rw7-AX-QCX" secondAttribute="top" id="EDc-4p-sCu"/>
                         <constraint firstAttribute="bottom" secondItem="aea-2a-JKm" secondAttribute="bottom" id="HAw-7R-JbZ"/>
-                        <constraint firstAttribute="centerX" secondItem="aea-2a-JKm" secondAttribute="centerX" id="mhB-Iw-9Oh"/>
+                        <constraint firstAttribute="trailing" secondItem="aea-2a-JKm" secondAttribute="trailing" constant="10" id="U8I-0f-RHJ"/>
+                        <constraint firstItem="q6z-cf-A5y" firstAttribute="leading" secondItem="rw7-AX-QCX" secondAttribute="leading" constant="10" id="ebr-eo-gLk"/>
+                        <constraint firstAttribute="bottom" secondItem="q6z-cf-A5y" secondAttribute="bottom" id="nu5-Rs-ItT"/>
                     </constraints>
                 </view>
             </subviews>

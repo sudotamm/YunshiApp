@@ -78,7 +78,7 @@
         if([qingdanModel isKindOfClass:[GouwucheModel class]])
         {
             GouwucheModel *gm = (GouwucheModel *)qingdanModel;
-            if(gm.peisongFangshi != kPeisongFangshiZiti)
+            if(gm.peisongFangshi == kPeisongFangshiZaipei)
                 isAllZiti = NO;
             price = [gm.price floatValue];
             zongji += price*[gm.num integerValue];
@@ -86,7 +86,7 @@
         else
         {
             ShanginHuikuiModel *shm = (ShanginHuikuiModel *)qingdanModel;
-            if(shm.peisongFangshi != kPeisongFangshiZiti)
+            if(shm.peisongFangshi == kPeisongFangshiZaipei)
                 isAllZiti = NO;
             price = [shm.gnewPrice floatValue];
             zongji += price*1;

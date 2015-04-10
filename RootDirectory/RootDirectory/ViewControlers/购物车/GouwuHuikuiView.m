@@ -19,6 +19,15 @@
     [self.collectionView reloadData];
 }
 
+- (IBAction)quxiaoButtonClicked:(id)sender
+{
+    [[RYRootBlurViewManager sharedManger] hideBlurView];
+    [[GouwucheDataManager sharedManager] requestSaveOrderWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
+                                                          mendianId:[HomeDataManager sharedManger].currentDianpu.sCode
+                                                         gouwuArray:[GouwucheDataManager sharedManager].selctedGouwuArray
+                                                        fankuiArray:[NSMutableArray array]];
+}
+
 - (IBAction)quedingButtonClicked:(id)sender
 {
     [[RYRootBlurViewManager sharedManger] hideBlurView];
