@@ -176,7 +176,11 @@
     {
         //折扣提示
         NSString *discountStr = [NSString stringWithFormat:@"当前折扣为%@折", @([GouwucheDataManager sharedManager].discount)];
+        /*
         [[RYHUDManager sharedManager] showWithMessage:discountStr customView:nil hideDelay:4.f];
+        */
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"提醒" message:discountStr delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [av show];
     }
 }
 
