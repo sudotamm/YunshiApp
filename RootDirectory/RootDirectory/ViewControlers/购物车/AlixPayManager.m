@@ -146,8 +146,8 @@
     order.partner = partner;
     order.seller = seller;
     order.tradeNO = self.payedOrderDetail.orderId; //订单ID（由商家自行制定）
-    order.productName = @"食理洋嘗"; //商品标题
-    order.productDescription = @"谢谢光临食理洋嘗"; //商品描述
+    order.productName = @"食理洋尝"; //商品标题
+    order.productDescription = @"谢谢光临食理洋尝"; //商品描述
     order.amount = /*@"0.01";*/[NSString stringWithFormat:@"%.2f",[self.payedOrderDetail.price floatValue]]; //商品价格 测试时写死
     order.notifyURL =  AlipayNotifyUrl; //回调URL
 

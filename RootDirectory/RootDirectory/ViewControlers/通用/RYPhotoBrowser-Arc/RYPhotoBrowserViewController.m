@@ -94,7 +94,7 @@
             NSMutableDictionary *shareDict = [NSMutableDictionary dictionary];
             UIImage *shareImage = cell.detailImageView.image;
             [shareDict setObject:shareImage forKey:@"image"];
-            [shareDict setObject:@"分享自食理洋嘗" forKey:@"content"];
+            [shareDict setObject:@"分享自食理洋尝" forKey:@"content"];
             [[NSNotificationCenter defaultCenter] postNotificationName:kShowShareViewNotification object:shareDict];
         }
     }

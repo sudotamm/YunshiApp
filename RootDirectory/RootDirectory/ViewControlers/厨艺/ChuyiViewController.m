@@ -20,6 +20,9 @@
 
 @synthesize tv,picker,dateBtn,pickerView;
 @synthesize trainingTime,page,trainingArray;
+@synthesize shareImage;
+
+
 
 -(void)getTrainingList
 {
@@ -42,12 +45,16 @@
 }
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     
     [self setNaviTitle:@"厨艺课程"];
+//    [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
+    
+    
     self.tv.tableFooterView = [UIView new];
 //    NSTimeZone *zone = [NSTimeZone systemTimeZone];
 //    NSInteger interval = [zone secondsFromGMTForDate:[NSDate date]];
@@ -55,7 +62,8 @@
 //    [self.picker setMinimumDate:localeDate];
     
     [self.picker setMinimumDate:[NSDate date]];
-    
+    [self.picker setDate:[NSDate dateWithTimeIntervalSinceNow:24*60*60]];
+
     
     // 全部时间
     self.trainingTime = @"";
@@ -221,6 +229,9 @@
     iconImgView.layer.borderWidth = 1.f;
     iconImgView.cacheDir = kSmallImgCacheDir;
     [iconImgView aysnLoadImageWithUrl:bean.picURL placeHolder:@"loading_square"];
+    if (iconImgView.image!=nil) {
+        self.shareImage = iconImgView.image;
+    }
     
     
     return cell;
@@ -282,6 +293,7 @@
             
             if ([self.page isEqualToString:@"1"]) {
                 [self.trainingArray removeAllObjects];
+                [self.tv reloadData];
             }
             
             self.page = [NSString stringWithFormat:@"%@",[dict objectForKey:@"page"]];

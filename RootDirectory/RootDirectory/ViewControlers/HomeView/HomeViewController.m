@@ -114,6 +114,7 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:kShowLoginViewNotification object:nil];
         return;
     }
+    
     ChuyiViewController* vc = [[ChuyiViewController alloc] initWithNibName:@"ChuyiViewController" bundle:nil];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

@@ -21,7 +21,7 @@
 @property (nonatomic,copy) NSString* trainingTime;
 @property (nonatomic,copy) NSString* page;
 @property (nonatomic,strong) NSMutableArray* trainingArray;
-
+@property (nonatomic,strong) UIImage* shareImage;
 
 
 
