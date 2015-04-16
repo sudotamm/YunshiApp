@@ -84,9 +84,47 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)datePick:(id)sender
-{
+//-(IBAction)datePick:(id)sender
+//{
+//
+//    NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | kCFCalendarUnitHour | kCFCalendarUnitMinute;
+//    NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.picker.date];
+//    
+//    NSInteger year = [components year];
+//    NSInteger month = [components month];
+//    NSInteger day = [components day];
+//    //    NSInteger hour = [components hour];
+//    //    NSInteger min = [components minute];
+//    
+//    
+//    NSString* tmpDate = [NSString stringWithFormat:@"%d-",year];
+//    
+//    if (month<10) {
+//        tmpDate = [NSString stringWithFormat:@"%@0%d-",tmpDate,month];
+//    }
+//    else {
+//        tmpDate = [NSString stringWithFormat:@"%@%d-",tmpDate,month];
+//    }
+//    
+//    if (day<10) {
+//        tmpDate = [NSString stringWithFormat:@"%@0%d",tmpDate,day];
+//    }
+//    else {
+//        tmpDate = [NSString stringWithFormat:@"%@%d",tmpDate,day];
+//    }
+//    
+//    
+//    [self.dateBtn setTitle:tmpDate forState:UIControlStateNormal];
+//    
+//    self.trainingTime = tmpDate;
+//    self.page = @"1";
+//    [self getTrainingList];
+//}
 
+-(IBAction)dateClick:(id)sender
+{
+    self.pickerView.hidden = YES;
+    
     NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | kCFCalendarUnitHour | kCFCalendarUnitMinute;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:self.picker.date];
     
@@ -121,36 +159,20 @@
     [self getTrainingList];
 }
 
--(IBAction)dateClick:(id)sender
+-(IBAction)allDateClick:(id)sender
 {
-    CGRect frame = self.tv.frame;
+    self.pickerView.hidden = YES;
     
-    // 变选时间
-    if (self.picker.hidden == YES) {
-        
-        self.picker.hidden = NO;
-        
-        frame.origin.y = self.picker.frame.origin.y + self.picker.frame.size.height;
-        frame.size.height -= self.picker.frame.size.height;
-        
-    }
-    // 变全部时间
-    else {
-        
-        self.picker.hidden = YES;
-        [self.dateBtn setTitle:@"全部时间" forState:UIControlStateNormal];
-        
-        frame.origin.y = self.picker.frame.origin.y;
-        frame.size.height += self.picker.frame.size.height;
-        
-        self.trainingTime = @"";
-        self.page = @"1";
-        [self getTrainingList];
-        
-    }
+    [self.dateBtn setTitle:@"" forState:UIControlStateNormal];
     
-    self.tv.frame = frame;
-    
+    self.trainingTime = @"全部时间";
+    self.page = @"1";
+    [self getTrainingList];
+}
+
+-(IBAction)showDateView:(id)sender
+{
+    self.pickerView.hidden = NO;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

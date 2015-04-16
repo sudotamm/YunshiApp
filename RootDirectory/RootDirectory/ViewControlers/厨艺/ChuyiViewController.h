@@ -25,8 +25,11 @@
 
 
 
--(IBAction)datePick:(id)sender;
+
+//-(IBAction)datePick:(id)sender;
 -(IBAction)dateClick:(id)sender;
+-(IBAction)allDateClick:(id)sender;
+-(IBAction)showDateView:(id)sender;
 -(IBAction)yueClick:(id)sender;
 
 
