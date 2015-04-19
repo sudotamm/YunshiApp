@@ -20,7 +20,7 @@
 
 @synthesize tv,picker,dateBtn,pickerView;
 @synthesize trainingTime,page,trainingArray;
-@synthesize shareImage;
+@synthesize shareImage,tId;
 
 
 
@@ -52,6 +52,7 @@
     
     
     [self setNaviTitle:@"厨艺课程"];
+    self.tId = @"";
 //    [self setRightNaviItemWithTitle:nil imageName:@"ico-share"];
     
     
@@ -244,6 +245,7 @@
         
     }
     
+    
     RYAsynImageView* iconImgView = [[RYAsynImageView alloc] init];
     [cell.contentView addSubview:iconImgView];
     iconImgView.frame = CGRectMake(20, 20, 100, 100);
@@ -275,6 +277,7 @@
         NSMutableDictionary *paramDict = [NSMutableDictionary dictionary];
         [paramDict setObject:[ABCMemberDataManager sharedManager].loginMember.phone forKey:@"userId"];
         [paramDict setObject:bean.tId forKey:@"tId"];
+        self.tId = [NSString stringWithFormat:@"%@",bean.tId];
         
         [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"报名申请中..."];
         NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,@"applyTraining"];
@@ -350,6 +353,12 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             [[RYHUDManager sharedManager] showWithMessage:@"报名成功" customView:nil hideDelay:2.f];
+            
+            
+            //生成课程预约二维码
+            NSString *qrString = [NSString stringWithFormat:@"%@/%@/%@",[HomeDataManager sharedManger].currentDianpu.sCode,[ABCMemberDataManager sharedManager].loginMember.userId,self.tId];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
+            
         }
         else
         {

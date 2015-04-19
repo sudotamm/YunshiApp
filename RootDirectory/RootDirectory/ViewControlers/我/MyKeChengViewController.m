@@ -71,6 +71,7 @@
 {
     // 先不做分页
     return [self.trainingArray count];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -91,6 +92,11 @@
     }
     else {
         cell.person.text = [NSString stringWithFormat:@"可预约的人数: %@",bean.personNum];
+        
+        cell.erweimaButton.hidden = NO;
+        cell.erweimaButton.tag = indexPath.row;
+        [cell.erweimaButton addTarget:self action:@selector(didGenerateQRCodeWithCell:) forControlEvents:UIControlEventTouchDown];
+        
         
         if (![bean.status isEqualToString:@"1"]) {
             cell.sendBtn.hidden = YES;
@@ -129,6 +135,18 @@
     KeChengDetailViewController* vc = [[KeChengDetailViewController alloc] initWithNibName:@"KeChengDetailViewController" bundle:nil];
     vc.bean = (TrainingBean*)[self.trainingArray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - OrderCellDelegate methods
+- (IBAction)didGenerateQRCodeWithCell:(id)sender
+{
+    UIButton* btn = (UIButton*)sender;
+    
+    TrainingBean* bean = (TrainingBean*)[self.trainingArray objectAtIndex:btn.tag];
+    
+    //生成课程预约二维码
+    NSString *qrString = [NSString stringWithFormat:@"%@/%@/%@",[HomeDataManager sharedManger].currentDianpu.sCode,[ABCMemberDataManager sharedManager].loginMember.userId,bean.tId];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];
 }
 
 

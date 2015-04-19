@@ -22,7 +22,7 @@
 @property (nonatomic,copy) NSString* page;
 @property (nonatomic,strong) NSMutableArray* trainingArray;
 @property (nonatomic,strong) UIImage* shareImage;
-
+@property (nonatomic,copy) NSString* tId;
 
 
 

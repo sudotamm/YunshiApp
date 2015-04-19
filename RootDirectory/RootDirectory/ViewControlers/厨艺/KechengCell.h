@@ -16,7 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel* datetime;
 @property (strong, nonatomic) IBOutlet UILabel* person;
 @property (strong, nonatomic) IBOutlet UIButton *greyBtn;
-
+@property (nonatomic, weak) IBOutlet UIButton *erweimaButton;
 
 
 @end
