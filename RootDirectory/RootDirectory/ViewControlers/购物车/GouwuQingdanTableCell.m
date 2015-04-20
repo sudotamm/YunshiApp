@@ -103,7 +103,7 @@
         self.yuyuezitiButton.enabled = YES;
     }
     //内测完之后，在环球港点开店前，只有宅配。
-    if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+    if([[HomeDataManager sharedManger].currentDianpu.sType isEqualToString:@"0"])
     {
         self.zitiButton.hidden = YES;
         self.yuyuezitiButton.hidden = YES;

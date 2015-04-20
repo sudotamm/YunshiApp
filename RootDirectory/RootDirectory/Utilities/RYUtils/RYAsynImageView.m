@@ -150,9 +150,9 @@
     NSFileManager *manager =[NSFileManager defaultManager];
     NSArray *array = [url componentsSeparatedByString:@"/"];
     NSString *imageName = [array lastObject];
-
+    
     NSString *imagePath = [[self getImagesDirectory] stringByAppendingPathComponent:imageName];
-
+    
     BOOL isDirectory,valid;
     valid = [manager fileExistsAtPath:imagePath isDirectory:&isDirectory];
     if(valid && !isDirectory)
@@ -162,6 +162,19 @@
         if(self.shouldResize)
             [self resizeSelfWithImage:img];
         self.image = img;
+        
+        RYImageDownloader *d = [[RYImageDownloader alloc] init];
+        d.purpose = imagePath;
+        d.delegate = self;
+        self.aysnLoader = d;
+        
+        NSString *realUrl = url;
+        //        if(forYulong)
+        //            realUrl = [[ylAppManager sharedAppManager] getURL:url];
+        [self.aysnLoader startDownloadWithURL:realUrl];
+#if ! __has_feature(objc_arc)
+        [d release];
+#endif
     }
     else
     {
@@ -180,14 +193,15 @@
         self.aysnLoader = d;
         
         NSString *realUrl = url;
-//        if(forYulong)
-//            realUrl = [[ylAppManager sharedAppManager] getURL:url];
+        //        if(forYulong)
+        //            realUrl = [[ylAppManager sharedAppManager] getURL:url];
         [self.aysnLoader startDownloadWithURL:realUrl];
 #if ! __has_feature(objc_arc)
         [d release];
 #endif
     }
 }
+
 
 #pragma mark - RYImageDownloaderDelegate methods
 - (void)downloader:(RYImageDownloader*)downloader completeWithNSData:(NSData*)data

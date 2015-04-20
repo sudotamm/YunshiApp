@@ -263,6 +263,63 @@
     return shijianArray;
 }
 
+- (NSMutableArray *)quneiShijianArrayForString:(NSString *)regionIn regionOut:(NSString *)regionOut
+{
+    NSDate *todayDate = [NSDate date];
+    NSDate *tomorrowDate = [NSDate dateWithTimeInterval:60*60*24 sinceDate:todayDate];
+    NSString *todayStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd" date:todayDate];
+    NSString *tomorrowStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd" date:tomorrowDate];
+    
+    //当日时间
+    NSMutableArray *shijianArray = [NSMutableArray array];
+    NSArray *yuyueArray = [regionIn componentsSeparatedByString:@"-"];
+    @try {
+        if(yuyueArray.count == 2)
+        {
+            NSString *yuyueStart = [yuyueArray firstObject];
+            NSString *yuyueEnd = [yuyueArray lastObject];
+            NSInteger start = [[[yuyueStart componentsSeparatedByString:@":"] firstObject] integerValue];
+            NSInteger end = [[[yuyueEnd componentsSeparatedByString:@":"] firstObject] integerValue];
+            for(NSInteger i = start; i <= end-1; i++)
+            {
+                NSString *todayHour = [NSString stringWithFormat:@"%@ %@:00-%@:00",todayStr,@(i),@(i+1)];
+                [shijianArray addObject:todayHour];
+            }
+        }
+    }
+    @catch (NSException *exception) {
+        shijianArray = [NSMutableArray array];
+    }
+    //次日时间
+    NSArray *quwaiArray = [regionOut componentsSeparatedByString:@"/"];
+    for(NSString *quwaiStr in quwaiArray)
+    {
+        [shijianArray addObject:[NSString stringWithFormat:@"%@ %@",tomorrowStr,quwaiStr]];
+    }
+    [shijianArray sortUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    return shijianArray;
+}
+
+- (NSMutableArray *)quwaiShijianArrayForString:(NSString *)regionIn regionOut:(NSString *)regionOut
+{
+    NSDate *todayDate = [NSDate date];
+    NSDate *tomorrowDate = [NSDate dateWithTimeInterval:60*60*24 sinceDate:todayDate];
+    NSString *tomorrowStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd" date:tomorrowDate];
+    NSMutableArray *shijianArray = [NSMutableArray array];
+    //次日时间
+    NSArray *quwaiArray = [regionOut componentsSeparatedByString:@"/"];
+    for(NSString *quwaiStr in quwaiArray)
+    {
+        [shijianArray addObject:[NSString stringWithFormat:@"%@ %@",tomorrowStr,quwaiStr]];
+    }
+    [shijianArray sortUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    return shijianArray;
+}
+
 #pragma mark - RYDownloaderDelegate methods
 - (void)downloader:(RYDownloader*)downloader completeWithNSData:(NSData*)data
 {
@@ -390,18 +447,9 @@
             //处理预约时间
             self.yuyueshijianArray = [NSMutableArray arrayWithArray:[self shijianArrayForString:appointTime containShouwei:NO]];
             //处理区内时间
-            self.quneishijianArray = [NSMutableArray arrayWithArray:[self shijianArrayForString:regionIn containShouwei:NO]];
+            self.quneishijianArray = [NSMutableArray arrayWithArray:[self quneiShijianArrayForString:regionIn regionOut:regionOut]];
             //处理区外时间
-            self.quwaishijianArray = [NSMutableArray array];
-            NSArray *quwaiArray = [regionOut componentsSeparatedByString:@"/"];
-            for(NSString *quwaiStr in quwaiArray)
-            {
-                NSMutableArray *tempArray = [self shijianArrayForString:quwaiStr containShouwei:YES];
-                [self.quwaishijianArray addObjectsFromArray:tempArray];
-            }
-            [self.quwaishijianArray sortUsingComparator:^NSComparisonResult(NSString* obj1, NSString* obj2) {
-                return [obj1 compare:obj2 options:NSNumericSearch];
-            }];
+            self.quwaishijianArray = [NSMutableArray arrayWithArray:[self quwaiShijianArrayForString:regionIn regionOut:regionOut]];
             [[NSNotificationCenter defaultCenter] postNotificationName:kShijianResponseSucceedNotification object:nil];
         }
         else

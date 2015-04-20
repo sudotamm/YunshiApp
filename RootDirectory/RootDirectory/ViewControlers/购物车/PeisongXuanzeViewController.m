@@ -97,12 +97,13 @@
         NSString *yyztTime = self.yuyueshijianField.text;
         NSDate *yyztDate = [NSDate dateFromStringByFormat:kDateStringFormat string:yyztTime];
         NSString *zpTime = self.zhaipeishijianField.text;
-        NSDate *zpDate = [NSDate dateFromStringByFormat:kDateStringFormat string:zpTime];
+//        NSDate *zpDate = [NSDate dateFromStringByFormat:kDateStringFormat string:zpTime];
         
         NSString *yyztTimeStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd HH:mm" date:yyztDate];
         if(nil == yyztTimeStr)
             yyztTimeStr = @"";
-        NSString *zpTimeStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd HH:mm" date:zpDate];
+//        NSString *zpTimeStr = [NSDate dateToStringByFormat:@"yyyy-MM-dd HH:mm" date:zpDate];
+        NSString *zpTimeStr = zpTime;
         if(nil == zpTimeStr)
             zpTimeStr = @"";
         
@@ -250,7 +251,7 @@
                     if([GouwucheDataManager sharedManager].quneishijianArray.count > 0)
                     {
                         NSMutableArray *array = [NSMutableArray array];
-                        NSDate *minDate = [NSDate dateWithTimeInterval:60*60*2 sinceDate:[NSDate date]];
+                        NSDate *minDate = [NSDate dateWithTimeInterval:60*60*3 sinceDate:[NSDate date]];
                         NSString *minHour = [NSDate dateToStringByFormat:kDateStringFormat date:minDate];
                         
                         for(NSInteger i = 0; i < [GouwucheDataManager sharedManager].quneishijianArray.count; i++)
@@ -285,13 +286,9 @@
                     if([GouwucheDataManager sharedManager].quwaishijianArray.count > 0)
                     {
                         NSMutableArray *array = [NSMutableArray array];
-                        NSString *todayMax = [NSDate dateToStringByFormat:@"yyyy-MM-dd 23:00" date:[NSDate date]];
                         for(NSString *tempStr in [GouwucheDataManager sharedManager].quwaishijianArray)
                         {
-                            if([todayMax compare:tempStr options:NSNumericSearch] == NSOrderedAscending)
-                            {
-                                [array addObject:tempStr];
-                            }
+                            [array addObject:tempStr];
                         }
                         NSInteger index = 0;
                         for(NSString *str in array)
@@ -316,6 +313,7 @@
     }
     else if(textField == self.xinxiField)
     {
+        [self.view endEditing:YES];
         AddressListViewController *alvc = [[AddressListViewController alloc] init];
         alvc.forChosen = YES;
         alvc.hidesBottomBarWhenPushed = YES;

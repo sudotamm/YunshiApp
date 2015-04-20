@@ -16,7 +16,7 @@
 {
     if(self = [super initWithRYDict:dict])
     {
-        if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+        if([[HomeDataManager sharedManger].currentDianpu.sType isEqualToString:@"0"])
         {
             peisongFangshi = kPeisongFangshiZaipei;
         }

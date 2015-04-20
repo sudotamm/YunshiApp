@@ -35,7 +35,7 @@
                 NSLog(@"试图添加不存在的key:%@到实例:%@中.",key,NSStringFromClass([self class]));
             }
         }
-        if([[HomeDataManager sharedManger].currentDianpu.sCode isEqualToString:@"00"])
+        if([[HomeDataManager sharedManger].currentDianpu.sType isEqualToString:@"0"])
         {
             peisongFangshi = kPeisongFangshiZaipei;
         }
