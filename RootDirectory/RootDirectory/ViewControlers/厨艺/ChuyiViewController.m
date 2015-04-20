@@ -164,9 +164,9 @@
 {
     self.pickerView.hidden = YES;
     
-    [self.dateBtn setTitle:@"" forState:UIControlStateNormal];
+    [self.dateBtn setTitle:@"全部时间" forState:UIControlStateNormal];
     
-    self.trainingTime = @"全部时间";
+    self.trainingTime = @"";
     self.page = @"1";
     [self getTrainingList];
 }
