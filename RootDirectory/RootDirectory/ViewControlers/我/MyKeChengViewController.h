@@ -14,6 +14,7 @@
 @interface MyKeChengViewController : BaseViewController
 {
     BOOL isHistory;
+    NSInteger cancelIndex;
 }
 
 @property (nonatomic,strong) IBOutlet UITableView* tv;

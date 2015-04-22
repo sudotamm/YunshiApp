@@ -355,6 +355,13 @@
             [[RYHUDManager sharedManager] showWithMessage:@"报名成功" customView:nil hideDelay:2.f];
             
             
+            self.page = @"1";
+            self.trainingArray = [NSMutableArray array];
+            
+            
+            [self getTrainingList];
+            
+            
             //生成课程预约二维码
             NSString *qrString = [NSString stringWithFormat:@"%@/%@/%@",[HomeDataManager sharedManger].currentDianpu.sCode,[ABCMemberDataManager sharedManager].loginMember.userId,self.tId];
             [[NSNotificationCenter defaultCenter] postNotificationName:kShowQRGenerateViewNotification object:qrString];

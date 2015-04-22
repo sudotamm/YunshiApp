@@ -107,7 +107,7 @@
                 cell.sendBtn.hidden = YES;
                 
                 [cell.greyBtn setTitle:@"取消报名" forState:UIControlStateNormal];
-                
+                cell.greyBtn.tag = indexPath.row;
                 [cell.greyBtn addTarget:self action:@selector(cancelTraining:) forControlEvents:UIControlEventTouchDown];
                 
             }
@@ -158,6 +158,7 @@
     
     UIAlertView* av = [[UIAlertView alloc] initWithTitle:@"提示" message:@"您确定要取消该课程吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     av.tag = btn.tag;
+    
     [av show];
     
 }
