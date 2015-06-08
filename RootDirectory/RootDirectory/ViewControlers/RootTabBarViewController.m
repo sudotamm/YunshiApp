@@ -169,6 +169,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showQRGenerateViewWithNotification:) name:kShowQRGenerateViewNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShouYeViewWithNotification:) name:kAliPayResponseSucceedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShouYeViewWithNotification:) name:kShowShouyeViewNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showShouYeViewWithNotification:) name:kLoginResponseNotification object:nil];
 }
 
 - (void)dealloc

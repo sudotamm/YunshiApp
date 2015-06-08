@@ -202,7 +202,8 @@
         if([[dict objectForKey:kCodeKey] integerValue] == kSuccessCode)
         {
             NSString *password = [self.loginMember.password copy];
-            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+//            [[RYHUDManager sharedManager] stoppedNetWorkActivity];
+            [[RYHUDManager sharedManager] showWithMessage:@"尊贵的会员，在您开始购物前，请选择购物门店。" customView:nil hideDelay:3.f];
             self.loginMember = [[ABCMember alloc] initWithRYDict:dict];
             self.loginMember.password = password;
             [[NSNotificationCenter defaultCenter] postNotificationName:kLoginResponseNotification object:nil];

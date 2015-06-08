@@ -21,7 +21,7 @@
             peisongFangshi = kPeisongFangshiZaipei;
         }
         else
-            peisongFangshi = kPeisongFangshiZiti;
+            peisongFangshi = kPeisongFangshiZaipei;
     }
     return self;
 }

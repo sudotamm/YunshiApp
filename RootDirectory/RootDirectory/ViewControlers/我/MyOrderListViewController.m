@@ -156,7 +156,7 @@
         cell.erweimaButton.hidden = YES;
         //显示订单状态
         if([om.payStatus isEqualToString:@"2"])
-            cell.statuLabel.text = @"已付款";
+            cell.statuLabel.text = @"已完成";
         else if([om.payStatus isEqualToString:@"F"])
             cell.statuLabel.text = @"已失效";
         else
