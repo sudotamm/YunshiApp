@@ -174,7 +174,7 @@
     }
     else if(self.listType == kListBenyueqianggou)
     {
-        [self setNaviTitle:@"本月抢鲜"];
+        [self setNaviTitle:@"本周抢鲜"];
         [self setRightNaviItemWithTitle:nil imageName:@"fenleiqiehuan"];
         self.contentTableView.tableHeaderView = nil;
         [self callServerToGetListDataWithPage:kInitPageNumber];
