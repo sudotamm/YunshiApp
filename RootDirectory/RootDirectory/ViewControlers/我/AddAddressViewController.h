@@ -20,5 +20,6 @@
 @property (nonatomic, strong) AddressModel *addressModel;
 
 - (IBAction)wanchengButtonClicked:(id)sender;
+- (IBAction)dizhiButtonClicked:(id)sender;
 
 @end

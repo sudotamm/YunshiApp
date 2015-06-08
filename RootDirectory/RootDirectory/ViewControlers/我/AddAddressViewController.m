@@ -7,8 +7,11 @@
 //
 
 #import "AddAddressViewController.h"
+#import "AMPOIViewController.h"
 
 @interface AddAddressViewController ()
+
+@property (nonatomic, strong) AMapPOI *selectedPoi;
 
 @end
 
@@ -86,10 +89,23 @@
     }
 }
 
+- (IBAction)dizhiButtonClicked:(id)sender
+{
+    AMPOIViewController *poiVc = [[AMPOIViewController alloc] init];
+    [self.navigationController pushViewController:poiVc animated:YES];
+}
+
 #pragma mark - Notification methods
 - (void)addressRegionResponseWithNotification:(NSNotification *)notification
 {
     [self.quyuField becomeFirstResponder];
+}
+
+- (void)amPoiSelectedWithNotification:(NSNotification *)notification
+{
+    AMapPOI *poi = notification.object;
+    self.selectedPoi = poi;
+    self.dizhiField.text = poi.name;
 }
 
 #pragma mark - UIViewController methods
@@ -101,6 +117,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addressRegionResponseWithNotification:) name:kAddressRegionResponseNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(amPoiSelectedWithNotification:) name:kAMPoiSelectedNotification object:nil];
     if(self.addressModel)
     {
         self.xingmingField.text = self.addressModel.contactor;

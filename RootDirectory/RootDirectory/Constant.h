@@ -138,6 +138,7 @@
 #define kAliPayResponseSucceedNotification  @"AliPayResponseSucceedNotification"
 #define kShijianResponseSucceedNotification @"ShijianResponseSucceedNotification"
 #define kShowShouyeViewNotification         @"ShowShouyeViewNotification"
+#define kAMPoiSelectedNotification          @"AMPoiSelectedNotification"
 
 //ServerUrl
 /*

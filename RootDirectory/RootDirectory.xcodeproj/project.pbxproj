@@ -156,6 +156,11 @@
 		94AFF22C1A7FABC400B88E5B /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2271A7FABC400B88E5B /* MJRefreshFooterView.m */; };
 		94AFF22D1A7FABC400B88E5B /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF2291A7FABC400B88E5B /* MJRefreshHeaderView.m */; };
 		94AFF2301A7FACCA00B88E5B /* ShangpinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94AFF22F1A7FACCA00B88E5B /* ShangpinModel.m */; };
+		94B16ADD1B258DF700E8EC3E /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B16ADC1B258DF700E8EC3E /* AMapSearchKit.framework */; };
+		94B16AE11B25913200E8EC3E /* AMPOIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B16ADF1B25913200E8EC3E /* AMPOIViewController.m */; };
+		94B16AE21B25913200E8EC3E /* AMPOIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B16AE01B25913200E8EC3E /* AMPOIViewController.xib */; };
+		94B16AE41B25994600E8EC3E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B16AE31B25994600E8EC3E /* UIKit.framework */; };
+		94B16AE61B25997500E8EC3E /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 94B16AE51B25997500E8EC3E /* libstdc++.6.0.9.dylib */; };
 		94B776571A77BF8B00364BC2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94B776561A77BF8B00364BC2 /* LoginViewController.m */; };
 		94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF586C1A7A5F8200E6F3E0 /* ABCMember.m */; };
 		94BF58701A7A5F8200E6F3E0 /* ABCMemberDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BF586E1A7A5F8200E6F3E0 /* ABCMemberDataManager.m */; };
@@ -536,6 +541,12 @@
 		94AFF2291A7FABC400B88E5B /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		94AFF22E1A7FACCA00B88E5B /* ShangpinModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShangpinModel.h; sourceTree = "<group>"; };
 		94AFF22F1A7FACCA00B88E5B /* ShangpinModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShangpinModel.m; sourceTree = "<group>"; };
+		94B16ADC1B258DF700E8EC3E /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		94B16ADE1B25913200E8EC3E /* AMPOIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMPOIViewController.h; sourceTree = "<group>"; };
+		94B16ADF1B25913200E8EC3E /* AMPOIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMPOIViewController.m; sourceTree = "<group>"; };
+		94B16AE01B25913200E8EC3E /* AMPOIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AMPOIViewController.xib; sourceTree = "<group>"; };
+		94B16AE31B25994600E8EC3E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		94B16AE51B25997500E8EC3E /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		94B776551A77BF8B00364BC2 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		94B776561A77BF8B00364BC2 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		94BF586B1A7A5F8200E6F3E0 /* ABCMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCMember.h; sourceTree = "<group>"; };
@@ -611,20 +622,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B16AE61B25997500E8EC3E /* libstdc++.6.0.9.dylib in Frameworks */,
+				946081221A8A372E000C5119 /* CoreTelephony.framework in Frameworks */,
+				9460812A1A8A3A08000C5119 /* CoreGraphics.framework in Frameworks */,
+				94B16AE41B25994600E8EC3E /* UIKit.framework in Frameworks */,
 				9430B3071A8CA70D0096B5BF /* MessageUI.framework in Frameworks */,
 				9430B3051A8CA5650096B5BF /* Security.framework in Frameworks */,
 				9430B3031A8CA55F0096B5BF /* libz.1.2.5.dylib in Frameworks */,
 				9430B3011A8CA5550096B5BF /* libicucore.dylib in Frameworks */,
-				9460812A1A8A3A08000C5119 /* CoreGraphics.framework in Frameworks */,
 				9430B2F41A8CA46F0096B5BF /* MailConnection.framework in Frameworks */,
 				9430B2FB1A8CA46F0096B5BF /* libWeChatSDK.a in Frameworks */,
 				9430B2FE1A8CA46F0096B5BF /* ShareSDKFlatShareViewUI.framework in Frameworks */,
+				94B16ADD1B258DF700E8EC3E /* AMapSearchKit.framework in Frameworks */,
 				946081281A8A3A00000C5119 /* Foundation.framework in Frameworks */,
 				9430B2FC1A8CA46F0096B5BF /* ShareSDK.framework in Frameworks */,
 				946081261A8A39F3000C5119 /* QuartzCore.framework in Frameworks */,
 				946081241A8A39E8000C5119 /* SystemConfiguration.framework in Frameworks */,
 				9430B2F61A8CA46F0096B5BF /* WeChatConnection.framework in Frameworks */,
-				946081221A8A372E000C5119 /* CoreTelephony.framework in Frameworks */,
 				9430B2F51A8CA46F0096B5BF /* SMSConnection.framework in Frameworks */,
 				9430B2FF1A8CA46F0096B5BF /* ShareSDKShareActionSheet.framework in Frameworks */,
 				946081201A8A372A000C5119 /* CoreText.framework in Frameworks */,
@@ -754,6 +768,9 @@
 				945C4AB11A8658A6008338CC /* AddAddressViewController.h */,
 				945C4AB21A8658A6008338CC /* AddAddressViewController.m */,
 				945C4AB31A8658A6008338CC /* AddAddressViewController.xib */,
+				94B16ADE1B25913200E8EC3E /* AMPOIViewController.h */,
+				94B16ADF1B25913200E8EC3E /* AMPOIViewController.m */,
+				94B16AE01B25913200E8EC3E /* AMPOIViewController.xib */,
 			);
 			path = "我";
 			sourceTree = "<group>";
@@ -1085,6 +1102,7 @@
 		947656101A393697007DBE24 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				94B16ADC1B258DF700E8EC3E /* AMapSearchKit.framework */,
 				9430B2DE1A8CA46F0096B5BF /* ShareSDK_2_10_6 */,
 				946081331A8A44B0000C5119 /* SBJson */,
 				946080AB1A8A3696000C5119 /* Alipay2_2 */,
@@ -1241,6 +1259,8 @@
 		94A0F2041A52726B00A147EC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				94B16AE51B25997500E8EC3E /* libstdc++.6.0.9.dylib */,
+				94B16AE31B25994600E8EC3E /* UIKit.framework */,
 				9430B3061A8CA70D0096B5BF /* MessageUI.framework */,
 				9430B3041A8CA5650096B5BF /* Security.framework */,
 				9430B3021A8CA55F0096B5BF /* libz.1.2.5.dylib */,
@@ -1426,6 +1446,7 @@
 				9430B2FD1A8CA46F0096B5BF /* ShareSDKFlatShareViewUI.bundle in Resources */,
 				A665AA821A830B1700D5562A /* MyKeChengViewController.xib in Resources */,
 				A665AA7C1A830B1700D5562A /* SettingViewController.xib in Resources */,
+				94B16AE21B25913200E8EC3E /* AMPOIViewController.xib in Resources */,
 				94C94ACE1A77C70600DE8C2F /* AppResource.xcassets in Resources */,
 				940AFA3A1A3EB026003D6B93 /* Loading.xcassets in Resources */,
 				9430B2F81A8CA46F0096B5BF /* ShareSDKLocalizable.strings in Resources */,
@@ -1542,6 +1563,7 @@
 				94BF586F1A7A5F8200E6F3E0 /* ABCMember.m in Sources */,
 				94AFF22B1A7FABC400B88E5B /* MJRefreshBaseView.m in Sources */,
 				A665AA651A830B0B00D5562A /* ChuyiViewController.m in Sources */,
+				94B16AE11B25913200E8EC3E /* AMPOIViewController.m in Sources */,
 				945C4AA41A864D11008338CC /* AddressListViewController.m in Sources */,
 				945ED5B11A8C3DCD00D1F738 /* OrderModel.m in Sources */,
 				947655FC1A393478007DBE24 /* BaseViewController.m in Sources */,
@@ -1717,6 +1739,7 @@
 					"$(PROJECT_DIR)/RootDirectory/Utilities/ShareSDK_2_10_6/Core",
 					"$(PROJECT_DIR)/RootDirectory/Utilities/ShareSDK_2_10_6",
 					"$(PROJECT_DIR)/RootDirectory/Utilities/ShareSDK_2_10_6/UI",
+					"$(PROJECT_DIR)/RootDirectory/Utilities",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RootDirectory/SupportFiles/PrefixHeader.pch";
@@ -1751,6 +1774,7 @@
 					"$(PROJECT_DIR)/RootDirectory/Utilities/ShareSDK_2_10_6/Core",
 					"$(PROJECT_DIR)/RootDirectory/Utilities/ShareSDK_2_10_6",
 					"$(PROJECT_DIR)/RootDirectory/Utilities/ShareSDK_2_10_6/UI",
+					"$(PROJECT_DIR)/RootDirectory/Utilities",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RootDirectory/SupportFiles/PrefixHeader.pch";
