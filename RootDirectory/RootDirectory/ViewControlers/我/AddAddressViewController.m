@@ -78,6 +78,20 @@
                 }
             }
         }
+        NSString *lat = nil;
+        NSString *lon = nil;
+        if(self.selectedPoi)
+        {
+            lat = [NSString stringWithFormat:@"%f",self.selectedPoi.location.latitude];
+            lon = [NSString stringWithFormat:@"%f",self.selectedPoi.location.longitude];
+        }
+        else
+        {
+            lat = self.addressModel.lat;
+            lon = self.addressModel.lon;
+        }
+        
+        
         [[UserInfoDataManager sharedManager] requestEditAddressWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
                                                                  editType:editType
                                                                 addressId:addressId
@@ -85,7 +99,9 @@
                                                                    shouji:self.shoujiField.text
                                                                  regionId:regionId
                                                                   address:self.dizhiField.text
-                                                                isDefault:isDefault];
+                                                                isDefault:isDefault
+                                                                      lat:lat
+                                                                      lon:lon];
     }
 }
 

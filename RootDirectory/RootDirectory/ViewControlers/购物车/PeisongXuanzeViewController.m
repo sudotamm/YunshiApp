@@ -244,8 +244,11 @@
             }
             else
             {
-                //判断区内还是区外配送
-                if([[HomeDataManager sharedManger].currentDianpu.regionId rangeOfString:self.chosenAddress.rId].length > 0)
+                //判断区内还是区外配送，5公里以内为区内，大于5公里为区外
+                CLLocation *dianpuLocation = [[CLLocation alloc] initWithLatitude:[HomeDataManager sharedManger].currentDianpu.lat.floatValue longitude:[HomeDataManager sharedManger].currentDianpu.lon.floatValue];
+                CLLocation *dizhiLocation = [[CLLocation alloc] initWithLatitude:self.chosenAddress.lat.floatValue longitude:self.chosenAddress.lon.floatValue];
+                CLLocationDistance distance = [dianpuLocation distanceFromLocation:dizhiLocation];
+                if(distance <= 5000/*[[HomeDataManager sharedManger].currentDianpu.regionId rangeOfString:self.chosenAddress.rId].length > 0*/)
                 {
                     //区内配送
                     if([GouwucheDataManager sharedManager].quneishijianArray.count > 0)

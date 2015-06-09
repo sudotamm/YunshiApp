@@ -17,4 +17,6 @@
 @property (nonatomic, copy) NSString *isDefault;
 @property (nonatomic, copy) NSString *rId;
 
+@property (nonatomic, copy) NSString *lat;
+@property (nonatomic, copy) NSString *lon;
 @end

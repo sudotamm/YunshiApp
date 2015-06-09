@@ -89,7 +89,9 @@
                                                                    shouji:am.phoneNum
                                                                  regionId:am.rId
                                                                   address:am.addr
-                                                                isDefault:am.isDefault];
+                                                                isDefault:am.isDefault
+                                                                      lat:am.lat
+                                                                      lon:am.lon];
     }
 }
 

@@ -25,6 +25,8 @@
         self.currentDianpu.sName = @"环球港店";//@"宅配直通";
         self.currentDianpu.sCode = @"01";//@"00";
         self.currentDianpu.regionId = @"静安区长宁区普陀区宝山区";//@"宝山区";
+        self.currentDianpu.lat = @"0";
+        self.currentDianpu.lon = @"0";
     }
     return self;
 }

@@ -77,6 +77,8 @@
                             regionId:(NSString *)regionId
                              address:(NSString *)address
                            isDefault:(NSString *)isDefault
+                                 lat:(NSString *)lat
+                                 lon:(NSString *)lon
 {
     /*
      userId
@@ -97,6 +99,8 @@
     [paramDict setObject:regionId forKey:@"rId"];
     [paramDict setObject:address forKey:@"addr"];
     [paramDict setObject:isDefault forKey:@"isDefault"];
+    [paramDict setObject:nil==lat?@"":lat forKey:@"lat"];
+    [paramDict setObject:nil==lon?@"":lon forKey:@"lon"];
     [[RYHUDManager sharedManager] startedNetWorkActivityWithText:@"加载中..."];
     NSString *url = [NSString stringWithFormat:@"%@%@",kServerAddress,kAddressEditUrl];
     [[RYDownloaderManager sharedManager] requestDataByPostWithURLString:url

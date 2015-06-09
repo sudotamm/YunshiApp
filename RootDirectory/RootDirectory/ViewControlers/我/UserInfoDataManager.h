@@ -33,7 +33,9 @@ typedef NS_ENUM(NSInteger, AddressEditType)
                               shouji:(NSString *)shouji
                             regionId:(NSString *)regionId
                              address:(NSString *)address
-                           isDefault:(NSString *)isDefault;
+                           isDefault:(NSString *)isDefault
+                                 lat:(NSString *)lat
+                                 lon:(NSString *)lon;
 
 - (void)requestCancelCollectionWithUserId:(NSString *)userId
                                       gId:(NSString *)gId;
