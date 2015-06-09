@@ -1757,7 +1757,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RootDirectory;
-				PROVISIONING_PROFILE = "76b258b2-7666-41fd-a31f-f894836abc04";
+				PROVISIONING_PROFILE = "24708694-9235-4ea4-a048-644d7a034b46";
 			};
 			name = Debug;
 		};
@@ -1792,7 +1792,7 @@
 				);
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = RootDirectory;
-				PROVISIONING_PROFILE = "76b258b2-7666-41fd-a31f-f894836abc04";
+				PROVISIONING_PROFILE = "24708694-9235-4ea4-a048-644d7a034b46";
 			};
 			name = Release;
 		};
