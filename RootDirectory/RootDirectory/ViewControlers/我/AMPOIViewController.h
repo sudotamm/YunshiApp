@@ -13,9 +13,7 @@
 @interface AMPOIViewController : BaseViewController<AMapSearchDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *contentTableView;
-@property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) AMapSearchAPI *amSearch;
-
-- (IBAction)searchButtonClicked:(id)sender;
+@property (nonatomic, copy) NSString *keyword;
 
 @end

@@ -46,6 +46,7 @@
 #pragma mark - Public methods
 - (IBAction)wanchengButtonClicked:(id)sender
 {
+    [self.view endEditing:YES];
     NSString *checkString = [self checkFields];
     if(checkString)
     {
@@ -59,6 +60,23 @@
         NSString *isDefault = @"0";
         if(self.addressModel)
         {
+            //编辑地址
+            if(self.selectedPoi)
+            {
+                if(![self.dizhiField.text isEqualToString:self.selectedPoi.name])
+                {
+                    [self textFieldShouldReturn:self.dizhiField];
+                    return;
+                }
+            }
+            else
+            {
+                if(![self.dizhiField.text isEqualToString:self.addressModel.addr])
+                {
+                    [self textFieldShouldReturn:self.dizhiField];
+                    return;
+                }
+            }
             editType = kAddressEditTypeEdit;
             addressId = self.addressModel.aId;
             regionId = self.addressModel.rId;
@@ -66,6 +84,12 @@
         }
         else
         {
+            //新增地址
+            if(nil == self.selectedPoi || ![self.dizhiField.text isEqualToString:self.selectedPoi.name])
+            {
+                [self textFieldShouldReturn:self.dizhiField];
+                return;
+            }
             editType = kAddressEditTypeAdd;
             addressId = @"";
             isDefault = @"0";
@@ -90,8 +114,7 @@
             lat = self.addressModel.lat;
             lon = self.addressModel.lon;
         }
-        
-        
+    
         [[UserInfoDataManager sharedManager] requestEditAddressWithUserId:[ABCMemberDataManager sharedManager].loginMember.userId
                                                                  editType:editType
                                                                 addressId:addressId
@@ -149,6 +172,18 @@
 }
 
 #pragma mark - UITextFieldDelegate methods
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField == self.dizhiField)
+    {
+        AMPOIViewController *poiVc = [[AMPOIViewController alloc] init];
+        poiVc.keyword = textField.text;
+        [self.navigationController pushViewController:poiVc animated:YES];
+    }
+    return YES;
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     if(textField == self.quyuField)

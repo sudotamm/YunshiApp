@@ -271,24 +271,15 @@
                                             <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="点击填写地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-zs-xt2" userLabel="shijianField">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="点击填写地址" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X3a-zs-xt2" userLabel="shijianField">
                                             <rect key="frame" x="100" y="0.0" width="265" height="40"/>
                                             <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                             <connections>
                                                 <outlet property="delegate" destination="-1" id="Zif-ts-XoH"/>
                                             </connections>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puF-b5-lTI" userLabel="dizhiButton">
-                                            <rect key="frame" x="100" y="0.0" width="265" height="40"/>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="dizhiButtonClicked:" destination="-1" eventType="touchUpInside" id="1ER-M7-Avj"/>
-                                            </connections>
-                                        </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_hon_1px_down" translatesAutoresizingMaskIntoConstraints="NO" id="Uo3-y5-tHM">
                                             <rect key="frame" x="100" y="39" width="265" height="1"/>
                                             <constraints>
@@ -301,21 +292,17 @@
                                         <constraint firstItem="X3a-zs-xt2" firstAttribute="top" secondItem="RXk-RY-xlp" secondAttribute="top" id="8pE-MG-m3k"/>
                                         <constraint firstAttribute="bottom" secondItem="X3a-zs-xt2" secondAttribute="bottom" id="NSq-rx-8kx"/>
                                         <constraint firstAttribute="bottom" secondItem="BQc-c8-cjK" secondAttribute="bottom" id="Uac-EA-oGd"/>
-                                        <constraint firstItem="puF-b5-lTI" firstAttribute="trailing" secondItem="X3a-zs-xt2" secondAttribute="trailing" id="VRN-zz-f8G"/>
                                         <constraint firstAttribute="trailing" secondItem="X3a-zs-xt2" secondAttribute="trailing" constant="10" id="XMM-pA-1Z7"/>
                                         <constraint firstAttribute="trailing" secondItem="Uo3-y5-tHM" secondAttribute="trailing" constant="10" id="bs5-yb-Gnx"/>
                                         <constraint firstItem="hqu-KM-NEU" firstAttribute="leading" secondItem="BQc-c8-cjK" secondAttribute="trailing" constant="5" id="bwX-bo-lTm"/>
                                         <constraint firstItem="BQc-c8-cjK" firstAttribute="leading" secondItem="RXk-RY-xlp" secondAttribute="leading" constant="10" id="dPH-NP-MhH"/>
                                         <constraint firstItem="X3a-zs-xt2" firstAttribute="leading" secondItem="hqu-KM-NEU" secondAttribute="trailing" constant="10" id="dd1-89-201"/>
                                         <constraint firstItem="hqu-KM-NEU" firstAttribute="top" secondItem="RXk-RY-xlp" secondAttribute="top" id="e8j-oX-dxx"/>
-                                        <constraint firstItem="puF-b5-lTI" firstAttribute="leading" secondItem="X3a-zs-xt2" secondAttribute="leading" id="mMF-dm-kwe"/>
                                         <constraint firstAttribute="height" constant="40" id="mrx-qH-rIU"/>
-                                        <constraint firstItem="puF-b5-lTI" firstAttribute="bottom" secondItem="X3a-zs-xt2" secondAttribute="bottom" id="oEY-Lt-eCh"/>
                                         <constraint firstAttribute="bottom" secondItem="Uo3-y5-tHM" secondAttribute="bottom" id="pbC-EU-HMY"/>
                                         <constraint firstItem="Uo3-y5-tHM" firstAttribute="leading" secondItem="RXk-RY-xlp" secondAttribute="leading" constant="100" id="phl-Pq-NNW"/>
                                         <constraint firstItem="BQc-c8-cjK" firstAttribute="top" secondItem="RXk-RY-xlp" secondAttribute="top" id="q9h-ba-K8S"/>
                                         <constraint firstAttribute="bottom" secondItem="hqu-KM-NEU" secondAttribute="bottom" id="tch-2T-Wh5"/>
-                                        <constraint firstItem="puF-b5-lTI" firstAttribute="top" secondItem="X3a-zs-xt2" secondAttribute="top" id="zPm-OC-670"/>
                                     </constraints>
                                 </view>
                             </subviews>
