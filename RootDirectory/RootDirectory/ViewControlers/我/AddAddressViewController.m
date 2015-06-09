@@ -61,22 +61,6 @@
         if(self.addressModel)
         {
             //编辑地址
-            if(self.selectedPoi)
-            {
-                if(![self.dizhiField.text isEqualToString:self.selectedPoi.name])
-                {
-                    [self textFieldShouldReturn:self.dizhiField];
-                    return;
-                }
-            }
-            else
-            {
-                if(![self.dizhiField.text isEqualToString:self.addressModel.addr])
-                {
-                    [self textFieldShouldReturn:self.dizhiField];
-                    return;
-                }
-            }
             editType = kAddressEditTypeEdit;
             addressId = self.addressModel.aId;
             regionId = self.addressModel.rId;
@@ -85,7 +69,7 @@
         else
         {
             //新增地址
-            if(nil == self.selectedPoi || ![self.dizhiField.text isEqualToString:self.selectedPoi.name])
+            if(nil == self.selectedPoi)
             {
                 [self textFieldShouldReturn:self.dizhiField];
                 return;
@@ -144,7 +128,7 @@
 {
     AMapPOI *poi = notification.object;
     self.selectedPoi = poi;
-    self.dizhiField.text = poi.name;
+//    self.dizhiField.text = poi.name;
 }
 
 #pragma mark - UIViewController methods
@@ -177,9 +161,16 @@
 {
     if(textField == self.dizhiField)
     {
-        AMPOIViewController *poiVc = [[AMPOIViewController alloc] init];
-        poiVc.keyword = textField.text;
-        [self.navigationController pushViewController:poiVc animated:YES];
+        if(textField.text.length == 0)
+        {
+            [[RYHUDManager sharedManager] showWithMessage:textField.placeholder customView:nil hideDelay:2.f];
+        }
+        else
+        {
+            AMPOIViewController *poiVc = [[AMPOIViewController alloc] init];
+            poiVc.keyword = textField.text;
+            [self.navigationController pushViewController:poiVc animated:YES];
+        }
     }
     return YES;
 }

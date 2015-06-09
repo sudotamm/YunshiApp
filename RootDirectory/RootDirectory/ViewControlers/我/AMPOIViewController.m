@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self setNaviTitle:@"请选择地址"];
+    [self setNaviTitle:@"请选择相近的地标"];
     self.contentTableView.tableFooterView = [UIView new];
     //初始化检索对象
     self.amSearch = [[AMapSearchAPI alloc] initWithSearchKey:@"d24349dd487466f9a1c13959f846d935" Delegate:self];
