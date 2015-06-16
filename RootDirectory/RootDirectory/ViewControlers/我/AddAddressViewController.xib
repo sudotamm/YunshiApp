@@ -275,10 +275,7 @@
                                             <rect key="frame" x="100" y="0.0" width="265" height="40"/>
                                             <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="-1" id="Zif-ts-XoH"/>
-                                            </connections>
+                                            <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line_hon_1px_down" translatesAutoresizingMaskIntoConstraints="NO" id="Uo3-y5-tHM">
                                             <rect key="frame" x="100" y="39" width="265" height="1"/>

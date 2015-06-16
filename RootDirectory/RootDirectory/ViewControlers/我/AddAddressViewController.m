@@ -7,7 +7,6 @@
 //
 
 #import "AddAddressViewController.h"
-#import "AMPOIViewController.h"
 
 @interface AddAddressViewController ()
 
@@ -167,9 +166,16 @@
         }
         else
         {
-            AMPOIViewController *poiVc = [[AMPOIViewController alloc] init];
-            poiVc.keyword = textField.text;
-            [self.navigationController pushViewController:poiVc animated:YES];
+            //初始化检索对象
+            self.amSearch = [[AMapSearchAPI alloc] initWithSearchKey:@"d24349dd487466f9a1c13959f846d935" Delegate:self];
+            //构造AMapPlaceSearchRequest对象，配置关键字搜索参数
+            AMapPlaceSearchRequest *poiRequest = [[AMapPlaceSearchRequest alloc] init];
+            poiRequest.searchType = AMapSearchType_PlaceKeyword;
+            poiRequest.keywords = textField.text;
+            poiRequest.city = @[@"上海"];
+            poiRequest.requireExtension = YES;
+            //发起POI搜索
+            [self.amSearch AMapPlaceSearch:poiRequest];
         }
     }
     return YES;
@@ -200,6 +206,27 @@
     }
     return YES;
 }
+
+#pragma mark - AMapSearchDelegate methods
+
+//实现POI搜索对应的回调函数
+- (void)onPlaceSearchDone:(AMapPlaceSearchRequest *)request response:(AMapPlaceSearchResponse *)response
+{
+    if(response.pois.count == 0)
+    {
+        self.selectedPoi = [[AMapPOI alloc] init];
+        self.selectedPoi.name = self.dizhiField.text;
+        self.selectedPoi.location = [AMapGeoPoint locationWithLatitude:0 longitude:0];
+        [self wanchengButtonClicked:nil];
+    }
+    else
+    {
+        AMPOIViewController *poiVc = [[AMPOIViewController alloc] init];
+        poiVc.poiArray = [NSMutableArray arrayWithArray:response.pois];
+        [self.navigationController pushViewController:poiVc animated:YES];
+    }
+}
+
 #pragma mark - RYTextPickerViewDelegate methods
 - (void)didTextCanceledWithPicker:(RYTextPickerView *)pickerView
 {

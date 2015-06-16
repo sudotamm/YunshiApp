@@ -10,19 +10,26 @@
 
 @interface AMPOIViewController ()
 
-@property (nonatomic, strong) NSMutableArray *poiArray;
-
 @end
 
 @implementation AMPOIViewController
 
 #pragma mark - UIViewController methods
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if(!self.poiSelected)
+    {
+        [[RYHUDManager sharedManager] showWithMessage:@"请选择相近的地标" customView:nil hideDelay:2.f];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setNaviTitle:@"请选择相近的地标"];
     self.contentTableView.tableFooterView = [UIView new];
+    /*
     //初始化检索对象
     self.amSearch = [[AMapSearchAPI alloc] initWithSearchKey:@"d24349dd487466f9a1c13959f846d935" Delegate:self];
     //构造AMapPlaceSearchRequest对象，配置关键字搜索参数
@@ -33,6 +40,7 @@
     poiRequest.requireExtension = YES;
     //发起POI搜索
     [self.amSearch AMapPlaceSearch:poiRequest];
+     */
 }
 
 #pragma mark - UITableViewDataSource methods
@@ -61,6 +69,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     AMapPOI *poi = [self.poiArray objectAtIndex:indexPath.row];
+    self.poiSelected = YES;
     [[NSNotificationCenter defaultCenter] postNotificationName:kAMPoiSelectedNotification object:poi];
     [self.navigationController popViewControllerAnimated:YES];
 }

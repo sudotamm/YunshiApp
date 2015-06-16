@@ -16,4 +16,6 @@
 @property (nonatomic, strong) AMapSearchAPI *amSearch;
 @property (nonatomic, copy) NSString *keyword;
 
+@property (nonatomic, strong) NSMutableArray *poiArray;
+@property (nonatomic, assign) BOOL poiSelected;
 @end
