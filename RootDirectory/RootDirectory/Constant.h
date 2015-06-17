@@ -102,7 +102,7 @@
 #define kMaxImgCacheDir     @"MaxImgCacheDir"
 #define kSmallImgCacheDir   @"SmallImgCacheDir"
 #define kInitPageNumber     1
-#define kPageCount          20
+#define kPageCount          50
 
 //Notification Keys
 //view notify
