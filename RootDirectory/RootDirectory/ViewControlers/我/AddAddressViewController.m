@@ -59,6 +59,11 @@
         NSString *isDefault = @"0";
         if(self.addressModel)
         {
+            if(nil == self.selectedPoi)
+            {
+                [self textFieldShouldReturn:self.dizhiField];
+                return;
+            }
             //编辑地址
             editType = kAddressEditTypeEdit;
             addressId = self.addressModel.aId;
